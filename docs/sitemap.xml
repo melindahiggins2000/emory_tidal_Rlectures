@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://emorytidal.netlify.app/index_old.html</loc>
-    <lastmod>2025-01-08T01:54:54.404Z</lastmod>
+    <loc>https://emorytidal.netlify.app/module131_IntroRRStudio.html</loc>
+    <lastmod>2025-01-08T14:58:52.244Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/index_navtop.html</loc>
+    <lastmod>2025-01-08T02:23:34.927Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/courses.html</loc>
@@ -14,6 +18,10 @@
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/index.html</loc>
-    <lastmod>2025-01-08T02:23:34.927Z</lastmod>
+    <lastmod>2025-01-08T15:00:38.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/index_old.html</loc>
+    <lastmod>2025-01-08T01:54:54.404Z</lastmod>
   </url>
 </urlset>

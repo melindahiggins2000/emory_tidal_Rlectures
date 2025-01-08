@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Theme 1. Measurement and Prediction of IPV – R Training - TIDAL Lectures</title>
+<title>1.3.1: Introduction to the R and R Studio (Asynchromous-Online) – R Training - TIDAL Lectures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./module131_IntroRRStudio.html">1.3.1: Introduction to the R and R Studio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -111,13 +145,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module131_IntroRRStudio.html" class="sidebar-item-text sidebar-link">
+  <a href="./module131_IntroRRStudio.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1.3.1: Introduction to the R and R Studio</span></a>
   </div>
 </li>
@@ -161,8 +195,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#module-1.3-data-analytics-using-r" id="toc-module-1.3-data-analytics-using-r" class="nav-link active" data-scroll-target="#module-1.3-data-analytics-using-r">Module 1.3: Data Analytics Using R</a></li>
-  <li><a href="#project-tidal" id="toc-project-tidal" class="nav-link" data-scroll-target="#project-tidal">Project TIDAL</a></li>
+  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link active" data-scroll-target="#session-objectives">Session Objectives</a></li>
+  <li><a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">Prework - Before You Begin</a></li>
+  <li><a href="#get-aquainted-with-r-and-r-studio" id="toc-get-aquainted-with-r-and-r-studio" class="nav-link" data-scroll-target="#get-aquainted-with-r-and-r-studio">1. Get aquainted with R and R Studio</a></li>
+  <li><a href="#write-simple-r-code-in-console" id="toc-write-simple-r-code-in-console" class="nav-link" data-scroll-target="#write-simple-r-code-in-console">2. Write simple R code in Console</a></li>
+  <li><a href="#create-your-first-r-script" id="toc-create-your-first-r-script" class="nav-link" data-scroll-target="#create-your-first-r-script">3. Create your first R script</a></li>
+  <li><a href="#install-and-load-r-packages-understand-r-session" id="toc-install-and-load-r-packages-understand-r-session" class="nav-link" data-scroll-target="#install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</a></li>
+  <li><a href="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" id="toc-create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="nav-link" data-scroll-target="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</a>
+  <ul class="collapse">
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">section 1</a></li>
+  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">figures</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -171,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Theme 1. Measurement and Prediction of IPV</h1>
+<h1 class="title">1.3.1: Introduction to the R and R Studio (Asynchromous-Online)</h1>
 </div>
 
 
@@ -188,28 +231,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="module-1.3-data-analytics-using-r" class="level2">
-<h2 class="anchored" data-anchor-id="module-1.3-data-analytics-using-r">Module 1.3: Data Analytics Using R</h2>
-<p>Presented by <a href="https://melindahiggins.netlify.app/">Melinda Higgins, PhD</a></p>
-<p>Module 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).</p>
-<p>The 6 sessions are:</p>
-<ul>
-<li>1.3.1: Introduction to the R and R Studio (AO)</li>
-<li>1.3.2: Data Wrangling (AO)</li>
-<li>1.3.3: Data Visualization (AO)</li>
-<li>1.3.4: Missing data and sampling weight (IP)</li>
-<li>1.3.5: Statistical tests and models (IP)</li>
-<li>1.3.6: Putting reproducible research principles into practice (IP)</li>
-</ul>
-<hr>
+<section id="session-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
+<ol type="1">
+<li>Get aquainted with R and R Studio</li>
+<li>Write simple R code in Console</li>
+<li>Create your first R script</li>
+<li>Install and load R packages (understand R session)</li>
+<li>Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</li>
+</ol>
 </section>
-<section id="project-tidal" class="level2">
-<h2 class="anchored" data-anchor-id="project-tidal">Project TIDAL</h2>
-<p><a href="https://www.project-tidal.org/">Project TIDAL</a> is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. <a href="https://www.nursing.emory.edu/faculty-staff/sangmi-kim">Sangmi Kim</a> and <a href="https://www.nursing.emory.edu/faculty-staff/ran-xiao">Ran Xiao</a> from Nell Hodgson Woodruff School of Nursing at Emory University.</p>
-<p>The objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S.</p>
-<hr>
+<section id="prework---before-you-begin" class="level2">
+<h2 class="anchored" data-anchor-id="prework---before-you-begin">Prework - Before You Begin</h2>
+<p>some info</p>
+</section>
+<section id="get-aquainted-with-r-and-r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="get-aquainted-with-r-and-r-studio">1. Get aquainted with R and R Studio</h2>
+<p>info here</p>
+</section>
+<section id="write-simple-r-code-in-console" class="level2">
+<h2 class="anchored" data-anchor-id="write-simple-r-code-in-console">2. Write simple R code in Console</h2>
+<p>info here</p>
+</section>
+<section id="create-your-first-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="create-your-first-r-script">3. Create your first R script</h2>
+<p>info here</p>
+</section>
+<section id="install-and-load-r-packages-understand-r-session" class="level2">
+<h2 class="anchored" data-anchor-id="install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</h2>
+<p>info here</p>
+</section>
+<section id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="level2">
+<h2 class="anchored" data-anchor-id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</h2>
+<p>some info</p>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">section 1</h3>
+<p>summary function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     speed           dist       
+ Min.   : 4.0   Min.   :  2.00  
+ 1st Qu.:12.0   1st Qu.: 26.00  
+ Median :15.0   Median : 36.00  
+ Mean   :15.4   Mean   : 42.98  
+ 3rd Qu.:19.0   3rd Qu.: 56.00  
+ Max.   :25.0   Max.   :120.00  </code></pre>
+</div>
+</div>
+</section>
+<section id="figures" class="level3">
+<h3 class="anchored" data-anchor-id="figures">figures</h3>
+<p>making simple plots</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module131_IntroRRStudio_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

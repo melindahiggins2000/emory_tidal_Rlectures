@@ -1,10 +1,90 @@
 [
   {
-    "objectID": "index_old.html",
-    "href": "index_old.html",
-    "title": "Melinda Higgins R Training for TIDAL Lecture Series",
+    "objectID": "module131_IntroRRStudio.html",
+    "href": "module131_IntroRRStudio.html",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Get aquainted with R and R Studio\nWrite simple R code in Console\nCreate your first R script\nInstall and load R packages (understand R session)\nCreate your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#session-objectives",
+    "href": "module131_IntroRRStudio.html#session-objectives",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "",
+    "text": "Get aquainted with R and R Studio\nWrite simple R code in Console\nCreate your first R script\nInstall and load R packages (understand R session)\nCreate your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#prework---before-you-begin",
+    "href": "module131_IntroRRStudio.html#prework---before-you-begin",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "Prework - Before You Begin",
+    "text": "Prework - Before You Begin\nsome info",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#get-aquainted-with-r-and-r-studio",
+    "href": "module131_IntroRRStudio.html#get-aquainted-with-r-and-r-studio",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "1. Get aquainted with R and R Studio",
+    "text": "1. Get aquainted with R and R Studio\ninfo here",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#write-simple-r-code-in-console",
+    "href": "module131_IntroRRStudio.html#write-simple-r-code-in-console",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "2. Write simple R code in Console",
+    "text": "2. Write simple R code in Console\ninfo here",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#create-your-first-r-script",
+    "href": "module131_IntroRRStudio.html#create-your-first-r-script",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "3. Create your first R script",
+    "text": "3. Create your first R script\ninfo here",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#install-and-load-r-packages-understand-r-session",
+    "href": "module131_IntroRRStudio.html#install-and-load-r-packages-understand-r-session",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "4. Install and load R packages (understand R session)",
+    "text": "4. Install and load R packages (understand R session)\ninfo here",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx",
+    "href": "module131_IntroRRStudio.html#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx",
+    "title": "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)",
+    "section": "5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
+    "text": "5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)\nsome info\n\nsection 1\nsummary function\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00  \n\n\n\n\nfigures\nmaking simple plots\n\nplot(pressure)",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "index_navtop.html",
+    "href": "index_navtop.html",
+    "title": "Data Analytics Using R",
+    "section": "",
+    "text": "Theme 1. Measurement and Prediction of IPV\n\n\nModule 1.3: Data Analytics Using R\n\n\nPresented by Melinda Higgins, PhD\n\n\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S."
   },
   {
     "objectID": "courses.html",
@@ -23,8 +103,38 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data Analytics Using R",
+    "title": "Theme 1. Measurement and Prediction of IPV",
     "section": "",
-    "text": "Theme 1. Measurement and Prediction of IPV\n\n\nModule 1.3: Data Analytics Using R\n\n\nPresented by Melinda Higgins, PhD\n\n\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S."
+    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to the R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#module-1.3-data-analytics-using-r",
+    "href": "index.html#module-1.3-data-analytics-using-r",
+    "title": "Theme 1. Measurement and Prediction of IPV",
+    "section": "",
+    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to the R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#project-tidal",
+    "href": "index.html#project-tidal",
+    "title": "Theme 1. Measurement and Prediction of IPV",
+    "section": "Project TIDAL",
+    "text": "Project TIDAL\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index_old.html",
+    "href": "index_old.html",
+    "title": "Melinda Higgins R Training for TIDAL Lecture Series",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   }
 ]

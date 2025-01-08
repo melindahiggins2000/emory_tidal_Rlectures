@@ -1,0 +1,54 @@
+---
+title: "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)"
+---
+
+## Session Objectives
+
+1. Get aquainted with R and R Studio
+2. Write simple R code in Console
+3. Create your first R script 
+4. Install and load R packages (understand R session)
+5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)
+
+## Prework - Before You Begin
+
+some info
+
+## 1. Get aquainted with R and R Studio
+
+info here 
+
+## 2. Write simple R code in Console
+
+info here 
+
+## 3. Create your first R script 
+
+info here 
+
+## 4. Install and load R packages (understand R session)
+
+info here 
+
+## 5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)
+
+
+some info
+
+### section 1
+
+summary function
+
+```{r}
+summary(cars)
+```
+
+### figures
+
+making simple plots
+
+```{r}
+plot(pressure)
+```
+
+

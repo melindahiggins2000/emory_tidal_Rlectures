@@ -6,24 +6,39 @@ website:
   title: "R Training - TIDAL Lectures"
   site-url: https://emorytidal.netlify.app/
   description: "Melinda Higgins R Training for TIDAL Lecture Series"
-  navbar:
-    title: R Training - TIDAL Lectures
-    left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-      - href: courses.qmd
-        text: Courses
-    right:
+  
+  sidebar:
+    search: true
+    logo: tidal_logo.png
+    pinned: true
+    align: center
+    background: "#6600B4"
+    tools: 
+      - icon: house-fill
+        href: https://www.project-tidal.org/
       - icon: github
         href: https://github.com/melindahiggins2000/emory_tidal_Rlectures
-      - icon: link
-        href: https://www.project-tidal.org/
+    
+    style: "docked"
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: module131_IntroRRStudio.qmd
+        text: "1.3.1: Introduction to the R and R Studio"
+      - href: module131_IntroRRStudio.qmd
+        text: "1.3.2: Data Wrangling"
+      - href: module131_IntroRRStudio.qmd
+        text: "1.3.3: Data Visualization"
+      - href: module131_IntroRRStudio.qmd
+        text: "1.3.4: Missing data and sampling weight"
+      - href: module131_IntroRRStudio.qmd
+        text: "1.3.5: Statistical tests and models"
+      - href: module131_IntroRRStudio.qmd
+        text: "1.3.6: Putting reproducible research principles into practice"
+
   page-footer:
     background: light
-    left:
-      - "Copyright 2025, Melinda Higgins, PhD."
+    left: "Copyright 2025, [Melinda Higgins, PhD.](https://melindahiggins.netlify.app/) [{{< fa brands linkedin >}}](https://www.linkedin.com/in/melindahiggins2000/)  [{{< fa brands google-scholar >}}](https://scholar.google.com/citations?user=-4aU-VkAAAAJ&hl=en)  [{{< fa brands github >}}](https://github.com/melindahiggins2000)  [{{< fa envelope >}}](mailto:mkhiggi@emory.edu)"
 
 format:
   html:
