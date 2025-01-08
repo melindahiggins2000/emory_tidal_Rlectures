@@ -7,6 +7,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      error = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
 ## Session Objectives
 
 1. Get aquainted with R and R Studio
