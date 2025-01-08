@@ -3,18 +3,35 @@ project:
   output-dir: docs
 
 website:
-  title: "emory_tidal_Rlectures"
+  title: "R Training - TIDAL Lectures"
+  site-url: https://emorytidal.netlify.app/
+  description: "Melinda Higgins R Training for TIDAL Lecture Series"
   navbar:
+    title: R Training - TIDAL Lectures
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: courses.qmd
+        text: Courses
+    right:
+      - icon: github
+        href: https://github.com/melindahiggins2000/emory_tidal_Rlectures
+      - icon: link
+        href: https://www.project-tidal.org/
+  page-footer:
+    background: light
+    left:
+      - "Copyright 2025, Melinda Higgins, PhD."
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: 
+      - yeti
+      - mkh_styles.scss
+    mainfont: Nunito
     toc: true
-
+    page-layout: full
 
 
