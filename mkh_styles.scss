@@ -19,15 +19,18 @@ $magenta: #900C3F;
 $white: #FFFFFF;
 $off-white: #F7F7F7; 
 $gray: #ADADAD; 
+$tidal-purple: #6600B4;
+$light-purple: #e0cced;
+$light-grey: #e3e3e3;
 
 // scss variables
 $presentation-title-slide-text-align: "left";
 $body-bg: $white;
 $link-color: $green; 
-$code-color: $magenta;
+// $code-color: $tidal-purple;
 $code-bg: $off-white;  // was $white
-$code-block-font-size: 0.4em;
-$code-block-bg: $off-white;
+$code-block-font-size: 1.0em;  // was 0.4em
+$code-block-bg: $light-grey;
 
 // Navbar
 $navbar-bg: #6600B4;
@@ -231,15 +234,19 @@ hr {
 //}
 
 .panel-tabset [role=tab][aria-selected=true] {
-  background-color: #9fefb2;
+  background-color: #6600B4;  // was #9fefb2
   border: 1px solid #bbb;
   border-bottom-color: #fff;
+  font-weight: 900;
+  color: white;
 }
 
 .panel-tabset [role=tab][aria-selected=false] {
-  background-color: #fff;
+  background-color: #e0cced;  // was #fff
   border: 1px solid #bbb;
   border-bottom-color: #fff;
+  font-weight: 900;
+  color: black;
 }
 
 // margins of posts?
@@ -268,6 +275,16 @@ hr {
   color: #6600B4;
 }
 
+// main titles in H1
 .quarto-title h1.title {
     color: #6600B4;
 };
+
+// code output highlighting
+.cell-output {
+  border-style: solid;
+  border-color: #ADADAD;
+}
+
+
+// background-color: #ADADAD;

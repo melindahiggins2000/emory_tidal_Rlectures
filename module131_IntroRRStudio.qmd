@@ -1,5 +1,7 @@
 ---
 title: "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Session Objectives
@@ -13,6 +15,10 @@ title: "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)"
 ## Prework - Before You Begin
 
 some info
+
+::: callout-note
+R is the name of the programming language itself and RStudio is a convenient interface, commonly referred to as an integrated development environment or an IDE, for short.
+:::
 
 ## 1. Get aquainted with R and R Studio
 
@@ -47,8 +53,31 @@ summary(cars)
 
 making simple plots
 
-```{r}
-plot(pressure)
+::: {.panel-tabset}
+
+## Code
+
+```{r eval=FALSE}
+library(ggplot2)
+library(dplyr)
+
+ggplot(pressure, aes(temperature, pressure)) +
+  geom_point() +
+  geom_line(color = "blue") +
+  ggtitle("My plot title")
 ```
 
+## Plot
+
+```{r echo=FALSE}
+library(ggplot2)
+library(dplyr)
+
+ggplot(pressure, aes(temperature, pressure)) +
+  geom_point() +
+  geom_line(color = "blue") +
+  ggtitle("My plot title")
+```
+
+:::
 

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.39">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>1.3.1: Introduction to the R and R Studio (Asynchromous-Online) – R Training - TIDAL Lectures</title>
 <style>
 code{white-space: pre-wrap;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -71,10 +67,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-0f678b7eab269e1f93ad2a885b46ecea.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-22ae9d450b94d3e01a924127baa4d6e2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-009b9faba68d9d89a96528b0644e9413.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -101,16 +96,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -121,16 +111,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./tidal_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="./tidal_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://www.project-tidal.org/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-fill"></i></a>
     <a href="https://github.com/melindahiggins2000/emory_tidal_Rlectures" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -143,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
@@ -186,34 +171,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link active" data-scroll-target="#session-objectives">Session Objectives</a></li>
+<li><a href="#session-objectives" id="toc-session-objectives" class="nav-link active" data-scroll-target="#session-objectives">Session Objectives</a></li>
   <li><a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">Prework - Before You Begin</a></li>
   <li><a href="#get-aquainted-with-r-and-r-studio" id="toc-get-aquainted-with-r-and-r-studio" class="nav-link" data-scroll-target="#get-aquainted-with-r-and-r-studio">1. Get aquainted with R and R Studio</a></li>
   <li><a href="#write-simple-r-code-in-console" id="toc-write-simple-r-code-in-console" class="nav-link" data-scroll-target="#write-simple-r-code-in-console">2. Write simple R code in Console</a></li>
   <li><a href="#create-your-first-r-script" id="toc-create-your-first-r-script" class="nav-link" data-scroll-target="#create-your-first-r-script">3. Create your first R script</a></li>
   <li><a href="#install-and-load-r-packages-understand-r-session" id="toc-install-and-load-r-packages-understand-r-session" class="nav-link" data-scroll-target="#install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</a></li>
-  <li><a href="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" id="toc-create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="nav-link" data-scroll-target="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</a>
+  <li>
+<a href="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" id="toc-create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="nav-link" data-scroll-target="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</a>
   <ul class="collapse">
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">section 1</a></li>
+<li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">section 1</a></li>
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">figures</a></li>
-  </ul></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">1.3.1: Introduction to the R and R Studio (Asynchromous-Online)</h1>
 </div>
 
@@ -228,47 +209,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<section id="session-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
+</header><section id="session-objectives" class="level2"><h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
 <ol type="1">
 <li>Get aquainted with R and R Studio</li>
 <li>Write simple R code in Console</li>
 <li>Create your first R script</li>
 <li>Install and load R packages (understand R session)</li>
 <li>Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</li>
-</ol>
-</section>
-<section id="prework---before-you-begin" class="level2">
-<h2 class="anchored" data-anchor-id="prework---before-you-begin">Prework - Before You Begin</h2>
+</ol></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">Prework - Before You Begin</h2>
 <p>some info</p>
-</section>
-<section id="get-aquainted-with-r-and-r-studio" class="level2">
-<h2 class="anchored" data-anchor-id="get-aquainted-with-r-and-r-studio">1. Get aquainted with R and R Studio</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R is the name of the programming language itself and RStudio is a convenient interface, commonly referred to as an integrated development environment or an IDE, for short.</p>
+</div>
+</div>
+</section><section id="get-aquainted-with-r-and-r-studio" class="level2"><h2 class="anchored" data-anchor-id="get-aquainted-with-r-and-r-studio">1. Get aquainted with R and R Studio</h2>
 <p>info here</p>
-</section>
-<section id="write-simple-r-code-in-console" class="level2">
-<h2 class="anchored" data-anchor-id="write-simple-r-code-in-console">2. Write simple R code in Console</h2>
+</section><section id="write-simple-r-code-in-console" class="level2"><h2 class="anchored" data-anchor-id="write-simple-r-code-in-console">2. Write simple R code in Console</h2>
 <p>info here</p>
-</section>
-<section id="create-your-first-r-script" class="level2">
-<h2 class="anchored" data-anchor-id="create-your-first-r-script">3. Create your first R script</h2>
+</section><section id="create-your-first-r-script" class="level2"><h2 class="anchored" data-anchor-id="create-your-first-r-script">3. Create your first R script</h2>
 <p>info here</p>
-</section>
-<section id="install-and-load-r-packages-understand-r-session" class="level2">
-<h2 class="anchored" data-anchor-id="install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</h2>
+</section><section id="install-and-load-r-packages-understand-r-session" class="level2"><h2 class="anchored" data-anchor-id="install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</h2>
 <p>info here</p>
-</section>
-<section id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="level2">
-<h2 class="anchored" data-anchor-id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</h2>
+</section><section id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="level2"><h2 class="anchored" data-anchor-id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</h2>
 <p>some info</p>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1">section 1</h3>
+<section id="section-1" class="level3"><h3 class="anchored" data-anchor-id="section-1">section 1</h3>
 <p>summary function</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     speed           dist       
  Min.   : 4.0   Min.   :  2.00  
@@ -279,27 +255,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  Max.   :25.0   Max.   :120.00  </code></pre>
 </div>
 </div>
-</section>
-<section id="figures" class="level3">
-<h3 class="anchored" data-anchor-id="figures">figures</h3>
+</section><section id="figures" class="level3"><h3 class="anchored" data-anchor-id="figures">figures</h3>
 <p>making simple plots</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Code</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Plot</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">pressure</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">temperature</span>, <span class="va">pressure</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"My plot title"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="module131_IntroRRStudio_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module131_IntroRRStudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -717,8 +706,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Copyright 2025, <a href="https://melindahiggins.netlify.app/">Melinda Higgins, PhD.</a> <a href="https://www.linkedin.com/in/melindahiggins2000/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a href="https://scholar.google.com/citations?user=-4aU-VkAAAAJ&amp;hl=en"><i class="fa-brands fa-google-scholar" aria-label="google-scholar"></i></a> <a href="https://github.com/melindahiggins2000"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="mailto:mkhiggi@emory.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a></p>
 </div>   
@@ -730,8 +718,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
