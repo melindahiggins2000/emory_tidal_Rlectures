@@ -1,16 +1,30 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "emory_tidal_Rlectures",
+    "objectID": "index_old.html",
+    "href": "index_old.html",
+    "title": "Melinda Higgins R Training for TIDAL Lecture Series",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
+    "objectID": "courses.html",
+    "href": "courses.html",
+    "title": "My Courses",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Research Interest, Skills, Experience and Education",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Contact MeResearch InterestsSkillsJob Titles and ExperienceEducation\n\n\n\nmelinda.higgins@emory.edu\n404-727-5180\nEmory University - School of Nursing\n1520 Clifon Road; Atlanta, GA 30322\n\n\n\n\n\n\n\n\n\n\nReproducible Research\nDynamic Documentation\nR programming\nPattern Recognition\nMultivariate Statistical Modeling\n\n\n\n\nBiostatistics and Research\nR and formally S/S+\nRmarkdown and Quarto\nGIT and Github\nSPSS\nSAS\nMATLAB\nPascal\nFORTRAN\nOthers: awk, sed, perl\n\n\n\n\nEmory University, Atlanta, GA; School of Nursing; Office of Nursing Research\n\nDirector Biostatistics and Data Core [2021-current]\nResearch Professor [2019 - current]\nAssociate Research Professor [2007 - 2019]\n\nGeorgia Tech Research Institute, Atlanta, GA\n\nDirector of the National guard bureau (NGB) Technology Consortium Program [1998 - 2011]\nPrincipal Research Scientist [2005 - 2011]\nSenior Research Scientist [2000 - 2005]\nResearch Scientist II [1996 - 2000]\nTemporary Technical Advisor [1995 - 1996]\n\n\n\n\n\nPhD in Chemometrics/Analytical Chemistry\n\nDissertation Title: Chemometric analysis of gas chromatographic/mass spectrometric and spectroscopic data for classification and modeling of chemical structure and composition\nUniversity of South Carolina\n1994\n\nMS in Statistics [Experimental Design]\n\nThesis Title: The integrated michaelis-menten model: Estimation, inference, experimental designs, and derivation from the classical michaelis-menten model\nUniversity of South Carolina\n1995\n\nBS Chemistry & Mathematics [Dual Major]\n\nSaint Andrews Presbyterian College\n1989"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Analytics Using R",
+    "section": "",
+    "text": "Theme 1. Measurement and Prediction of IPV\n\n\nModule 1.3: Data Analytics Using R\n\n\nPresented by Melinda Higgins, PhD\n\n\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S."
   }
 ]
