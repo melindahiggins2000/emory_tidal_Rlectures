@@ -1,5 +1,6 @@
 ---
-title: "1.3.1: Introduction to the R and R Studio (Asynchromous-Online)"
+title: "1.3.1: Introduction to R and R Studio"
+subtitle: "(Asynchronous-Online)"
 format:
   html: default
   pdf: default
@@ -16,78 +17,148 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ## Session Objectives
 
-1. Get aquainted with R and R Studio
+1. Get acquainted with R and R Studio
 2. Write simple R code in Console
 3. Create your first R script 
 4. Install and load R packages (understand R session)
 5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)
 
-## Prework - Before You Begin
+---
 
-some info
+## 0. Prework - Before You Begin
 
 ::: callout-note
-R is the name of the programming language itself and RStudio is a convenient interface, commonly referred to as an integrated development environment or an IDE, for short.
+Note: [**R**](https://cran.r-project.org/) is the name of the programming language itself and [**RStudio**](https://posit.co/download/rstudio-desktop/) is an integrated development environment (IDE) which is an enhanced interface for better organization, files management and analysis workflows.
 :::
 
+### Software and Applications to Download
+
+1. FIRST, Download and install R onto your computer from [https://cran.r-project.org/](https://cran.r-project.org/).
+2. NEXT, After installing R, download and install RStudio Desktop onto your computer from [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/).
+
+---
+
+\newpage
 ## 1. Get aquainted with R and R Studio
 
-info here 
+### Basic R
 
+When you download **R** from [**CRAN**](https://cran.r-project.org/) and install it on your computer, there is a R application that you can run. However, it is very bare bones. Here is a screenshot of what it looks like on my computer (Windows 11 operating system).
+
+![](tidalimages/rplain.png)
+
+You can type commands in the console window at the prompt ">" but this is slow and tedious. You can also write and execute scripts from inside this application and see the output back in the console window as well as creating plots. But managing large projects using this interface is not efficient.
+
+![](tidalimages/rplain2.png)
+
+\newpage
+### RStudio IDE
+
+The [RStudio Integrated Development Environment (IDE)](https://posit.co/download/rstudio-desktop/) application provides much better tools for managing files within a given "project". This biggest advantage of working in an IDE is everything is contained and managed within a given project, which is linked to a specific folder (container) on your compute (or cloud drive you may have access to).
+
+However, you will still need to write and execute code using scripts and related files. An IDE is NOT a GUI (graphical user interface) which is the "point and click" workflow you may have experience with if you've used other analysis software applications such as SPSS, SAS Studio, Excel and similar.
+
+![](rstudioide/slide1.png) 
+
+The interface is usually arranged with the following 4 "panes" or windows:
+
+* Console
+* Source
+* Environment
+* Files
+
+\newpage
+
+The typical arrangement, usually has the "Console" window pane at the bottom left. This window also usually has a TAB for the "terminal" and any "background jobs" that might be running.
+
+![](rstudioide/slide2.png)
+
+\newpage
+
+The "Source" window pane is usually at the top left. This is where you will do most of your editing of your R program scripts (`*.R`) or Rmarkdown files `*.Rmd`). This is also where the data viewer window will open. You can also open and edit other kinds of files here as well (`*.tex`, `*.css`, `*.txt`, and more).
+
+![](rstudioide/slide3.png)
+
+\newpage
+
+The top right window pane should always have your "Environment",  "History" and "Tutorial" TABS but may also have TABS for "Build" and"Git" depending on your project type and options selected.
+
+![](rstudioide/slide4.png)
+
+\newpage
+
+The bottom right window pane has TABS for your:
+
+* Files directory
+* Plots window for graphical output
+* Packages - which lists all add-on R packages installed on your computer
+* Help window
+* as well as other TABS for Viewer and Presentation for viewing other kinds of output.
+
+![](rstudioide/slide5.png)
+
+\newpage
+
+### Customising your RStudio interface
+
+You also have the option to rearrange your window panes as well as change the look and feel of your programming interface and much more. 
+To explore all of your options, click on the menu at the top for "Tools/Global Options":
+
+![](rstudiocustom/slide1.png)
+
+Take a look at the left side for the list of all of the options. Some of the most useful options to be aware of are:
+
+* General
+* Appearance, and 
+* Pane Layout
+
+\newpage
+
+In the "General" tab, this is where you can see and confirm that R is installed and where the R programming language app is installed on your computer.
+
+![](rstudiocustom/slide2.png)
+
+\newpage
+
+You will probably want to explore tuning these appearance parameters to customize the appears to your preferences. For example, you can change the ZOOM level to improve readability. You may also want to change the FONT sizes for the Editor and Help windows as needed. I also encourage you to try out different Editor Themes which will change the colors of the R code as well as background colors (light or dark).
+
+![](rstudiocustom/slide3.png)
+
+\newpage
+
+I would suggest NOT changing the layout of the window panes until you are very familiar with the default settings. But this is where you can see what the default settings are and what other options are available to you.
+
+![](rstudiocustom/slide4.png)
+
+
+
+
+---
+
+\newpage
 ## 2. Write simple R code in Console
 
 info here 
 
+---
+
+\newpage
 ## 3. Create your first R script 
 
 info here 
 
+
+---
+
+\newpage
 ## 4. Install and load R packages (understand R session)
 
 info here 
 
+---
+
+\newpage
 ## 5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)
 
-
 some info
-
-### section 1
-
-summary function
-
-```{r}
-summary(cars)
-```
-
-### figures
-
-making simple plots
-
-::: {.panel-tabset}
-
-## Code
-
-```{r eval=FALSE}
-library(ggplot2)
-library(dplyr)
-
-ggplot(pressure, aes(temperature, pressure)) +
-  geom_point() +
-  geom_line(color = "blue") +
-  ggtitle("My plot title")
-```
-
-## Plot
-
-```{r echo=FALSE}
-library(ggplot2)
-library(dplyr)
-
-ggplot(pressure, aes(temperature, pressure)) +
-  geom_point() +
-  geom_line(color = "blue") +
-  ggtitle("My plot title")
-```
-
-:::
 

@@ -10,13 +10,12 @@ Module 1.3 will introduce the learner to writing code in the R language and util
 
 The 6 sessions are:
 
-* 1.3.1: Introduction to the R and R Studio (AO)
+* 1.3.1: Introduction to R and R Studio (AO)
 * 1.3.2: Data Wrangling (AO)
 * 1.3.3: Data Visualization (AO)
 * 1.3.4: Missing data and sampling weight (IP)
 * 1.3.5: Statistical tests and models (IP)
 * 1.3.6: Putting reproducible research principles into practice (IP)
-
 
 ---
 
