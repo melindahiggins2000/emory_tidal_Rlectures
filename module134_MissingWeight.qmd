@@ -1,0 +1,104 @@
+---
+title: "1.3.4: Missing Data and Sampling Weights"
+subtitle: "(Asynchronous-Online)"
+bibliography: ./packages.bib
+nocite: |
+  @*
+format:
+  html: default
+  pdf: default
+editor_options: 
+  chunk_output_type: console
+---
+
+\thispagestyle{fancy}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      error = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+## Session Objectives
+
+1. Identify and summarize missing data.
+2. Learn methods to handle missing data according to variable type.
+3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)
+4. Discuss potential bias when removing missing observations without careful examination.
+
+key points
+1.	R packages that support missing data examination
+2.	Mean/median imputation for continuous variables
+3.	What to do with missing observations for categorical variables
+4.	Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables
+a.	What to do if such association significantly differs between complete and missing observations
+5.	R packages for complex survey data (e.g., survey package)
+a.	R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models
+
+
+
+---
+
+## 0. Prework - Before You Begin
+
+
+
+
+
+
+---
+
+\newpage
+
+## 1. Identify and summarize missing data.
+
+
+
+
+---
+
+\newpage
+
+## 2. Learn methods to handle missing data according to variable type.
+
+
+
+
+
+---
+
+\newpage
+
+## 3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)
+
+
+
+
+---
+
+\newpage
+
+## 4. Discuss potential bias when removing missing observations without careful examination.
+
+
+
+
+---
+
+\newpage
+
+```{r echo=FALSE}
+knitr::write_bib(x = c(.packages()), 
+                 file = "packages.bib")
+```
+
+## References
+
+::: {#refs}
+:::
+
+## Other Helpful Resources
+
+[**Other Helpful Resources**](./additionalResources.html)
+

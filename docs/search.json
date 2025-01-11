@@ -4,76 +4,166 @@
     "href": "test.html",
     "title": "test",
     "section": "",
-    "text": "some stuff\nnow add refs\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.\n\n\nWickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics. https://ggplot2.tidyverse.org."
+    "text": "some stuff\nnow add refs\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Theme 1. Measurement and Prediction of IPV",
+    "objectID": "module135_StatisticalTests.html",
+    "href": "module135_StatisticalTests.html",
+    "title": "1.3.5: Statistical Tests and Models",
     "section": "",
-    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
+    "text": "Develop linear and logistic regression models.\n(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.\nInterpret a model output.\n\nkey points Key points to cover: 1. Run multivariate linear regression models with R. 2. Run multivariate logistic regression models with R. 3. Include interaction terms in regression models. 4. (R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models) 5. Interpret a model output. 6. (Compare the outputs of unweighted and weighted models.)",
     "crumbs": [
-      "Home"
+      "1.3.5: Statistical Tests and Models"
     ]
   },
   {
-    "objectID": "index.html#module-1.3-data-analytics-using-r",
-    "href": "index.html#module-1.3-data-analytics-using-r",
-    "title": "Theme 1. Measurement and Prediction of IPV",
+    "objectID": "module135_StatisticalTests.html#session-objectives",
+    "href": "module135_StatisticalTests.html#session-objectives",
+    "title": "1.3.5: Statistical Tests and Models",
     "section": "",
-    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
+    "text": "Develop linear and logistic regression models.\n(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.\nInterpret a model output.\n\nkey points Key points to cover: 1. Run multivariate linear regression models with R. 2. Run multivariate logistic regression models with R. 3. Include interaction terms in regression models. 4. (R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models) 5. Interpret a model output. 6. (Compare the outputs of unweighted and weighted models.)",
     "crumbs": [
-      "Home"
+      "1.3.5: Statistical Tests and Models"
     ]
   },
   {
-    "objectID": "index.html#project-tidal",
-    "href": "index.html#project-tidal",
-    "title": "Theme 1. Measurement and Prediction of IPV",
-    "section": "Project TIDAL",
-    "text": "Project TIDAL\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S.",
+    "objectID": "module135_StatisticalTests.html#prework---before-you-begin",
+    "href": "module135_StatisticalTests.html#prework---before-you-begin",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin",
     "crumbs": [
-      "Home"
+      "1.3.5: Statistical Tests and Models"
     ]
   },
   {
-    "objectID": "additionalResources.html",
-    "href": "additionalResources.html",
-    "title": "Additional Help and Resources",
+    "objectID": "module135_StatisticalTests.html#develop-linear-and-logistic-regression-models.",
+    "href": "module135_StatisticalTests.html#develop-linear-and-logistic-regression-models.",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "1. Develop linear and logistic regression models.",
+    "text": "1. Develop linear and logistic regression models.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values.",
+    "href": "module135_StatisticalTests.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values.",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)",
+    "text": "2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)\nCurrently, this objective is under the Module 1.3.4: Missing data and sampling weight.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#interpret-a-model-output.",
+    "href": "module135_StatisticalTests.html#interpret-a-model-output.",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "3. Interpret a model output.",
+    "text": "3. Interpret a model output.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#references",
+    "href": "module135_StatisticalTests.html#references",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "References",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#other-helpful-resources",
+    "href": "module135_StatisticalTests.html#other-helpful-resources",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "Other Helpful Resources",
+    "text": "Other Helpful Resources\nOther Helpful Resources",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module133_DataVis.html",
+    "href": "module133_DataVis.html",
+    "title": "1.3.3: Data Visualization",
     "section": "",
-    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
+    "text": "To visualize data using different R packages.\n\nKey points to cover: 1. Introduce to ggplot2 and other R packages. 2. Visualize one, two, or more variables at a time. 3. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
     "crumbs": [
-      "Additional Help and Resources"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "additionalResources.html#r-and-rstudio-helpful-resources",
-    "href": "additionalResources.html#r-and-rstudio-helpful-resources",
-    "title": "Additional Help and Resources",
+    "objectID": "module133_DataVis.html#session-objectives",
+    "href": "module133_DataVis.html#session-objectives",
+    "title": "1.3.3: Data Visualization",
     "section": "",
-    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
+    "text": "To visualize data using different R packages.\n\nKey points to cover: 1. Introduce to ggplot2 and other R packages. 2. Visualize one, two, or more variables at a time. 3. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
     "crumbs": [
-      "Additional Help and Resources"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "additionalResources.html#other-helpful-websites",
-    "href": "additionalResources.html#other-helpful-websites",
-    "title": "Additional Help and Resources",
-    "section": "Other Helpful Websites",
-    "text": "Other Helpful Websites\n\nDatacamp\nR for SAS Users - My Datacamp Course\nCoursera\nReproducible Templates for Analysis and Dissemination - My Coursera Course\nEmory N741\nEmory N736",
+    "objectID": "module133_DataVis.html#prework---before-you-begin",
+    "href": "module133_DataVis.html#prework---before-you-begin",
+    "title": "1.3.3: Data Visualization",
+    "section": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin",
     "crumbs": [
-      "Additional Help and Resources"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "additionalResources.html#helpful-online-books",
-    "href": "additionalResources.html#helpful-online-books",
-    "title": "Additional Help and Resources",
-    "section": "Helpful Online Books",
-    "text": "Helpful Online Books\n\nBook: Statistical Inference via Data Science\nBook: The Epidemiologist R Handbook\nBook/Course: Stat 545",
+    "objectID": "module133_DataVis.html#base-r-graphical-functions",
+    "href": "module133_DataVis.html#base-r-graphical-functions",
+    "title": "1.3.3: Data Visualization",
+    "section": "1. Base R graphical functions",
+    "text": "1. Base R graphical functions",
     "crumbs": [
-      "Additional Help and Resources"
+      "1.3.3: Data Visualization"
+    ]
+  },
+  {
+    "objectID": "module133_DataVis.html#ggplot2-package",
+    "href": "module133_DataVis.html#ggplot2-package",
+    "title": "1.3.3: Data Visualization",
+    "section": "2. ggplot2 package",
+    "text": "2. ggplot2 package",
+    "crumbs": [
+      "1.3.3: Data Visualization"
+    ]
+  },
+  {
+    "objectID": "module133_DataVis.html#get-boilerplate-code-to-start",
+    "href": "module133_DataVis.html#get-boilerplate-code-to-start",
+    "title": "1.3.3: Data Visualization",
+    "section": "3. Get boilerplate code to start",
+    "text": "3. Get boilerplate code to start\nR Gallery\nR Graphics Cookbook",
+    "crumbs": [
+      "1.3.3: Data Visualization"
+    ]
+  },
+  {
+    "objectID": "module133_DataVis.html#references",
+    "href": "module133_DataVis.html#references",
+    "title": "1.3.3: Data Visualization",
+    "section": "References",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "1.3.3: Data Visualization"
+    ]
+  },
+  {
+    "objectID": "module133_DataVis.html#other-helpful-resources",
+    "href": "module133_DataVis.html#other-helpful-resources",
+    "title": "1.3.3: Data Visualization",
+    "section": "Other Helpful Resources",
+    "text": "Other Helpful Resources\nOther Helpful Resources",
+    "crumbs": [
+      "1.3.3: Data Visualization"
     ]
   },
   {
@@ -174,6 +264,346 @@
     "text": "Other Helpful Resources\nOther Helpful Resources",
     "crumbs": [
       "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html",
+    "href": "additionalResources.html",
+    "title": "Additional Help and Resources",
+    "section": "",
+    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html#r-and-rstudio-helpful-resources",
+    "href": "additionalResources.html#r-and-rstudio-helpful-resources",
+    "title": "Additional Help and Resources",
+    "section": "",
+    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html#other-helpful-websites",
+    "href": "additionalResources.html#other-helpful-websites",
+    "title": "Additional Help and Resources",
+    "section": "Other Helpful Websites",
+    "text": "Other Helpful Websites\n\nDatacamp\nR for SAS Users - My Datacamp Course\nCoursera\nReproducible Templates for Analysis and Dissemination - My Coursera Course\nEmory N741\nEmory N736",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html#helpful-online-books",
+    "href": "additionalResources.html#helpful-online-books",
+    "title": "Additional Help and Resources",
+    "section": "Helpful Online Books",
+    "text": "Helpful Online Books\n\nBook: Statistical Inference via Data Science\nBook: The Epidemiologist R Handbook\nBook/Course: Stat 545",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Theme 1. Measurement and Prediction of IPV",
+    "section": "",
+    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#module-1.3-data-analytics-using-r",
+    "href": "index.html#module-1.3-data-analytics-using-r",
+    "title": "Theme 1. Measurement and Prediction of IPV",
+    "section": "",
+    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#project-tidal",
+    "href": "index.html#project-tidal",
+    "title": "Theme 1. Measurement and Prediction of IPV",
+    "section": "Project TIDAL",
+    "text": "Project TIDAL\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html",
+    "href": "module132_DataWrangling.html",
+    "title": "1.3.2: Data Wrangling",
+    "section": "",
+    "text": "To read in data.\nTo subset data.\nTo select, create, and modify variables.\nTo filter the observations according to a certain condition.\nTo explore and summarize data.\nTo run descriptive statistics.\n\nKey points to cover: 1. Import data. 2. Introduce to tidyverse. 3. Summarize data and run descriptive statistics. 4. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#session-objectives",
+    "href": "module132_DataWrangling.html#session-objectives",
+    "title": "1.3.2: Data Wrangling",
+    "section": "",
+    "text": "To read in data.\nTo subset data.\nTo select, create, and modify variables.\nTo filter the observations according to a certain condition.\nTo explore and summarize data.\nTo run descriptive statistics.\n\nKey points to cover: 1. Import data. 2. Introduce to tidyverse. 3. Summarize data and run descriptive statistics. 4. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#prework---before-you-begin",
+    "href": "module132_DataWrangling.html#prework---before-you-begin",
+    "title": "1.3.2: Data Wrangling",
+    "section": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin\nintroduction to tidyverse",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#to-read-in-data.",
+    "href": "module132_DataWrangling.html#to-read-in-data.",
+    "title": "1.3.2: Data Wrangling",
+    "section": "1. To read in data.",
+    "text": "1. To read in data.\nimporting data",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#to-subset-data.",
+    "href": "module132_DataWrangling.html#to-subset-data.",
+    "title": "1.3.2: Data Wrangling",
+    "section": "2. To subset data.",
+    "text": "2. To subset data.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#to-select-create-and-modify-variables.",
+    "href": "module132_DataWrangling.html#to-select-create-and-modify-variables.",
+    "title": "1.3.2: Data Wrangling",
+    "section": "3. To select, create, and modify variables.",
+    "text": "3. To select, create, and modify variables.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#to-filter-the-observations-according-to-a-certain-condition.",
+    "href": "module132_DataWrangling.html#to-filter-the-observations-according-to-a-certain-condition.",
+    "title": "1.3.2: Data Wrangling",
+    "section": "4. To filter the observations according to a certain condition.",
+    "text": "4. To filter the observations according to a certain condition.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#to-explore-and-summarize-data.",
+    "href": "module132_DataWrangling.html#to-explore-and-summarize-data.",
+    "title": "1.3.2: Data Wrangling",
+    "section": "5. To explore and summarize data.",
+    "text": "5. To explore and summarize data.\nbase r - summary stats\nmaking tables\ngtsummary package\nother packages - arsenal, tableone and Rmarkdown formatting of tables… get inspired\ntable competitions",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#to-run-descriptive-statistics.",
+    "href": "module132_DataWrangling.html#to-run-descriptive-statistics.",
+    "title": "1.3.2: Data Wrangling",
+    "section": "6. To run descriptive statistics.",
+    "text": "6. To run descriptive statistics.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#references",
+    "href": "module132_DataWrangling.html#references",
+    "title": "1.3.2: Data Wrangling",
+    "section": "References",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module132_DataWrangling.html#other-helpful-resources",
+    "href": "module132_DataWrangling.html#other-helpful-resources",
+    "title": "1.3.2: Data Wrangling",
+    "section": "Other Helpful Resources",
+    "text": "Other Helpful Resources\nOther Helpful Resources",
+    "crumbs": [
+      "1.3.2: Data Wrangling"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html",
+    "href": "module134_MissingWeight.html",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "",
+    "text": "Identify and summarize missing data.\nLearn methods to handle missing data according to variable type.\nUse a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)\nDiscuss potential bias when removing missing observations without careful examination.\n\nkey points 1. R packages that support missing data examination 2. Mean/median imputation for continuous variables 3. What to do with missing observations for categorical variables 4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables a. What to do if such association significantly differs between complete and missing observations 5. R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#session-objectives",
+    "href": "module134_MissingWeight.html#session-objectives",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "",
+    "text": "Identify and summarize missing data.\nLearn methods to handle missing data according to variable type.\nUse a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)\nDiscuss potential bias when removing missing observations without careful examination.\n\nkey points 1. R packages that support missing data examination 2. Mean/median imputation for continuous variables 3. What to do with missing observations for categorical variables 4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables a. What to do if such association significantly differs between complete and missing observations 5. R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#prework---before-you-begin",
+    "href": "module134_MissingWeight.html#prework---before-you-begin",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#identify-and-summarize-missing-data.",
+    "href": "module134_MissingWeight.html#identify-and-summarize-missing-data.",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "1. Identify and summarize missing data.",
+    "text": "1. Identify and summarize missing data.",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#learn-methods-to-handle-missing-data-according-to-variable-type.",
+    "href": "module134_MissingWeight.html#learn-methods-to-handle-missing-data-according-to-variable-type.",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "2. Learn methods to handle missing data according to variable type.",
+    "text": "2. Learn methods to handle missing data according to variable type.",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro",
+    "href": "module134_MissingWeight.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)",
+    "text": "3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.",
+    "href": "module134_MissingWeight.html#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "4. Discuss potential bias when removing missing observations without careful examination.",
+    "text": "4. Discuss potential bias when removing missing observations without careful examination.",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#references",
+    "href": "module134_MissingWeight.html#references",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "References",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#other-helpful-resources",
+    "href": "module134_MissingWeight.html#other-helpful-resources",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "Other Helpful Resources",
+    "text": "Other Helpful Resources\nOther Helpful Resources",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html",
+    "href": "module136_ReproducibleResearch.html",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "",
+    "text": "Discuss reproducible research principles.\nApply reproducible research principles to data analysis using R Markdown.\n\nKey points to cover: 1. Reproducible research principles 2. What is R Markdown 3. How to create a report using R Markdown a. Customize the layout of presentations or reports b. Insert and create objects, such as tables, images, or videos, within a document",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html#session-objectives",
+    "href": "module136_ReproducibleResearch.html#session-objectives",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "",
+    "text": "Discuss reproducible research principles.\nApply reproducible research principles to data analysis using R Markdown.\n\nKey points to cover: 1. Reproducible research principles 2. What is R Markdown 3. How to create a report using R Markdown a. Customize the layout of presentations or reports b. Insert and create objects, such as tables, images, or videos, within a document",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html#prework---before-you-begin",
+    "href": "module136_ReproducibleResearch.html#prework---before-you-begin",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html#discuss-reproducible-research-principles.",
+    "href": "module136_ReproducibleResearch.html#discuss-reproducible-research-principles.",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "1. Discuss reproducible research principles.",
+    "text": "1. Discuss reproducible research principles.",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html#apply-reproducible-research-principles-to-data-analysis-using-r-markdown.",
+    "href": "module136_ReproducibleResearch.html#apply-reproducible-research-principles-to-data-analysis-using-r-markdown.",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "2. Apply reproducible research principles to data analysis using R Markdown.",
+    "text": "2. Apply reproducible research principles to data analysis using R Markdown.",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html#references",
+    "href": "module136_ReproducibleResearch.html#references",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "References",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
+    ]
+  },
+  {
+    "objectID": "module136_ReproducibleResearch.html#other-helpful-resources",
+    "href": "module136_ReproducibleResearch.html#other-helpful-resources",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "Other Helpful Resources",
+    "text": "Other Helpful Resources\nOther Helpful Resources",
+    "crumbs": [
+      "1.3.6: Reproducible Research Principles"
     ]
   }
 ]

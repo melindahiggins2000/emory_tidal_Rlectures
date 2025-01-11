@@ -1,0 +1,124 @@
+---
+title: "1.3.2: Data Wrangling"
+subtitle: "(Asynchronous-Online)"
+bibliography: ./packages.bib
+nocite: |
+  @*
+format:
+  html: default
+  pdf: default
+editor_options: 
+  chunk_output_type: console
+---
+
+\thispagestyle{fancy}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      error = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+## Session Objectives
+
+1. To read in data.
+2. To subset data.
+3. To select, create, and modify variables.
+4. To filter the observations according to a certain condition.
+5. To explore and summarize data.
+6. To run descriptive statistics.
+
+
+Key points to cover:
+1.	Import data.
+2.	Introduce to tidyverse.
+3.	Summarize data and run descriptive statistics.
+4.	Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.
+
+
+
+---
+
+## 0. Prework - Before You Begin
+
+introduction to tidyverse
+
+---
+
+\newpage
+
+## 1. To read in data.
+
+### importing data
+
+
+---
+
+\newpage
+
+## 2. To subset data.
+
+
+
+---
+
+\newpage
+
+## 3. To select, create, and modify variables.
+
+
+
+---
+
+\newpage
+
+## 4. To filter the observations according to a certain condition.
+
+
+
+---
+
+\newpage
+
+## 5. To explore and summarize data.
+
+### base r - summary stats
+
+### making tables
+
+### gtsummary package
+
+### other packages - arsenal, tableone and Rmarkdown formatting of tables... get inspired
+
+table competitions
+
+---
+
+\newpage
+
+## 6. To run descriptive statistics.
+
+
+
+
+
+
+---
+
+\newpage
+
+```{r echo=FALSE}
+knitr::write_bib(x = c(.packages()), 
+                 file = "packages.bib")
+```
+
+## References
+
+::: {#refs}
+:::
+
+## Other Helpful Resources
+
+[**Other Helpful Resources**](./additionalResources.html)
+

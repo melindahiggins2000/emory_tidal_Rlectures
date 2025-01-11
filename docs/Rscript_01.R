@@ -50,12 +50,25 @@ plot(x, cosx)
 
 # use functions as needed on the fly!
 # plot x, sin(x)
-plot(x, sin(x))
-plot(y=sin(x), x=x)     # order doesn't matter with explicit assignment
+plot(x, sin(x))     # assumed order x-axis and 
+                    # then y-axis
+plot(y=sin(x), x=x) # order doesn't matter 
+                    # with explicit assignment
 
 # plot both points and lines
 # make the color red
 plot(x, sin(x), type = "both", col = "red")
+
+# This generates a Warning message
+# but the plot code still runs and works
+# we get a plot - here is the warning:
+# 
+# Warning message:
+# In plot.xy(xy, type, ...) :
+#   plot type 'both' will be truncated to first character
+# 
+# So, run the plot again but change
+# type = "both" to type = "b"
 plot(x, sin(x), type = "b", col = "red")
 
 # Check ENVIRONMENT TAB

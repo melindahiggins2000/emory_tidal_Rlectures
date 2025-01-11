@@ -28,16 +28,16 @@ website:
         text: Home
       - href: module131_IntroRRStudio.qmd
         text: "1.3.1: Introduction to the R and R Studio"
-      - href: module131_IntroRRStudio.qmd
+      - href: module132_DataWrangling.qmd
         text: "1.3.2: Data Wrangling"
-      - href: module131_IntroRRStudio.qmd
+      - href: module133_DataVis.qmd
         text: "1.3.3: Data Visualization"
-      - href: module131_IntroRRStudio.qmd
-        text: "1.3.4: Missing data and sampling weight"
-      - href: module131_IntroRRStudio.qmd
-        text: "1.3.5: Statistical tests and models"
-      - href: module131_IntroRRStudio.qmd
-        text: "1.3.6: Putting reproducible research principles into practice"
+      - href: module134_MissingWeight.qmd
+        text: "1.3.4: Missing Data and Sampling Weights"
+      - href: module135_StatisticalTests.qmd
+        text: "1.3.5: Statistical Tests and Models"
+      - href: module136_ReproducibleResearch.qmd
+        text: "1.3.6: Reproducible Research Principles"
       - href: additionalResources.qmd
         text: "Additional Help and Resources"
 
