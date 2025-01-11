@@ -1,0 +1,13 @@
+---
+title: "test"
+bibliography: ./packages.bib
+nocite: |
+  @*
+---
+
+some stuff
+
+now add refs
+
+::: {#refs}
+:::

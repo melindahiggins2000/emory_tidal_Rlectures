@@ -17,7 +17,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -136,6 +190,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">1.3.6: Putting reproducible research principles into practice</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./additionalResources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Additional Help and Resources</span></a>
+  </div>
+</li>
     </ul>
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
@@ -159,10 +219,45 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#customising-your-rstudio-interface" id="toc-customising-your-rstudio-interface" class="nav-link" data-scroll-target="#customising-your-rstudio-interface">Customising your RStudio interface</a></li>
   </ul>
 </li>
-  <li><a href="#write-simple-r-code-in-console" id="toc-write-simple-r-code-in-console" class="nav-link" data-scroll-target="#write-simple-r-code-in-console">2. Write simple R code in Console</a></li>
-  <li><a href="#create-your-first-r-script" id="toc-create-your-first-r-script" class="nav-link" data-scroll-target="#create-your-first-r-script">3. Create your first R script</a></li>
-  <li><a href="#install-and-load-r-packages-understand-r-session" id="toc-install-and-load-r-packages-understand-r-session" class="nav-link" data-scroll-target="#install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</a></li>
-  <li><a href="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" id="toc-create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="nav-link" data-scroll-target="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</a></li>
+  <li>
+<a href="#write-simple-r-code-in-console" id="toc-write-simple-r-code-in-console" class="nav-link" data-scroll-target="#write-simple-r-code-in-console">2. Write simple R code in Console</a>
+  <ul class="collapse">
+<li><a href="#simple-math" id="toc-simple-math" class="nav-link" data-scroll-target="#simple-math">Simple math</a></li>
+  <li><a href="#built-in-constants" id="toc-built-in-constants" class="nav-link" data-scroll-target="#built-in-constants">Built in constants</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting help</a></li>
+  <li><a href="#try-out-a-function" id="toc-try-out-a-function" class="nav-link" data-scroll-target="#try-out-a-function">Try out a function</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#create-your-first-r-script" id="toc-create-your-first-r-script" class="nav-link" data-scroll-target="#create-your-first-r-script">3. Create your first R script</a>
+  <ul class="collapse">
+<li><a href="#save-your-code-in-a-new-script" id="toc-save-your-code-in-a-new-script" class="nav-link" data-scroll-target="#save-your-code-in-a-new-script">Save your code in a new script</a></li>
+  <li><a href="#create-r-objects-and-use-them" id="toc-create-r-objects-and-use-them" class="nav-link" data-scroll-target="#create-r-objects-and-use-them">Create R objects and Use Them</a></li>
+  <li><a href="#on-your-own" id="toc-on-your-own" class="nav-link" data-scroll-target="#on-your-own">On your own</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#install-and-load-r-packages-understand-r-session" id="toc-install-and-load-r-packages-understand-r-session" class="nav-link" data-scroll-target="#install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</a>
+  <ul class="collapse">
+<li><a href="#sessioninfo" id="toc-sessioninfo" class="nav-link" data-scroll-target="#sessioninfo"><code>sessionInfo()</code></a></li>
+  <li><a href="#base-r-packages" id="toc-base-r-packages" class="nav-link" data-scroll-target="#base-r-packages">7 Base R Packages</a></li>
+  <li><a href="#install-a-package-and-load-it-into-r-session-memory" id="toc-install-a-package-and-load-it-into-r-session-memory" class="nav-link" data-scroll-target="#install-a-package-and-load-it-into-r-session-memory">Install a Package and Load it into R session memory</a></li>
+  <li><a href="#where-to-get-packages---cran" id="toc-where-to-get-packages---cran" class="nav-link" data-scroll-target="#where-to-get-packages---cran">Where to get packages - CRAN</a></li>
+  <li><a href="#where-to-get-packages---bioconductor" id="toc-where-to-get-packages---bioconductor" class="nav-link" data-scroll-target="#where-to-get-packages---bioconductor">Where to get packages - Bioconductor</a></li>
+  <li><a href="#where-to-get-packages---github-friends-teammates" id="toc-where-to-get-packages---github-friends-teammates" class="nav-link" data-scroll-target="#where-to-get-packages---github-friends-teammates">Where to get packages - Github, friends, teammates, …</a></li>
+  <li><a href="#finding-and-vetting-r-packages" id="toc-finding-and-vetting-r-packages" class="nav-link" data-scroll-target="#finding-and-vetting-r-packages">Finding and vetting R packages</a></li>
+  <li><a href="#load-the-new-r-package-into-your-r-session" id="toc-load-the-new-r-package-into-your-r-session" class="nav-link" data-scroll-target="#load-the-new-r-package-into-your-r-session">Load the new R package into your R session</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" id="toc-create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="nav-link" data-scroll-target="#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</a>
+  <ul class="collapse">
+<li><a href="#create-a-new-rmarkdown-file" id="toc-create-a-new-rmarkdown-file" class="nav-link" data-scroll-target="#create-a-new-rmarkdown-file">Create a new Rmarkdown File</a></li>
+  <li><a href="#rmarkdown-sections" id="toc-rmarkdown-sections" class="nav-link" data-scroll-target="#rmarkdown-sections">Rmarkdown sections</a></li>
+  </ul>
+</li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="module131_IntroRRStudio.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -270,19 +365,450 @@ Note
 <hr>
 <div style="page-break-after: always;"></div>
 </section></section><section id="write-simple-r-code-in-console" class="level2"><h2 class="anchored" data-anchor-id="write-simple-r-code-in-console">2. Write simple R code in Console</h2>
-<p>info here</p>
+<section id="simple-math" class="level3"><h3 class="anchored" data-anchor-id="simple-math">Simple math</h3>
+<p>So, let’s start with some simple R code using the Console window and typing commands at the <code>&gt;</code> prompt.</p>
+<p>You can write simple math expressions like <code>5 + 5</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">5</span> <span class="op">+</span> <span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+<p>Notice that the output shows the number 1 enclosed in square brackets followed by the answer (or output) of 10.</p>
+<p><code>[1] 10</code></p>
+<p>This is because R performed the addition operation using the <code>+</code> operator and then “saved” the output in temporary memory as a scalar object with 1 element, which is the number 10.</p>
+<p>You can actually see this temporary object by typing <code>.Last.value</code></p>
+<pre><code>.Last.value
+[1] 10</code></pre>
+<p>However, if we look at our current computing environment (see upper right window pane), it is still showing as empty.</p>
+<p><img src="rscript01_lastval.png" class="img-fluid"></p>
+<p>This is because we have not yet “saved” the output into an object that we created. Let’s save this output into an object called <code>ten</code>.</p>
+<p>To do this we need to do 2 things:</p>
+<ol type="1">
+<li>Create the object called <code>ten</code>
+</li>
+<li>Use the “assign” operator <code>&lt;-</code> to take the result of <code>5 + 5</code> and move it (save it or pipe it) into the object <code>ten</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ten</span> <span class="op">&lt;-</span> <span class="fl">5</span> <span class="op">+</span> <span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To “see” the output of this object - you can either see it now in your Global Environment or type the object name in the Console to view it.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+<p><img src="rscript01_viewten.png" class="img-fluid"></p>
+<p>It is important to remember that R is an “object-oriented” programming language - everything in R is an object.</p>
+</section><section id="built-in-constants" class="level3"><h3 class="anchored" data-anchor-id="built-in-constants">Built in constants</h3>
+<p>There are several built in “constants” in R. Try typing these in at the Console to see the results.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.141593</code></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">letters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
+[20] "t" "u" "v" "w" "x" "y" "z"</code></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">LETTERS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S"
+[20] "T" "U" "V" "W" "X" "Y" "Z"</code></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">month.name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "January"   "February"  "March"     "April"     "May"       "June"     
+ [7] "July"      "August"    "September" "October"   "November"  "December" </code></pre>
+</div>
+</div>
+<p>For the constants like <code>letters</code> you get a list of the 26 lower case letters. Notice that the number in [square brackets] updates for each new line printed out. This allows you to keep track of the number of elements in the output object. <code>letters</code> is an “character” array with 26 elements.</p>
+<p>To confirm these details, we can use the <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> function to determine that <code>letters</code> has all “character” elements. The <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> function will let you know that there are 26 elements.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26</code></pre>
+</div>
+</div>
+</section><section id="getting-help" class="level3"><h3 class="anchored" data-anchor-id="getting-help">Getting help</h3>
+<p>If you would like to learn more about these built-in “constants”, you can get help in one of two ways. You can either type <code><a href="https://rdrr.io/r/base/Constants.html">help(pi)</a></code> in the Console (lower left) or type <code>pi</code> in the Help window (lower right).</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">pi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="rscript01_helppi.png" class="img-fluid"></p>
+</section><section id="try-out-a-function" class="level3"><h3 class="anchored" data-anchor-id="try-out-a-function">Try out a function</h3>
+<p>The majority of the R programming language functionality is driven by functions. Technically the <code>+</code> operator is actually a function that performs a sum.</p>
+<p>You can even get help on these operators, by typing <code><a href="https://rdrr.io/r/base/Arithmetic.html">help("+")</a></code>. We have to add the quotes <code>""</code> so that R knows we are looking for this operator and not trying to perform an addition operation inside the function call.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="st">"+"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But let’s try a function to create a sequence of numbers - for example, a sequence from 1 to 10.</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+</div>
+<p>And let’s look at the help page for the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function.</p>
+<p><img src="rscript01_helpseq.png" class="img-fluid"></p>
+<p>R allows for what is called “lazy” coding. This basically means you can provide very minimal input and R will try to figure out what you want using the default settings for a given function. In the case of <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> the function begins by default at 1 and creates and output in steps of 1 up to the value of 10.</p>
+<p>While “lazy” coding practices are common with R, it would actually be better to explicitly define each argument to make sure you get the exact output you want. To do this, inside the parentheses <code>()</code> assign a value to each argument. For example:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    to <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+</div>
+<p>You could easily change these to get a sequence from 0 to 1 in steps of 0.1 as follows:</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>    to <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    by <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</code></pre>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="create-your-first-r-script" class="level2"><h2 class="anchored" data-anchor-id="create-your-first-r-script">3. Create your first R script</h2>
-<p>info here</p>
+</section></section><section id="create-your-first-r-script" class="level2"><h2 class="anchored" data-anchor-id="create-your-first-r-script">3. Create your first R script</h2>
+<section id="save-your-code-in-a-new-script" class="level3"><h3 class="anchored" data-anchor-id="save-your-code-in-a-new-script">Save your code in a new script</h3>
+<p>So, as you can tell, the R Console is useful but slow and tedious. Let’s create an R script to save all of these commands in a file that we can easily access everything we’ve done so far and re-run these commands as needed.</p>
+<p>In RStudio go to the top menu File/New File/R Script:</p>
+<p><img src="rscript01_newrscript.png" class="img-fluid"></p>
+<p>Once the R Script file is created, type in some of the commands we did above in the Console and put one command on each line.</p>
+<p>Just select each line and click “Run”.</p>
+<p><img src="rscript01_myscript.png" class="img-fluid"></p>
+<p>Then you can save the file on your computer as “myscript.R” for example.</p>
+<p>You can also select all of the rows and click run to see the output in the Console Window.</p>
+<p><img src="rscript01_myscript2.png" class="img-fluid"></p>
+<p>Here is the code and output:</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">4</span> <span class="op">+</span> <span class="fl">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">25</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.141593</code></pre>
+</div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">10</span>, by<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
+[16]  8.5  9.0  9.5 10.0</code></pre>
+</div>
+</div>
+</section><section id="create-r-objects-and-use-them" class="level3"><h3 class="anchored" data-anchor-id="create-r-objects-and-use-them">Create R objects and Use Them</h3>
+<p>Let’s try out some more built-in R functions, save the output in objects in the environment and then use them in other functions.</p>
+<p>Create a sequence of numbers and save them as an object called <code>x</code>. I also added a comment in the R code block below. Everything after the <code>#</code> hashtag is a comment which R will ignore. It is a good idea to add comments in your code to make sure that you and others understand what each part of your code does.</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save sequence of numbers </span></span>
+<span><span class="co"># from 1 to 10 in steps of 0.5</span></span>
+<span><span class="co"># in an object named x</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">10</span>, by<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Type x to view the contents</span></span>
+<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
+[16]  8.5  9.0  9.5 10.0</code></pre>
+</div>
+</div>
+<p>Also take a look at the Global Environment to see the new object <code>x</code>.</p>
+<p><img src="rscript01_objects.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use x to create new object y</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">*</span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once the object <code>y</code> is created, we can make a simple 2-dimensional scatterplot.</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># plot x and y</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module131_IntroRRStudio_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The plot is shown below, but if you are running this in the RStudio desktop, check the Plots window pane (lower right).</p>
+<p><img src="rscript01_makeplot.png" class="img-fluid"></p>
+</section><section id="on-your-own" class="level3"><h3 class="anchored" data-anchor-id="on-your-own">On your own</h3>
+<p>Download <a href="./Rscript_01.R"><code>Rscript_01.R</code></a> open it in your RStudio and run through the code. Try out new variations on your own.</p>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="install-and-load-r-packages-understand-r-session" class="level2"><h2 class="anchored" data-anchor-id="install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</h2>
-<p>info here</p>
+</section></section><section id="install-and-load-r-packages-understand-r-session" class="level2"><h2 class="anchored" data-anchor-id="install-and-load-r-packages-understand-r-session">4. Install and load R packages (understand R session)</h2>
+<section id="sessioninfo" class="level3"><h3 class="anchored" data-anchor-id="sessioninfo"><code>sessionInfo()</code></h3>
+<p>While the base installation of R is pretty powerful on it’s own, the beauty of R and the R programming community is that there are literally hundreds of thousands if not millions of people programming in R and creating new functions everyday.</p>
+<p>In order to use these new functions, the developers put them together in packages that we can install to extend the functionality of R.</p>
+<p>But first, let’s take a look at the packages that are part of the basic installation of R. One way to see which packages are currently installed and loaded into your current R computing session, is by typing <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>.</p>
+<p>You will also notice that the <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code> command also lists the version of R I’m currently running (4.4.2), my operating system (Windows 11) and and my locale (USA, East Coast). These details can sometimes be helpful for collaborating with others who may be working with different system settings and for debugging errors.</p>
+<pre><code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code></pre>
+<p><img src="rscript01_sessioninfo.png" class="img-fluid"></p>
+</section><section id="base-r-packages" class="level3"><h3 class="anchored" data-anchor-id="base-r-packages">7 Base R Packages</h3>
+<p>The basic installation of R includes 7 packages:</p>
+<ul>
+<li><code>stats</code></li>
+<li><code>graphics</code></li>
+<li><code>grDevices</code></li>
+<li><code>utils</code></li>
+<li><code>datasets</code></li>
+<li><code>methods</code></li>
+<li><code>base</code></li>
+</ul>
+<p>To learn more click on the Packages tan in the lower right window pane to see the list of packages installed on your computer. I have a lot of Packages, but here is a screenshot of the base packages.</p>
+<p>See the packages listed under “System Library” which are the ones that were installed with base R. You’ll notice that only some of these have checkmarks next to them. The checkmark means those are also loaded into your R session. Only some of them are loaded into memory by default to minimize the use of your computer’s memory.</p>
+<p><img src="rscript01_baserpkg.png" class="img-fluid"></p>
+</section><section id="install-a-package-and-load-it-into-r-session-memory" class="level3"><h3 class="anchored" data-anchor-id="install-a-package-and-load-it-into-r-session-memory">Install a Package and Load it into R session memory</h3>
+<p>Let’s install an R package, like <code>ggplot2</code>.</p>
+<p>Go to the RStudio menu Tools/Install Packages</p>
+<p><img src="rscript01_installpkg.png" class="img-fluid"></p>
+<p>This will then open up a window where you can type in the name of the package you want. As soon as we start typing <code>ggplot2</code> the menu begins listing all packages with that partial spelling…</p>
+<p><img src="rscript01_installcran.png" class="img-fluid"></p>
+<p>You’ll notice that there are 3 parts to the installation:</p>
+<ol type="1">
+<li>Where you want to get the package - from which repository (more below).</li>
+<li>The name of the package. You can actually type more than one package name at a time separated by commas.</li>
+<li>The file location on your computer where the new package is installed - your file location will be different than mine. But this is useful to know in case something goes wrong. I would suggest keeping the default settings.</li>
+</ol>
+<p><img src="rscript01_installcran3parts.png" class="img-fluid"></p>
+</section><section id="where-to-get-packages---cran" class="level3"><h3 class="anchored" data-anchor-id="where-to-get-packages---cran">Where to get packages - CRAN</h3>
+<p>Using the Tools/Install Packages menu from within RStudio automatically links to <a href="https://cran.r-project.org/">CRAN</a>, which is the “The Comprehensive R Archive Network”. You’ve already been here once to download and install the R programming language application.</p>
+<p><img src="cran_home.png" class="img-fluid"></p>
+<p>However, you can also click on “Packages” at the left to see the full list of packages currently available. As of right now (01/10/2025 at 5:12pm EST) there are 21,872 packages. This number increases every day as people create, validate and publish their packages on CRAN. You can get a list of all of the packages or if you have no idea what package you need, you can also look at the “Task Views” to see groupings of packages.</p>
+<p>Here is what the list of Packages looks like sorted by name:</p>
+<p><img src="cran_pkg_names.png" class="img-fluid"></p>
+<p>However, you can also browse Packages by “Task View”:</p>
+<p><img src="cran_taskview.png" class="img-fluid"></p>
+<p>For example, suppose you are interested in survival analysis, here is a screenshot of the <a href="https://cran.r-project.org/web/views/Survival.html">Survival Task View</a>.</p>
+<p>As you can see each Task View has a person(s) listed who help to maintain these collections. As you scroll through the webpage, you’ll see links to packages they recommend along with a description of what the packages do. For example, see the links below to the <code>survival</code> and <code>rms</code> packages.</p>
+<p><img src="cran_taskview_survival.png" class="img-fluid"></p>
+</section><section id="where-to-get-packages---bioconductor" class="level3"><h3 class="anchored" data-anchor-id="where-to-get-packages---bioconductor">Where to get packages - Bioconductor</h3>
+<p>While the list of R packages on CRAN is impressive, if you plan to do analyses of biological data, there is a good chance you will need a package from <a href="https://www.bioconductor.org/">Bioconductor.org</a>.</p>
+<p>As of right now (01/10/2025 at 6:45pm EST) there are 2289 packages. Similar to CRAN, Bioconductor requires each package to meet certain validation criteria and code testing requirements even more stringent than CRAN. You notice that you can search for packages under the biocViews (left side column) or you can sort them alphabetically or search for individual packages in the section on the right side.</p>
+<p><img src="bioconductor_pkg.png" class="img-fluid"></p>
+<p>The one disadvantage of R packages from Bioconductor is that you cannot install them directly using the RStudio menu for Tools/Install Packages - you cannot “see” the Bioconductor repository from inside RStudio. Instead you have to install these using R code. For example, here is what you need to do to install the <a href="https://www.bioconductor.org/packages/release/bioc/html/phyloseq.html"><code>phyloseq</code></a> package which “… provides a set of classes and tools to facilitate the import, storage, analysis, and graphical display of microbiome census data”.</p>
+<p>See the black box of code below, to install <code>phyloseq</code> you need to:</p>
+<ol type="1">
+<li>Install <a href="https://cran.r-project.org/web/packages/BiocManager/index.html"><code>BiocManager</code></a> from CRAN - this you can install from the RStudio menu for Tools/Install Packages.</li>
+<li>Then go to the Console or open an R script and run:</li>
+</ol>
+<pre><code>install.packages("BiocManager")</code></pre>
+<p><img src="bioconductor_phyloseq.png" class="img-fluid"></p>
+</section><section id="where-to-get-packages---github-friends-teammates" class="level3"><h3 class="anchored" data-anchor-id="where-to-get-packages---github-friends-teammates">Where to get packages - Github, friends, teammates, …</h3>
+<p>In addition to CRAN and Bioconductor, you can get packages from Github, friends, teammates or write your own. To get an idea of how many packages may be currently on <a href="https://github.com/">Github</a>, we can “search” for “R package” <a href="https://github.com/search?q=R+package&amp;type=repositories">https://github.com/search?q=R+package&amp;type=repositories</a> and as you can see this is well over 118,000+ packages.</p>
+<p><img src="github_rpkg.png" class="img-fluid"></p>
+<p>While you can find packages on Github that have not (yet) been published on CRAN or Bioconductor, the developers of packages currently on CRAN and Bioconductor also often publish their development version (think of these as in “beta” and still under going testing) on Github. For example, the current published version of the data wrangling <a href="https://cran.r-project.org/web/packages/dplyr/index.html"><code>dplyr</code></a> package was last updated on 11/17/2023.</p>
+<p><img src="cran_dplyr.png" class="img-fluid"></p>
+<p>But the development version of <a href="https://github.com/tidyverse/dplyr"><code>dplyr</code> on Github</a> was last updated 5 months ago in August 2024.</p>
+<p><img src="github_dplyr.png" class="img-fluid"></p>
+<p>So, while the developers haven’t published this on CRAN, if you want to test out new functions and updates under development for this package, you can go to the R Console or write a R script to install the development version using these commands (see below) which is explained on the <a href="https://github.com/tidyverse/dplyr"><code>dplyr</code> on Github</a> website.</p>
+<pre><code># install.packages("pak")
+pak::pak("tidyverse/dplyr")
+</code></pre>
+</section><section id="finding-and-vetting-r-packages" class="level3"><h3 class="anchored" data-anchor-id="finding-and-vetting-r-packages">Finding and vetting R packages</h3>
+<p>So, as you have seen there are numerous ways to find R packages and there are hundreds of thousands of them out there. Your company or team may have their own custom R package tailored for your specific research areas and data analysis workflows.</p>
+<p>Finding R packages is similar to finding new questionnaires, surveys or instruments for your research. For example, if you want to measures someone’s depression levels, you would probably use a validated instrument like the <a href="https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/depression-scale">Center for Epidemiological Studies-Depression (CESD)</a> or the <a href="https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/beck-depression">Beck Depression Index (BDI)</a>. These measures have been well published and are well established for depression research.</p>
+<p>Finding R packages is similar - do your research! Make sure that the R package has been published and is well established to do the analysis you want. In terms of reliability, getting packages from CRAN or Bioconductor are the best followed by Github or other individuals. The best suggestion is look to see which R packages are being used by other people in your field.</p>
+<p>To get an idea of how long a package has been in use and if it is still being actively supported and how it relates to other similar packages, check out this interactive Shiny app website for <a href="https://hadley.shinyapps.io/cran-downloads/">CRAN downloads</a>. Type in the packages you want to compare and changes the dates - here is an example comparing <code>arsenal</code>, <code>gtsummary</code>, and <code>tableone</code> packages all of which are useful for making tables of summary statistics (aka, “Table 1”) - showing the number of downloads since the beginning of Jan 1, 2024.</p>
+<p>As you can see the most downloaded is <code>gtsummary</code> followed by <code>arsenal</code> with <code>tableone</code> having the fewest downloads. This does NOT necessarily imply quality, but it does give you some insight into the popularity of these packages.</p>
+<p><img src="compare_tablepkg.png" class="img-fluid"></p>
+<p>Here is an example of 2 specific packages I like. The <code>rggobi</code> package which was great for visualizing multiple dimensions of data simultaneously but which is no longer supported and the newer <code>tourr</code> package which was written by the same developer to replace the <code>rggobi</code> package. You can see that in the middle of 2020, the number of downloads for <code>rggobi</code> dropped almost to 0 and the <code>tourr</code> package downloads started to rise - this is about when they switched over from maintaining one package to supporting the newer one. <a href="https://cran.r-project.org/web/packages/rggobi/index.html"><code>rggobi</code> on CRAN</a> moved to archived status in July 2020, but <a href="https://cran.r-project.org/web/packages/tourr/"><code>tourr</code> on CRAN</a> was last updated in April 2024.</p>
+<p><img src="compare_rggobi_tourr.png" class="img-fluid"></p>
+<p>So, do your homework and check to see when the package was last updated, who maintains it and how good their documentation is for the package and what it does.</p>
+</section><section id="load-the-new-r-package-into-your-r-session" class="level3"><h3 class="anchored" data-anchor-id="load-the-new-r-package-into-your-r-session">Load the new R package into your R session</h3>
+<p>After you’ve decided what package you want and have installed it onto your computer, you must load it into memory for EVERY new R session for which you want those functions available.</p>
+<p>For example, suppose I want to make a plot using the <code>ggplot2</code> package. Before I can use the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function, I have to load that package into my computing session. Here is an example:</p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># show current sessionInfo</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22000)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.4.2    fastmap_1.1.1     cli_3.6.3        
+ [5] tools_4.4.2       htmltools_0.5.8.1 rstudioapi_0.15.0 yaml_2.3.8       
+ [9] rmarkdown_2.26    knitr_1.49        jsonlite_1.8.8    xfun_0.49        
+[13] digest_0.6.35     rlang_1.1.4       evaluate_0.23    </code></pre>
+</div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># notice that ggplot2 is not listed</span></span>
+<span><span class="co"># but let's try the ggplot() function with the</span></span>
+<span><span class="co"># built-in pressure dataset</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">pressure</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">temperature</span>, <span class="va">pressure</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in ggplot(pressure, aes(temperature, pressure)): could not find function "ggplot"</code></pre>
+</div>
+</div>
+<p>This will generate an error since these functions are not yet available in our session. So, use the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function to LOAD the <code>ggplot2</code> functions into current working memory.</p>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load ggplot2 package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># look at sessionInfo again</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.2 (2024-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22000)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggplot2_3.5.1
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.5       cli_3.6.3         knitr_1.49        rlang_1.1.4      
+ [5] xfun_0.49         generics_0.1.3    jsonlite_1.8.8    glue_1.8.0       
+ [9] colorspace_2.1-0  htmltools_0.5.8.1 scales_1.3.0      fansi_1.0.6      
+[13] rmarkdown_2.26    grid_4.4.2        evaluate_0.23     munsell_0.5.0    
+[17] tibble_3.2.1      fastmap_1.1.1     yaml_2.3.8        lifecycle_1.0.4  
+[21] compiler_4.4.2    dplyr_1.1.4       htmlwidgets_1.6.4 pkgconfig_2.0.3  
+[25] rstudioapi_0.15.0 digest_0.6.35     R6_2.5.1          tidyselect_1.2.1 
+[29] utf8_1.2.4        pillar_1.9.0      magrittr_2.0.3    withr_3.0.2      
+[33] tools_4.4.2       gtable_0.3.6     </code></pre>
+</div>
+</div>
+<p>Notice that under <code>other attached packages</code> we can now see <code>ggplot2_3.5.1</code> indicating that yes <code>ggplot2</code> is installed and in memory and that version 3.5.1 is the version you are currently using.</p>
+<p>Let’s try the plot again.</p>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># try the plot again</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">pressure</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">temperature</span>, <span class="va">pressure</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module131_IntroRRStudio_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="level2"><h2 class="anchored" data-anchor-id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</h2>
-<p>some info</p>
+</section></section><section id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx" class="level2"><h2 class="anchored" data-anchor-id="create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx">5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)</h2>
+<section id="create-a-new-rmarkdown-file" class="level3"><h3 class="anchored" data-anchor-id="create-a-new-rmarkdown-file">Create a new Rmarkdown File</h3>
+<p>We will do more in the later lesson <a href="">1.3.6: Putting reproducible research principles into practice</a>, but let’s take a look at an Rmarkdown file and how we can use it to create a report that combines and links together data + code + documentation to produce a seamless report.</p>
+<p>Go to the RStudio menu and click File/New File/R Markdown:</p>
+<p><img src="rmarkdown_new.png" class="img-fluid"></p>
+<p>Type in a title, your name, the date and choose the format you’d like to create. For your first documents I encourage you to try HTML first. But you can create WORD documents and even PDFs. In addition to documents, you can create slide deck presentations, Shiny apps and other custom products like R packages, websites, books and many more.</p>
+<p><strong>To get started, use the built-in template:</strong></p>
+<ul>
+<li>Type in a title</li>
+<li>Type in your name as author</li>
+<li>Choose and output document format
+<ul>
+<li>HTML is always a good place to start - <strong>only need a browser to read the output <code>*.html</code> file.</strong>
+</li>
+<li>DOC usually works OK - <strong>but you need MS Word or Open Office installed on your computer.</strong>
+</li>
+<li>PDF <strong>NOTE: You need a TEX compiler on your computer</strong> - Installing the <code>tinytex</code> <a href="https://yihui.org/tinytex/">https://yihui.org/tinytex/</a> R package will work.</li>
+</ul>
+</li>
+</ul>
+<p><img src="rmarkdown_menu1.png" class="img-fluid"></p>
+</section><section id="rmarkdown-sections" class="level3"><h3 class="anchored" data-anchor-id="rmarkdown-sections">Rmarkdown sections</h3>
+<p>Here is the <strong>Example RMarkdown Template</strong> provided by RStudio to help you get started.</p>
+<p><img src="rmarkdown_p01.png" class="img-fluid"></p>
+<p>This document consists of the following 3 key sections:</p>
+<ol type="1">
+<li>YAML (yet another markup language) - this is essentially the metadata for your document and defines elements like the title, author, date and type of output document to be created (HTML in this example).</li>
+</ol>
+<p><img src="rmarkdown_yaml.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>R code blocks - the goal is to “interweave” code and documentation so these 2 elements live together. That way the analysis outputs and any associated tables for figures are updated automatically without have to cut-and-paste from other applications into your document - which is time consuming and prone to human errors.</li>
+</ol>
+<p>Notice that the code block starts and ends with 3 backticks <code>```</code> and includes the <code>{r}</code> Rlanguage designation inside the curly braces.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://rmarkdown.rstudio.com/">Rmarkdown</a> can be used for many different programming languages including <code>python</code>, <code>sas</code>, and more, see <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">rmarkdown - language-engines</a>.</p>
+</div>
+</div>
+<p><img src="rmarkdown_rmd2.png" class="img-fluid"></p>
+<p>And along with the R code blocks, we can also create our document with “marked up (or marked down)” text. Rmarkdown is a version of “markdown” which is a simplified set of tags that tell the computer how you want a piece of text formatted. For example putting 2 asterisks <code>**</code> before and after a word will make it <strong>bold</strong>, putting one <code>_</code> underscore before and after a word will make the word <em>italics</em>; one or more hashtags <code>#</code> indicate a header at certain levels, e.g.&nbsp;2 hashtags <code>##</code> indicate a header level 2.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rmarkdown Tutorial
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I encourage you to go through the step by step tutorial at <a href="https://rmarkdown.rstudio.com/lesson-1.html">https://rmarkdown.rstudio.com/lesson-1.html</a>.</p>
+</div>
+</div>
+<p><img src="rmarkdown_mdtext.png" class="img-fluid"></p>
+<p>Here are all 3 sections outlined.</p>
+<p><img src="rmarkdown_all3v2.png" class="img-fluid"></p>
+<p>At the top of the page you’ll notice a little blue button that says “knit” - this will “knit” (or combine) the output from the R code chunks and format the text as “marked up” and produce the HTML file:</p>
+<p><img src="rmarkdown_html.png" class="img-fluid"></p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-base" class="csl-entry" role="listitem">
+R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-ggplot22016" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+</div>
+</section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
+<p><a href="./additionalResources.html"><strong>Other Helpful Resources</strong></a></p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
