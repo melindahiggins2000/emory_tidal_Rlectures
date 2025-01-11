@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://emorytidal.netlify.app/test.html</loc>
-    <lastmod>2025-01-10T17:07:57.841Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/module135_StatisticalTests.html</loc>
-    <lastmod>2025-01-11T11:50:41.148Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/module133_DataVis.html</loc>
-    <lastmod>2025-01-11T11:54:07.209Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/module131_IntroRRStudio.html</loc>
-    <lastmod>2025-01-11T01:51:53.520Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/additionalResources.html</loc>
-    <lastmod>2025-01-10T19:28:01.751Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/index.html</loc>
-    <lastmod>2025-01-10T19:32:45.354Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/module132_DataWrangling.html</loc>
-    <lastmod>2025-01-11T11:53:40.941Z</lastmod>
+    <loc>https://emorytidal.netlify.app/module136_ReproducibleResearch.html</loc>
+    <lastmod>2025-01-11T11:52:55.370Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module134_MissingWeight.html</loc>
     <lastmod>2025-01-11T11:48:22.932Z</lastmod>
   </url>
   <url>
-    <loc>https://emorytidal.netlify.app/module136_ReproducibleResearch.html</loc>
-    <lastmod>2025-01-11T11:52:55.370Z</lastmod>
+    <loc>https://emorytidal.netlify.app/module132_DataWrangling.html</loc>
+    <lastmod>2025-01-11T11:53:40.941Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/index.html</loc>
+    <lastmod>2025-01-11T12:02:02.040Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/additionalResources.html</loc>
+    <lastmod>2025-01-10T19:28:01.751Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/module131_IntroRRStudio.html</loc>
+    <lastmod>2025-01-11T01:51:53.520Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/module133_DataVis.html</loc>
+    <lastmod>2025-01-11T11:54:07.209Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/module135_StatisticalTests.html</loc>
+    <lastmod>2025-01-11T11:50:41.148Z</lastmod>
   </url>
 </urlset>

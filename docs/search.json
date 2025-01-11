@@ -1,339 +1,162 @@
 [
   {
-    "objectID": "test.html",
-    "href": "test.html",
-    "title": "test",
+    "objectID": "module136_ReproducibleResearch.html",
+    "href": "module136_ReproducibleResearch.html",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
     "section": "",
-    "text": "some stuff\nnow add refs\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/."
-  },
-  {
-    "objectID": "module135_StatisticalTests.html",
-    "href": "module135_StatisticalTests.html",
-    "title": "1.3.5: Statistical Tests and Models",
-    "section": "",
-    "text": "Develop linear and logistic regression models.\n(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.\nInterpret a model output.\n\nkey points Key points to cover: 1. Run multivariate linear regression models with R. 2. Run multivariate logistic regression models with R. 3. Include interaction terms in regression models. 4. (R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models) 5. Interpret a model output. 6. (Compare the outputs of unweighted and weighted models.)",
+    "text": "Discuss reproducible research principles.\nApply reproducible research principles to data analysis using R Markdown.\n\nKey points to cover: 1. Reproducible research principles 2. What is R Markdown 3. How to create a report using R Markdown a. Customize the layout of presentations or reports b. Insert and create objects, such as tables, images, or videos, within a document",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module135_StatisticalTests.html#session-objectives",
-    "href": "module135_StatisticalTests.html#session-objectives",
-    "title": "1.3.5: Statistical Tests and Models",
+    "objectID": "module136_ReproducibleResearch.html#session-objectives",
+    "href": "module136_ReproducibleResearch.html#session-objectives",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
     "section": "",
-    "text": "Develop linear and logistic regression models.\n(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.\nInterpret a model output.\n\nkey points Key points to cover: 1. Run multivariate linear regression models with R. 2. Run multivariate logistic regression models with R. 3. Include interaction terms in regression models. 4. (R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models) 5. Interpret a model output. 6. (Compare the outputs of unweighted and weighted models.)",
+    "text": "Discuss reproducible research principles.\nApply reproducible research principles to data analysis using R Markdown.\n\nKey points to cover: 1. Reproducible research principles 2. What is R Markdown 3. How to create a report using R Markdown a. Customize the layout of presentations or reports b. Insert and create objects, such as tables, images, or videos, within a document",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module135_StatisticalTests.html#prework---before-you-begin",
-    "href": "module135_StatisticalTests.html#prework---before-you-begin",
-    "title": "1.3.5: Statistical Tests and Models",
+    "objectID": "module136_ReproducibleResearch.html#prework---before-you-begin",
+    "href": "module136_ReproducibleResearch.html#prework---before-you-begin",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
     "section": "0. Prework - Before You Begin",
     "text": "0. Prework - Before You Begin",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module135_StatisticalTests.html#develop-linear-and-logistic-regression-models.",
-    "href": "module135_StatisticalTests.html#develop-linear-and-logistic-regression-models.",
-    "title": "1.3.5: Statistical Tests and Models",
-    "section": "1. Develop linear and logistic regression models.",
-    "text": "1. Develop linear and logistic regression models.",
+    "objectID": "module136_ReproducibleResearch.html#discuss-reproducible-research-principles.",
+    "href": "module136_ReproducibleResearch.html#discuss-reproducible-research-principles.",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "1. Discuss reproducible research principles.",
+    "text": "1. Discuss reproducible research principles.",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module135_StatisticalTests.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values.",
-    "href": "module135_StatisticalTests.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values.",
-    "title": "1.3.5: Statistical Tests and Models",
-    "section": "2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)",
-    "text": "2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)\nCurrently, this objective is under the Module 1.3.4: Missing data and sampling weight.",
+    "objectID": "module136_ReproducibleResearch.html#apply-reproducible-research-principles-to-data-analysis-using-r-markdown.",
+    "href": "module136_ReproducibleResearch.html#apply-reproducible-research-principles-to-data-analysis-using-r-markdown.",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "section": "2. Apply reproducible research principles to data analysis using R Markdown.",
+    "text": "2. Apply reproducible research principles to data analysis using R Markdown.",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module135_StatisticalTests.html#interpret-a-model-output.",
-    "href": "module135_StatisticalTests.html#interpret-a-model-output.",
-    "title": "1.3.5: Statistical Tests and Models",
-    "section": "3. Interpret a model output.",
-    "text": "3. Interpret a model output.",
-    "crumbs": [
-      "1.3.5: Statistical Tests and Models"
-    ]
-  },
-  {
-    "objectID": "module135_StatisticalTests.html#references",
-    "href": "module135_StatisticalTests.html#references",
-    "title": "1.3.5: Statistical Tests and Models",
+    "objectID": "module136_ReproducibleResearch.html#references",
+    "href": "module136_ReproducibleResearch.html#references",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
     "section": "References",
     "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module135_StatisticalTests.html#other-helpful-resources",
-    "href": "module135_StatisticalTests.html#other-helpful-resources",
-    "title": "1.3.5: Statistical Tests and Models",
+    "objectID": "module136_ReproducibleResearch.html#other-helpful-resources",
+    "href": "module136_ReproducibleResearch.html#other-helpful-resources",
+    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
     "section": "Other Helpful Resources",
     "text": "Other Helpful Resources\nOther Helpful Resources",
     "crumbs": [
-      "1.3.5: Statistical Tests and Models"
+      "1.3.6: Reproducible Research Principles"
     ]
   },
   {
-    "objectID": "module133_DataVis.html",
-    "href": "module133_DataVis.html",
-    "title": "1.3.3: Data Visualization",
+    "objectID": "module134_MissingWeight.html",
+    "href": "module134_MissingWeight.html",
+    "title": "1.3.4: Missing Data and Sampling Weights",
     "section": "",
-    "text": "To visualize data using different R packages.\n\nKey points to cover: 1. Introduce to ggplot2 and other R packages. 2. Visualize one, two, or more variables at a time. 3. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
+    "text": "Identify and summarize missing data.\nLearn methods to handle missing data according to variable type.\nUse a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)\nDiscuss potential bias when removing missing observations without careful examination.\n\nkey points 1. R packages that support missing data examination 2. Mean/median imputation for continuous variables 3. What to do with missing observations for categorical variables 4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables a. What to do if such association significantly differs between complete and missing observations 5. R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#session-objectives",
-    "href": "module133_DataVis.html#session-objectives",
-    "title": "1.3.3: Data Visualization",
+    "objectID": "module134_MissingWeight.html#session-objectives",
+    "href": "module134_MissingWeight.html#session-objectives",
+    "title": "1.3.4: Missing Data and Sampling Weights",
     "section": "",
-    "text": "To visualize data using different R packages.\n\nKey points to cover: 1. Introduce to ggplot2 and other R packages. 2. Visualize one, two, or more variables at a time. 3. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
+    "text": "Identify and summarize missing data.\nLearn methods to handle missing data according to variable type.\nUse a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)\nDiscuss potential bias when removing missing observations without careful examination.\n\nkey points 1. R packages that support missing data examination 2. Mean/median imputation for continuous variables 3. What to do with missing observations for categorical variables 4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables a. What to do if such association significantly differs between complete and missing observations 5. R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#prework---before-you-begin",
-    "href": "module133_DataVis.html#prework---before-you-begin",
-    "title": "1.3.3: Data Visualization",
+    "objectID": "module134_MissingWeight.html#prework---before-you-begin",
+    "href": "module134_MissingWeight.html#prework---before-you-begin",
+    "title": "1.3.4: Missing Data and Sampling Weights",
     "section": "0. Prework - Before You Begin",
     "text": "0. Prework - Before You Begin",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#base-r-graphical-functions",
-    "href": "module133_DataVis.html#base-r-graphical-functions",
-    "title": "1.3.3: Data Visualization",
-    "section": "1. Base R graphical functions",
-    "text": "1. Base R graphical functions",
+    "objectID": "module134_MissingWeight.html#identify-and-summarize-missing-data.",
+    "href": "module134_MissingWeight.html#identify-and-summarize-missing-data.",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "1. Identify and summarize missing data.",
+    "text": "1. Identify and summarize missing data.",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#ggplot2-package",
-    "href": "module133_DataVis.html#ggplot2-package",
-    "title": "1.3.3: Data Visualization",
-    "section": "2. ggplot2 package",
-    "text": "2. ggplot2 package",
+    "objectID": "module134_MissingWeight.html#learn-methods-to-handle-missing-data-according-to-variable-type.",
+    "href": "module134_MissingWeight.html#learn-methods-to-handle-missing-data-according-to-variable-type.",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "2. Learn methods to handle missing data according to variable type.",
+    "text": "2. Learn methods to handle missing data according to variable type.",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#get-boilerplate-code-to-start",
-    "href": "module133_DataVis.html#get-boilerplate-code-to-start",
-    "title": "1.3.3: Data Visualization",
-    "section": "3. Get boilerplate code to start",
-    "text": "3. Get boilerplate code to start\nR Gallery\nR Graphics Cookbook",
+    "objectID": "module134_MissingWeight.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro",
+    "href": "module134_MissingWeight.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)",
+    "text": "3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#references",
-    "href": "module133_DataVis.html#references",
-    "title": "1.3.3: Data Visualization",
+    "objectID": "module134_MissingWeight.html#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.",
+    "href": "module134_MissingWeight.html#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.",
+    "title": "1.3.4: Missing Data and Sampling Weights",
+    "section": "4. Discuss potential bias when removing missing observations without careful examination.",
+    "text": "4. Discuss potential bias when removing missing observations without careful examination.",
+    "crumbs": [
+      "1.3.4: Missing Data and Sampling Weights"
+    ]
+  },
+  {
+    "objectID": "module134_MissingWeight.html#references",
+    "href": "module134_MissingWeight.html#references",
+    "title": "1.3.4: Missing Data and Sampling Weights",
     "section": "References",
     "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
     "crumbs": [
-      "1.3.3: Data Visualization"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
-    "objectID": "module133_DataVis.html#other-helpful-resources",
-    "href": "module133_DataVis.html#other-helpful-resources",
-    "title": "1.3.3: Data Visualization",
+    "objectID": "module134_MissingWeight.html#other-helpful-resources",
+    "href": "module134_MissingWeight.html#other-helpful-resources",
+    "title": "1.3.4: Missing Data and Sampling Weights",
     "section": "Other Helpful Resources",
     "text": "Other Helpful Resources\nOther Helpful Resources",
     "crumbs": [
-      "1.3.3: Data Visualization"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html",
-    "href": "module131_IntroRRStudio.html",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "",
-    "text": "Get acquainted with R and R Studio\nWrite simple R code in Console\nCreate your first R script\nInstall and load R packages (understand R session)\nCreate your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#session-objectives",
-    "href": "module131_IntroRRStudio.html#session-objectives",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "",
-    "text": "Get acquainted with R and R Studio\nWrite simple R code in Console\nCreate your first R script\nInstall and load R packages (understand R session)\nCreate your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#prework---before-you-begin",
-    "href": "module131_IntroRRStudio.html#prework---before-you-begin",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "0. Prework - Before You Begin",
-    "text": "0. Prework - Before You Begin\n\n\n\n\n\n\nNote\n\n\n\nNote: R is the name of the programming language itself and RStudio is an integrated development environment (IDE) which is an enhanced interface for better organization, files management and analysis workflows.\n\n\nSoftware and Applications to Download\n\nFIRST, Download and install R onto your computer from https://cran.r-project.org/.\nNEXT, After installing R, download and install RStudio Desktop onto your computer from https://posit.co/download/rstudio-desktop/.",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#get-aquainted-with-r-and-r-studio",
-    "href": "module131_IntroRRStudio.html#get-aquainted-with-r-and-r-studio",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "1. Get aquainted with R and R Studio",
-    "text": "1. Get aquainted with R and R Studio\nBasic R\nWhen you download R from CRAN and install it on your computer, there is a R application that you can run. However, it is very bare bones. Here is a screenshot of what it looks like on my computer (Windows 11 operating system).\n\nYou can type commands in the console window at the prompt “&gt;” but this is slow and tedious. You can also write and execute scripts from inside this application and see the output back in the console window as well as creating plots. But managing large projects using this interface is not efficient.\n\n\nRStudio IDE\nThe RStudio Integrated Development Environment (IDE) application provides much better tools for managing files within a given “project”. This biggest advantage of working in an IDE is everything is contained and managed within a given project, which is linked to a specific folder (container) on your compute (or cloud drive you may have access to).\nHowever, you will still need to write and execute code using scripts and related files. An IDE is NOT a GUI (graphical user interface) which is the “point and click” workflow you may have experience with if you’ve used other analysis software applications such as SPSS, SAS Studio, Excel and similar.\n\nThe interface is usually arranged with the following 4 “panes” or windows:\n\nConsole\nSource\nEnvironment\nFiles\n\n\nThe typical arrangement, usually has the “Console” window pane at the bottom left. This window also usually has a TAB for the “terminal” and any “background jobs” that might be running.\n\n\nThe “Source” window pane is usually at the top left. This is where you will do most of your editing of your R program scripts (*.R) or Rmarkdown files *.Rmd). This is also where the data viewer window will open. You can also open and edit other kinds of files here as well (*.tex, *.css, *.txt, and more).\n\n\nThe top right window pane should always have your “Environment”, “History” and “Tutorial” TABS but may also have TABS for “Build” and”Git” depending on your project type and options selected.\n\n\nThe bottom right window pane has TABS for your:\n\nFiles directory\nPlots window for graphical output\nPackages - which lists all add-on R packages installed on your computer\nHelp window\nas well as other TABS for Viewer and Presentation for viewing other kinds of output.\n\n\n\nCustomising your RStudio interface\nYou also have the option to rearrange your window panes as well as change the look and feel of your programming interface and much more. To explore all of your options, click on the menu at the top for “Tools/Global Options”:\n\nTake a look at the left side for the list of all of the options. Some of the most useful options to be aware of are:\n\nGeneral\nAppearance, and\nPane Layout\n\n\nIn the “General” tab, this is where you can see and confirm that R is installed and where the R programming language app is installed on your computer.\n\n\nYou will probably want to explore tuning these appearance parameters to customize the appears to your preferences. For example, you can change the ZOOM level to improve readability. You may also want to change the FONT sizes for the Editor and Help windows as needed. I also encourage you to try out different Editor Themes which will change the colors of the R code as well as background colors (light or dark).\n\n\nI would suggest NOT changing the layout of the window panes until you are very familiar with the default settings. But this is where you can see what the default settings are and what other options are available to you.",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#write-simple-r-code-in-console",
-    "href": "module131_IntroRRStudio.html#write-simple-r-code-in-console",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "2. Write simple R code in Console",
-    "text": "2. Write simple R code in Console\nSimple math\nSo, let’s start with some simple R code using the Console window and typing commands at the &gt; prompt.\nYou can write simple math expressions like 5 + 5.\n\n5 + 5\n\n[1] 10\n\n\nNotice that the output shows the number 1 enclosed in square brackets followed by the answer (or output) of 10.\n[1] 10\nThis is because R performed the addition operation using the + operator and then “saved” the output in temporary memory as a scalar object with 1 element, which is the number 10.\nYou can actually see this temporary object by typing .Last.value\n.Last.value\n[1] 10\nHowever, if we look at our current computing environment (see upper right window pane), it is still showing as empty.\n\nThis is because we have not yet “saved” the output into an object that we created. Let’s save this output into an object called ten.\nTo do this we need to do 2 things:\n\nCreate the object called ten\n\nUse the “assign” operator &lt;- to take the result of 5 + 5 and move it (save it or pipe it) into the object ten.\n\n\nten &lt;- 5 + 5\n\nTo “see” the output of this object - you can either see it now in your Global Environment or type the object name in the Console to view it.\n\nten\n\n[1] 10\n\n\n\nIt is important to remember that R is an “object-oriented” programming language - everything in R is an object.\nBuilt in constants\nThere are several built in “constants” in R. Try typing these in at the Console to see the results.\n\npi\n\n[1] 3.141593\n\nletters\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\" \"k\" \"l\" \"m\" \"n\" \"o\" \"p\" \"q\" \"r\" \"s\"\n[20] \"t\" \"u\" \"v\" \"w\" \"x\" \"y\" \"z\"\n\nLETTERS\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\"\n\nmonth.name\n\n [1] \"January\"   \"February\"  \"March\"     \"April\"     \"May\"       \"June\"     \n [7] \"July\"      \"August\"    \"September\" \"October\"   \"November\"  \"December\" \n\n\nFor the constants like letters you get a list of the 26 lower case letters. Notice that the number in [square brackets] updates for each new line printed out. This allows you to keep track of the number of elements in the output object. letters is an “character” array with 26 elements.\nTo confirm these details, we can use the class() function to determine that letters has all “character” elements. The length() function will let you know that there are 26 elements.\n\nclass(letters)\n\n[1] \"character\"\n\nlength(letters)\n\n[1] 26\n\n\nGetting help\nIf you would like to learn more about these built-in “constants”, you can get help in one of two ways. You can either type help(pi) in the Console (lower left) or type pi in the Help window (lower right).\n\nhelp(pi)\n\n\nTry out a function\nThe majority of the R programming language functionality is driven by functions. Technically the + operator is actually a function that performs a sum.\nYou can even get help on these operators, by typing help(\"+\"). We have to add the quotes \"\" so that R knows we are looking for this operator and not trying to perform an addition operation inside the function call.\n\nhelp(\"+\")\n\nBut let’s try a function to create a sequence of numbers - for example, a sequence from 1 to 10.\n\nseq(10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nAnd let’s look at the help page for the seq() function.\n\nR allows for what is called “lazy” coding. This basically means you can provide very minimal input and R will try to figure out what you want using the default settings for a given function. In the case of seq() the function begins by default at 1 and creates and output in steps of 1 up to the value of 10.\nWhile “lazy” coding practices are common with R, it would actually be better to explicitly define each argument to make sure you get the exact output you want. To do this, inside the parentheses () assign a value to each argument. For example:\n\nseq(from = 1,\n    to = 10,\n    by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nYou could easily change these to get a sequence from 0 to 1 in steps of 0.1 as follows:\n\nseq(from = 0,\n    to = 1,\n    by = 0.1)\n\n [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#create-your-first-r-script",
-    "href": "module131_IntroRRStudio.html#create-your-first-r-script",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "3. Create your first R script",
-    "text": "3. Create your first R script\nSave your code in a new script\nSo, as you can tell, the R Console is useful but slow and tedious. Let’s create an R script to save all of these commands in a file that we can easily access everything we’ve done so far and re-run these commands as needed.\nIn RStudio go to the top menu File/New File/R Script:\n\nOnce the R Script file is created, type in some of the commands we did above in the Console and put one command on each line.\nJust select each line and click “Run”.\n\nThen you can save the file on your computer as “myscript.R” for example.\nYou can also select all of the rows and click run to see the output in the Console Window.\n\nHere is the code and output:\n\n4 + 4\n\n[1] 8\n\nsqrt(25)\n\n[1] 5\n\npi\n\n[1] 3.141593\n\nseq(from=1, to=10, by=0.5)\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0\n\n\nCreate R objects and Use Them\nLet’s try out some more built-in R functions, save the output in objects in the environment and then use them in other functions.\nCreate a sequence of numbers and save them as an object called x. I also added a comment in the R code block below. Everything after the # hashtag is a comment which R will ignore. It is a good idea to add comments in your code to make sure that you and others understand what each part of your code does.\n\n# save sequence of numbers \n# from 1 to 10 in steps of 0.5\n# in an object named x\nx &lt;- seq(from=1, to=10, by=0.5)\n\n# Type x to view the contents\nx\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0\n\n\nAlso take a look at the Global Environment to see the new object x.\n\n\n# use x to create new object y\ny &lt;- x*x\n\nOnce the object y is created, we can make a simple 2-dimensional scatterplot.\n\n# plot x and y\nplot(x,y)\n\n\n\n\n\n\n\nThe plot is shown below, but if you are running this in the RStudio desktop, check the Plots window pane (lower right).\n\nOn your own\nDownload Rscript_01.R open it in your RStudio and run through the code. Try out new variations on your own.",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#install-and-load-r-packages-understand-r-session",
-    "href": "module131_IntroRRStudio.html#install-and-load-r-packages-understand-r-session",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "4. Install and load R packages (understand R session)",
-    "text": "4. Install and load R packages (understand R session)\nsessionInfo()\nWhile the base installation of R is pretty powerful on it’s own, the beauty of R and the R programming community is that there are literally hundreds of thousands if not millions of people programming in R and creating new functions everyday.\nIn order to use these new functions, the developers put them together in packages that we can install to extend the functionality of R.\nBut first, let’s take a look at the packages that are part of the basic installation of R. One way to see which packages are currently installed and loaded into your current R computing session, is by typing sessionInfo().\nYou will also notice that the sessionInfo() command also lists the version of R I’m currently running (4.4.2), my operating system (Windows 11) and and my locale (USA, East Coast). These details can sometimes be helpful for collaborating with others who may be working with different system settings and for debugging errors.\nsessionInfo()\n\n7 Base R Packages\nThe basic installation of R includes 7 packages:\n\nstats\ngraphics\ngrDevices\nutils\ndatasets\nmethods\nbase\n\nTo learn more click on the Packages tan in the lower right window pane to see the list of packages installed on your computer. I have a lot of Packages, but here is a screenshot of the base packages.\nSee the packages listed under “System Library” which are the ones that were installed with base R. You’ll notice that only some of these have checkmarks next to them. The checkmark means those are also loaded into your R session. Only some of them are loaded into memory by default to minimize the use of your computer’s memory.\n\nInstall a Package and Load it into R session memory\nLet’s install an R package, like ggplot2.\nGo to the RStudio menu Tools/Install Packages\n\nThis will then open up a window where you can type in the name of the package you want. As soon as we start typing ggplot2 the menu begins listing all packages with that partial spelling…\n\nYou’ll notice that there are 3 parts to the installation:\n\nWhere you want to get the package - from which repository (more below).\nThe name of the package. You can actually type more than one package name at a time separated by commas.\nThe file location on your computer where the new package is installed - your file location will be different than mine. But this is useful to know in case something goes wrong. I would suggest keeping the default settings.\n\n\nWhere to get packages - CRAN\nUsing the Tools/Install Packages menu from within RStudio automatically links to CRAN, which is the “The Comprehensive R Archive Network”. You’ve already been here once to download and install the R programming language application.\n\nHowever, you can also click on “Packages” at the left to see the full list of packages currently available. As of right now (01/10/2025 at 5:12pm EST) there are 21,872 packages. This number increases every day as people create, validate and publish their packages on CRAN. You can get a list of all of the packages or if you have no idea what package you need, you can also look at the “Task Views” to see groupings of packages.\nHere is what the list of Packages looks like sorted by name:\n\nHowever, you can also browse Packages by “Task View”:\n\nFor example, suppose you are interested in survival analysis, here is a screenshot of the Survival Task View.\nAs you can see each Task View has a person(s) listed who help to maintain these collections. As you scroll through the webpage, you’ll see links to packages they recommend along with a description of what the packages do. For example, see the links below to the survival and rms packages.\n\nWhere to get packages - Bioconductor\nWhile the list of R packages on CRAN is impressive, if you plan to do analyses of biological data, there is a good chance you will need a package from Bioconductor.org.\nAs of right now (01/10/2025 at 6:45pm EST) there are 2289 packages. Similar to CRAN, Bioconductor requires each package to meet certain validation criteria and code testing requirements even more stringent than CRAN. You notice that you can search for packages under the biocViews (left side column) or you can sort them alphabetically or search for individual packages in the section on the right side.\n\nThe one disadvantage of R packages from Bioconductor is that you cannot install them directly using the RStudio menu for Tools/Install Packages - you cannot “see” the Bioconductor repository from inside RStudio. Instead you have to install these using R code. For example, here is what you need to do to install the phyloseq package which “… provides a set of classes and tools to facilitate the import, storage, analysis, and graphical display of microbiome census data”.\nSee the black box of code below, to install phyloseq you need to:\n\nInstall BiocManager from CRAN - this you can install from the RStudio menu for Tools/Install Packages.\nThen go to the Console or open an R script and run:\n\ninstall.packages(\"BiocManager\")\n\nWhere to get packages - Github, friends, teammates, …\nIn addition to CRAN and Bioconductor, you can get packages from Github, friends, teammates or write your own. To get an idea of how many packages may be currently on Github, we can “search” for “R package” https://github.com/search?q=R+package&type=repositories and as you can see this is well over 118,000+ packages.\n\nWhile you can find packages on Github that have not (yet) been published on CRAN or Bioconductor, the developers of packages currently on CRAN and Bioconductor also often publish their development version (think of these as in “beta” and still under going testing) on Github. For example, the current published version of the data wrangling dplyr package was last updated on 11/17/2023.\n\nBut the development version of dplyr on Github was last updated 5 months ago in August 2024.\n\nSo, while the developers haven’t published this on CRAN, if you want to test out new functions and updates under development for this package, you can go to the R Console or write a R script to install the development version using these commands (see below) which is explained on the dplyr on Github website.\n# install.packages(\"pak\")\npak::pak(\"tidyverse/dplyr\")\n\nFinding and vetting R packages\nSo, as you have seen there are numerous ways to find R packages and there are hundreds of thousands of them out there. Your company or team may have their own custom R package tailored for your specific research areas and data analysis workflows.\nFinding R packages is similar to finding new questionnaires, surveys or instruments for your research. For example, if you want to measures someone’s depression levels, you would probably use a validated instrument like the Center for Epidemiological Studies-Depression (CESD) or the Beck Depression Index (BDI). These measures have been well published and are well established for depression research.\nFinding R packages is similar - do your research! Make sure that the R package has been published and is well established to do the analysis you want. In terms of reliability, getting packages from CRAN or Bioconductor are the best followed by Github or other individuals. The best suggestion is look to see which R packages are being used by other people in your field.\nTo get an idea of how long a package has been in use and if it is still being actively supported and how it relates to other similar packages, check out this interactive Shiny app website for CRAN downloads. Type in the packages you want to compare and changes the dates - here is an example comparing arsenal, gtsummary, and tableone packages all of which are useful for making tables of summary statistics (aka, “Table 1”) - showing the number of downloads since the beginning of Jan 1, 2024.\nAs you can see the most downloaded is gtsummary followed by arsenal with tableone having the fewest downloads. This does NOT necessarily imply quality, but it does give you some insight into the popularity of these packages.\n\nHere is an example of 2 specific packages I like. The rggobi package which was great for visualizing multiple dimensions of data simultaneously but which is no longer supported and the newer tourr package which was written by the same developer to replace the rggobi package. You can see that in the middle of 2020, the number of downloads for rggobi dropped almost to 0 and the tourr package downloads started to rise - this is about when they switched over from maintaining one package to supporting the newer one. rggobi on CRAN moved to archived status in July 2020, but tourr on CRAN was last updated in April 2024.\n\nSo, do your homework and check to see when the package was last updated, who maintains it and how good their documentation is for the package and what it does.\nLoad the new R package into your R session\nAfter you’ve decided what package you want and have installed it onto your computer, you must load it into memory for EVERY new R session for which you want those functions available.\nFor example, suppose I want to make a plot using the ggplot2 package. Before I can use the ggplot() function, I have to load that package into my computing session. Here is an example:\n\n# show current sessionInfo\nsessionInfo()\n\nR version 4.4.2 (2024-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64\nRunning under: Windows 11 x64 (build 22000)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: America/New_York\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] htmlwidgets_1.6.4 compiler_4.4.2    fastmap_1.1.1     cli_3.6.3        \n [5] tools_4.4.2       htmltools_0.5.8.1 rstudioapi_0.15.0 yaml_2.3.8       \n [9] rmarkdown_2.26    knitr_1.49        jsonlite_1.8.8    xfun_0.49        \n[13] digest_0.6.35     rlang_1.1.4       evaluate_0.23    \n\n# notice that ggplot2 is not listed\n# but let's try the ggplot() function with the\n# built-in pressure dataset\nggplot(pressure, aes(temperature, pressure)) +\n  geom_point()\n\nError in ggplot(pressure, aes(temperature, pressure)): could not find function \"ggplot\"\n\n\nThis will generate an error since these functions are not yet available in our session. So, use the library() function to LOAD the ggplot2 functions into current working memory.\n\n# load ggplot2 package\nlibrary(ggplot2)\n\n# look at sessionInfo again\nsessionInfo()\n\nR version 4.4.2 (2024-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64\nRunning under: Windows 11 x64 (build 22000)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: America/New_York\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] ggplot2_3.5.1\n\nloaded via a namespace (and not attached):\n [1] vctrs_0.6.5       cli_3.6.3         knitr_1.49        rlang_1.1.4      \n [5] xfun_0.49         generics_0.1.3    jsonlite_1.8.8    glue_1.8.0       \n [9] colorspace_2.1-0  htmltools_0.5.8.1 scales_1.3.0      fansi_1.0.6      \n[13] rmarkdown_2.26    grid_4.4.2        evaluate_0.23     munsell_0.5.0    \n[17] tibble_3.2.1      fastmap_1.1.1     yaml_2.3.8        lifecycle_1.0.4  \n[21] compiler_4.4.2    dplyr_1.1.4       htmlwidgets_1.6.4 pkgconfig_2.0.3  \n[25] rstudioapi_0.15.0 digest_0.6.35     R6_2.5.1          tidyselect_1.2.1 \n[29] utf8_1.2.4        pillar_1.9.0      magrittr_2.0.3    withr_3.0.2      \n[33] tools_4.4.2       gtable_0.3.6     \n\n\nNotice that under other attached packages we can now see ggplot2_3.5.1 indicating that yes ggplot2 is installed and in memory and that version 3.5.1 is the version you are currently using.\nLet’s try the plot again.\n\n# try the plot again\nggplot(pressure, aes(temperature, pressure)) +\n  geom_point()",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx",
-    "href": "module131_IntroRRStudio.html#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
-    "text": "5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)\nCreate a new Rmarkdown File\nWe will do more in the later lesson 1.3.6: Putting reproducible research principles into practice, but let’s take a look at an Rmarkdown file and how we can use it to create a report that combines and links together data + code + documentation to produce a seamless report.\nGo to the RStudio menu and click File/New File/R Markdown:\n\nType in a title, your name, the date and choose the format you’d like to create. For your first documents I encourage you to try HTML first. But you can create WORD documents and even PDFs. In addition to documents, you can create slide deck presentations, Shiny apps and other custom products like R packages, websites, books and many more.\nTo get started, use the built-in template:\n\nType in a title\nType in your name as author\nChoose and output document format\n\nHTML is always a good place to start - only need a browser to read the output *.html file.\n\nDOC usually works OK - but you need MS Word or Open Office installed on your computer.\n\nPDF NOTE: You need a TEX compiler on your computer - Installing the tinytex https://yihui.org/tinytex/ R package will work.\n\n\n\n\nRmarkdown sections\nHere is the Example RMarkdown Template provided by RStudio to help you get started.\n\nThis document consists of the following 3 key sections:\n\nYAML (yet another markup language) - this is essentially the metadata for your document and defines elements like the title, author, date and type of output document to be created (HTML in this example).\n\n\n\nR code blocks - the goal is to “interweave” code and documentation so these 2 elements live together. That way the analysis outputs and any associated tables for figures are updated automatically without have to cut-and-paste from other applications into your document - which is time consuming and prone to human errors.\n\nNotice that the code block starts and ends with 3 backticks ``` and includes the {r} Rlanguage designation inside the curly braces.\n\n\n\n\n\n\nNote\n\n\n\nRmarkdown can be used for many different programming languages including python, sas, and more, see rmarkdown - language-engines.\n\n\n\nAnd along with the R code blocks, we can also create our document with “marked up (or marked down)” text. Rmarkdown is a version of “markdown” which is a simplified set of tags that tell the computer how you want a piece of text formatted. For example putting 2 asterisks ** before and after a word will make it bold, putting one _ underscore before and after a word will make the word italics; one or more hashtags # indicate a header at certain levels, e.g. 2 hashtags ## indicate a header level 2.\n\n\n\n\n\n\nRmarkdown Tutorial\n\n\n\nI encourage you to go through the step by step tutorial at https://rmarkdown.rstudio.com/lesson-1.html.\n\n\n\nHere are all 3 sections outlined.\n\nAt the top of the page you’ll notice a little blue button that says “knit” - this will “knit” (or combine) the output from the R code chunks and format the text as “marked up” and produce the HTML file:",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#references",
-    "href": "module131_IntroRRStudio.html#references",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "References",
-    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.\n\n\nWickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics. https://ggplot2.tidyverse.org.",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "module131_IntroRRStudio.html#other-helpful-resources",
-    "href": "module131_IntroRRStudio.html#other-helpful-resources",
-    "title": "1.3.1: Introduction to R and R Studio",
-    "section": "Other Helpful Resources",
-    "text": "Other Helpful Resources\nOther Helpful Resources",
-    "crumbs": [
-      "1.3.1: Introduction to the R and R Studio"
-    ]
-  },
-  {
-    "objectID": "additionalResources.html",
-    "href": "additionalResources.html",
-    "title": "Additional Help and Resources",
-    "section": "",
-    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
-    "crumbs": [
-      "Additional Help and Resources"
-    ]
-  },
-  {
-    "objectID": "additionalResources.html#r-and-rstudio-helpful-resources",
-    "href": "additionalResources.html#r-and-rstudio-helpful-resources",
-    "title": "Additional Help and Resources",
-    "section": "",
-    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
-    "crumbs": [
-      "Additional Help and Resources"
-    ]
-  },
-  {
-    "objectID": "additionalResources.html#other-helpful-websites",
-    "href": "additionalResources.html#other-helpful-websites",
-    "title": "Additional Help and Resources",
-    "section": "Other Helpful Websites",
-    "text": "Other Helpful Websites\n\nDatacamp\nR for SAS Users - My Datacamp Course\nCoursera\nReproducible Templates for Analysis and Dissemination - My Coursera Course\nEmory N741\nEmory N736",
-    "crumbs": [
-      "Additional Help and Resources"
-    ]
-  },
-  {
-    "objectID": "additionalResources.html#helpful-online-books",
-    "href": "additionalResources.html#helpful-online-books",
-    "title": "Additional Help and Resources",
-    "section": "Helpful Online Books",
-    "text": "Helpful Online Books\n\nBook: Statistical Inference via Data Science\nBook: The Epidemiologist R Handbook\nBook/Course: Stat 545",
-    "crumbs": [
-      "Additional Help and Resources"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Theme 1. Measurement and Prediction of IPV",
-    "section": "",
-    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#module-1.3-data-analytics-using-r",
-    "href": "index.html#module-1.3-data-analytics-using-r",
-    "title": "Theme 1. Measurement and Prediction of IPV",
-    "section": "",
-    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#project-tidal",
-    "href": "index.html#project-tidal",
-    "title": "Theme 1. Measurement and Prediction of IPV",
-    "section": "Project TIDAL",
-    "text": "Project TIDAL\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S.",
-    "crumbs": [
-      "Home"
+      "1.3.4: Missing Data and Sampling Weights"
     ]
   },
   {
@@ -447,163 +270,333 @@
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html",
-    "href": "module134_MissingWeight.html",
-    "title": "1.3.4: Missing Data and Sampling Weights",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Theme 1. Measurement and Prediction of IPV",
     "section": "",
-    "text": "Identify and summarize missing data.\nLearn methods to handle missing data according to variable type.\nUse a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)\nDiscuss potential bias when removing missing observations without careful examination.\n\nkey points 1. R packages that support missing data examination 2. Mean/median imputation for continuous variables 3. What to do with missing observations for categorical variables 4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables a. What to do if such association significantly differs between complete and missing observations 5. R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models",
+    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "Home"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#session-objectives",
-    "href": "module134_MissingWeight.html#session-objectives",
-    "title": "1.3.4: Missing Data and Sampling Weights",
+    "objectID": "index.html#module-1.3-data-analytics-using-r",
+    "href": "index.html#module-1.3-data-analytics-using-r",
+    "title": "Theme 1. Measurement and Prediction of IPV",
     "section": "",
-    "text": "Identify and summarize missing data.\nLearn methods to handle missing data according to variable type.\nUse a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)\nDiscuss potential bias when removing missing observations without careful examination.\n\nkey points 1. R packages that support missing data examination 2. Mean/median imputation for continuous variables 3. What to do with missing observations for categorical variables 4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables a. What to do if such association significantly differs between complete and missing observations 5. R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models",
+    "text": "Presented by Melinda Higgins, PhD\nModule 1.3 will introduce the learner to writing code in the R language and utilizing the RStudio IDE (integrated development environment). This module will include 6 sessions - the first 3 will be asynchronous-online (AO) and the last 3 will be in-person (IP).\nThe 6 sessions are:\n\n1.3.1: Introduction to R and R Studio (AO)\n1.3.2: Data Wrangling (AO)\n1.3.3: Data Visualization (AO)\n1.3.4: Missing data and sampling weight (IP)\n1.3.5: Statistical tests and models (IP)\n1.3.6: Putting reproducible research principles into practice (IP)",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "Home"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#prework---before-you-begin",
-    "href": "module134_MissingWeight.html#prework---before-you-begin",
-    "title": "1.3.4: Missing Data and Sampling Weights",
+    "objectID": "index.html#project-tidal",
+    "href": "index.html#project-tidal",
+    "title": "Theme 1. Measurement and Prediction of IPV",
+    "section": "Project TIDAL",
+    "text": "Project TIDAL\nProject TIDAL is an NIH-funded R25 study (1 R25 NR021324-01 ), co-led by Drs. Sangmi Kim and Ran Xiao from Nell Hodgson Woodruff School of Nursing at Emory University.\nThe objective of the study is to develop a short course titled “Trauma-Informed Data Science and Digital Health Technologies to Prevent Intimate Partner Violence (IPV) among Pregnant/Postpartum Women” targeting early-career researchers (predoctoral, postdoctoral, and junior faculty) from diverse backgrounds across the U.S.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html",
+    "href": "additionalResources.html",
+    "title": "Additional Help and Resources",
+    "section": "",
+    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html#r-and-rstudio-helpful-resources",
+    "href": "additionalResources.html#r-and-rstudio-helpful-resources",
+    "title": "Additional Help and Resources",
+    "section": "",
+    "text": "Download: R from CRAN\n\nThis is where you can download the R language software for FREE for your own computer.\nChoose your operating system (Mac OS or Windows or Linux/Unix)\nNOTE: For Windows, you should also download and install Rtools - this is technically optional, but is useful to have. Make sure to download the one for your R version.\n\nDownload: RStudio IDE Desktop\n\nNote: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.\n\nRStudio Education\nRStudio Cloud Tutorials\n** Quick-R **\nRmarkdown Tutorial\ntidyverse",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html#other-helpful-websites",
+    "href": "additionalResources.html#other-helpful-websites",
+    "title": "Additional Help and Resources",
+    "section": "Other Helpful Websites",
+    "text": "Other Helpful Websites\n\nDatacamp\nR for SAS Users - My Datacamp Course\nCoursera\nReproducible Templates for Analysis and Dissemination - My Coursera Course\nEmory N741\nEmory N736",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "additionalResources.html#helpful-online-books",
+    "href": "additionalResources.html#helpful-online-books",
+    "title": "Additional Help and Resources",
+    "section": "Helpful Online Books",
+    "text": "Helpful Online Books\n\nBook: Statistical Inference via Data Science\nBook: The Epidemiologist R Handbook\nBook/Course: Stat 545",
+    "crumbs": [
+      "Additional Help and Resources"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html",
+    "href": "module131_IntroRRStudio.html",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "",
+    "text": "Get acquainted with R and R Studio\nWrite simple R code in Console\nCreate your first R script\nInstall and load R packages (understand R session)\nCreate your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#session-objectives",
+    "href": "module131_IntroRRStudio.html#session-objectives",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "",
+    "text": "Get acquainted with R and R Studio\nWrite simple R code in Console\nCreate your first R script\nInstall and load R packages (understand R session)\nCreate your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#prework---before-you-begin",
+    "href": "module131_IntroRRStudio.html#prework---before-you-begin",
+    "title": "1.3.1: Introduction to R and R Studio",
     "section": "0. Prework - Before You Begin",
-    "text": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin\n\n\n\n\n\n\nNote\n\n\n\nNote: R is the name of the programming language itself and RStudio is an integrated development environment (IDE) which is an enhanced interface for better organization, files management and analysis workflows.\n\n\nSoftware and Applications to Download\n\nFIRST, Download and install R onto your computer from https://cran.r-project.org/.\nNEXT, After installing R, download and install RStudio Desktop onto your computer from https://posit.co/download/rstudio-desktop/.",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#identify-and-summarize-missing-data.",
-    "href": "module134_MissingWeight.html#identify-and-summarize-missing-data.",
-    "title": "1.3.4: Missing Data and Sampling Weights",
-    "section": "1. Identify and summarize missing data.",
-    "text": "1. Identify and summarize missing data.",
+    "objectID": "module131_IntroRRStudio.html#get-aquainted-with-r-and-r-studio",
+    "href": "module131_IntroRRStudio.html#get-aquainted-with-r-and-r-studio",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "1. Get aquainted with R and R Studio",
+    "text": "1. Get aquainted with R and R Studio\nBasic R\nWhen you download R from CRAN and install it on your computer, there is a R application that you can run. However, it is very bare bones. Here is a screenshot of what it looks like on my computer (Windows 11 operating system).\n\nYou can type commands in the console window at the prompt “&gt;” but this is slow and tedious. You can also write and execute scripts from inside this application and see the output back in the console window as well as creating plots. But managing large projects using this interface is not efficient.\n\n\nRStudio IDE\nThe RStudio Integrated Development Environment (IDE) application provides much better tools for managing files within a given “project”. This biggest advantage of working in an IDE is everything is contained and managed within a given project, which is linked to a specific folder (container) on your compute (or cloud drive you may have access to).\nHowever, you will still need to write and execute code using scripts and related files. An IDE is NOT a GUI (graphical user interface) which is the “point and click” workflow you may have experience with if you’ve used other analysis software applications such as SPSS, SAS Studio, Excel and similar.\n\nThe interface is usually arranged with the following 4 “panes” or windows:\n\nConsole\nSource\nEnvironment\nFiles\n\n\nThe typical arrangement, usually has the “Console” window pane at the bottom left. This window also usually has a TAB for the “terminal” and any “background jobs” that might be running.\n\n\nThe “Source” window pane is usually at the top left. This is where you will do most of your editing of your R program scripts (*.R) or Rmarkdown files *.Rmd). This is also where the data viewer window will open. You can also open and edit other kinds of files here as well (*.tex, *.css, *.txt, and more).\n\n\nThe top right window pane should always have your “Environment”, “History” and “Tutorial” TABS but may also have TABS for “Build” and”Git” depending on your project type and options selected.\n\n\nThe bottom right window pane has TABS for your:\n\nFiles directory\nPlots window for graphical output\nPackages - which lists all add-on R packages installed on your computer\nHelp window\nas well as other TABS for Viewer and Presentation for viewing other kinds of output.\n\n\n\nCustomising your RStudio interface\nYou also have the option to rearrange your window panes as well as change the look and feel of your programming interface and much more. To explore all of your options, click on the menu at the top for “Tools/Global Options”:\n\nTake a look at the left side for the list of all of the options. Some of the most useful options to be aware of are:\n\nGeneral\nAppearance, and\nPane Layout\n\n\nIn the “General” tab, this is where you can see and confirm that R is installed and where the R programming language app is installed on your computer.\n\n\nYou will probably want to explore tuning these appearance parameters to customize the appears to your preferences. For example, you can change the ZOOM level to improve readability. You may also want to change the FONT sizes for the Editor and Help windows as needed. I also encourage you to try out different Editor Themes which will change the colors of the R code as well as background colors (light or dark).\n\n\nI would suggest NOT changing the layout of the window panes until you are very familiar with the default settings. But this is where you can see what the default settings are and what other options are available to you.",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#learn-methods-to-handle-missing-data-according-to-variable-type.",
-    "href": "module134_MissingWeight.html#learn-methods-to-handle-missing-data-according-to-variable-type.",
-    "title": "1.3.4: Missing Data and Sampling Weights",
-    "section": "2. Learn methods to handle missing data according to variable type.",
-    "text": "2. Learn methods to handle missing data according to variable type.",
+    "objectID": "module131_IntroRRStudio.html#write-simple-r-code-in-console",
+    "href": "module131_IntroRRStudio.html#write-simple-r-code-in-console",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "2. Write simple R code in Console",
+    "text": "2. Write simple R code in Console\nSimple math\nSo, let’s start with some simple R code using the Console window and typing commands at the &gt; prompt.\nYou can write simple math expressions like 5 + 5.\n\n5 + 5\n\n[1] 10\n\n\nNotice that the output shows the number 1 enclosed in square brackets followed by the answer (or output) of 10.\n[1] 10\nThis is because R performed the addition operation using the + operator and then “saved” the output in temporary memory as a scalar object with 1 element, which is the number 10.\nYou can actually see this temporary object by typing .Last.value\n.Last.value\n[1] 10\nHowever, if we look at our current computing environment (see upper right window pane), it is still showing as empty.\n\nThis is because we have not yet “saved” the output into an object that we created. Let’s save this output into an object called ten.\nTo do this we need to do 2 things:\n\nCreate the object called ten\n\nUse the “assign” operator &lt;- to take the result of 5 + 5 and move it (save it or pipe it) into the object ten.\n\n\nten &lt;- 5 + 5\n\nTo “see” the output of this object - you can either see it now in your Global Environment or type the object name in the Console to view it.\n\nten\n\n[1] 10\n\n\n\nIt is important to remember that R is an “object-oriented” programming language - everything in R is an object.\nBuilt in constants\nThere are several built in “constants” in R. Try typing these in at the Console to see the results.\n\npi\n\n[1] 3.141593\n\nletters\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\" \"k\" \"l\" \"m\" \"n\" \"o\" \"p\" \"q\" \"r\" \"s\"\n[20] \"t\" \"u\" \"v\" \"w\" \"x\" \"y\" \"z\"\n\nLETTERS\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\"\n\nmonth.name\n\n [1] \"January\"   \"February\"  \"March\"     \"April\"     \"May\"       \"June\"     \n [7] \"July\"      \"August\"    \"September\" \"October\"   \"November\"  \"December\" \n\n\nFor the constants like letters you get a list of the 26 lower case letters. Notice that the number in [square brackets] updates for each new line printed out. This allows you to keep track of the number of elements in the output object. letters is an “character” array with 26 elements.\nTo confirm these details, we can use the class() function to determine that letters has all “character” elements. The length() function will let you know that there are 26 elements.\n\nclass(letters)\n\n[1] \"character\"\n\nlength(letters)\n\n[1] 26\n\n\nGetting help\nIf you would like to learn more about these built-in “constants”, you can get help in one of two ways. You can either type help(pi) in the Console (lower left) or type pi in the Help window (lower right).\n\nhelp(pi)\n\n\nTry out a function\nThe majority of the R programming language functionality is driven by functions. Technically the + operator is actually a function that performs a sum.\nYou can even get help on these operators, by typing help(\"+\"). We have to add the quotes \"\" so that R knows we are looking for this operator and not trying to perform an addition operation inside the function call.\n\nhelp(\"+\")\n\nBut let’s try a function to create a sequence of numbers - for example, a sequence from 1 to 10.\n\nseq(10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nAnd let’s look at the help page for the seq() function.\n\nR allows for what is called “lazy” coding. This basically means you can provide very minimal input and R will try to figure out what you want using the default settings for a given function. In the case of seq() the function begins by default at 1 and creates and output in steps of 1 up to the value of 10.\nWhile “lazy” coding practices are common with R, it would actually be better to explicitly define each argument to make sure you get the exact output you want. To do this, inside the parentheses () assign a value to each argument. For example:\n\nseq(from = 1,\n    to = 10,\n    by = 1)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\nYou could easily change these to get a sequence from 0 to 1 in steps of 0.1 as follows:\n\nseq(from = 0,\n    to = 1,\n    by = 0.1)\n\n [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro",
-    "href": "module134_MissingWeight.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro",
-    "title": "1.3.4: Missing Data and Sampling Weights",
-    "section": "3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)",
-    "text": "3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)",
+    "objectID": "module131_IntroRRStudio.html#create-your-first-r-script",
+    "href": "module131_IntroRRStudio.html#create-your-first-r-script",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "3. Create your first R script",
+    "text": "3. Create your first R script\nSave your code in a new script\nSo, as you can tell, the R Console is useful but slow and tedious. Let’s create an R script to save all of these commands in a file that we can easily access everything we’ve done so far and re-run these commands as needed.\nIn RStudio go to the top menu File/New File/R Script:\n\nOnce the R Script file is created, type in some of the commands we did above in the Console and put one command on each line.\nJust select each line and click “Run”.\n\nThen you can save the file on your computer as “myscript.R” for example.\nYou can also select all of the rows and click run to see the output in the Console Window.\n\nHere is the code and output:\n\n4 + 4\n\n[1] 8\n\nsqrt(25)\n\n[1] 5\n\npi\n\n[1] 3.141593\n\nseq(from=1, to=10, by=0.5)\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0\n\n\nCreate R objects and Use Them\nLet’s try out some more built-in R functions, save the output in objects in the environment and then use them in other functions.\nCreate a sequence of numbers and save them as an object called x. I also added a comment in the R code block below. Everything after the # hashtag is a comment which R will ignore. It is a good idea to add comments in your code to make sure that you and others understand what each part of your code does.\n\n# save sequence of numbers \n# from 1 to 10 in steps of 0.5\n# in an object named x\nx &lt;- seq(from=1, to=10, by=0.5)\n\n# Type x to view the contents\nx\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0\n\n\nAlso take a look at the Global Environment to see the new object x.\n\n\n# use x to create new object y\ny &lt;- x*x\n\nOnce the object y is created, we can make a simple 2-dimensional scatterplot.\n\n# plot x and y\nplot(x,y)\n\n\n\n\n\n\n\nThe plot is shown below, but if you are running this in the RStudio desktop, check the Plots window pane (lower right).\n\nOn your own\nDownload Rscript_01.R open it in your RStudio and run through the code. Try out new variations on your own.",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.",
-    "href": "module134_MissingWeight.html#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.",
-    "title": "1.3.4: Missing Data and Sampling Weights",
-    "section": "4. Discuss potential bias when removing missing observations without careful examination.",
-    "text": "4. Discuss potential bias when removing missing observations without careful examination.",
+    "objectID": "module131_IntroRRStudio.html#install-and-load-r-packages-understand-r-session",
+    "href": "module131_IntroRRStudio.html#install-and-load-r-packages-understand-r-session",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "4. Install and load R packages (understand R session)",
+    "text": "4. Install and load R packages (understand R session)\nsessionInfo()\nWhile the base installation of R is pretty powerful on it’s own, the beauty of R and the R programming community is that there are literally hundreds of thousands if not millions of people programming in R and creating new functions everyday.\nIn order to use these new functions, the developers put them together in packages that we can install to extend the functionality of R.\nBut first, let’s take a look at the packages that are part of the basic installation of R. One way to see which packages are currently installed and loaded into your current R computing session, is by typing sessionInfo().\nYou will also notice that the sessionInfo() command also lists the version of R I’m currently running (4.4.2), my operating system (Windows 11) and and my locale (USA, East Coast). These details can sometimes be helpful for collaborating with others who may be working with different system settings and for debugging errors.\nsessionInfo()\n\n7 Base R Packages\nThe basic installation of R includes 7 packages:\n\nstats\ngraphics\ngrDevices\nutils\ndatasets\nmethods\nbase\n\nTo learn more click on the Packages tan in the lower right window pane to see the list of packages installed on your computer. I have a lot of Packages, but here is a screenshot of the base packages.\nSee the packages listed under “System Library” which are the ones that were installed with base R. You’ll notice that only some of these have checkmarks next to them. The checkmark means those are also loaded into your R session. Only some of them are loaded into memory by default to minimize the use of your computer’s memory.\n\nInstall a Package and Load it into R session memory\nLet’s install an R package, like ggplot2.\nGo to the RStudio menu Tools/Install Packages\n\nThis will then open up a window where you can type in the name of the package you want. As soon as we start typing ggplot2 the menu begins listing all packages with that partial spelling…\n\nYou’ll notice that there are 3 parts to the installation:\n\nWhere you want to get the package - from which repository (more below).\nThe name of the package. You can actually type more than one package name at a time separated by commas.\nThe file location on your computer where the new package is installed - your file location will be different than mine. But this is useful to know in case something goes wrong. I would suggest keeping the default settings.\n\n\nWhere to get packages - CRAN\nUsing the Tools/Install Packages menu from within RStudio automatically links to CRAN, which is the “The Comprehensive R Archive Network”. You’ve already been here once to download and install the R programming language application.\n\nHowever, you can also click on “Packages” at the left to see the full list of packages currently available. As of right now (01/10/2025 at 5:12pm EST) there are 21,872 packages. This number increases every day as people create, validate and publish their packages on CRAN. You can get a list of all of the packages or if you have no idea what package you need, you can also look at the “Task Views” to see groupings of packages.\nHere is what the list of Packages looks like sorted by name:\n\nHowever, you can also browse Packages by “Task View”:\n\nFor example, suppose you are interested in survival analysis, here is a screenshot of the Survival Task View.\nAs you can see each Task View has a person(s) listed who help to maintain these collections. As you scroll through the webpage, you’ll see links to packages they recommend along with a description of what the packages do. For example, see the links below to the survival and rms packages.\n\nWhere to get packages - Bioconductor\nWhile the list of R packages on CRAN is impressive, if you plan to do analyses of biological data, there is a good chance you will need a package from Bioconductor.org.\nAs of right now (01/10/2025 at 6:45pm EST) there are 2289 packages. Similar to CRAN, Bioconductor requires each package to meet certain validation criteria and code testing requirements even more stringent than CRAN. You notice that you can search for packages under the biocViews (left side column) or you can sort them alphabetically or search for individual packages in the section on the right side.\n\nThe one disadvantage of R packages from Bioconductor is that you cannot install them directly using the RStudio menu for Tools/Install Packages - you cannot “see” the Bioconductor repository from inside RStudio. Instead you have to install these using R code. For example, here is what you need to do to install the phyloseq package which “… provides a set of classes and tools to facilitate the import, storage, analysis, and graphical display of microbiome census data”.\nSee the black box of code below, to install phyloseq you need to:\n\nInstall BiocManager from CRAN - this you can install from the RStudio menu for Tools/Install Packages.\nThen go to the Console or open an R script and run:\n\ninstall.packages(\"BiocManager\")\n\nWhere to get packages - Github, friends, teammates, …\nIn addition to CRAN and Bioconductor, you can get packages from Github, friends, teammates or write your own. To get an idea of how many packages may be currently on Github, we can “search” for “R package” https://github.com/search?q=R+package&type=repositories and as you can see this is well over 118,000+ packages.\n\nWhile you can find packages on Github that have not (yet) been published on CRAN or Bioconductor, the developers of packages currently on CRAN and Bioconductor also often publish their development version (think of these as in “beta” and still under going testing) on Github. For example, the current published version of the data wrangling dplyr package was last updated on 11/17/2023.\n\nBut the development version of dplyr on Github was last updated 5 months ago in August 2024.\n\nSo, while the developers haven’t published this on CRAN, if you want to test out new functions and updates under development for this package, you can go to the R Console or write a R script to install the development version using these commands (see below) which is explained on the dplyr on Github website.\n# install.packages(\"pak\")\npak::pak(\"tidyverse/dplyr\")\n\nFinding and vetting R packages\nSo, as you have seen there are numerous ways to find R packages and there are hundreds of thousands of them out there. Your company or team may have their own custom R package tailored for your specific research areas and data analysis workflows.\nFinding R packages is similar to finding new questionnaires, surveys or instruments for your research. For example, if you want to measures someone’s depression levels, you would probably use a validated instrument like the Center for Epidemiological Studies-Depression (CESD) or the Beck Depression Index (BDI). These measures have been well published and are well established for depression research.\nFinding R packages is similar - do your research! Make sure that the R package has been published and is well established to do the analysis you want. In terms of reliability, getting packages from CRAN or Bioconductor are the best followed by Github or other individuals. The best suggestion is look to see which R packages are being used by other people in your field.\nTo get an idea of how long a package has been in use and if it is still being actively supported and how it relates to other similar packages, check out this interactive Shiny app website for CRAN downloads. Type in the packages you want to compare and changes the dates - here is an example comparing arsenal, gtsummary, and tableone packages all of which are useful for making tables of summary statistics (aka, “Table 1”) - showing the number of downloads since the beginning of Jan 1, 2024.\nAs you can see the most downloaded is gtsummary followed by arsenal with tableone having the fewest downloads. This does NOT necessarily imply quality, but it does give you some insight into the popularity of these packages.\n\nHere is an example of 2 specific packages I like. The rggobi package which was great for visualizing multiple dimensions of data simultaneously but which is no longer supported and the newer tourr package which was written by the same developer to replace the rggobi package. You can see that in the middle of 2020, the number of downloads for rggobi dropped almost to 0 and the tourr package downloads started to rise - this is about when they switched over from maintaining one package to supporting the newer one. rggobi on CRAN moved to archived status in July 2020, but tourr on CRAN was last updated in April 2024.\n\nSo, do your homework and check to see when the package was last updated, who maintains it and how good their documentation is for the package and what it does.\nLoad the new R package into your R session\nAfter you’ve decided what package you want and have installed it onto your computer, you must load it into memory for EVERY new R session for which you want those functions available.\nFor example, suppose I want to make a plot using the ggplot2 package. Before I can use the ggplot() function, I have to load that package into my computing session. Here is an example:\n\n# show current sessionInfo\nsessionInfo()\n\nR version 4.4.2 (2024-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64\nRunning under: Windows 11 x64 (build 22000)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: America/New_York\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] htmlwidgets_1.6.4 compiler_4.4.2    fastmap_1.1.1     cli_3.6.3        \n [5] tools_4.4.2       htmltools_0.5.8.1 rstudioapi_0.15.0 yaml_2.3.8       \n [9] rmarkdown_2.26    knitr_1.49        jsonlite_1.8.8    xfun_0.49        \n[13] digest_0.6.35     rlang_1.1.4       evaluate_0.23    \n\n# notice that ggplot2 is not listed\n# but let's try the ggplot() function with the\n# built-in pressure dataset\nggplot(pressure, aes(temperature, pressure)) +\n  geom_point()\n\nError in ggplot(pressure, aes(temperature, pressure)): could not find function \"ggplot\"\n\n\nThis will generate an error since these functions are not yet available in our session. So, use the library() function to LOAD the ggplot2 functions into current working memory.\n\n# load ggplot2 package\nlibrary(ggplot2)\n\n# look at sessionInfo again\nsessionInfo()\n\nR version 4.4.2 (2024-10-31 ucrt)\nPlatform: x86_64-w64-mingw32/x64\nRunning under: Windows 11 x64 (build 22000)\n\nMatrix products: default\n\n\nlocale:\n[1] LC_COLLATE=English_United States.utf8 \n[2] LC_CTYPE=English_United States.utf8   \n[3] LC_MONETARY=English_United States.utf8\n[4] LC_NUMERIC=C                          \n[5] LC_TIME=English_United States.utf8    \n\ntime zone: America/New_York\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] ggplot2_3.5.1\n\nloaded via a namespace (and not attached):\n [1] vctrs_0.6.5       cli_3.6.3         knitr_1.49        rlang_1.1.4      \n [5] xfun_0.49         generics_0.1.3    jsonlite_1.8.8    glue_1.8.0       \n [9] colorspace_2.1-0  htmltools_0.5.8.1 scales_1.3.0      fansi_1.0.6      \n[13] rmarkdown_2.26    grid_4.4.2        evaluate_0.23     munsell_0.5.0    \n[17] tibble_3.2.1      fastmap_1.1.1     yaml_2.3.8        lifecycle_1.0.4  \n[21] compiler_4.4.2    dplyr_1.1.4       htmlwidgets_1.6.4 pkgconfig_2.0.3  \n[25] rstudioapi_0.15.0 digest_0.6.35     R6_2.5.1          tidyselect_1.2.1 \n[29] utf8_1.2.4        pillar_1.9.0      magrittr_2.0.3    withr_3.0.2      \n[33] tools_4.4.2       gtable_0.3.6     \n\n\nNotice that under other attached packages we can now see ggplot2_3.5.1 indicating that yes ggplot2 is installed and in memory and that version 3.5.1 is the version you are currently using.\nLet’s try the plot again.\n\n# try the plot again\nggplot(pressure, aes(temperature, pressure)) +\n  geom_point()",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#references",
-    "href": "module134_MissingWeight.html#references",
-    "title": "1.3.4: Missing Data and Sampling Weights",
+    "objectID": "module131_IntroRRStudio.html#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx",
+    "href": "module131_IntroRRStudio.html#create-your-first-r-markdown-report-and-produce-output-files-in-different-formats-html-pdf-or-docx",
+    "title": "1.3.1: Introduction to R and R Studio",
+    "section": "5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)",
+    "text": "5. Create your first R Markdown report and produce output files in different formats (HTML, PDF, or DOCX)\nCreate a new Rmarkdown File\nWe will do more in the later lesson 1.3.6: Putting reproducible research principles into practice, but let’s take a look at an Rmarkdown file and how we can use it to create a report that combines and links together data + code + documentation to produce a seamless report.\nGo to the RStudio menu and click File/New File/R Markdown:\n\nType in a title, your name, the date and choose the format you’d like to create. For your first documents I encourage you to try HTML first. But you can create WORD documents and even PDFs. In addition to documents, you can create slide deck presentations, Shiny apps and other custom products like R packages, websites, books and many more.\nTo get started, use the built-in template:\n\nType in a title\nType in your name as author\nChoose and output document format\n\nHTML is always a good place to start - only need a browser to read the output *.html file.\n\nDOC usually works OK - but you need MS Word or Open Office installed on your computer.\n\nPDF NOTE: You need a TEX compiler on your computer - Installing the tinytex https://yihui.org/tinytex/ R package will work.\n\n\n\n\nRmarkdown sections\nHere is the Example RMarkdown Template provided by RStudio to help you get started.\n\nThis document consists of the following 3 key sections:\n\nYAML (yet another markup language) - this is essentially the metadata for your document and defines elements like the title, author, date and type of output document to be created (HTML in this example).\n\n\n\nR code blocks - the goal is to “interweave” code and documentation so these 2 elements live together. That way the analysis outputs and any associated tables for figures are updated automatically without have to cut-and-paste from other applications into your document - which is time consuming and prone to human errors.\n\nNotice that the code block starts and ends with 3 backticks ``` and includes the {r} Rlanguage designation inside the curly braces.\n\n\n\n\n\n\nNote\n\n\n\nRmarkdown can be used for many different programming languages including python, sas, and more, see rmarkdown - language-engines.\n\n\n\nAnd along with the R code blocks, we can also create our document with “marked up (or marked down)” text. Rmarkdown is a version of “markdown” which is a simplified set of tags that tell the computer how you want a piece of text formatted. For example putting 2 asterisks ** before and after a word will make it bold, putting one _ underscore before and after a word will make the word italics; one or more hashtags # indicate a header at certain levels, e.g. 2 hashtags ## indicate a header level 2.\n\n\n\n\n\n\nRmarkdown Tutorial\n\n\n\nI encourage you to go through the step by step tutorial at https://rmarkdown.rstudio.com/lesson-1.html.\n\n\n\nHere are all 3 sections outlined.\n\nAt the top of the page you’ll notice a little blue button that says “knit” - this will “knit” (or combine) the output from the R code chunks and format the text as “marked up” and produce the HTML file:",
+    "crumbs": [
+      "1.3.1: Introduction to the R and R Studio"
+    ]
+  },
+  {
+    "objectID": "module131_IntroRRStudio.html#references",
+    "href": "module131_IntroRRStudio.html#references",
+    "title": "1.3.1: Introduction to R and R Studio",
     "section": "References",
-    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.\n\n\nWickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org.\n\n\nWickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics. https://ggplot2.tidyverse.org.",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module134_MissingWeight.html#other-helpful-resources",
-    "href": "module134_MissingWeight.html#other-helpful-resources",
-    "title": "1.3.4: Missing Data and Sampling Weights",
+    "objectID": "module131_IntroRRStudio.html#other-helpful-resources",
+    "href": "module131_IntroRRStudio.html#other-helpful-resources",
+    "title": "1.3.1: Introduction to R and R Studio",
     "section": "Other Helpful Resources",
     "text": "Other Helpful Resources\nOther Helpful Resources",
     "crumbs": [
-      "1.3.4: Missing Data and Sampling Weights"
+      "1.3.1: Introduction to the R and R Studio"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html",
-    "href": "module136_ReproducibleResearch.html",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "objectID": "module133_DataVis.html",
+    "href": "module133_DataVis.html",
+    "title": "1.3.3: Data Visualization",
     "section": "",
-    "text": "Discuss reproducible research principles.\nApply reproducible research principles to data analysis using R Markdown.\n\nKey points to cover: 1. Reproducible research principles 2. What is R Markdown 3. How to create a report using R Markdown a. Customize the layout of presentations or reports b. Insert and create objects, such as tables, images, or videos, within a document",
+    "text": "To visualize data using different R packages.\n\nKey points to cover: 1. Introduce to ggplot2 and other R packages. 2. Visualize one, two, or more variables at a time. 3. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html#session-objectives",
-    "href": "module136_ReproducibleResearch.html#session-objectives",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "objectID": "module133_DataVis.html#session-objectives",
+    "href": "module133_DataVis.html#session-objectives",
+    "title": "1.3.3: Data Visualization",
     "section": "",
-    "text": "Discuss reproducible research principles.\nApply reproducible research principles to data analysis using R Markdown.\n\nKey points to cover: 1. Reproducible research principles 2. What is R Markdown 3. How to create a report using R Markdown a. Customize the layout of presentations or reports b. Insert and create objects, such as tables, images, or videos, within a document",
+    "text": "To visualize data using different R packages.\n\nKey points to cover: 1. Introduce to ggplot2 and other R packages. 2. Visualize one, two, or more variables at a time. 3. Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html#prework---before-you-begin",
-    "href": "module136_ReproducibleResearch.html#prework---before-you-begin",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "objectID": "module133_DataVis.html#prework---before-you-begin",
+    "href": "module133_DataVis.html#prework---before-you-begin",
+    "title": "1.3.3: Data Visualization",
     "section": "0. Prework - Before You Begin",
     "text": "0. Prework - Before You Begin",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html#discuss-reproducible-research-principles.",
-    "href": "module136_ReproducibleResearch.html#discuss-reproducible-research-principles.",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
-    "section": "1. Discuss reproducible research principles.",
-    "text": "1. Discuss reproducible research principles.",
+    "objectID": "module133_DataVis.html#base-r-graphical-functions",
+    "href": "module133_DataVis.html#base-r-graphical-functions",
+    "title": "1.3.3: Data Visualization",
+    "section": "1. Base R graphical functions",
+    "text": "1. Base R graphical functions",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html#apply-reproducible-research-principles-to-data-analysis-using-r-markdown.",
-    "href": "module136_ReproducibleResearch.html#apply-reproducible-research-principles-to-data-analysis-using-r-markdown.",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
-    "section": "2. Apply reproducible research principles to data analysis using R Markdown.",
-    "text": "2. Apply reproducible research principles to data analysis using R Markdown.",
+    "objectID": "module133_DataVis.html#ggplot2-package",
+    "href": "module133_DataVis.html#ggplot2-package",
+    "title": "1.3.3: Data Visualization",
+    "section": "2. ggplot2 package",
+    "text": "2. ggplot2 package",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html#references",
-    "href": "module136_ReproducibleResearch.html#references",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "objectID": "module133_DataVis.html#get-boilerplate-code-to-start",
+    "href": "module133_DataVis.html#get-boilerplate-code-to-start",
+    "title": "1.3.3: Data Visualization",
+    "section": "3. Get boilerplate code to start",
+    "text": "3. Get boilerplate code to start\nR Gallery\nR Graphics Cookbook",
+    "crumbs": [
+      "1.3.3: Data Visualization"
+    ]
+  },
+  {
+    "objectID": "module133_DataVis.html#references",
+    "href": "module133_DataVis.html#references",
+    "title": "1.3.3: Data Visualization",
     "section": "References",
     "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
     ]
   },
   {
-    "objectID": "module136_ReproducibleResearch.html#other-helpful-resources",
-    "href": "module136_ReproducibleResearch.html#other-helpful-resources",
-    "title": "1.3.6: Putting Reproducible Research Principles Into Practice",
+    "objectID": "module133_DataVis.html#other-helpful-resources",
+    "href": "module133_DataVis.html#other-helpful-resources",
+    "title": "1.3.3: Data Visualization",
     "section": "Other Helpful Resources",
     "text": "Other Helpful Resources\nOther Helpful Resources",
     "crumbs": [
-      "1.3.6: Reproducible Research Principles"
+      "1.3.3: Data Visualization"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html",
+    "href": "module135_StatisticalTests.html",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "",
+    "text": "Develop linear and logistic regression models.\n(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.\nInterpret a model output.\n\nkey points Key points to cover: 1. Run multivariate linear regression models with R. 2. Run multivariate logistic regression models with R. 3. Include interaction terms in regression models. 4. (R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models) 5. Interpret a model output. 6. (Compare the outputs of unweighted and weighted models.)",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#session-objectives",
+    "href": "module135_StatisticalTests.html#session-objectives",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "",
+    "text": "Develop linear and logistic regression models.\n(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.\nInterpret a model output.\n\nkey points Key points to cover: 1. Run multivariate linear regression models with R. 2. Run multivariate logistic regression models with R. 3. Include interaction terms in regression models. 4. (R packages for complex survey data (e.g., survey package) a. R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models) 5. Interpret a model output. 6. (Compare the outputs of unweighted and weighted models.)",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#prework---before-you-begin",
+    "href": "module135_StatisticalTests.html#prework---before-you-begin",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "0. Prework - Before You Begin",
+    "text": "0. Prework - Before You Begin",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#develop-linear-and-logistic-regression-models.",
+    "href": "module135_StatisticalTests.html#develop-linear-and-logistic-regression-models.",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "1. Develop linear and logistic regression models.",
+    "text": "1. Develop linear and logistic regression models.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values.",
+    "href": "module135_StatisticalTests.html#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values.",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)",
+    "text": "2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)\nCurrently, this objective is under the Module 1.3.4: Missing data and sampling weight.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#interpret-a-model-output.",
+    "href": "module135_StatisticalTests.html#interpret-a-model-output.",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "3. Interpret a model output.",
+    "text": "3. Interpret a model output.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#references",
+    "href": "module135_StatisticalTests.html#references",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "References",
+    "text": "References\n\n\nR Core Team. 2024. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
+    ]
+  },
+  {
+    "objectID": "module135_StatisticalTests.html#other-helpful-resources",
+    "href": "module135_StatisticalTests.html#other-helpful-resources",
+    "title": "1.3.5: Statistical Tests and Models",
+    "section": "Other Helpful Resources",
+    "text": "Other Helpful Resources\nOther Helpful Resources",
+    "crumbs": [
+      "1.3.5: Statistical Tests and Models"
     ]
   }
 ]
