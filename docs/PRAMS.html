@@ -405,8 +405,8 @@ Memory Warning
 <span><span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used  (Mb) gc trigger   (Mb)  max used  (Mb)
-Ncells 2107849 112.6    4136161  220.9   4136161 220.9
-Vcells 3850528  29.4  153274895 1169.4 112103067 855.3</code></pre>
+Ncells 2107849 112.6    4136160  220.9   4136160 220.9
+Vcells 3850525  29.4  153274891 1169.4 112103072 855.3</code></pre>
 </div>
 </div>
 <p>After we remove everything, let’s look at the session memory again.</p>
@@ -469,54 +469,44 @@ Vcells 3850528  29.4  153274895 1169.4 112103067 855.3</code></pre>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEST_YR</span> <span class="op">==</span> <span class="fl">2017</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">STATE</span>, <span class="va">prams</span><span class="op">$</span><span class="va">BF5EVER.f</span>, </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">STATE</span>, <span class="va">BF5EVER.f</span>, </span>
 <span>                useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    
-       NO  YES &lt;NA&gt;
-  AK  259 4756  323
-  AL  749 2909  177
-  AR 1081 3237  228
-  AZ   73  707   14
-  CO  405 6761  128
-  DC  168 1872   53
-  DE  691 4385  213
-  GA  732 3122  139
-  HI  185 3948  148
-  IA  565 3712  159
-  IL  818 6447  206
-  IN  120  714   31
-  KS  481 4571  238
-  KY  690 2398   84
-  LA 1420 3542  119
-  MA  632 7741  215
-  MD  472 4565  180
-  ME  481 4357  178
-  MI 1542 7831  352
-  MN  338 3176   83
-  MO  855 5423  225
-  MS 1173 2958  240
-  MT  318 3906  128
-  ND  557 2916  129
-  NE  641 6124  215
-  NH  249 2724   66
-  NJ  739 6041  181
-  NM  678 6017  132
-  NY  528 3523  152
-  OR  359 7065  203
-  PA  901 5401  244
-  PR  300 4451  107
-  RI  432 3742  164
-  SD  614 4415  135
-  TN  291 1541   97
-  UT  598 7622  271
-  VA  539 5106  137
-  VT  334 4758  113
-  WA  315 6749  167
-  WI 1083 5540  352
-  WV  964 2250  175
-  WY  283 2676  110
-  YC  629 7061  328</code></pre>
+<pre><code>     BF5EVER.f
+STATE   NO  YES &lt;NA&gt;
+   AK   71  927   47
+   AL  181  659   42
+   CO   73 1037   18
+   DE  126  728   37
+   GA  170  749   36
+   IA  136  867   30
+   IL  140 1048   36
+   KS   81  856   58
+   KY  139  536   27
+   LA  285  586   23
+   MA  115 1268   40
+   MD   97  928   35
+   ME   88  754   30
+   MI  290 1532   75
+   MO  166  908   37
+   MT   66  851   20
+   ND  102  472   17
+   NH   42  523   15
+   NJ  125 1102   31
+   NM  123 1038   19
+   NY  109  706   33
+   PA  164 1023   42
+   PR   81  928   23
+   RI  105  960   37
+   SD  150  946   35
+   UT   93 1305   49
+   VA   88  969   26
+   VT   54  780   14
+   WA   69 1138   31
+   WI  221 1051   74
+   WV  186  475   38
+   WY   49  438   16
+   YC   99 1125   69</code></pre>
 </div>
 </div>
 <p>This aligns with the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> - scroll to the bottom to see the RAW count of 919 women who responded to “Ever Breastfed” in GA in 2017.</p>

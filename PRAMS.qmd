@@ -288,7 +288,7 @@ As we can see below, in 2017 for the state of GA, 919 women responded to this qu
 ```{r}
 prams %>%
   filter(NEST_YR == 2017) %>% 
-  with(., table(prams$STATE, prams$BF5EVER.f, 
+  with(., table(STATE, BF5EVER.f, 
                 useNA = "ifany"))
 ```
 
