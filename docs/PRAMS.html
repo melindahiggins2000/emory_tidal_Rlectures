@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Setup Project for PRAMS Data Analysis – R Training - TIDAL Lectures</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0f678b7eab269e1f93ad2a885b46ecea.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-0272949737e784d0dcbc7a02c8fdb0fd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./PRAMS.html">Setup Project for PRAMS Data Analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./tidal_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <div class="sidebar-tools-main">
+    <a href="https://www.project-tidal.org/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-fill"></i></a>
+    <a href="https://github.com/melindahiggins2000/emory_tidal_Rlectures" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module131_IntroRRStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3.1: Introduction to the R and R Studio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module132_DataWrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3.2: Data Wrangling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module133_DataVis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3.3: Data Visualization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module134_MissingWeight.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3.4: Missing Data and Sampling Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module135_StatisticalTests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3.5: Statistical Tests and Models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./module136_ReproducibleResearch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3.6: Reproducible Research Principles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PRAMS.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Setup Project for PRAMS Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./additionalResources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Additional Help and Resources</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#prams-data" id="toc-prams-data" class="nav-link active" data-scroll-target="#prams-data">PRAMS Data</a>
+  <ul class="collapse">
+<li><a href="#about-prams" id="toc-about-prams" class="nav-link" data-scroll-target="#about-prams">About PRAMS</a></li>
+  <li><a href="#getting-the-prams-data" id="toc-getting-the-prams-data" class="nav-link" data-scroll-target="#getting-the-prams-data">Getting the PRAMS Data</a></li>
+  <li><a href="#prams-documentation-and-resources" id="toc-prams-documentation-and-resources" class="nav-link" data-scroll-target="#prams-documentation-and-resources">PRAMS Documentation and Resources</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a>
+  <ul class="collapse">
+<li><a href="#install-r-packages" id="toc-install-r-packages" class="nav-link" data-scroll-target="#install-r-packages">Install R Packages</a></li>
+  <li><a href="#create-a-new-rstudio-project" id="toc-create-a-new-rstudio-project" class="nav-link" data-scroll-target="#create-a-new-rstudio-project">Create a NEW RStudio Project</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#get-prams-data-and-select-subset-for-analysis" id="toc-get-prams-data-and-select-subset-for-analysis" class="nav-link" data-scroll-target="#get-prams-data-and-select-subset-for-analysis">1. Get PRAMS Data and Select Subset for Analysis</a>
+  <ul class="collapse">
+<li><a href="#a.-read-in-the-prams-phase-8-2016-2021-combined-dataset" id="toc-a.-read-in-the-prams-phase-8-2016-2021-combined-dataset" class="nav-link" data-scroll-target="#a.-read-in-the-prams-phase-8-2016-2021-combined-dataset">A. Read-in the PRAMS Phase 8 2016-2021 combined dataset</a></li>
+  <li><a href="#c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" id="toc-c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" class="nav-link" data-scroll-target="#c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses">C. Save the data as a <code>*.RData</code> binary file for use in later analyses</a></li>
+  <li><a href="#d.-clean-up-files-to-save-memory" id="toc-d.-clean-up-files-to-save-memory" class="nav-link" data-scroll-target="#d.-clean-up-files-to-save-memory">D. Clean up files to save memory</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#getting-started-with-prams-data" id="toc-getting-started-with-prams-data" class="nav-link" data-scroll-target="#getting-started-with-prams-data">2. Getting started with PRAMS Data</a>
+  <ul class="collapse">
+<li><a href="#breastfeeding-summary---unweighted-data" id="toc-breastfeeding-summary---unweighted-data" class="nav-link" data-scroll-target="#breastfeeding-summary---unweighted-data">Breastfeeding summary - UNWEIGHTED data</a></li>
+  <li><a href="#breastfeeding-summary---weighted-data" id="toc-breastfeeding-summary---weighted-data" class="nav-link" data-scroll-target="#breastfeeding-summary---weighted-data">Breastfeeding summary - WEIGHTED data</a></li>
+  </ul>
+</li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="PRAMS.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Setup Project for PRAMS Data Analysis</h1>
+<p class="subtitle lead">(Asynchronous-Online)</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="prams-data" class="level2"><h2 class="anchored" data-anchor-id="prams-data">PRAMS Data</h2>
+<section id="about-prams" class="level3"><h3 class="anchored" data-anchor-id="about-prams">About PRAMS</h3>
+<p><a href="https://www.cdc.gov/prams/index.html">PRAMS</a> is the Pregnancy Risk Assessment Monitoring System (PRAMS). According to the CDC’s website for <a href="https://www.cdc.gov/prams/about/index.html">About PRAMS</a>:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is PRAMS?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PRAMS is the Pregnancy Risk Assessment Monitoring System. It is a joint surveillance project between state, territorial, or local health departments and CDC’s Division of Reproductive Health. PRAMS was developed in 1987 to reduce infant morbidity and mortality by influencing maternal behaviors before, during, and immediately after live birth.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is the purpose of PRAMS?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The purpose of PRAMS is to find out why some infants are born healthy and others are not. The survey asks new mothers questions about their pregnancy and their new infant. The questions give us important information about the mother and the infant and help us learn more about the impacts of health and behaviors.</p>
+</div>
+</div>
+</section><section id="getting-the-prams-data" class="level3"><h3 class="anchored" data-anchor-id="getting-the-prams-data">Getting the PRAMS Data</h3>
+<ul>
+<li>You can request the <a href="https://www.cdc.gov/prams/php/data-research/index.html">PRAMS Data</a> from the CDC.</li>
+<li>Once granted access, follow the instructions from the CDC to download the data and sign the data sharing agreement.</li>
+<li>For the purposes of the TIDAL R training session, we will be working with <a href="https://www.cdc.gov/prams/php/data-research/codebooks-phase-8.html">PRAMS Phase 8 ARF (Automated Research File)</a> dataset.</li>
+</ul></section><section id="prams-documentation-and-resources" class="level3"><h3 class="anchored" data-anchor-id="prams-documentation-and-resources">PRAMS Documentation and Resources</h3>
+<ul>
+<li>See the details on the <a href="https://www.cdc.gov/prams/php/questionnaires/index.html">PRAMS Questionnaires</a>.</li>
+<li>Learn more about the <a href="https://www.cdc.gov/prams/php/methodology/index.html">PRAMS Data Methodology</a> including details on how the samples are weighted.</li>
+<li>
+<strong>Download and Read</strong> this helpful <a href="https://www.cdc.gov/prams/pdf/methodology/prams-design-methodology-508.pdf">paper on PRAMS design and methodology</a> (Shulman, D’Angelo, Harrison, Smith, and Warner, 2018).</li>
+<li>There are also helpful tutorial videos on working with PRAMS data by <a href="https://www.astho.org/topic/population-health-prevention/women-infant-family-health/prams/">ASSOCIATION OF STATE AND TERRITORIAL HEALTH OFFICIALS (ASTHO.org)</a>.</li>
+</ul>
+<hr></section></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
+<section id="install-r-packages" class="level3"><h3 class="anchored" data-anchor-id="install-r-packages">Install R Packages</h3>
+<p>Before you begin, please go ahead and install (or make sure these are already installed) on your computer for these following packages - these are all on CRAN, so you can install them using the RStudio Menu Tools/Install Packages interface:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/haven/index.html"><code>haven</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/dplyr/index.html"><code>dplyr</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/survey/index.html"><code>survey</code></a></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://r-survey.r-forge.r-project.org/survey/">survey</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="create-a-new-rstudio-project" class="level3"><h3 class="anchored" data-anchor-id="create-a-new-rstudio-project">Create a NEW RStudio Project</h3>
+<p><strong>BEFORE</strong> you being any new analysis project, it is <strong>ALWAYS</strong> a good idea to begin with the NEW RStudio project.</p>
+<p>Go to the RStudio menu “File/New Project” and create your new project (ideally in a NEW directory, but it is also ok to use an exisiting directory/folder on your computer).</p>
+<p>This new directory (or folder) will be where all of your files will “live” for your current analysis project.</p>
+<p>See the step-by-step instructions for <a href="module132_DataWrangling.html#begin-with-a-new-project">creating a new RStudio project</a> in <a href="module132_DataWrangling.html">Module 1.3.2</a>.</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="get-prams-data-and-select-subset-for-analysis" class="level2"><h2 class="anchored" data-anchor-id="get-prams-data-and-select-subset-for-analysis">1. Get PRAMS Data and Select Subset for Analysis</h2>
+<section id="a.-read-in-the-prams-phase-8-2016-2021-combined-dataset" class="level3"><h3 class="anchored" data-anchor-id="a.-read-in-the-prams-phase-8-2016-2021-combined-dataset">A. Read-in the PRAMS Phase 8 2016-2021 combined dataset</h3>
+<p>The PRAMS data provided by the CDC will be in SAS format (<code>*.sas7bdat</code>). We can read the native SAS file into R using the <code>haven</code> package and the <code><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas()</a></code> function.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Memory Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The size of the <code>phase8_arf_2016_2021.sas7bdat</code> dataset is a little over 1GB. So, make sure your computer has enough available memory to fully load this dataset. I will provide some more details below on how we can reduce the size of the dataset and improve the memory issues below.</p>
+</div>
+</div>
+<p>You can check your available memory, by checking your “Global Environment” TAB (upper right window pane) click on the down arrow next to the icon with “XX MiB” just to the left of the little broom:</p>
+<p><br></p>
+<p><img src="prams_globalenv_01.png" class="img-fluid"></p>
+<p><br></p>
+<p>Click on the “Memory Usage Report” to see a detailed breakdown. This window will show:</p>
+<ul>
+<li>Memory used by R objects (in your “Global Environment”)</li>
+<li>Memory used on your computer by your current R Session</li>
+<li>Memory currently in use for everything currently running on your computer (all apps running - active and in background) - you can compare this to your “task manager” memory viewer.</li>
+<li>Free System Memory - when this gets low the “XX MiB” graphic will change color from green - to yellow - to orange - to red. Once you get to red, your R session will most likely crash since there is not enough memory to perfom operations or run analyses.</li>
+</ul>
+<p>This is a screen shot of my computer (yours will look different) BEFORE I load the PRAMS dataset.</p>
+<p><br></p>
+<p><img src="prams_globalenv_02.png" class="img-fluid"></p>
+<p><br></p>
+<p>Run the following R code to load the PRAMS Phase 8 dataset into your R Session and check the “Global Environment”.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="va">prams</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"phase8_arf_2016_2021.sas7bdat"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here is my memory AFTER loading the PRAMS dataset into my “Global Environment”.</p>
+<p><br></p>
+<p><img src="prams_globalenv_03.png" class="img-fluid"></p>
+<p><br></p>
+<p><img src="prams_globalenv_04.png" class="img-fluid"></p>
+<p><br></p>
+</section><section id="c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" class="level3"><h3 class="anchored" data-anchor-id="c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses">C. Save the data as a <code>*.RData</code> binary file for use in later analyses</h3>
+<p>One way to reduce the size of the PRAMS dataset is to save it as a native <code>*.RData</code> binary file format. So, let’s save the PRAMS dataset in this format on your computer.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save the whole dataset as *.RData format</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">prams</span>, </span>
+<span>     file <span class="op">=</span> <span class="st">"prams.RData"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>On my computer, here is a comparison of the size of these 2 files:</p>
+<ul>
+<li>
+<code>phase8_arf_2016_2021.sas7bdat</code> is 1,095,499,776 bytes (which is 1.02 GB)</li>
+<li>
+<code>prams.RData</code> is only 34,713,319 (which is only 0.0323 GB)</li>
+</ul>
+<p><strong>This is a file size reduction of 96.83%!!</strong></p>
+<p><br></p>
+<p><img src="prams_filesizes.png" class="img-fluid"></p>
+<p><br></p>
+<p>Now that we’ve reduced the file size of the dataset on your computer’s hard drive (or cloud storage), let’s also clear up the “Global Environment” back in you current RStudio computing session.</p>
+</section><section id="d.-clean-up-files-to-save-memory" class="level3"><h3 class="anchored" data-anchor-id="d.-clean-up-files-to-save-memory">D. Clean up files to save memory</h3>
+<p>Now that we’ve save the data, let’s remove the PRAMS data object from the RStudio session.</p>
+<ul>
+<li>For now we can simply remove everything using the <code>rm(list=ls())</code>.</li>
+<li>However, if you have other objects you want to keep, you can specifically only remove the PRAMS dataset using <code>rm(prams)</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># remove all objects from Global Environment</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># confirm Global Environment is empty</span></span>
+<span><span class="co"># list all objects</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># and free any currently unused memory</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          used  (Mb) gc trigger   (Mb)  max used  (Mb)
+Ncells 2107849 112.6    4136161  220.9   4136161 220.9
+Vcells 3850528  29.4  153274895 1169.4 112103067 855.3</code></pre>
+</div>
+</div>
+<p>After we remove everything, let’s look at the session memory again.</p>
+<p><br></p>
+<p><img src="prams_globalenv_05.png" class="img-fluid"></p>
+<p><br></p>
+<p>Now let’s read the PRAMS data back in, but this time read in the <code>prams.RData</code> binary R data formatted file. We will use the built-in <code><a href="https://rdrr.io/r/base/load.html">load()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load back only the prams dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"prams.RData"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s check the R session memory again:</p>
+<p><br></p>
+<p><img src="prams_globalenv_06.png" class="img-fluid"></p>
+<p><br></p>
+<p>I know this didn’t make a large difference for the R session available memory, but by doing this process:</p>
+<ol type="1">
+<li>The PRAMS dataset now takes up less memory on your computer’s file storage, and</li>
+<li>The <code><a href="https://rdrr.io/r/base/load.html">load()</a></code> function for the <code>prams.RData</code> file should run faster when beginning your R computing session instead of having to use the <code>haven</code> package to read in the SAS formatted file everytime.</li>
+</ol>
+<p>As a quick comparison on my computer (Windows 11), the time to read in the SAS formatted file was about 14 sec:</p>
+<pre><code>&gt; system.time(
++   prams &lt;- 
++     read_sas("phase8_arf_2016_2021.sas7bdat")
++ )
+   user  system elapsed 
+  13.44    0.47   13.96</code></pre>
+<p>And the time to read in the <code>prams.RData</code> file was only about 1.5 sec.</p>
+<pre><code>&gt; system.time(
++   load("prams.RData")
++ )
+   user  system elapsed 
+   1.45    0.08    1.54 </code></pre>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="getting-started-with-prams-data" class="level2"><h2 class="anchored" data-anchor-id="getting-started-with-prams-data">2. Getting started with PRAMS Data</h2>
+<section id="breastfeeding-summary---unweighted-data" class="level3"><h3 class="anchored" data-anchor-id="breastfeeding-summary---unweighted-data">Breastfeeding summary - UNWEIGHTED data</h3>
+<p>Let’s look at whether the mother ever breastfed her baby - this is variable <code>BF5EVER</code>, where 1 = “NO” and 2 = “YES”.</p>
+<p><a href="https://www.cdc.gov/prams/php/data-research/codebooks-phase-8.html">PRAMS Phase 8 Codebook</a></p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a factor variable</span></span>
+<span><span class="co"># and add labels</span></span>
+<span><span class="va">prams</span><span class="op">$</span><span class="va">BF5EVER.f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
+<span>  <span class="va">prams</span><span class="op">$</span><span class="va">BF5EVER</span>,</span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"NO"</span>, <span class="st">"YES"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For the UNWEIGHTED data, let’s get a simple table of breastfeeding by STATE (variable <code>STATE</code>) and YEAR (variable <code>NEST_YR</code>).</p>
+<p>As we can see below, in 2017 for the state of GA, 919 women responded to this question:</p>
+<ul>
+<li>919 women responded
+<ul>
+<li>170 said NO</li>
+<li>749 said YES</li>
+</ul>
+</li>
+<li>36 were missing a response (indicated by <code>&lt;NA&gt;</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEST_YR</span> <span class="op">==</span> <span class="fl">2017</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">STATE</span>, <span class="va">prams</span><span class="op">$</span><span class="va">BF5EVER.f</span>, </span>
+<span>                useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    
+       NO  YES &lt;NA&gt;
+  AK  259 4756  323
+  AL  749 2909  177
+  AR 1081 3237  228
+  AZ   73  707   14
+  CO  405 6761  128
+  DC  168 1872   53
+  DE  691 4385  213
+  GA  732 3122  139
+  HI  185 3948  148
+  IA  565 3712  159
+  IL  818 6447  206
+  IN  120  714   31
+  KS  481 4571  238
+  KY  690 2398   84
+  LA 1420 3542  119
+  MA  632 7741  215
+  MD  472 4565  180
+  ME  481 4357  178
+  MI 1542 7831  352
+  MN  338 3176   83
+  MO  855 5423  225
+  MS 1173 2958  240
+  MT  318 3906  128
+  ND  557 2916  129
+  NE  641 6124  215
+  NH  249 2724   66
+  NJ  739 6041  181
+  NM  678 6017  132
+  NY  528 3523  152
+  OR  359 7065  203
+  PA  901 5401  244
+  PR  300 4451  107
+  RI  432 3742  164
+  SD  614 4415  135
+  TN  291 1541   97
+  UT  598 7622  271
+  VA  539 5106  137
+  VT  334 4758  113
+  WA  315 6749  167
+  WI 1083 5540  352
+  WV  964 2250  175
+  WY  283 2676  110
+  YC  629 7061  328</code></pre>
+</div>
+</div>
+<p>This aligns with the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> - scroll to the bottom to see the RAW count of 919 women who responded to “Ever Breastfed” in GA in 2017.</p>
+</section><section id="breastfeeding-summary---weighted-data" class="level3"><h3 class="anchored" data-anchor-id="breastfeeding-summary---weighted-data">Breastfeeding summary - WEIGHTED data</h3>
+<p>In the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> the columns that have the 95% CI (confidence intervals) for the percentages are the population weighted percentage estimates for the Stats of GA during that year.</p>
+<p>To get the estimated percentage of women in the stats of GA who had “ever breastfed” in 2017, we need to use the <code>survey</code> package and apply the proper sample weighting to get these estimates.</p>
+<p>From this we can see that the population estimates for 2017 are:</p>
+<ul>
+<li>Breastfed ever = NO: 17639.96 +/- 2045.415</li>
+<li>Breastfed ever = YES: 101686.10 +/- 2271.075</li>
+</ul>
+<p>This leads to a percentage of YES estimate of <code>101686.10 * 100 / (101686.10 + 17639.96)</code> = 85.2170096% which should match pretty closely to what is in the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a>.</p>
+<p>We can also get the percentage of overall breastfeeding YES for the USA for the 40 “states” (technically 38 states, Puerto Rico, and New York City) that were included in the PRAMS dataset in 2020 (see the last column in the CDC report), using the following R code. <em>Note: 2 “states” did not have data in 2020: Connecticut and Florida.</em></p>
+<p>From this we can see that the population estimates for the “whole USA” for 2020 were:</p>
+<ul>
+<li>Breastfed ever = NO: 225560.3 +/- 4884.871</li>
+<li>Breastfed ever = YES: 1609464 +/- 5540.240</li>
+</ul>
+<p>This leads to a percentage of YES estimate of <code>1609464 * 100 / (1609464 + 225560.3)</code> = 87.7080483% which is pretty close to what is in the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> - with some numerical precision variation due to software algorithms.</p>
+<p><strong>Congratulations on getting started with the PRAMS Dataset</strong></p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-Matrix" class="csl-entry" role="listitem">
+Bates, Douglas, Martin Maechler, and Mikael Jagan. 2024. <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. <a href="https://Matrix.R-forge.R-project.org">https://Matrix.R-forge.R-project.org</a>.
+</div>
+<div id="ref-R-knitcitations" class="csl-entry" role="listitem">
+Boettiger, Carl. 2021. <em>Knitcitations: Citations for Knitr Markdown Files</em>. <a href="https://github.com/cboettig/knitcitations">https://github.com/cboettig/knitcitations</a>.
+</div>
+<div id="ref-survey2004" class="csl-entry" role="listitem">
+Lumley, Thomas. 2004. <span>“Analysis of Complex Survey Samples.”</span> <em>Journal of Statistical Software</em> 9 (1): 1–19.
+</div>
+<div id="ref-survey2010" class="csl-entry" role="listitem">
+———. 2010. <em>Complex Surveys: A Guide to Analysis Using r: A Guide to Analysis Using r</em>. John Wiley; Sons.
+</div>
+<div id="ref-R-survey" class="csl-entry" role="listitem">
+Lumley, Thomas, Peter Gao, and Ben Schneider. 2024. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="http://r-survey.r-forge.r-project.org/survey/">http://r-survey.r-forge.r-project.org/survey/</a>.
+</div>
+<div id="ref-R-base" class="csl-entry" role="listitem">
+R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-Shulman_2018" class="csl-entry" role="listitem">
+Shulman, Holly B., Denise V. D’Angelo, Leslie Harrison, Ruben A. Smith, and Lee Warner. 2018. <span>“The Pregnancy Risk Assessment Monitoring System (PRAMS): Overview of Design and Methodology.”</span> <em>American Journal of Public Health</em> 108 (10): 1305–13. <a href="https://doi.org/10.2105/ajph.2018.304563">https://doi.org/10.2105/ajph.2018.304563</a>.
+</div>
+<div id="ref-survival-book" class="csl-entry" role="listitem">
+Terry M. Therneau, and Patricia M. Grambsch. 2000. <em>Modeling Survival Data: Extending the <span>C</span>ox Model</em>. New York: Springer.
+</div>
+<div id="ref-R-survival" class="csl-entry" role="listitem">
+Therneau, Terry M. 2024. <em>Survival: Survival Analysis</em>. <a href="https://github.com/therneau/survival">https://github.com/therneau/survival</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
+</div>
+<div id="ref-R-haven" class="csl-entry" role="listitem">
+Wickham, Hadley, Evan Miller, and Danny Smith. 2023. <em>Haven: Import and Export SPSS, Stata and SAS Files</em>. <a href="https://haven.tidyverse.org">https://haven.tidyverse.org</a>.
+</div>
+</div>
+</section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
+<p><a href="./additionalResources.html"><strong>Other Helpful Resources</strong></a></p>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/emorytidal\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg" class="img-fluid"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>Copyright 2025, <a href="https://melindahiggins.netlify.app/">Melinda Higgins, PhD.</a> <a href="https://www.linkedin.com/in/melindahiggins2000/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a href="https://scholar.google.com/citations?user=-4aU-VkAAAAJ&amp;hl=en"><i class="fa-brands fa-google-scholar" aria-label="google-scholar"></i></a> <a href="https://github.com/melindahiggins2000"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="mailto:mkhiggi@emory.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

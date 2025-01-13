@@ -1,0 +1,374 @@
+---
+title: "Setup Project for PRAMS Data Analysis"
+subtitle: "(Asynchronous-Online)"
+bibliography: [pramsref.bib, pramspkg.bib]
+nocite: |
+  @*
+format:
+  html: default
+  pdf: default
+editor_options: 
+  chunk_output_type: console
+---
+
+\thispagestyle{fancy}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      error = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+library(knitcitations)
+```
+
+## PRAMS Data
+
+### About PRAMS
+
+[PRAMS](https://www.cdc.gov/prams/index.html) is the Pregnancy Risk Assessment Monitoring System (PRAMS). According to the CDC's website for [About PRAMS](https://www.cdc.gov/prams/about/index.html):
+
+::: callout-note
+## What is PRAMS?
+
+PRAMS is the Pregnancy Risk Assessment Monitoring System. It is a joint surveillance project between state, territorial, or local health departments and CDC's Division of Reproductive Health. PRAMS was developed in 1987 to reduce infant morbidity and mortality by influencing maternal behaviors before, during, and immediately after live birth.
+:::
+
+::: callout-note
+## What is the purpose of PRAMS?
+
+The purpose of PRAMS is to find out why some infants are born healthy and others are not. The survey asks new mothers questions about their pregnancy and their new infant. The questions give us important information about the mother and the infant and help us learn more about the impacts of health and behaviors.
+:::
+
+### Getting the PRAMS Data
+
+* You can request the [PRAMS Data](https://www.cdc.gov/prams/php/data-research/index.html) from the CDC.
+* Once granted access, follow the instructions from the CDC to download the data and sign the data sharing agreement.
+* For the purposes of the TIDAL R training session, we will be working with [PRAMS Phase 8 ARF (Automated Research File)](https://www.cdc.gov/prams/php/data-research/codebooks-phase-8.html) dataset.
+
+### PRAMS Documentation and Resources
+
+* See the details on the [PRAMS Questionnaires](https://www.cdc.gov/prams/php/questionnaires/index.html).
+* Learn more about the [PRAMS Data Methodology](https://www.cdc.gov/prams/php/methodology/index.html) including details on how the samples are weighted.
+* **Download and Read** this helpful [paper on PRAMS design and methodology](https://www.cdc.gov/prams/pdf/methodology/prams-design-methodology-508.pdf) `r knitcitations::citep("10.2105/AJPH.2018.304563")`.
+* There are also helpful tutorial videos on working with PRAMS data by [ASSOCIATION OF STATE AND TERRITORIAL HEALTH OFFICIALS (ASTHO.org)](https://www.astho.org/topic/population-health-prevention/women-infant-family-health/prams/).
+
+
+---
+
+## 0. Prework - Before You Begin
+
+### Install R Packages
+
+Before you begin, please go ahead and install (or make sure these are already installed) on your computer for these following packages - these are all on CRAN, so you can install them using the RStudio Menu Tools/Install Packages interface:
+
+* [`haven`](https://cran.r-project.org/web/packages/haven/index.html)
+* [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html)
+* [`survey`](https://cran.r-project.org/web/packages/survey/index.html)
+
+```{r}
+library(haven)
+library(dplyr)
+library(survey)
+```
+
+### Create a NEW RStudio Project
+
+**BEFORE** you being any new analysis project, it is **ALWAYS** a good idea to begin with the NEW RStudio project.
+
+Go to the RStudio menu "File/New Project" and create your new project (ideally in a NEW directory, but it is also ok to use an exisiting directory/folder on your computer).
+
+This new directory (or folder) will be where all of your files will "live" for your current analysis project.
+
+See the step-by-step instructions for [creating a new RStudio project](module132_DataWrangling.html#begin-with-a-new-project) in [Module 1.3.2](module132_DataWrangling.html).
+
+
+
+---
+
+\newpage
+
+## 1. Get PRAMS Data and Select Subset for Analysis
+
+### A. Read-in the PRAMS Phase 8 2016-2021 combined dataset
+
+The PRAMS data provided by the CDC will be in SAS format (`*.sas7bdat`). We can read the native SAS file into R using the `haven` package and the `read_sas()` function.
+
+::: callout-warning
+## Memory Warning
+
+The size of the `phase8_arf_2016_2021.sas7bdat` dataset is a little over 1GB. So, make sure your computer has enough available memory to fully load this dataset. I will provide some more details below on how we can reduce the size of the dataset and improve the memory issues below.
+:::
+
+You can check your available memory, by checking your "Global Environment" TAB (upper right window pane) click on the down arrow next to the icon with "XX MiB" just to the left of the little broom:
+
+<br>
+
+![](prams_globalenv_01.png)
+
+<br>
+
+Click on the "Memory Usage Report" to see a detailed breakdown. This window will show:
+
+* Memory used by R objects (in your "Global Environment")
+* Memory used on your computer by your current R Session
+* Memory currently in use for everything currently running on your computer (all apps running - active and in background) - you can compare this to your "task manager" memory viewer.
+* Free System Memory - when this gets low the "XX MiB" graphic will change color from green - to yellow - to orange - to red. Once you get to red, your R session will most likely crash since there is not enough memory to perfom operations or run analyses.
+
+This is a screen shot of my computer (yours will look different) BEFORE I load the PRAMS dataset.
+
+<br>
+
+![](prams_globalenv_02.png)
+
+<br>
+
+Run the following R code to load the PRAMS Phase 8 dataset into your R Session and check the "Global Environment".
+
+```{r echo=FALSE}
+library(haven)
+prams <- 
+  read_sas("PRAMS/phase8_arf_2016_2021.sas7bdat")
+```
+
+```{r eval=FALSE}
+library(haven)
+prams <- 
+  read_sas("phase8_arf_2016_2021.sas7bdat")
+```
+
+Here is my memory AFTER loading the PRAMS dataset into my "Global Environment".
+
+<br>
+
+![](prams_globalenv_03.png)
+
+<br>
+
+![](prams_globalenv_04.png)
+
+<br>
+
+### C. Save the data as a `*.RData` binary file for use in later analyses
+
+One way to reduce the size of the PRAMS dataset is to save it as a native `*.RData` binary file format. So, let's save the PRAMS dataset in this format on your computer.
+
+```{r echo=FALSE}
+# save the whole dataset as *.RData format
+save(prams, 
+     file = "PRAMS/prams.RData")
+```
+
+```{r eval=FALSE}
+# save the whole dataset as *.RData format
+save(prams, 
+     file = "prams.RData")
+```
+
+On my computer, here is a comparison of the size of these 2 files:
+
+* `phase8_arf_2016_2021.sas7bdat` is 1,095,499,776 bytes (which is 1.02 GB)
+* `prams.RData` is only 34,713,319 (which is only 0.0323 GB)
+
+**This is a file size reduction of 96.83%!!**
+
+<br>
+
+![](prams_filesizes.png)
+
+<br>
+
+Now that we've reduced the file size of the dataset on your computer's hard drive (or cloud storage), let's also clear up the "Global Environment" back in you current RStudio computing session.
+
+### D. Clean up files to save memory
+
+Now that we've save the data, let's remove the PRAMS data object from the RStudio session. 
+
+* For now we can simply remove everything using the `rm(list=ls())`.
+* However, if you have other objects you want to keep, you can specifically only remove the PRAMS dataset using `rm(prams)`.
+
+
+```{r}
+# remove all objects from Global Environment
+rm(list=ls())
+
+# confirm Global Environment is empty
+# list all objects
+ls()
+
+# and free any currently unused memory
+gc()
+```
+
+After we remove everything, let's look at the session memory again.
+
+<br>
+
+![](prams_globalenv_05.png)
+
+<br>
+
+Now let's read the PRAMS data back in, but this time read in the `prams.RData` binary R data formatted file. We will use the built-in `load()` function.
+
+
+```{r echo=FALSE}
+# load back only the prams dataset
+load(file = "PRAMS/prams.RData")
+```
+
+```{r eval=FALSE}
+# load back only the prams dataset
+load(file = "prams.RData")
+```
+
+Let's check the R session memory again:
+
+<br>
+
+![](prams_globalenv_06.png)
+
+<br>
+
+I know this didn't make a large difference for the R session available memory, but by doing this process:
+
+1. The PRAMS dataset now takes up less memory on your computer's file storage, and
+2. The `load()` function for the `prams.RData` file should run faster when beginning your R computing session instead of having to use the `haven` package to read in the SAS formatted file everytime.
+
+As a quick comparison on my computer (Windows 11), the time to read in the SAS formatted file was about 14 sec:
+
+```
+> system.time(
++   prams <- 
++     read_sas("phase8_arf_2016_2021.sas7bdat")
++ )
+   user  system elapsed 
+  13.44    0.47   13.96
+```
+  
+And the time to read in the `prams.RData` file was only about 1.5 sec.
+
+```
+> system.time(
++   load("prams.RData")
++ )
+   user  system elapsed 
+   1.45    0.08    1.54 
+```
+
+---
+
+\newpage
+
+## 2. Getting started with PRAMS Data
+
+### Breastfeeding summary - UNWEIGHTED data
+
+Let's look at whether the mother ever breastfed her baby - this is variable `BF5EVER`, where 1 = "NO" and 2 = "YES".
+
+[PRAMS Phase 8 Codebook](https://www.cdc.gov/prams/php/data-research/codebooks-phase-8.html)
+
+```{r}
+# create a factor variable
+# and add labels
+prams$BF5EVER.f <- factor(
+  prams$BF5EVER,
+  levels = c(1, 2),
+  labels = c("NO", "YES")
+)
+```
+
+For the UNWEIGHTED data, let's get a simple table of breastfeeding by STATE (variable `STATE`) and YEAR (variable `NEST_YR`).
+
+As we can see below, in 2017 for the state of GA, 919 women responded to this question: 
+
+* 919 women responded
+  * 170 said NO
+  * 749 said YES
+* 36 were missing a response (indicated by `<NA>`)
+
+```{r}
+prams %>%
+  filter(NEST_YR == 2017) %>% 
+  with(., table(prams$STATE, prams$BF5EVER.f, 
+                useNA = "ifany"))
+```
+
+This aligns with the [CDC PRAMS Indicators Report for GA in 2020](https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf) - scroll to the bottom to see the RAW count of 919 women who responded to "Ever Breastfed" in GA in 2017.
+
+### Breastfeeding summary - WEIGHTED data
+
+In the [CDC PRAMS Indicators Report for GA in 2020](https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf) the columns that have the 95% CI (confidence intervals) for the percentages are the population weighted percentage estimates for the Stats of GA during that year.
+
+To get the estimated percentage of women in the stats of GA who had "ever breastfed" in 2017, we need to use the `survey` package and apply the proper sample weighting to get these estimates.
+
+```{r eval=FALSE, echo=FALSE}
+library(survey)
+
+# Let's look at just GA to start with
+# use dplyr to filter out just GA
+prams_ga <- prams %>%
+  filter(STATE == "GA")
+
+# create the survey design file for GA
+prams_ga.svy <- 
+  svydesign(ids = ~0, strata = ~SUD_NEST, 
+            fpc = ~TOTCNT, weights = ~WTANAL, 
+            data = prams_ga)
+
+# get a table of ever breastfed
+# by YEAR
+svyby(~BF5EVER.f, ~NEST_YR,
+      design = prams_ga.svy,
+      svytotal, na.rm=TRUE)
+```
+
+From this we can see that the population estimates for 2017 are:
+
+* Breastfed ever = NO: 17639.96 +/- 2045.415
+* Breastfed ever = YES: 101686.10 +/- 2271.075
+
+This leads to a percentage of YES estimate of `101686.10 * 100 / (101686.10 + 17639.96)` = `r 101686.10 * 100 / (101686.10 + 17639.96)`% which should match pretty closely to what is in the [CDC PRAMS Indicators Report for GA in 2020](https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf).
+
+We can also get the percentage of overall breastfeeding YES for the USA for the 40 "states" (technically 38 states, Puerto Rico, and New York City) that were included in the PRAMS dataset in 2020 (see the last column in the CDC report), using the following R code. _Note: 2 "states" did not have data in 2020: Connecticut and Florida._
+
+
+```{r eval=FALSE, echo=FALSE}
+# get overall for 2020 - all states
+# make survey design file
+prams.svy <- 
+  svydesign(ids = ~0, strata = ~SUD_NEST, 
+            fpc = ~TOTCNT, weights = ~WTANAL, 
+            data = prams)
+
+svyby(~BF5EVER.f, ~NEST_YR,
+      design = prams.svy,
+      svytotal, na.rm=TRUE)
+```
+
+From this we can see that the population estimates for the "whole USA" for 2020 were:
+
+* Breastfed ever = NO: 225560.3 +/- 4884.871
+* Breastfed ever = YES: 1609464 +/- 5540.240
+
+This leads to a percentage of YES estimate of `1609464 * 100 / (1609464 + 225560.3)` = `r 1609464 * 100 / (1609464 + 225560.3)`% which is pretty close to what is in the [CDC PRAMS Indicators Report for GA in 2020](https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf) - with some numerical precision variation due to software algorithms.
+
+**Congratulations on getting started with the PRAMS Dataset**
+
+---
+
+\newpage
+
+```{r echo=FALSE}
+knitr::write_bib(x = c(.packages()), 
+                 file = "pramspkg.bib")
+
+knitcitations::write.bibtex(file="pramsref.bib")
+```
+
+## References
+
+::: {#refs}
+:::
+
+## Other Helpful Resources
+
+[**Other Helpful Resources**](./additionalResources.html)

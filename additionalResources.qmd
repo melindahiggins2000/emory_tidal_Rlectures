@@ -38,4 +38,22 @@ editor_options:
 * [Book: The Epidemiologist R Handbook](https://epirhandbook.com/en/index.html)
 * [Book/Course: Stat 545](https://stat545.com/)
 
+## Other places to get HELP
 
+* [StackOverflow](https://stackoverflow.com/)
+    - I encourage you to create an account so you can post questions. But even without an account you can search for and find answers to your questions and error messages.
+* [Google](https://www.google.com/)
+    - You can often cut and paste error messages in Google to find answers - most likely will redirect you to Stack Overflow. 
+* Package vignettes for packages on CRAN
+    - Here is [one vignette for dplyr](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+    - These will often help you get started.
+* Github package issues
+    - Many packages will host their code on Github which includes an "issues" tab. This can be a good place to see what other problems people may be having with a given package.
+    - [dplyr issues on Github](https://github.com/tidyverse/dplyr/issues)
+* CRAN package site
+    - [dplyr on CRAN](https://cran.r-project.org/web/packages/dplyr/index.html) - spend time looking at:
+        - the [README](https://cran.r-project.org/web/packages/dplyr/readme/README.html) for the package or
+        - [bug reports](https://github.com/tidyverse/dplyr/issues) or
+        - [NEWS](https://cran.r-project.org/web/packages/dplyr/news/news.html) which will detail the changes for each version updates
+* [R Bloggers](https://www.r-bloggers.com/)
+    - This is a really good website which curates thousands of people who are R developers, users and programmers who post articles about R.

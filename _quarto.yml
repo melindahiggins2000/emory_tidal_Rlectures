@@ -38,6 +38,8 @@ website:
         text: "1.3.5: Statistical Tests and Models"
       - href: module136_ReproducibleResearch.qmd
         text: "1.3.6: Reproducible Research Principles"
+      - href: PRAMS.qmd
+        text: "Setup Project for PRAMS Data Analysis"
       - href: additionalResources.qmd
         text: "Additional Help and Resources"
 

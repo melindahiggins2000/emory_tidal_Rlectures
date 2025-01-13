@@ -286,5 +286,12 @@ hr {
   border-color: #ADADAD;
 }
 
-
 // background-color: #ADADAD;
+
+// add box shadow to images
+// ignore... control widths - width: 95%;
+.img-fluid {
+  box-shadow: 5px 5px 3px grey;
+  border: 2px solid black;
+}
+
