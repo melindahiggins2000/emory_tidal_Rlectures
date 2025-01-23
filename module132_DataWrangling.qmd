@@ -30,6 +30,7 @@ knitr::opts_chunk$set(echo = TRUE,
 6. To run descriptive statistics.
 
 Key points to cover:
+
 1.	Import data.
 2.	Introduce to tidyverse.
 3.	Summarize data and run descriptive statistics.
@@ -43,16 +44,12 @@ Key points to cover:
 
 Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu Tools/Install Packages interface:
 
-* haven
-* readr
-* readxl
-* dplyr
+* [`haven`](https://cran.r-project.org/web/packages/haven/)
+* [`readr`](https://cran.r-project.org/web/packages/readr/)
+* [`readxl`](https://cran.r-project.org/web/packages/readxl/)
+* [`dplyr`](https://cran.r-project.org/web/packages/dplyr/)
 
-
-
-
-
-
+See [Module 1.3.1 on Installing Packages](module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session)
 
 ---
 
@@ -60,11 +57,87 @@ Before you begin, please go ahead and install the following packages - these are
 
 ## 1. To read in data.
 
-### Begin with a NEW Project
+### Begin with a NEW RStudio Project
 
-add steps and screenshot on starting with a new project...
+Let's begin with a new RStudio Project.
 
-### importing data
+1. First click on the menu at top for File/New Project:
+
+![](newproject.png)
+
+2. Next choose either an "Existing Directory" or "New Directory" depending on whether you want to use a folder that already exists on your computer or you want to create a new folder.
+
+![](newproject2.png)
+
+3. For now, let's choose a "New Directory" and then select "New Project"
+
+![](newproject3.png)
+
+4. When the next window opens, as an example, I'm creating a new folder called `myfirstRproject` for my RStudio project under the parent directory, `C:\MyGithub`.
+
+![](newproject4.png)
+
+5. So, if I look back on my computer in my file manager (I'm on a computer with Windows 11 operating system) - I can now see this new folder on my computer for `C:\MyGithub\myfirstRproject`.
+
+![](newproject6.png)
+
+6. Now let's put some data into this folder. Feel free to move datasets of your own into this new RStudio project directory. But here are some test datasets you can download and place into this new directory on your computer - choose at least one to try out - right click on each link and use "Save As" to save the file on your computer.
+
+* [`mydata.csv` - CSV (comma separated value) formatted data](mydata.csv)
+* [`mydata.xlsx` - EXCEL file](mydata.xlsx)
+* [`mydata.sav` - SPSS Dataset](mydata.sav)
+* [`mydata.sas7bdat` - SAS Dataset](mydata.sas7bdat)
+* [`Mydata_Codebook.pdf` - Codebook Details on "mydata" dataset](Mydata_Codebook.pdf)
+
+7. After putting these files into your new RStudio project folder, you should see something like this now in your RStudio Files Listing (bottom right window pane):
+
+![](newproject7.png)
+
+### Importing Data
+
+Now that you've got some data in your RStudio project folder, let's look at options for importing these datasets into your RStudio computing session.
+
+Click on File/Import Dataset - and then choose the file format you want. 
+
+#### Import a CSV file
+
+Here is an example of importing the [`mydata.csv` - CSV formatted data](mydata.csv). Let's use the `From Text (readr)` option.
+
+![](import1.png)
+
+Once this opens, click on "Browse" and choose the [`mydata.csv`](mydata.csv) file. Assuming all goes well, this window will read the top of the datafile and show you a quick preview to check that the import will work. And on the bottom right, the R code commands needed to import this dataset will be shown to you. You can then click on the little "clipboard" on the bottom right to copy this R code to your "clipboard", _(the R code option will be explained below)_.
+
+OR You can also just click "Import" and the R code will be executed for you and the dataset brought into your R computing session.
+
+![](import2.png)
+
+But the better way is to save the R code commands to import the data so you will be able to reproduce all steps in your data analysis workflow using code as opposed to non-reproducible point-and-click steps.
+
+Once you copied the R code above to your clipboard, go to "File/New File/R Script" to open a script programming window:
+
+![](import3.png)
+
+And then "paste" your R code into this window. 
+
+So as you can see importing the [`mydata.csv`](mydata.csv) dataset, involves 2 steps:
+
+1. Loading the `readr` package into your RStudio computing session, by running `library(readr)`
+2. Running the `read_csv()` function from the `readr` package and then assigning `<-` this output into a new R data object called `mydata`.
+
+![](import4.png)
+
+
+To import the dataset, select these 2 lines of code and then click "Run" to run the R code. And be sure to click "Save" to save your first R program - for example "importdata.R".
+
+![](import5.png)
+
+After running these 2 lines of code, you should see something like this - the code messages in the bottom left "Console" window pane and a new R data object "mydata" in the top right "Global Environment" window pane.
+
+![](import6.png)
+
+#### Import an EXCEL file
+
+aaaaaaaaaaa
 
 
 ### exploring builtin datasets - see environment also - including data with packages

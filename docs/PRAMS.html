@@ -212,7 +212,7 @@ div.csl-indent {
   <ul>
 <li>
 <a href="#prams-data" id="toc-prams-data" class="nav-link active" data-scroll-target="#prams-data">PRAMS Data</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#about-prams" id="toc-about-prams" class="nav-link" data-scroll-target="#about-prams">About PRAMS</a></li>
   <li><a href="#getting-the-prams-data" id="toc-getting-the-prams-data" class="nav-link" data-scroll-target="#getting-the-prams-data">Getting the PRAMS Data</a></li>
   <li><a href="#prams-documentation-and-resources" id="toc-prams-documentation-and-resources" class="nav-link" data-scroll-target="#prams-documentation-and-resources">PRAMS Documentation and Resources</a></li>
@@ -220,22 +220,22 @@ div.csl-indent {
 </li>
   <li>
 <a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#install-r-packages" id="toc-install-r-packages" class="nav-link" data-scroll-target="#install-r-packages">Install R Packages</a></li>
   <li><a href="#create-a-new-rstudio-project" id="toc-create-a-new-rstudio-project" class="nav-link" data-scroll-target="#create-a-new-rstudio-project">Create a NEW RStudio Project</a></li>
   </ul>
 </li>
   <li>
 <a href="#get-prams-data-and-select-subset-for-analysis" id="toc-get-prams-data-and-select-subset-for-analysis" class="nav-link" data-scroll-target="#get-prams-data-and-select-subset-for-analysis">1. Get PRAMS Data and Select Subset for Analysis</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#a.-read-in-the-prams-phase-8-2016-2021-combined-dataset" id="toc-a.-read-in-the-prams-phase-8-2016-2021-combined-dataset" class="nav-link" data-scroll-target="#a.-read-in-the-prams-phase-8-2016-2021-combined-dataset">A. Read-in the PRAMS Phase 8 2016-2021 combined dataset</a></li>
-  <li><a href="#c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" id="toc-c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" class="nav-link" data-scroll-target="#c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses">C. Save the data as a <code>*.RData</code> binary file for use in later analyses</a></li>
-  <li><a href="#d.-clean-up-files-to-save-memory" id="toc-d.-clean-up-files-to-save-memory" class="nav-link" data-scroll-target="#d.-clean-up-files-to-save-memory">D. Clean up files to save memory</a></li>
+  <li><a href="#b.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" id="toc-b.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" class="nav-link" data-scroll-target="#b.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses">B. Save the data as a <code>*.RData</code> binary file for use in later analyses</a></li>
+  <li><a href="#c.-clean-up-files-to-save-memory" id="toc-c.-clean-up-files-to-save-memory" class="nav-link" data-scroll-target="#c.-clean-up-files-to-save-memory">C. Clean up files to save memory</a></li>
   </ul>
 </li>
   <li>
 <a href="#getting-started-with-prams-data" id="toc-getting-started-with-prams-data" class="nav-link" data-scroll-target="#getting-started-with-prams-data">2. Getting started with PRAMS Data</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#breastfeeding-summary---unweighted-data" id="toc-breastfeeding-summary---unweighted-data" class="nav-link" data-scroll-target="#breastfeeding-summary---unweighted-data">Breastfeeding summary - UNWEIGHTED data</a></li>
   <li><a href="#breastfeeding-summary---weighted-data" id="toc-breastfeeding-summary---weighted-data" class="nav-link" data-scroll-target="#breastfeeding-summary---weighted-data">Breastfeeding summary - WEIGHTED data</a></li>
   </ul>
@@ -366,7 +366,7 @@ Memory Warning
 <p><br></p>
 <p><img src="prams_globalenv_04.png" class="img-fluid"></p>
 <p><br></p>
-</section><section id="c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" class="level3"><h3 class="anchored" data-anchor-id="c.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses">C. Save the data as a <code>*.RData</code> binary file for use in later analyses</h3>
+</section><section id="b.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses" class="level3"><h3 class="anchored" data-anchor-id="b.-save-the-data-as-a-.rdata-binary-file-for-use-in-later-analyses">B. Save the data as a <code>*.RData</code> binary file for use in later analyses</h3>
 <p>One way to reduce the size of the PRAMS dataset is to save it as a native <code>*.RData</code> binary file format. So, let’s save the PRAMS dataset in this format on your computer.</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save the whole dataset as *.RData format</span></span>
@@ -384,9 +384,9 @@ Memory Warning
 <p><br></p>
 <p><img src="prams_filesizes.png" class="img-fluid"></p>
 <p><br></p>
-<p>Now that we’ve reduced the file size of the dataset on your computer’s hard drive (or cloud storage), let’s also clear up the “Global Environment” back in you current RStudio computing session.</p>
-</section><section id="d.-clean-up-files-to-save-memory" class="level3"><h3 class="anchored" data-anchor-id="d.-clean-up-files-to-save-memory">D. Clean up files to save memory</h3>
-<p>Now that we’ve save the data, let’s remove the PRAMS data object from the RStudio session.</p>
+<p>Now that we’ve reduced the file size of the dataset on your computer’s hard drive (or cloud storage), let’s also clear up the “Global Environment” back in your current RStudio computing session.</p>
+</section><section id="c.-clean-up-files-to-save-memory" class="level3"><h3 class="anchored" data-anchor-id="c.-clean-up-files-to-save-memory">C. Clean up files to save memory</h3>
+<p>Now that we’ve saved the data, let’s remove the PRAMS data object from the RStudio session.</p>
 <ul>
 <li>For now we can simply remove everything using the <code>rm(list=ls())</code>.</li>
 <li>However, if you have other objects you want to keep, you can specifically only remove the PRAMS dataset using <code>rm(prams)</code>.</li>
@@ -405,8 +405,8 @@ Memory Warning
 <span><span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used  (Mb) gc trigger   (Mb)  max used  (Mb)
-Ncells 2107849 112.6    4136160  220.9   4136160 220.9
-Vcells 3850525  29.4  153274891 1169.4 112103072 855.3</code></pre>
+Ncells 2107853 112.6    4136198  220.9   4136198 220.9
+Vcells 3850537  29.4  153274908 1169.4 112103052 855.3</code></pre>
 </div>
 </div>
 <p>After we remove everything, let’s look at the session memory again.</p>

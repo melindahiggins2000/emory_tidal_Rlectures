@@ -55,6 +55,7 @@ format:
       - mkh_styles.scss
     mainfont: Nunito
     toc: true
+    toc-depth: 4
     page-layout: full
     code-link: true
     knitr:

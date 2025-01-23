@@ -148,7 +148,7 @@ Here is my memory AFTER loading the PRAMS dataset into my "Global Environment".
 
 <br>
 
-### C. Save the data as a `*.RData` binary file for use in later analyses
+### B. Save the data as a `*.RData` binary file for use in later analyses
 
 One way to reduce the size of the PRAMS dataset is to save it as a native `*.RData` binary file format. So, let's save the PRAMS dataset in this format on your computer.
 
@@ -177,11 +177,11 @@ On my computer, here is a comparison of the size of these 2 files:
 
 <br>
 
-Now that we've reduced the file size of the dataset on your computer's hard drive (or cloud storage), let's also clear up the "Global Environment" back in you current RStudio computing session.
+Now that we've reduced the file size of the dataset on your computer's hard drive (or cloud storage), let's also clear up the "Global Environment" back in your current RStudio computing session.
 
-### D. Clean up files to save memory
+### C. Clean up files to save memory
 
-Now that we've save the data, let's remove the PRAMS data object from the RStudio session. 
+Now that we've saved the data, let's remove the PRAMS data object from the RStudio session. 
 
 * For now we can simply remove everything using the `rm(list=ls())`.
 * However, if you have other objects you want to keep, you can specifically only remove the PRAMS dataset using `rm(prams)`.
