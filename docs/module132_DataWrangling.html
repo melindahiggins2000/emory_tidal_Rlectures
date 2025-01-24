@@ -17,6 +17,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -81,7 +115,32 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar docked">
 
@@ -123,7 +182,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module131_IntroRRStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1.3.1: Introduction to the R and R Studio</span></a>
+ <span class="menu-text">1.3.1: Introduction to R and R Studio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,26 +249,75 @@ div.csl-indent {
   <li>
 <a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing Data</a>
   <ul class="collapse">
-<li><a href="#import-a-csv-file" id="toc-import-a-csv-file" class="nav-link" data-scroll-target="#import-a-csv-file">Import a CSV file</a></li>
-  <li><a href="#import-an-excel-file" id="toc-import-an-excel-file" class="nav-link" data-scroll-target="#import-an-excel-file">Import an EXCEL file</a></li>
+<li><a href="#import-a-csv-file" id="toc-import-a-csv-file" class="nav-link" data-scroll-target="#import-a-csv-file"><strong>Import a CSV file</strong></a></li>
+  <li><a href="#import-an-excel-file" id="toc-import-an-excel-file" class="nav-link" data-scroll-target="#import-an-excel-file"><strong>Import an EXCEL file</strong></a></li>
+  <li><a href="#import-spss-data" id="toc-import-spss-data" class="nav-link" data-scroll-target="#import-spss-data"><strong>Import SPSS data</strong></a></li>
+  <li><a href="#import-sas-data" id="toc-import-sas-data" class="nav-link" data-scroll-target="#import-sas-data"><strong>Import SAS data</strong></a></li>
   </ul>
 </li>
-  <li><a href="#exploring-builtin-datasets---see-environment-also---including-data-with-packages" id="toc-exploring-builtin-datasets---see-environment-also---including-data-with-packages" class="nav-link" data-scroll-target="#exploring-builtin-datasets---see-environment-also---including-data-with-packages">exploring builtin datasets - see environment also - including data with packages</a></li>
+  <li><a href="#exploring-built-in-datasets" id="toc-exploring-built-in-datasets" class="nav-link" data-scroll-target="#exploring-built-in-datasets">Exploring Built-in Datasets</a></li>
   </ul>
 </li>
-  <li><a href="#to-subset-data." id="toc-to-subset-data." class="nav-link" data-scroll-target="#to-subset-data.">2. To subset data.</a></li>
-  <li><a href="#to-select-create-and-modify-variables." id="toc-to-select-create-and-modify-variables." class="nav-link" data-scroll-target="#to-select-create-and-modify-variables.">3. To select, create, and modify variables.</a></li>
-  <li><a href="#to-filter-the-observations-according-to-a-certain-condition." id="toc-to-filter-the-observations-according-to-a-certain-condition." class="nav-link" data-scroll-target="#to-filter-the-observations-according-to-a-certain-condition.">4. To filter the observations according to a certain condition.</a></li>
   <li>
-<a href="#to-explore-and-summarize-data." id="toc-to-explore-and-summarize-data." class="nav-link" data-scroll-target="#to-explore-and-summarize-data.">5. To explore and summarize data.</a>
+<a href="#to-view-the-data." id="toc-to-view-the-data." class="nav-link" data-scroll-target="#to-view-the-data.">2. To view The Data.</a>
   <ul>
-<li><a href="#base-r---summary-stats" id="toc-base-r---summary-stats" class="nav-link" data-scroll-target="#base-r---summary-stats">base r - summary stats</a></li>
-  <li><a href="#making-tables" id="toc-making-tables" class="nav-link" data-scroll-target="#making-tables">making tables</a></li>
-  <li><a href="#gtsummary-package" id="toc-gtsummary-package" class="nav-link" data-scroll-target="#gtsummary-package">gtsummary package</a></li>
-  <li><a href="#other-packages---arsenal-tableone-and-rmarkdown-formatting-of-tables-get-inspired" id="toc-other-packages---arsenal-tableone-and-rmarkdown-formatting-of-tables-get-inspired" class="nav-link" data-scroll-target="#other-packages---arsenal-tableone-and-rmarkdown-formatting-of-tables-get-inspired">other packages - arsenal, tableone and Rmarkdown formatting of tables… get inspired</a></li>
+<li><a href="#look-at-small-data-in-console" id="toc-look-at-small-data-in-console" class="nav-link" data-scroll-target="#look-at-small-data-in-console">Look at small data in Console</a></li>
+  <li><a href="#look-the-structure-of-the-dataset" id="toc-look-the-structure-of-the-dataset" class="nav-link" data-scroll-target="#look-the-structure-of-the-dataset">Look the “structure” of the dataset</a></li>
   </ul>
 </li>
-  <li><a href="#to-run-descriptive-statistics." id="toc-to-run-descriptive-statistics." class="nav-link" data-scroll-target="#to-run-descriptive-statistics.">6. To run descriptive statistics.</a></li>
+  <li>
+<a href="#to-subset-the-data---select-and-filter." id="toc-to-subset-the-data---select-and-filter." class="nav-link" data-scroll-target="#to-subset-the-data---select-and-filter.">3. To subset the data - select and filter.</a>
+  <ul>
+<li>
+<a href="#using-base-r-packages-and-functions" id="toc-using-base-r-packages-and-functions" class="nav-link" data-scroll-target="#using-base-r-packages-and-functions">Using base R packages and functions</a>
+  <ul class="collapse">
+<li><a href="#view-parts-of-the-dataset" id="toc-view-parts-of-the-dataset" class="nav-link" data-scroll-target="#view-parts-of-the-dataset"><strong>View parts of the dataset</strong></a></li>
+  <li><a href="#view-variables-in-dataset-by-name" id="toc-view-variables-in-dataset-by-name" class="nav-link" data-scroll-target="#view-variables-in-dataset-by-name"><strong>View variables in dataset by name</strong></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#using-dplyr-functions" id="toc-using-dplyr-functions" class="nav-link" data-scroll-target="#using-dplyr-functions">Using <code>dplyr</code> functions</a>
+  <ul class="collapse">
+<li><a href="#using-tidyverse-packages-and-functions" id="toc-using-tidyverse-packages-and-functions" class="nav-link" data-scroll-target="#using-tidyverse-packages-and-functions"><strong>Using <code>tidyverse</code> packages and functions</strong></a></li>
+  <li><a href="#pick-columns-using-dplyrselect" id="toc-pick-columns-using-dplyrselect" class="nav-link" data-scroll-target="#pick-columns-using-dplyrselect"><strong>Pick columns using <code>dplyr::select()</code></strong></a></li>
+  <li><a href="#workflow-using-the-pipe-operator" id="toc-workflow-using-the-pipe-operator" class="nav-link" data-scroll-target="#workflow-using-the-pipe-operator"><strong>Workflow using the pipe <code>%&gt;%</code> operator</strong></a></li>
+  <li><a href="#pick-rows-using-dplyrfilter" id="toc-pick-rows-using-dplyrfilter" class="nav-link" data-scroll-target="#pick-rows-using-dplyrfilter"><strong>Pick rows using <code>dplyr::filter()</code></strong></a></li>
+  <li><a href="#sortarrange-rows-using-dplyrarrange" id="toc-sortarrange-rows-using-dplyrarrange" class="nav-link" data-scroll-target="#sortarrange-rows-using-dplyrarrange"><strong>sort/Arrange rows using <code>dplyr::arrange()</code></strong></a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#to-create-and-modify-variables." id="toc-to-create-and-modify-variables." class="nav-link" data-scroll-target="#to-create-and-modify-variables.">4. To create and modify variables.</a>
+  <ul>
+<li><a href="#create-new-variable---base-r-approach" id="toc-create-new-variable---base-r-approach" class="nav-link" data-scroll-target="#create-new-variable---base-r-approach">Create New Variable - Base R Approach</a></li>
+  <li><a href="#create-new-variable---dplyrmutate-approach" id="toc-create-new-variable---dplyrmutate-approach" class="nav-link" data-scroll-target="#create-new-variable---dplyrmutate-approach">Create New Variable - <code>dplyr::mutate()</code> Approach</a></li>
+  <li><a href="#create-new-variable---add-labels-to-codes" id="toc-create-new-variable---add-labels-to-codes" class="nav-link" data-scroll-target="#create-new-variable---add-labels-to-codes">Create New Variable - add labels to codes</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#to-get-data-summary-and-descriptive-statistics." id="toc-to-get-data-summary-and-descriptive-statistics." class="nav-link" data-scroll-target="#to-get-data-summary-and-descriptive-statistics.">5. To get data summary and descriptive statistics.</a>
+  <ul>
+<li>
+<a href="#getting-summary-statistics" id="toc-getting-summary-statistics" class="nav-link" data-scroll-target="#getting-summary-statistics">Getting summary statistics</a>
+  <ul class="collapse">
+<li><a href="#summary-function" id="toc-summary-function" class="nav-link" data-scroll-target="#summary-function"><strong>summary() function</strong></a></li>
+  <li><a href="#hmiscdescribe-function" id="toc-hmiscdescribe-function" class="nav-link" data-scroll-target="#hmiscdescribe-function"><strong>Hmisc::describe() function</strong></a></li>
+  <li><a href="#psychdescribe-function" id="toc-psychdescribe-function" class="nav-link" data-scroll-target="#psychdescribe-function"><strong>psych::describe() function</strong></a></li>
+  <li><a href="#base-r-specific-statistics-functions" id="toc-base-r-specific-statistics-functions" class="nav-link" data-scroll-target="#base-r-specific-statistics-functions"><strong>Base R specific statistics functions</strong></a></li>
+  <li><a href="#dplyrsummarize-function" id="toc-dplyrsummarize-function" class="nav-link" data-scroll-target="#dplyrsummarize-function"><strong>dplyr::summarize() function</strong></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#make-summary-tables" id="toc-make-summary-tables" class="nav-link" data-scroll-target="#make-summary-tables">Make summary tables</a>
+  <ul class="collapse">
+<li><a href="#arsenal-package-for-tables" id="toc-arsenal-package-for-tables" class="nav-link" data-scroll-target="#arsenal-package-for-tables"><strong><code>arsenal</code> package for tables</strong></a></li>
+  <li><a href="#gtsummary-package-for-tables" id="toc-gtsummary-package-for-tables" class="nav-link" data-scroll-target="#gtsummary-package-for-tables"><strong><code>gtsummary</code> package for tables</strong></a></li>
+  <li><a href="#gmodels-package-for-r-x-c-tables" id="toc-gmodels-package-for-r-x-c-tables" class="nav-link" data-scroll-target="#gmodels-package-for-r-x-c-tables"><strong><code>gmodels</code> package for R-x-C tables</strong></a></li>
+  </ul>
+</li>
+  </ul>
+</li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="module132_DataWrangling.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -234,29 +342,47 @@ div.csl-indent {
 </header><section id="session-objectives" class="level2"><h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
 <ol type="1">
 <li>To read in data.</li>
-<li>To subset data.</li>
-<li>To select, create, and modify variables.</li>
-<li>To filter the observations according to a certain condition.</li>
-<li>To explore and summarize data.</li>
-<li>To run descriptive statistics.</li>
-</ol>
-<p>Key points to cover:</p>
-<ol type="1">
-<li>Import data.</li>
-<li>Introduce to tidyverse.</li>
-<li>Summarize data and run descriptive statistics.</li>
-<li>Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.</li>
+<li>To view the Data.</li>
+<li>To subset the data - select and filter.</li>
+<li>To create and modify variables.</li>
+<li>To get data summary and descriptive statistics</li>
 </ol>
 <hr></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
 <section id="install-packages" class="level3"><h3 class="anchored" data-anchor-id="install-packages">Install Packages</h3>
 <p>Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu Tools/Install Packages interface:</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/haven/"><code>haven</code></a></li>
-<li><a href="https://cran.r-project.org/web/packages/readr/"><code>readr</code></a></li>
-<li><a href="https://cran.r-project.org/web/packages/readxl/"><code>readxl</code></a></li>
-<li><a href="https://cran.r-project.org/web/packages/dplyr/"><code>dplyr</code></a></li>
+<li>
+<a href="https://cran.r-project.org/web/packages/readr/" target="_blank"><code>readr</code> on CRAN</a>
+<ul>
+<li><a href="https://readr.tidyverse.org/" target="_blank"><code>readr</code> package website</a></li>
 </ul>
-<p>See <a href="module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session">Module 1.3.1 on Installing Packages</a></p>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/readxl/" target="_blank"><code>readxl</code> on CRAN</a>
+<ul>
+<li><a href="https://readxl.tidyverse.org/" target="_blank">`readxl`` package website</a></li>
+</ul>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/haven/" target="_blank"><code>haven</code> on CRAN</a>
+<ul>
+<li><a href="https://haven.tidyverse.org/" target="_blank"><code>haven</code> package website</a></li>
+</ul>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/dplyr/" target="_blank"><code>dplyr</code> on CRAN</a>
+<ul>
+<li><a href="https://dplyr.tidyverse.org/" target="_blank"><code>dplyr</code> package website</a></li>
+</ul>
+</li>
+<li><a href="https://cran.r-project.org/web/packages/Hmisc/" target="_blank"><code>Hmisc</code> package</a></li>
+<li><a href="https://cran.r-project.org/web/packages/psych/" target="_blank"><code>psych</code> package</a></li>
+<li><a href="https://cran.r-project.org/web/packages/arsenal/" target="_blank"><code>arsenal</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/gtsummary/" target="_blank"><code>gtsummary</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/gmodels/" target="_blank"><code>gmodels</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/summarytools/" target="_blank"><code>summarytools</code></a></li>
+</ul>
+<p>See <a href="module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session" target="_blank">Module 1.3.1 on Installing Packages</a></p>
 <hr>
 <div style="page-break-after: always;"></div>
 </section></section><section id="to-read-in-data." class="level2"><h2 class="anchored" data-anchor-id="to-read-in-data.">1. To read in data.</h2>
@@ -299,11 +425,43 @@ div.csl-indent {
 </section><section id="importing-data" class="level3"><h3 class="anchored" data-anchor-id="importing-data">Importing Data</h3>
 <p>Now that you’ve got some data in your RStudio project folder, let’s look at options for importing these datasets into your RStudio computing session.</p>
 <p>Click on File/Import Dataset - and then choose the file format you want.</p>
-<section id="import-a-csv-file" class="level4"><h4 class="anchored" data-anchor-id="import-a-csv-file">Import a CSV file</h4>
+<section id="import-a-csv-file" class="level4"><h4 class="anchored" data-anchor-id="import-a-csv-file"><strong>Import a CSV file</strong></h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a CSV file?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>CSV stands for “comma separated value” format. This format is what you would think - each value for a different column (or variable) is separated by a column and each new row represents a new record in the dataset.</p>
+<p>CSV is widely accepted as a “universal” standard as a data format for easy exchange between different software and databases.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">Wikipedia Page on CSV</a></li>
+<li><a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000323.shtml" target="_blank">Library of Congress Page on CSV</a></li>
+<li>There is even a <a href="https://csvconf.com/" target="_blank">conference on CSV</a>
+</li>
+</ul>
+</div>
+</div>
 <p>Here is an example of importing the <a href="mydata.csv"><code>mydata.csv</code> - CSV formatted data</a>. Let’s use the <code>From Text (readr)</code> option.</p>
 <p><img src="import1.png" class="img-fluid"></p>
-<p>Once this opens, click on “Browse” and choose the <a href="mydata.csv"><code>mydata.csv</code></a> file. Assuming all goes well, this window will read the top of the datafile and show you a quick preview to check that the import will work. And on the bottom right, the R code commands needed to import this dataset will be shown to you. You can then click on the little “clipboard” on the bottom right to copy this R code to your “clipboard”, <em>(the R code option will be explained below)</em>.</p>
-<p>OR You can also just click “Import” and the R code will be executed for you and the dataset brought into your R computing session.</p>
+<p>Why should we use the “from text” option? Why do I not see a CSV option?</p>
+<p>Technically the CSV format is TEXT. You can open a CSV file in a text editor and easily read it - even if you do not have proprietary software like Excel, Access, SPSS, SAS, etc. Here is a screen shot of what the “mydata.csv” file looks like in my text editor “Notepad” on my Windows 11 computer:</p>
+<p>Notice that:</p>
+<ul>
+<li>The first row has text labels for the “variables” (columns) in the dataset - there are 14 column labels with each value separated by a <code>,</code> comma.</li>
+<li>The remaining rows are the “data” for the dataset.</li>
+<li>AFTER the 1st row of labels, there are 21 rows of data.</li>
+<li>Take a minute and notice there are some odd values, and odd patterns of missing data (two commas <code>,,</code> together indicate that value is missing for that column (variable)). <em>We’ll explore these issues further below.</em>
+</li>
+</ul>
+<p><img src="mydatacsv.png" class="img-fluid"></p>
+<p>Once the “File/Import Data/From Text (readr)” opens, click on “Browse” and choose the <a href="mydata.csv"><code>mydata.csv</code></a> file. Assuming all goes well, this window will read the top of the datafile and show you a quick “Data Preview” to check that the import will work.</p>
+<p>And on the bottom right, the “Code Preview” shows you the R code commands needed to import this dataset. You can then click on the little “clipboard” on the bottom right to copy this R code to your “clipboard”, <em>(the R code option will be explained below)</em>.</p>
+<p>OR You can also just click “Import” and the R code will be executed for you and the dataset brought into your R computing session <em>(but this is NOT a good practice for reproducible research!)</em>.</p>
 <p><img src="import2.png" class="img-fluid"></p>
 <p>But the better way is to save the R code commands to import the data so you will be able to reproduce all steps in your data analysis workflow using code as opposed to non-reproducible point-and-click steps.</p>
 <p>Once you copied the R code above to your clipboard, go to “File/New File/R Script” to open a script programming window:</p>
@@ -313,46 +471,1667 @@ div.csl-indent {
 <ol type="1">
 <li>Loading the <code>readr</code> package into your RStudio computing session, by running <code><a href="https://readr.tidyverse.org">library(readr)</a></code>
 </li>
-<li>Running the <code>read_csv()</code> function from the <code>readr</code> package and then assigning <code>&lt;-</code> this output into a new R data object called <code>mydata</code>.</li>
+<li>Running the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function from the <code>readr</code> package and then assigning <code>&lt;-</code> this output into a new R data object called <code>mydata</code>.</li>
 </ol>
 <p><img src="import4.png" class="img-fluid"></p>
 <p>To import the dataset, select these 2 lines of code and then click “Run” to run the R code. And be sure to click “Save” to save your first R program - for example “importdata.R”.</p>
 <p><img src="import5.png" class="img-fluid"></p>
 <p>After running these 2 lines of code, you should see something like this - the code messages in the bottom left “Console” window pane and a new R data object “mydata” in the top right “Global Environment” window pane.</p>
 <p><img src="import6.png" class="img-fluid"></p>
-</section><section id="import-an-excel-file" class="level4"><h4 class="anchored" data-anchor-id="import-an-excel-file">Import an EXCEL file</h4>
-<p>aaaaaaaaaaa</p>
-</section></section><section id="exploring-builtin-datasets---see-environment-also---including-data-with-packages" class="level3"><h3 class="anchored" data-anchor-id="exploring-builtin-datasets---see-environment-also---including-data-with-packages">exploring builtin datasets - see environment also - including data with packages</h3>
+</section><section id="import-an-excel-file" class="level4"><h4 class="anchored" data-anchor-id="import-an-excel-file"><strong>Import an EXCEL file</strong></h4>
+<p>Let’s try another format. While you will probably encounter CSV (comma separated value) data files often (since nearly all data collection platforms, databases and software will be able to export this simple non-proprietary format), many people natively open/read CSV files in the EXCEL software. So you will probably also encounter EXCEL (<code>*.XLS</code> or <code>*.XLSX</code>) formatted data files.</p>
+<p>In addition to an EXCEL file using a Microsoft proprietary format, EXCEL files can have formatting (font sizes, colors, borders) and can have multiple TABs (or SHEETs). Here are some screen shots of the <a href="mydata.xlsx"><code>mydata.xlsx</code> - EXCEL file</a> file.</p>
+<p>The first “Data” TAB:</p>
+<p><img src="mydataxls_data.png" class="img-fluid"></p>
+<p>The second “Codebook” TAB:</p>
+<p><img src="mydataxls_codebook.png" class="img-fluid"></p>
+<p>To import an EXCEL file into R, we will use the same process as above, but this time we will select “File/Import Dataset/From Excel”:</p>
+<p><img src="importxls.png" class="img-fluid"></p>
+<p>This process uses the <a href="https://readxl.tidyverse.org/reference/read_excel.html" target="_blank"><code>read_excel()</code> function</a> from the <a href="https://readxl.tidyverse.org" target="_blank"><code>readxl</code></a> package.</p>
+<p>With the <code><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel()</a></code> function, we can specify several options including:</p>
+<ul>
+<li>Which TAB do you want to import <em>(for now we are only importing one data TAB at a time)</em>. We are selecting the “Data” TAB.</li>
+<li>I’m leaving all of the rest as their defaults which include:
+<ul>
+<li>not changing the “Range”,</li>
+<li>leaving “Max Rows” blank,</li>
+<li>and leaving rows to “Skip” as 0, which can be useful if you receive files with a lot of “header” information at the top,,</li>
+<li>leaving the “NA” box blank - but you could put in a value like “99” if oyu want all 99’s treated as missing - but this is applied to the ENTIRE dataset. We will look at these issues for individual variables below.</li>
+</ul>
+</li>
+<li>Also notice that the checkboxes are selected for “First Row as Names” (which is the usual convention) and “Open Data Viewer”, which creates the <code>View(mydata)</code> in the “Code Preview” window to the right. You can skip this if you like.</li>
+</ul>
+<p>So in the “Code Preview” window to the right, we have specified the name of the data file <code>"mydata.xlsx"</code> and the “Data” TAB using the option <code>sheet = "Data"</code>. Remember to copy this code to the clipboard and save it in a <code>*.R</code> program script.</p>
+<p><img src="importxls2.png" class="img-fluid"></p>
+<p>Here is the <code>importdata.R</code> program script we have so far for reading in the <code>"mydata.csv"</code> and <code>"mydata.xlsx"</code> data files. <em>At the moment, the second time we “create” the <code>mydata</code> R data object we are overwriting the previous one.</em></p>
+<p>Also notice I have added some comments which start with a <code>#</code> hashtag. Any text following a <code>#</code> will be ignored by R and not executed.</p>
+<p><img src="importdata_Rscript.png" class="img-fluid"></p>
+</section><section id="import-spss-data" class="level4"><h4 class="anchored" data-anchor-id="import-spss-data"><strong>Import SPSS data</strong></h4>
+<p>For data files from other “common” statistics software like SPSS, SAS and Stata, we can use the “File/Import Dataset/From SPSS (or From SAS or From Stata)”. All of these use <a href="https://haven.tidyverse.org/reference/index.html#reading-and-writing" target="_blank"><code>read_xxx()</code> functions from the <code>haven</code> package</a>.</p>
+<p><img src="importother.png" class="img-fluid"></p>
+<p>Here is the code generated to import a SPSS datafile:</p>
+<p><img src="importspss.png" class="img-fluid"></p>
+</section><section id="import-sas-data" class="level4"><h4 class="anchored" data-anchor-id="import-sas-data"><strong>Import SAS data</strong></h4>
+<p>Importing a <code>*.sas7bdat</code> SAS datafile, is similar to SPSS - here is that code.</p>
+<p>Notice that in addition to the datafile <code>"mydata.sas7bdat"</code>, the <code><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas()</a></code> function also shows <code>NULL</code>. When reading in a SAS file, you can also add options for the catalog file and encoding specifics. You can read more on the HELP pages for the <a href="https://haven.tidyverse.org/reference/read_sas.html" target="_blank"><code>haven::read_sas()</code></a> function.</p>
+<p><img src="importsas.png" class="img-fluid"></p>
+<p><img src="readsashelp.png" class="img-fluid"></p>
+<p>Here is a quick summary of all of the data import codes shown above <code>importdata.R</code>:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Using <code>=</code> equals for parameter options inside a function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that we used <code>sheet = "Data"</code> inside the <code><a href="https://readxl.tidyverse.org/reference/read_excel.html">readxl::read_excel()</a></code> function. The single <code>=</code> equals sign is used to assign a value to a parameter or option inside a function.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import the CSV file</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"mydata.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import the EXCEL file</span></span>
+<span><span class="co"># Choose the "Data" TAB</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"mydata.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Data"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import a SPSS file</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span><span class="st">"mydata.sav"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import a SAS file</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_sas.html">read_sas</a></span><span class="op">(</span><span class="st">"mydata.sas7bdat"</span>, <span class="cn">NULL</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="exploring-built-in-datasets" class="level3"><h3 class="anchored" data-anchor-id="exploring-built-in-datasets">Exploring Built-in Datasets</h3>
+<p>If you are looking for other datasets to test out functions or just need some data to play around with, the base R packages and other R packages (like <a href="https://cran.r-project.org/web/packages/palmerpenguins/" target="_blank"><code>palmerpenguins</code></a>) have data built-in to them. You can use these datasets.</p>
+<p>We can take a look at what datasets are available using the <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> function:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># take a look at the datasets available in the</span></span>
+<span><span class="co"># "datasets" base R package</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will open a viewer window (top left) - also notive that if you search for HELP on the <code>pressure</code> dataset, you get a description of the dataset and the original source and citation. Notice in the HELP window, the word <code>pressure</code> is followed by curly brackets indicating that the <code>pressure</code> dataset is in the built-in R package <code>{datasets}</code>.</p>
+<p><img src="viewdatasets.png" class="img-fluid"></p>
+<p>We can see the <code>pressure</code> dataset is indeed in the <code>datasets</code> package if we keep scrolling down in the viewer window - also notice the <code>mtcars</code> dataset which you will often find in R tutorials and coding examples.</p>
+<p><img src="viewdatasets2.png" class="img-fluid"></p>
+<p>Once you know where to look, you can then explore lots of these datasets. For example, we can take a look at the built-in <code>pressure</code> dataset, which includes 19 values showing the relationship between tempeature in degrees Celcius and pressure in mm (or mercury). To “see” this builtin data object, just type the name <code>pressure</code> to see (or print out) the object.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pressure</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   temperature pressure
+1            0   0.0002
+2           20   0.0012
+3           40   0.0060
+4           60   0.0300
+5           80   0.0900
+6          100   0.2700
+7          120   0.7500
+8          140   1.8500
+9          160   4.2000
+10         180   8.8000
+11         200  17.3000
+12         220  32.1000
+13         240  57.0000
+14         260  96.0000
+15         280 157.0000
+16         300 247.0000
+17         320 376.0000
+18         340 558.0000
+19         360 806.0000</code></pre>
+</div>
+</div>
+<p>Normally most datasets are much larger than this little dataset - I would not advise trying to view most datasets by printing them to the “Console” window pane. Instead you can either click on the object in your “Global Environment” to view it - or you can run the <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> function to open the viewer window.</p>
+<p>You can “load” the built-in <code>pressure</code> dataset using the <code>data(pressure)</code> function to load the <code>pressure</code> dataset to load into your “Global Environment”, which loads the dataset into your R session.</p>
+<p>If we click on the little “Table icon” all the way to the right of the pressure dataset in the “Global Environment” window - or run <code>View(pressure)</code> - we can open the dataset in the Viewer window:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">pressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">pressure</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="viewpressure.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explore Datasets in R Packages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I encourage you to use the <code>data(package = "xxx")</code> function to see what, if any, datasets may be built-in to the various packages you may install and load during your R computing sessions.</p>
+</div>
+</div>
+<p>If you are interested in seeing other datasets in other R packages, go ahead and install the <a href="https://cran.r-project.org/web/packages/palmerpenguins/" target="_blank"><code>palmerpenguins</code></a> package and take a look at the <code>penguins</code> dataset included:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># look at datasets included with the</span></span>
+<span><span class="co"># palmerpenguins dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"palmerpenguins"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can learn more about the <code>penguins</code> dataset, by opening up the HELP page for the dataset. You can also load the <code>palmerpenguins</code> package and then load the <code>penguins</code> dataset using this code.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">penguins</span>, package <span class="op">=</span> <span class="st">"palmerpenguins"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="penguinsdata.png" class="img-fluid"></p>
+<p>And clicking the the little data table icon after loading the <code>penguins</code> dataset into the “Global Environment”, you can see the dataset in the viewer window.</p>
+<p><img src="viewpenguins.png" class="img-fluid"></p>
 <hr>
 <div style="page-break-after: always;"></div>
-</section></section><section id="to-subset-data." class="level2"><h2 class="anchored" data-anchor-id="to-subset-data.">2. To subset data.</h2>
+</section></section><section id="to-view-the-data." class="level2"><h2 class="anchored" data-anchor-id="to-view-the-data.">2. To view The Data.</h2>
+<section id="look-at-small-data-in-console" class="level3"><h3 class="anchored" data-anchor-id="look-at-small-data-in-console">Look at small data in Console</h3>
+<p>Let’s work with the <code>mydata</code> dataset that we imported above using the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># import the mydata.csv dataset</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"mydata.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is not a very large dataset - <code>mydata</code> has 21 rows (or observations) and 14 variables (or columns). So, we could view the whole thing by printing it to the “Console” window.</p>
+<p>You’ll notice that depending on the size of your current “Console” window, font size, zoom settings and more, what you see may vary. Since we read this dataset in using the <code>readr</code> package, the data object is now a <a href="https://tibble.tidyverse.org/">“tibble” dataframe</a> which only shows the columns and rows that will reasonably show up in your “Console” window.</p>
+<p>And the output below also lists what kind of column each variable is. For example,</p>
+<ul>
+<li>
+<code>Age</code> is a <code>&lt;dbl&gt;</code> indicating it is a numeric variable saved using double-precision, whereas</li>
+<li>
+<code>GenderSTR</code> is <code>&lt;chr&gt;</code> indicating this is a text or character (or “string”) type variable.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># print the dataset into the Console</span></span>
+<span><span class="va">mydata</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 14
+   SubjectID   Age WeightPRE WeightPOST Height   SES GenderSTR GenderCoded    q1
+       &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1         1    45        68        145    5.6     9 m                   1     4
+ 2         2    50       167        166    5.4     2 f                   2     3
+ 3         3    35       143        135    5.6     2 &lt;NA&gt;               NA     3
+ 4         4    44       216        201    5.6     2 m                   1     4
+ 5         5    32       243        223    6       2 m                   1     5
+ 6         6    48       165        145    5.2     2 f                   2     2
+ 7         8    50        60        132    3.3     2 m                   1     3
+ 8         9    51       110        108    5.1     3 f                   2     1
+ 9        12    46       167        158    5.5     2 F                   2     1
+10        14    35       190        200    5.8     1 Male                1     4
+# ℹ 11 more rows
+# ℹ 5 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section><section id="look-the-structure-of-the-dataset" class="level3"><h3 class="anchored" data-anchor-id="look-the-structure-of-the-dataset">Look the “structure” of the dataset</h3>
+<p>You can also view the different kinds of variables in the dataset using the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> or “structure” function - which lists the type of variable, the number of elements in each column [1:21] indicates each column has 21 elements (or 21 rows) and the other values are a quick “peek” at the data inside the dataset. For example, the first 3 people in this dataset are ages 45, 50 and 35.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [21 × 14] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ SubjectID  : num [1:21] 1 2 3 4 5 6 8 9 12 14 ...
+ $ Age        : num [1:21] 45 50 35 44 32 48 50 51 46 35 ...
+ $ WeightPRE  : num [1:21] 68 167 143 216 243 165 60 110 167 190 ...
+ $ WeightPOST : num [1:21] 145 166 135 201 223 145 132 108 158 200 ...
+ $ Height     : num [1:21] 5.6 5.4 5.6 5.6 6 5.2 3.3 5.1 5.5 5.8 ...
+ $ SES        : num [1:21] 9 2 2 2 2 2 2 3 2 1 ...
+ $ GenderSTR  : chr [1:21] "m" "f" NA "m" ...
+ $ GenderCoded: num [1:21] 1 2 NA 1 1 2 1 2 2 1 ...
+ $ q1         : num [1:21] 4 3 3 4 5 2 3 1 1 4 ...
+ $ q2         : num [1:21] NA 4 4 2 3 5 NA 4 1 44 ...
+ $ q3         : num [1:21] NA 1 2 2 5 5 4 1 5 1 ...
+ $ q4         : num [1:21] 4 40 3 1 2 1 3 3 5 1 ...
+ $ q5         : num [1:21] 4 3 5 1 4 4 9 1 1 4 ...
+ $ q6         : num [1:21] 5 2 2 9 1 5 2 4 2 5 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   SubjectID = col_double(),
+  ..   Age = col_double(),
+  ..   WeightPRE = col_double(),
+  ..   WeightPOST = col_double(),
+  ..   Height = col_double(),
+  ..   SES = col_double(),
+  ..   GenderSTR = col_character(),
+  ..   GenderCoded = col_double(),
+  ..   q1 = col_double(),
+  ..   q2 = col_double(),
+  ..   q3 = col_double(),
+  ..   q4 = col_double(),
+  ..   q5 = col_double(),
+  ..   q6 = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>You can also interactively <code>View</code> the data by clicking on the data icon and you can also click the little “table” icon to the far right next to the dataset in the “Global Environment”to open the data viewer window on the left.</p>
+<p>You can also click on the little blue circle to the left of the <code>mydata</code> dataset to change the arrow from facing right <svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#4d8ebd;overflow:visible;position:relative;"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z"></path></svg> to facing down <svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#4d8ebd;overflow:visible;position:relative;"><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z"></path></svg> to see the “structure” of the data in the “Global Environment”.</p>
+<p><img src="viewmydata.png" class="img-fluid"></p>
+</section></section><section id="to-subset-the-data---select-and-filter." class="level2"><h2 class="anchored" data-anchor-id="to-subset-the-data---select-and-filter.">3. To subset the data - select and filter.</h2>
+<section id="using-base-r-packages-and-functions" class="level3"><h3 class="anchored" data-anchor-id="using-base-r-packages-and-functions">Using base R packages and functions</h3>
+<section id="view-parts-of-the-dataset" class="level4"><h4 class="anchored" data-anchor-id="view-parts-of-the-dataset"><strong>View parts of the dataset</strong></h4>
+<p>Now let’s “explore” the data by viewing sections of it.</p>
+<p>Using base R commands, we can use functions like <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> with eash showing either the top or bottom 6 rows of the dataset. We can add a number to the function call to see more or less rows if we wish.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># look at top 6 rows of data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  SubjectID   Age WeightPRE WeightPOST Height   SES GenderSTR GenderCoded    q1
+      &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+1         1    45        68        145    5.6     9 m                   1     4
+2         2    50       167        166    5.4     2 f                   2     3
+3         3    35       143        135    5.6     2 &lt;NA&gt;               NA     3
+4         4    44       216        201    5.6     2 m                   1     4
+5         5    32       243        223    6       2 m                   1     5
+6         6    48       165        145    5.2     2 f                   2     2
+# ℹ 5 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># look at the bottom 10 rows of data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">mydata</span>, n<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 14
+   SubjectID   Age WeightPRE WeightPOST Height   SES GenderSTR GenderCoded    q1
+       &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1        19    40       200        195    6.1     1 f                   2     1
+ 2        21    99       180        185    5.9     3 f                   2     2
+ 3        22    52       240        220    6.5     2 m                   1     2
+ 4        23    24       250        240    6.4     2 M                   1     5
+ 5        24    35       175        174    5.8     2 F                   2     5
+ 6        27    51       220        221    6.3     2 m                   1     4
+ 7        28    43       230         98    2.6     2 m                   1    11
+ 8        30    36       190        180    5.7     1 female              2     5
+ 9        32    44       260        109    6.4     3 male                1     1
+10        NA    NA        NA         NA   NA      NA &lt;NA&gt;               NA    NA
+# ℹ 5 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What are these wierd <code>NA</code>s?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>NA</code> letters that show up is how R stores missing data. If the dataset you import has a blank cell (for either numeric or character type data), then R interprets that as “not available” which is indicated by <code>NA</code>. <code>NA</code> is a reserved word in R specifically set aside for handling missing values.</p>
+<p>You can learn more about <code>NA</code> by running:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="cn">NA</span>, package <span class="op">=</span> <span class="st">"base"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>You can also view different parts of the data by using square brackets <code>[]</code> to select specific rows and columns using <code>[row, column]</code> index indicators.</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select the values in rows 1-4</span></span>
+<span><span class="co"># and in columns 1-3</span></span>
+<span><span class="va">mydata</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  SubjectID   Age WeightPRE
+      &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+1         1    45        68
+2         2    50       167
+3         3    35       143
+4         4    44       216</code></pre>
+</div>
+</div>
+<p>To select all of a given row or column just leave that index blank.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># show all of rows 1-2</span></span>
+<span><span class="va">mydata</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  SubjectID   Age WeightPRE WeightPOST Height   SES GenderSTR GenderCoded    q1
+      &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+1         1    45        68        145    5.6     9 m                   1     4
+2         2    50       167        166    5.4     2 f                   2     3
+# ℹ 5 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># show all of columns 3-4</span></span>
+<span><span class="va">mydata</span><span class="op">[</span> ,<span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 2
+   WeightPRE WeightPOST
+       &lt;dbl&gt;      &lt;dbl&gt;
+ 1        68        145
+ 2       167        166
+ 3       143        135
+ 4       216        201
+ 5       243        223
+ 6       165        145
+ 7        60        132
+ 8       110        108
+ 9       167        158
+10       190        200
+# ℹ 11 more rows</code></pre>
+</div>
+</div>
+</section><section id="view-variables-in-dataset-by-name" class="level4"><h4 class="anchored" data-anchor-id="view-variables-in-dataset-by-name"><strong>View variables in dataset by name</strong></h4>
+<p>We can also select columns from a dataset using the variable (or column) name. To see the names of all of the variables in a dataset, use the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list variable names in mydata</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "SubjectID"   "Age"         "WeightPRE"   "WeightPOST"  "Height"     
+ [6] "SES"         "GenderSTR"   "GenderCoded" "q1"          "q2"         
+[11] "q3"          "q4"          "q5"          "q6"         </code></pre>
+</div>
+</div>
+<p>We can use the <code>$</code> “dollar sign” operator to “select” named variables out of a dataset. Let’s look at all of the ages in <code>mydata</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># look at all of the ages</span></span>
+<span><span class="co"># of the 21 people in mydata</span></span>
+<span><span class="va">mydata</span><span class="op">$</span><span class="va">Age</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 45 50 35 44 32 48 50 51 46 35 36 40 99 52 24 35 51 43 36 44 NA</code></pre>
+</div>
+</div>
+<p>We can also use these variable names with the <code>[]</code> brackets in base R syntax. And we use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> combine function to help us put a list together. Let’s look at the 2 weight columns in the dataset. Put the variable names inside <code>""</code> double quotes.</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># show all rows for</span></span>
+<span><span class="co"># the 2 weight variables in mydata</span></span>
+<span><span class="va">mydata</span><span class="op">[</span> , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"WeightPRE"</span>, <span class="st">"WeightPOST"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 2
+   WeightPRE WeightPOST
+       &lt;dbl&gt;      &lt;dbl&gt;
+ 1        68        145
+ 2       167        166
+ 3       143        135
+ 4       216        201
+ 5       243        223
+ 6       165        145
+ 7        60        132
+ 8       110        108
+ 9       167        158
+10       190        200
+# ℹ 11 more rows</code></pre>
+</div>
+</div>
+</section></section><section id="using-dplyr-functions" class="level3"><h3 class="anchored" data-anchor-id="using-dplyr-functions">Using <code>dplyr</code> functions</h3>
+<section id="using-tidyverse-packages-and-functions" class="level4"><h4 class="anchored" data-anchor-id="using-tidyverse-packages-and-functions"><strong>Using <code>tidyverse</code> packages and functions</strong></h4>
+<p>As you can see while base R is very powerful on it’s own, the syntax is less than intuitive. There are a whole suite of R packages that are designed to work together and use a different syntax that improves programming workflow and readability.</p>
+<p>Learn more about the suite of <a href="https://www.tidyverse.org/" target="_blank"><code>tidyverse</code></a> packages. You’ve already used two of these, <a href="https://readr.tidyverse.org/" target="_blank"><code>readr</code></a> and <a href="https://haven.tidyverse.org/" target="_blank"><code>haven</code></a> are both part of <code>tidyverse</code> for importing datasets.</p>
+<p>Another one of these <code>tidyverse</code> packages, <a href="https://dplyr.tidyverse.org/" target="_blank"><code>dplyr</code></a> is a very good package for “data wrangling”.</p>
+</section><section id="pick-columns-using-dplyrselect" class="level4"><h4 class="anchored" data-anchor-id="pick-columns-using-dplyrselect"><strong>Pick columns using <code>dplyr::select()</code></strong></h4>
+<p>Instead of using the base R <code>$</code> selector, the <code>dplyr</code> package has a <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function where you simply choose variables using their name. Let’s look at <code>Height</code> and <code>q1</code> from the <code>mydata</code> dataset.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Using package::function() syntax
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is good coding practice, especially when loading several packages at once into your computing session, the make sure you are calling the exact function you want from a specific package. So, I’m using the syntax of <code>package::function()</code> to help keep track of which package and which function is being used below.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load dplyr package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># select Height and q1 from mydata</span></span>
+<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mydata</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Height</span>, <span class="va">q1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 2
+   Height    q1
+    &lt;dbl&gt; &lt;dbl&gt;
+ 1    5.6     4
+ 2    5.4     3
+ 3    5.6     3
+ 4    5.6     4
+ 5    6       5
+ 6    5.2     2
+ 7    3.3     3
+ 8    5.1     1
+ 9    5.5     1
+10    5.8     4
+# ℹ 11 more rows</code></pre>
+</div>
+</div>
+</section><section id="workflow-using-the-pipe-operator" class="level4"><h4 class="anchored" data-anchor-id="workflow-using-the-pipe-operator"><strong>Workflow using the pipe <code>%&gt;%</code> operator</strong></h4>
+<p>Another improvement of the <code>tidyverse</code> approach of R programming is to use the pipe <code>%&gt;%</code> operator. Basically what this syntax does is take the results from “A” and pipe it into –&gt; the next “B” function, e.g.&nbsp;<code>A %&gt;% B</code> so we can begin to “daisy-chain” a sequence of programming steps together into a logical workflow and is easy to “read” and follow.</p>
+<p>Here is a working exmaple to show the same variable selection process using the <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select()</a></code> function. The code below takes the <code>mydata</code> dataset and pipes <code>%&gt;%</code> it into the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function. We were also able to drop using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function here.</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select Height and q1 from mydata</span></span>
+<span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Height</span>, <span class="va">q1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 2
+   Height    q1
+    &lt;dbl&gt; &lt;dbl&gt;
+ 1    5.6     4
+ 2    5.4     3
+ 3    5.6     3
+ 4    5.6     4
+ 5    6       5
+ 6    5.2     2
+ 7    3.3     3
+ 8    5.1     1
+ 9    5.5     1
+10    5.8     4
+# ℹ 11 more rows</code></pre>
+</div>
+</div>
+<p>We could even add the base R <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function here. If we put each code step on a separate line, you can now see that we are [1] taking the <code>mydata</code> dataset “and then” [2] selecting 2 variables “and then” [3] looking at the top 6 rows of the dataset.</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select Height and q1 from mydata</span></span>
+<span><span class="co"># and show only the top 6 rows</span></span>
+<span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Height</span>, <span class="va">q1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Height    q1
+   &lt;dbl&gt; &lt;dbl&gt;
+1    5.6     4
+2    5.4     3
+3    5.6     3
+4    5.6     4
+5    6       5
+6    5.2     2</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+TL;DR If <code>%&gt;%</code> is a pipe, then what is <code>|&gt;</code>??
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>%&gt;%</code> pipe operator is implemented within <code>tidyverse</code> from the <code>magrittr</code> package which is used by the <code>tidyverse</code> packages which started being used quite extensively by R programmers over the last decade.</p>
+<p>However, the rest of the R development community which is much larger than just those who use the <code>tidyverse</code> suite, also recently added a new base R pipe operator <code>|&gt;</code> (since R version 4.1.0).</p>
+<p>Learn more in this <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/" target="_blank"><code>tidyverse</code> blog post from 2023</a></p>
+</div>
+</div>
+<p>So, you do have the option to also use the base R <code>|&gt;</code> pipe operator.</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select Height and q1 from mydata</span></span>
+<span><span class="co"># and show only the top 6 rows</span></span>
+<span><span class="va">mydata</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Height</span>, <span class="va">q1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Height    q1
+   &lt;dbl&gt; &lt;dbl&gt;
+1    5.6     4
+2    5.4     3
+3    5.6     3
+4    5.6     4
+5    6       5
+6    5.2     2</code></pre>
+</div>
+</div>
+<p>For now, we will stay with the <code>%&gt;%</code> operator for consistency. But be aware that you will see both approaches on the Internet when “Googling” for answers.</p>
+</section><section id="pick-rows-using-dplyrfilter" class="level4"><h4 class="anchored" data-anchor-id="pick-rows-using-dplyrfilter"><strong>Pick rows using <code>dplyr::filter()</code></strong></h4>
+<p>In addition to selecting columns or variables from your dataset, you can also pull out a subset of your data by “filtering” out only the rows you want.</p>
+<p>For example, suppose we only want to look at the <code>Age</code>, <code>WeightPRE</code> for the Females in the dataset indicates by <code>GenderCoded</code> equal to 2.</p>
+<p>For reference, take a look at the <a href="Mydata_Codebook.pdf" target="_blank"><code>mydata</code> codebook</a> - and here is a screenshot as well:</p>
+<p><img src="mydataxls_codebook.png" class="img-fluid"></p>
+<p>Notice that:</p>
+<ul>
+<li>I changed the order of the columns - this is OK</li>
+<li>and to filter out and KEEP only the rows for females, I typed <code>GenderCoded == 2</code> using two equal signs <code>==</code>. R uses two <code>==</code> equal signs to perform a logicial operation to ask does the variable <code>GenderCoded</code> equal the value of 2, with either a <code>TRUE</code> or <code>FALSE</code> result. Only the rows with a <code>TRUE</code> result are shown.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Be careful not to mix up <code>=</code> and <code>==</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Odds are you will get errors at some point due to typos or other issues, but a common error is to use a single <code>=</code> equals sign when trying to perform a logic operation. Remember to use 2 equals signs <code>==</code> if you are trying to perform a <code>TRUE/FALSE</code> operation.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select columns from mydata</span></span>
+<span><span class="co"># and then only show rows for females</span></span>
+<span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GenderCoded</span>, <span class="va">Age</span>, <span class="va">WeightPRE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">GenderCoded</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+  GenderCoded   Age WeightPRE
+        &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+1           2    50       167
+2           2    48       165
+3           2    51       110
+4           2    46       167
+5           2    40       200
+6           2    99       180
+7           2    35       175
+8           2    36       190</code></pre>
+</div>
+</div>
+<p>Here is an example of the error you will get if you use a single <code>=</code> sign instead of <code>==</code> two.</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select columns from mydata</span></span>
+<span><span class="co"># and then only show rows for females</span></span>
+<span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GenderCoded</span>, <span class="va">Age</span>, <span class="va">WeightPRE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span>GenderCoded <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `filter()`:
+! We detected a named input.
+ℹ This usually means that you've used `=` instead of `==`.
+ℹ Did you mean `GenderCoded == 2`?</code></pre>
+</div>
+</div>
+</section><section id="sortarrange-rows-using-dplyrarrange" class="level4"><h4 class="anchored" data-anchor-id="sortarrange-rows-using-dplyrarrange"><strong>sort/Arrange rows using <code>dplyr::arrange()</code></strong></h4>
+<p>Here is another helpful function from <code>dplyr</code>. Suppose we want to find the 5 oldest people in <code>mydata</code> and show their IDs.</p>
+<p>Let’s use the <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">dplyr::arrange()</a></code> function which will sort our data based on the variable we specify in increasing order (lowest to highest) by default. And we will add the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> function to sort decreasing from largest to smallest.</p>
+<p>Learn more by running <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">help(arrange, package = "dplyr")</a></code></p>
+<p><em>Note: There was someone with age 99 in this made-up dataset.</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># take mydata</span></span>
+<span><span class="co"># select SubjectID and Age</span></span>
+<span><span class="co"># sort descending by Age</span></span>
+<span><span class="co"># show the top 5 IDs and Ages</span></span>
+<span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">SubjectID</span>, <span class="va">Age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Age</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  SubjectID   Age
+      &lt;dbl&gt; &lt;dbl&gt;
+1        21    99
+2        22    52
+3         9    51
+4        27    51
+5         2    50</code></pre>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="to-select-create-and-modify-variables." class="level2"><h2 class="anchored" data-anchor-id="to-select-create-and-modify-variables.">3. To select, create, and modify variables.</h2>
+</section></section></section><section id="to-create-and-modify-variables." class="level2"><h2 class="anchored" data-anchor-id="to-create-and-modify-variables.">4. To create and modify variables.</h2>
+<p>To create and add new variables to the dataset, we can use either a base R approach or the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function from the <code>dplyr</code> package. Let’s take a look at both approaches. In the <code>mydata</code> dataset, we have <code>Height</code> in decimal feet and we have <code>WeightPRE</code> and <code>WeightPOST</code> in pounds.</p>
+<p>So, let’s compute BMI (bodt mass index) as follows from Height (in inches) and Weight (in pounds):</p>
+<p><span class="math display">\[BMI = \left(\frac{weight_{(lbs)}}{(height_{(inches)})^2}\right) * 703\]</span></p>
+<section id="create-new-variable---base-r-approach" class="level3"><h3 class="anchored" data-anchor-id="create-new-variable---base-r-approach">Create New Variable - Base R Approach</h3>
+<p>Create a new variable using the <code>$</code> selector operator. Then write out the mathematical equation. I also had to multiple the Height in decimal feet * 12 to get inches.</p>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Compute BMI forthe PRE Weight</span></span>
+<span><span class="va">mydata</span><span class="op">$</span><span class="va">bmiPRE</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">WeightPRE</span> <span class="op">*</span> <span class="fl">703</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span>
+<span></span>
+<span><span class="co"># look at result</span></span>
+<span><span class="va">mydata</span><span class="op">$</span><span class="va">bmiPRE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  10.58585  27.95901  22.26142  33.62564  32.95312  29.78997  26.89777
+ [8]  20.64644  26.95156  27.57341  29.21039  26.23996  25.24418  27.73176
+[15]  29.79702  25.39656  27.06041 166.10166  28.54938  30.98891        NA</code></pre>
+</div>
+</div>
+<p>Look at the “Global Environment” or run the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> function to see if a new variable was added to <code>mydata</code> - which should now have 15 variables instead of only 14.</p>
+<p>You can also list the variable names in the updated dataset.</p>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># look at updated data structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [21 × 15] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ SubjectID  : num [1:21] 1 2 3 4 5 6 8 9 12 14 ...
+ $ Age        : num [1:21] 45 50 35 44 32 48 50 51 46 35 ...
+ $ WeightPRE  : num [1:21] 68 167 143 216 243 165 60 110 167 190 ...
+ $ WeightPOST : num [1:21] 145 166 135 201 223 145 132 108 158 200 ...
+ $ Height     : num [1:21] 5.6 5.4 5.6 5.6 6 5.2 3.3 5.1 5.5 5.8 ...
+ $ SES        : num [1:21] 9 2 2 2 2 2 2 3 2 1 ...
+ $ GenderSTR  : chr [1:21] "m" "f" NA "m" ...
+ $ GenderCoded: num [1:21] 1 2 NA 1 1 2 1 2 2 1 ...
+ $ q1         : num [1:21] 4 3 3 4 5 2 3 1 1 4 ...
+ $ q2         : num [1:21] NA 4 4 2 3 5 NA 4 1 44 ...
+ $ q3         : num [1:21] NA 1 2 2 5 5 4 1 5 1 ...
+ $ q4         : num [1:21] 4 40 3 1 2 1 3 3 5 1 ...
+ $ q5         : num [1:21] 4 3 5 1 4 4 9 1 1 4 ...
+ $ q6         : num [1:21] 5 2 2 9 1 5 2 4 2 5 ...
+ $ bmiPRE     : num [1:21] 10.6 28 22.3 33.6 33 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   SubjectID = col_double(),
+  ..   Age = col_double(),
+  ..   WeightPRE = col_double(),
+  ..   WeightPOST = col_double(),
+  ..   Height = col_double(),
+  ..   SES = col_double(),
+  ..   GenderSTR = col_character(),
+  ..   GenderCoded = col_double(),
+  ..   q1 = col_double(),
+  ..   q2 = col_double(),
+  ..   q3 = col_double(),
+  ..   q4 = col_double(),
+  ..   q5 = col_double(),
+  ..   q6 = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list the variable names in the</span></span>
+<span><span class="co"># updated dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "SubjectID"   "Age"         "WeightPRE"   "WeightPOST"  "Height"     
+ [6] "SES"         "GenderSTR"   "GenderCoded" "q1"          "q2"         
+[11] "q3"          "q4"          "q5"          "q6"          "bmiPRE"     </code></pre>
+</div>
+</div>
+</section><section id="create-new-variable---dplyrmutate-approach" class="level3"><h3 class="anchored" data-anchor-id="create-new-variable---dplyrmutate-approach">Create New Variable - <code>dplyr::mutate()</code> Approach</h3>
+<p>In the <code>dplyr</code> package, you can create or modify variables using the <a href="https://dplyr.tidyverse.org/reference/mutate.html" target="_blank"><code>mutate()</code></a> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Compute BMI forthe POST Weight</span></span>
+<span><span class="co"># use the dplyr::mutate() function</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    bmiPOST <span class="op">=</span> <span class="op">(</span><span class="va">WeightPOST</span> <span class="op">*</span> <span class="fl">703</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">Height</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check updates</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [21 × 16] (S3: tbl_df/tbl/data.frame)
+ $ SubjectID  : num [1:21] 1 2 3 4 5 6 8 9 12 14 ...
+ $ Age        : num [1:21] 45 50 35 44 32 48 50 51 46 35 ...
+ $ WeightPRE  : num [1:21] 68 167 143 216 243 165 60 110 167 190 ...
+ $ WeightPOST : num [1:21] 145 166 135 201 223 145 132 108 158 200 ...
+ $ Height     : num [1:21] 5.6 5.4 5.6 5.6 6 5.2 3.3 5.1 5.5 5.8 ...
+ $ SES        : num [1:21] 9 2 2 2 2 2 2 3 2 1 ...
+ $ GenderSTR  : chr [1:21] "m" "f" NA "m" ...
+ $ GenderCoded: num [1:21] 1 2 NA 1 1 2 1 2 2 1 ...
+ $ q1         : num [1:21] 4 3 3 4 5 2 3 1 1 4 ...
+ $ q2         : num [1:21] NA 4 4 2 3 5 NA 4 1 44 ...
+ $ q3         : num [1:21] NA 1 2 2 5 5 4 1 5 1 ...
+ $ q4         : num [1:21] 4 40 3 1 2 1 3 3 5 1 ...
+ $ q5         : num [1:21] 4 3 5 1 4 4 9 1 1 4 ...
+ $ q6         : num [1:21] 5 2 2 9 1 5 2 4 2 5 ...
+ $ bmiPRE     : num [1:21] 10.6 28 22.3 33.6 33 ...
+ $ bmiPOST    : num [1:21] 22.6 27.8 21 31.3 30.2 ...</code></pre>
+</div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "SubjectID"   "Age"         "WeightPRE"   "WeightPOST"  "Height"     
+ [6] "SES"         "GenderSTR"   "GenderCoded" "q1"          "q2"         
+[11] "q3"          "q4"          "q5"          "q6"          "bmiPRE"     
+[16] "bmiPOST"    </code></pre>
+</div>
+</div>
+</section><section id="create-new-variable---add-labels-to-codes" class="level3"><h3 class="anchored" data-anchor-id="create-new-variable---add-labels-to-codes">Create New Variable - add labels to codes</h3>
+<p>As you probably noticed in the views of the <code>mydata</code> dataset above, there was originally a variable where people were allowed to enter their gender using free text (the <code>GenderSTR</code> variable). So, there were entries like “f”, “F”, “female”, “male”, “Male” and other variations. So another variable <code>GenderCoded</code> was included where 1=male and 2=female, but when we look at <code>mydata$GenderCoded</code> all we see are 1’s and 2’s and <code>NA</code>s.</p>
+<div class="cell">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2 NA  1  1  2  1  2  2  1  1  2  2  1  1  2  1  1  2  1 NA</code></pre>
+</div>
+</div>
+<p>It would be nice if we could add some labels. One way to do this is to convert <code>GenderCoded</code> from being a simple “numeric” variable to a new class called a “factor” which included both numeric values and text labels.</p>
+<p>Here is the base R approach to create a new factor type variable. Learn more by looking at the help page for <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>, run <code><a href="https://rdrr.io/r/base/factor.html">help(factor, package = "base")</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a new factor with labels</span></span>
+<span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded.f</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded</span>,</span>
+<span>         levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>         labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># look at new variable</span></span>
+<span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded.f</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Male   Female &lt;NA&gt;   Male   Male   Female Male   Female Female Male  
+[11] Male   Female Female Male   Male   Female Male   Male   Female Male  
+[21] &lt;NA&gt;  
+Levels: Male Female</code></pre>
+</div>
+</div>
+<p>We can check the type each variable using the <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded.f</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "factor"</code></pre>
+</div>
+</div>
+<p>Another quick way to see these <code>class</code> type differences is to use the <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> function to get the frequencies of each distinct value. I’m also adding the <code>useNA = "ifany"</code> option to also get a count of any missing values. Learn more by running <code><a href="https://rdrr.io/r/base/table.html">help(table, package = "base")</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># table of frequencies of GenderCoded - numeric class</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   1    2 &lt;NA&gt; 
+  11    8    2 </code></pre>
+</div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># table of GenderCoded.f - factor class</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded.f</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Male Female   &lt;NA&gt; 
+    11      8      2 </code></pre>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="to-filter-the-observations-according-to-a-certain-condition." class="level2"><h2 class="anchored" data-anchor-id="to-filter-the-observations-according-to-a-certain-condition.">4. To filter the observations according to a certain condition.</h2>
+</section></section><section id="to-get-data-summary-and-descriptive-statistics." class="level2"><h2 class="anchored" data-anchor-id="to-get-data-summary-and-descriptive-statistics.">5. To get data summary and descriptive statistics.</h2>
+<section id="getting-summary-statistics" class="level3"><h3 class="anchored" data-anchor-id="getting-summary-statistics">Getting summary statistics</h3>
+<section id="summary-function" class="level4"><h4 class="anchored" data-anchor-id="summary-function"><strong>summary() function</strong></h4>
+<p>One of the best functions that is part of base R is the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function. Let’s see what this gives us for the <code>mydata</code> dataset.</p>
+<p>As you can see for all of the <code>numeric</code> class variables, the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function gives us the min, max, median, mean, 1st quartileand 3rd quartile and a count and of the the number of missing <code>NA</code>s. So you can see the mean <code>Age</code> is 44.8 and the median <code>Age</code> is 44.0.</p>
+<p>For the character variable <code>GenderSTR</code> all we know is it has a length of 21.</p>
+<p>But for the <code>factor</code> type variable <code>GenderCoded.f</code> we get the number of Males, Females and <code>NA</code>s.</p>
+<div class="cell">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   SubjectID          Age          WeightPRE       WeightPOST   
+ Min.   : 1.00   Min.   :24.00   Min.   : 60.0   Min.   : 98.0  
+ 1st Qu.: 5.75   1st Qu.:35.75   1st Qu.:166.5   1st Qu.:142.5  
+ Median :15.00   Median :44.00   Median :190.0   Median :177.0  
+ Mean   :15.30   Mean   :44.80   Mean   :185.2   Mean   :172.2  
+ 3rd Qu.:23.25   3rd Qu.:50.00   3rd Qu.:230.0   3rd Qu.:203.2  
+ Max.   :32.00   Max.   :99.00   Max.   :260.0   Max.   :240.0  
+ NA's   :1       NA's   :1       NA's   :1       NA's   :1      
+     Height           SES       GenderSTR          GenderCoded   
+ Min.   :2.600   Min.   :1.0   Length:21          Min.   :1.000  
+ 1st Qu.:5.475   1st Qu.:2.0   Class :character   1st Qu.:1.000  
+ Median :5.750   Median :2.0   Mode  :character   Median :1.000  
+ Mean   :5.550   Mean   :2.3                      Mean   :1.421  
+ 3rd Qu.:6.125   3rd Qu.:2.0                      3rd Qu.:2.000  
+ Max.   :6.500   Max.   :9.0                      Max.   :2.000  
+ NA's   :1       NA's   :1                        NA's   :2      
+       q1              q2               q3             q4        
+ Min.   : 1.00   Min.   : 1.000   Min.   :1.00   Min.   : 1.000  
+ 1st Qu.: 1.75   1st Qu.: 2.000   1st Qu.:1.00   1st Qu.: 2.000  
+ Median : 3.00   Median : 4.000   Median :3.00   Median : 3.000  
+ Mean   : 3.35   Mean   : 5.526   Mean   :3.15   Mean   : 5.062  
+ 3rd Qu.: 4.25   3rd Qu.: 4.500   3rd Qu.:4.25   3rd Qu.: 4.000  
+ Max.   :11.00   Max.   :44.000   Max.   :9.00   Max.   :40.000  
+ NA's   :1       NA's   :2        NA's   :1      NA's   :5       
+       q5               q6            bmiPRE          bmiPOST     
+ Min.   : 1.000   Min.   :1.000   Min.   : 10.59   Min.   :12.99  
+ 1st Qu.: 2.000   1st Qu.:2.000   1st Qu.: 26.03   1st Qu.:25.38  
+ Median : 4.000   Median :4.000   Median : 27.65   Median :26.42  
+ Mean   : 9.176   Mean   :3.706   Mean   : 33.78   Mean   :29.43  
+ 3rd Qu.: 5.000   3rd Qu.:5.000   3rd Qu.: 29.79   3rd Qu.:28.71  
+ Max.   :99.000   Max.   :9.000   Max.   :166.10   Max.   :70.77  
+ NA's   :4        NA's   :4       NA's   :1        NA's   :1      
+ GenderCoded.f
+ Male  :11    
+ Female: 8    
+ NA's  : 2    
+              
+              
+              
+              </code></pre>
+</div>
+</div>
+<p>So, the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function is helpful, but you’ll notice we do not get the standard deviation. For some reason that was left out of the original <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> statistics function.</p>
+<p>There are a few other descriptive statistics functions that can be useful. There is a <code>describe()</code> function in both the <a href="https://cran.r-project.org/web/packages/Hmisc/" target="_blank"><code>Hmisc</code> package</a> and the <a href="https://cran.r-project.org/web/packages/psych/" target="_blank"><code>psych</code></a> packages.</p>
+</section><section id="hmiscdescribe-function" class="level4"><h4 class="anchored" data-anchor-id="hmiscdescribe-function"><strong>Hmisc::describe() function</strong></h4>
+<p>Let’s look at <code><a href="https://rdrr.io/pkg/Hmisc/man/describe.html">Hmisc::describe()</a></code> for a couple of the variables.</p>
+<p>You’ll notice that this still doesn’t give us the standard deviation, but we get the min,max, mean, median, as well as the <code>.05</code> 5th percentile and others, and the output includes a summary ofthe frequency of the distinct values.</p>
+<div class="cell">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">GenderCoded.f</span>, <span class="va">bmiPRE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">Hmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Hmisc/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>. 
+
+ 3  Variables      21  Observations
+--------------------------------------------------------------------------------
+Age 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+      20        1       14    0.994     44.8       43    13.81    31.60 
+     .10      .25      .50      .75      .90      .95 
+   34.70    35.75    44.00    50.00    51.10    54.35 
+                                                                           
+Value        24   32   35   36   40   43   44   45   46   48   50   51   52
+Frequency     1    1    3    2    1    1    2    1    1    1    2    2    1
+Proportion 0.05 0.05 0.15 0.10 0.05 0.05 0.10 0.05 0.05 0.05 0.10 0.10 0.05
+               
+Value        99
+Frequency     1
+Proportion 0.05
+
+For the frequency table, variable is rounded to the nearest 0
+--------------------------------------------------------------------------------
+GenderCoded.f 
+       n  missing distinct 
+      19        2        2 
+                        
+Value        Male Female
+Frequency      11      8
+Proportion  0.579  0.421
+--------------------------------------------------------------------------------
+bmiPRE 
+       n  missing distinct     Info     Mean  pMedian      Gmd      .05 
+      20        1       20        1    33.78    27.73    18.52    20.14 
+     .10      .25      .50      .75      .90      .95 
+   22.10    26.03    27.65    29.79    33.02    40.25 
+
+10.5858489229025 (1, 0.05), 20.6464394036482 (1, 0.05), 22.2614175878685 (1,
+0.05), 25.2441827061189 (1, 0.05), 25.3965599815035 (1, 0.05), 26.2399593896503
+(1, 0.05), 26.8977655341292 (1, 0.05), 26.9515610651974 (1, 0.05),
+27.0604126424232 (1, 0.05), 27.5734079799181 (1, 0.05), 27.7317554240631 (1,
+0.05), 27.9590096784027 (1, 0.05), 28.5493827160494 (1, 0.05), 29.2103855937103
+(1, 0.05), 29.7899716469428 (1, 0.05), 29.7970241970486 (1, 0.05),
+30.9889051649305 (1, 0.05), 32.953125 (1, 0.05), 33.6256377551021 (1, 0.05),
+166.101660092045 (1, 0.05)
+
+For the frequency table, variable is rounded to the nearest 0
+--------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+</section><section id="psychdescribe-function" class="level4"><h4 class="anchored" data-anchor-id="psychdescribe-function"><strong>psych::describe() function</strong></h4>
+<p>The <code><a href="https://rdrr.io/pkg/psych/man/describe.html">psych::describe()</a></code> function only works on numeric data. So, let’s look at <code>Age</code> and <code>bmiPRE</code>. This function now gives us the standard deviation <code>sd</code> and even the <code>mad</code> which is the mean absolute deviation.</p>
+<div class="cell">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">bmiPRE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       vars  n  mean    sd median trimmed   mad   min   max  range skew
+Age       1 20 44.80 14.87  44.00   43.06 10.38 24.00  99.0  75.00 2.21
+bmiPRE    2 20 33.78 31.53  27.65   27.79  3.17 10.59 166.1 155.52 3.66
+       kurtosis   se
+Age        6.10 3.32
+bmiPRE    12.53 7.05</code></pre>
+</div>
+</div>
+</section><section id="base-r-specific-statistics-functions" class="level4"><h4 class="anchored" data-anchor-id="base-r-specific-statistics-functions"><strong>Base R specific statistics functions</strong></h4>
+<p>There are many built-in functions in base R for computing specific statistics like <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> for standard deviation, <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> and <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> to get specific percentiles.</p>
+<p>Let get some summary statistics for different variablesin <code>mydata</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get min, max for Age</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>WAIT!? - why did I get <code>NA</code>? Since there is missing data in this dataset, we need to tell these R functions how to handle the missing data. We need to add <code>na.rm=TRUE</code> to remove the <code>NA</code>s and then compute the <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> and <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> for the non-missing values.</p>
+<div class="cell">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 99</code></pre>
+</div>
+</div>
+<p>If we want, we could get the non-parametric statistics of median, 25th and 75th percentiles for the interquartile range.Let’s get these statistics for <code>bmiPRE</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get median bmiPRE</span></span>
+<span><span class="co"># and 25th and 75th percentiles for bmiPRE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">bmiPRE</span>,</span>
+<span>       na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27.65258</code></pre>
+</div>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">bmiPRE</span>, </span>
+<span>         probs <span class="op">=</span> <span class="fl">0.25</span>,</span>
+<span>         na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     25% 
+26.02911 </code></pre>
+</div>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">bmiPRE</span>, </span>
+<span>         probs <span class="op">=</span> <span class="fl">0.75</span>,</span>
+<span>         na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     75% 
+29.79173 </code></pre>
+</div>
+</div>
+<p>We can also get the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> and <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> for <code>Height</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.55</code></pre>
+</div>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9795273</code></pre>
+</div>
+</div>
+</section><section id="dplyrsummarize-function" class="level4"><h4 class="anchored" data-anchor-id="dplyrsummarize-function"><strong>dplyr::summarize() function</strong></h4>
+<p>The <code>dplyr</code> package also has a <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> function you can use to get specific statistics of your choosing. For example, let’s get the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> and <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> for <code>Age.</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    sd_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  mean_age sd_age
+     &lt;dbl&gt;  &lt;dbl&gt;
+1     44.8   14.9</code></pre>
+</div>
+</div>
+<p>We can do this same code again but add the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by()</a></code> function to add a grouping variable to get the statistics by.</p>
+<p>Let’s get the summary stats (<code>mean</code> and <code>sd</code>) for <code>Age</code> by <code>GenderCoded.f</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    sd_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  GenderCoded.f mean_age sd_age
+  &lt;fct&gt;            &lt;dbl&gt;  &lt;dbl&gt;
+1 Male              41.5   8.77
+2 Female            50.6  20.5 
+3 &lt;NA&gt;              35    NA   </code></pre>
+</div>
+</div>
+</section></section><section id="make-summary-tables" class="level3"><h3 class="anchored" data-anchor-id="make-summary-tables">Make summary tables</h3>
+<p>Creating nicely formatted summary tables is an active area of development in the R community. So, I’m sure there are new functions and packages that I may not have shown here. But here are a few packages I use often for making tables of summary statistics.</p>
+<section id="arsenal-package-for-tables" class="level4"><h4 class="anchored" data-anchor-id="arsenal-package-for-tables"><strong><code>arsenal</code> package for tables</strong></h4>
+<p>The <code>arsenal</code> package is useful for making tables - especially with Rmarkdown - to be explained further in a later session <a href="module136_ReproducibleResearch.html">Module 1.3.6</a>. Learn more at <a href="https://mayoverse.github.io/arsenal/articles/tableby.html" target="_blank"><code>tableby()</code> vignette</a>.</p>
+<p>Here is a quick example of some summary statistics for <code>Age</code>, <code>bmiPRE</code>, and <code>SES</code> by <code>GenderCoded.f</code> using the <code><a href="https://mayoverse.github.io/arsenal/reference/tableby.html">tableby()</a></code> function.</p>
+<p>First let’s add labels for <code>SES</code> and create a factor variable.</p>
+<div class="cell">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata</span><span class="op">$</span><span class="va">SES.f</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">SES</span>,</span>
+<span>         levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>         labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low income"</span>,</span>
+<span>                    <span class="st">"average income"</span>,</span>
+<span>                    <span class="st">"high income"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mayoverse/arsenal">arsenal</a></span><span class="op">)</span></span>
+<span><span class="va">tab1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mayoverse.github.io/arsenal/reference/tableby.html">tableby</a></span><span class="op">(</span><span class="va">GenderCoded.f</span> <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">bmiPRE</span> <span class="op">+</span><span class="va">SES.f</span>, </span>
+<span>                data <span class="op">=</span> <span class="va">mydata</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">tab1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 19%">
+<col style="width: 18%">
+<col style="width: 19%">
+<col style="width: 8%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Male (N=11)</th>
+<th style="text-align: center;">Female (N=8)</th>
+<th style="text-align: center;">Total (N=19)</th>
+<th style="text-align: right;">p value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Age</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">0.199</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;Mean (SD)</td>
+<td style="text-align: center;">41.455 (8.768)</td>
+<td style="text-align: center;">50.625 (20.493)</td>
+<td style="text-align: center;">45.316 (15.089)</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;Range</td>
+<td style="text-align: center;">24.000 - 52.000</td>
+<td style="text-align: center;">35.000 - 99.000</td>
+<td style="text-align: center;">24.000 - 99.000</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>bmiPRE</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">0.370</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;Mean (SD)</td>
+<td style="text-align: center;">40.230 (42.193)</td>
+<td style="text-align: center;">26.347 (2.785)</td>
+<td style="text-align: center;">34.384 (32.274)</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;Range</td>
+<td style="text-align: center;">10.586 - 166.102</td>
+<td style="text-align: center;">20.646 - 29.790</td>
+<td style="text-align: center;">10.586 - 166.102</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SES.f</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">0.625</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;N-Miss</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;low income</td>
+<td style="text-align: center;">2 (20.0%)</td>
+<td style="text-align: center;">2 (25.0%)</td>
+<td style="text-align: center;">4 (22.2%)</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;average income</td>
+<td style="text-align: center;">7 (70.0%)</td>
+<td style="text-align: center;">4 (50.0%)</td>
+<td style="text-align: center;">11 (61.1%)</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&nbsp;&nbsp;&nbsp;high income</td>
+<td style="text-align: center;">1 (10.0%)</td>
+<td style="text-align: center;">2 (25.0%)</td>
+<td style="text-align: center;">3 (16.7%)</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table></section><section id="gtsummary-package-for-tables" class="level4"><h4 class="anchored" data-anchor-id="gtsummary-package-for-tables"><strong><code>gtsummary</code> package for tables</strong></h4>
+<p>The <code>gtsummary</code> package is also useful for making tables. We can even use it to make nicely formatted tables in the “Viewer” window pane or in Rmarkdown. Learn more at <a href="https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html" target="_blank"><code>tbl_summary()</code> vignette</a>.</p>
+<p>Here is a quick example of some summary statistics for <code>Age</code> and <code>bmiPRE</code> by <code>GenderCoded.f</code> using the <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/gtsummary">gtsummary</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Age</span>, <span class="va">bmiPRE</span>, <span class="va">SES.f</span>, <span class="va">GenderCoded.f</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="gvwefcemqf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gvwefcemqf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#gvwefcemqf thead, #gvwefcemqf tbody, #gvwefcemqf tfoot, #gvwefcemqf tr, #gvwefcemqf td, #gvwefcemqf th {
+  border-style: none;
+}
+
+#gvwefcemqf p {
+  margin: 0;
+  padding: 0;
+}
+
+#gvwefcemqf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gvwefcemqf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gvwefcemqf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gvwefcemqf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gvwefcemqf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gvwefcemqf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gvwefcemqf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gvwefcemqf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gvwefcemqf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#gvwefcemqf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gvwefcemqf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gvwefcemqf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gvwefcemqf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gvwefcemqf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gvwefcemqf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gvwefcemqf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gvwefcemqf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gvwefcemqf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#gvwefcemqf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gvwefcemqf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gvwefcemqf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gvwefcemqf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gvwefcemqf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gvwefcemqf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gvwefcemqf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gvwefcemqf .gt_left {
+  text-align: left;
+}
+
+#gvwefcemqf .gt_center {
+  text-align: center;
+}
+
+#gvwefcemqf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gvwefcemqf .gt_font_normal {
+  font-weight: normal;
+}
+
+#gvwefcemqf .gt_font_bold {
+  font-weight: bold;
+}
+
+#gvwefcemqf .gt_font_italic {
+  font-style: italic;
+}
+
+#gvwefcemqf .gt_super {
+  font-size: 65%;
+}
+
+#gvwefcemqf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#gvwefcemqf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gvwefcemqf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gvwefcemqf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gvwefcemqf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gvwefcemqf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gvwefcemqf .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#gvwefcemqf .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#gvwefcemqf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead><tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Male</strong><br> N = 11<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Female</strong><br> N = 8<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Age</td>
+<td class="gt_row gt_center" headers="stat_1">44 (35, 50)</td>
+<td class="gt_row gt_center" headers="stat_2">47 (38, 51)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">bmiPRE</td>
+<td class="gt_row gt_center" headers="stat_1">29 (27, 33)</td>
+<td class="gt_row gt_center" headers="stat_2">27 (25, 28)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">SES.f</td>
+<td class="gt_row gt_center" headers="stat_1"><br></td>
+<td class="gt_row gt_center" headers="stat_2"><br></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;low income</td>
+<td class="gt_row gt_center" headers="stat_1">2 (20%)</td>
+<td class="gt_row gt_center" headers="stat_2">2 (25%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;average income</td>
+<td class="gt_row gt_center" headers="stat_1">7 (70%)</td>
+<td class="gt_row gt_center" headers="stat_2">4 (50%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;high income</td>
+<td class="gt_row gt_center" headers="stat_1">1 (10%)</td>
+<td class="gt_row gt_center" headers="stat_2">2 (25%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_center" headers="stat_1">1</td>
+<td class="gt_row gt_center" headers="stat_2">0</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr class="odd">
+<td colspan="3" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Median (Q1, Q3); n (%)</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+</section><section id="gmodels-package-for-r-x-c-tables" class="level4"><h4 class="anchored" data-anchor-id="gmodels-package-for-r-x-c-tables"><strong><code>gmodels</code> package for R-x-C tables</strong></h4>
+<p>If we want to look at a “cross-table” similar to output from SPSS or SAS, the <code>gmodels</code> package has the <code><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable()</a></code> function that creates text-based tables similar to these other statistics software packages.</p>
+<p>Let’s get the frequencies and columns percentages for gender by SES. The first variable is the row variable, the second is the column variable.</p>
+<div class="cell">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gmodels</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded.f</span>,  <span class="co"># row variable</span></span>
+<span>           <span class="va">mydata</span><span class="op">$</span><span class="va">SES.f</span>,          <span class="co"># column variable</span></span>
+<span>           prop.t <span class="op">=</span> <span class="cn">FALSE</span>,        <span class="co"># turn off percent of total</span></span>
+<span>           prop.r <span class="op">=</span> <span class="cn">FALSE</span>,        <span class="co"># turn off percent of row</span></span>
+<span>           prop.c <span class="op">=</span> <span class="cn">TRUE</span>,         <span class="co"># turn off percent of column</span></span>
+<span>           prop.chisq <span class="op">=</span> <span class="cn">FALSE</span>,     <span class="co"># turn off percent for chisq test</span></span>
+<span>           format <span class="op">=</span> <span class="st">"SPSS"</span>        <span class="co"># format like SPSS</span></span>
+<span>           <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   Cell Contents
+|-------------------------|
+|                   Count |
+|          Column Percent |
+|-------------------------|
+
+Total Observations in Table:  18 
+
+                     | mydata$SES.f 
+mydata$GenderCoded.f |     low income  | average income  |    high income  |      Row Total | 
+---------------------|----------------|----------------|----------------|----------------|
+                Male |             2  |             7  |             1  |            10  | 
+                     |        50.000% |        63.636% |        33.333% |                | 
+---------------------|----------------|----------------|----------------|----------------|
+              Female |             2  |             4  |             2  |             8  | 
+                     |        50.000% |        36.364% |        66.667% |                | 
+---------------------|----------------|----------------|----------------|----------------|
+        Column Total |             4  |            11  |             3  |            18  | 
+                     |        22.222% |        61.111% |        16.667% |                | 
+---------------------|----------------|----------------|----------------|----------------|
+
+ </code></pre>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="to-explore-and-summarize-data." class="level2"><h2 class="anchored" data-anchor-id="to-explore-and-summarize-data.">5. To explore and summarize data.</h2>
-<section id="base-r---summary-stats" class="level3"><h3 class="anchored" data-anchor-id="base-r---summary-stats">base r - summary stats</h3>
-</section><section id="making-tables" class="level3"><h3 class="anchored" data-anchor-id="making-tables">making tables</h3>
-</section><section id="gtsummary-package" class="level3"><h3 class="anchored" data-anchor-id="gtsummary-package">gtsummary package</h3>
-</section><section id="other-packages---arsenal-tableone-and-rmarkdown-formatting-of-tables-get-inspired" class="level3"><h3 class="anchored" data-anchor-id="other-packages---arsenal-tableone-and-rmarkdown-formatting-of-tables-get-inspired">other packages - arsenal, tableone and Rmarkdown formatting of tables… get inspired</h3>
-<p>table competitions</p>
-<hr>
-<div style="page-break-after: always;"></div>
-</section></section><section id="to-run-descriptive-statistics." class="level2"><h2 class="anchored" data-anchor-id="to-run-descriptive-statistics.">6. To run descriptive statistics.</h2>
-<hr>
-<div style="page-break-after: always;"></div>
-</section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+</section></section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-gmodels" class="csl-entry" role="listitem">
+Bolker, Gregory R. Warnes andBen, Thomas Lumley, Randall C Johnson, and Randall C. Johnson. 2022. <em>Gmodels: Various r Programming Tools for Model Fitting</em>. <a href="https://CRAN.R-project.org/package=gmodels">https://CRAN.R-project.org/package=gmodels</a>.
+</div>
+<div id="ref-R-arsenal" class="csl-entry" role="listitem">
+Heinzen, Ethan, Jason Sinnwell, Elizabeth Atkinson, Tina Gunderson, and Gregory Dougherty. 2021. <em>Arsenal: An Arsenal of r Functions for Large-Scale Statistical Summaries</em>. <a href="https://github.com/mayoverse/arsenal">https://github.com/mayoverse/arsenal</a>.
+</div>
+<div id="ref-R-fontawesome" class="csl-entry" role="listitem">
+Iannone, Richard. 2023. <em>Fontawesome: Easily Work with Font Awesome Icons</em>. <a href="https://github.com/rstudio/fontawesome">https://github.com/rstudio/fontawesome</a>.
+</div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
 R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
+<div id="ref-R-gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D., Joseph Larmarange, Michael Curry, Jessica Lavery, Karissa Whiting, and Emily C. Zabor. 2024. <em>Gtsummary: Presentation-Ready Data Summary and Analytic Result Tables</em>. <a href="https://github.com/ddsjoberg/gtsummary">https://github.com/ddsjoberg/gtsummary</a>.
+</div>
+<div id="ref-gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D., Karissa Whiting, Michael Curry, Jessica A. Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em><span>The R Journal</span></em> 13: 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
+</div>
 </div>
 </section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
-<p><a href="./additionalResources.html"><strong>Other Helpful Resources</strong></a></p>
+<p><a href="./additionalResources.html" target="_blank"><strong>Other Helpful Resources</strong></a></p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

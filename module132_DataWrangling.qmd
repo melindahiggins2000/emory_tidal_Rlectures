@@ -23,18 +23,10 @@ knitr::opts_chunk$set(echo = TRUE,
 ## Session Objectives
 
 1. To read in data.
-2. To subset data.
-3. To select, create, and modify variables.
-4. To filter the observations according to a certain condition.
-5. To explore and summarize data.
-6. To run descriptive statistics.
-
-Key points to cover:
-
-1.	Import data.
-2.	Introduce to tidyverse.
-3.	Summarize data and run descriptive statistics.
-4.	Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.
+2. To view the Data.
+3. To subset the data - select and filter.
+4. To create and modify variables.
+5. To get data summary and descriptive statistics 
 
 ---
 
@@ -44,12 +36,23 @@ Key points to cover:
 
 Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu Tools/Install Packages interface:
 
-* [`haven`](https://cran.r-project.org/web/packages/haven/)
-* [`readr`](https://cran.r-project.org/web/packages/readr/)
-* [`readxl`](https://cran.r-project.org/web/packages/readxl/)
-* [`dplyr`](https://cran.r-project.org/web/packages/dplyr/)
+* [`readr` on CRAN](https://cran.r-project.org/web/packages/readr/){target="_blank"}
+  - [`readr` package website](https://readr.tidyverse.org/){target="_blank"}
+* [`readxl` on CRAN](https://cran.r-project.org/web/packages/readxl/){target="_blank"}
+  - [`readxl`` package website](https://readxl.tidyverse.org/){target="_blank"}
+* [`haven` on CRAN](https://cran.r-project.org/web/packages/haven/){target="_blank"}
+  - [`haven` package website](https://haven.tidyverse.org/){target="_blank"}
+* [`dplyr` on CRAN](https://cran.r-project.org/web/packages/dplyr/){target="_blank"}
+  - [`dplyr` package website](https://dplyr.tidyverse.org/){target="_blank"}
+* [`Hmisc` package](https://cran.r-project.org/web/packages/Hmisc/){target="_blank"}
+* [`psych` package](https://cran.r-project.org/web/packages/psych/){target="_blank"}
+* [`arsenal`](https://cran.r-project.org/web/packages/arsenal/){target="_blank"}
+* [`gtsummary`](https://cran.r-project.org/web/packages/gtsummary/){target="_blank"}
+* [`gmodels`](https://cran.r-project.org/web/packages/gmodels/){target="_blank"}
+* [`summarytools`](https://cran.r-project.org/web/packages/summarytools/){target="_blank"}
 
-See [Module 1.3.1 on Installing Packages](module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session)
+
+See [Module 1.3.1 on Installing Packages](module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session){target="_blank"}
 
 ---
 
@@ -99,15 +102,44 @@ Now that you've got some data in your RStudio project folder, let's look at opti
 
 Click on File/Import Dataset - and then choose the file format you want. 
 
-#### Import a CSV file
+#### **Import a CSV file**
+
+::: callout-note
+## What is a CSV file?
+
+CSV stands for "comma separated value" format. This format is what you would think - each value for a different column (or variable) is separated by a column and each new row represents a new record in the dataset.
+
+CSV is widely accepted as a "universal" standard as a data format for easy exchange between different software and databases.
+
+* [Wikipedia Page on CSV](https://en.wikipedia.org/wiki/Comma-separated_values){target="_blank"}
+* [Library of Congress Page on CSV](https://www.loc.gov/preservation/digital/formats/fdd/fdd000323.shtml){target="_blank"}
+* There is even a [conference on CSV](https://csvconf.com/){target="_blank"}
+:::
 
 Here is an example of importing the [`mydata.csv` - CSV formatted data](mydata.csv). Let's use the `From Text (readr)` option.
 
 ![](import1.png)
 
-Once this opens, click on "Browse" and choose the [`mydata.csv`](mydata.csv) file. Assuming all goes well, this window will read the top of the datafile and show you a quick preview to check that the import will work. And on the bottom right, the R code commands needed to import this dataset will be shown to you. You can then click on the little "clipboard" on the bottom right to copy this R code to your "clipboard", _(the R code option will be explained below)_.
+Why should we use the "from text" option? Why do I not see a CSV option?
 
-OR You can also just click "Import" and the R code will be executed for you and the dataset brought into your R computing session.
+Technically the CSV format is TEXT. You can open a CSV file in a text editor and easily read it - even if you do not have proprietary software like Excel, Access, SPSS, SAS, etc. Here is a screen shot of what the "mydata.csv" file looks like in my text editor "Notepad" on my Windows 11 computer:
+
+Notice that:
+
+* The first row has text labels for the "variables" (columns) in the dataset - there are 14 column labels with each value separated by a `,` comma.
+* The remaining rows are the "data" for the dataset.
+* AFTER the 1st row of labels, there are 21 rows of data.
+* Take a minute and notice there are some odd values, and odd patterns of missing data (two commas `,,` together indicate that value is missing for that column (variable)). _We'll explore these issues further below._
+
+![](mydatacsv.png)
+
+
+
+Once the "File/Import Data/From Text (readr)" opens, click on "Browse" and choose the [`mydata.csv`](mydata.csv) file. Assuming all goes well, this window will read the top of the datafile and show you a quick "Data Preview" to check that the import will work. 
+
+And on the bottom right, the "Code Preview" shows you the R code commands needed to import this dataset. You can then click on the little "clipboard" on the bottom right to copy this R code to your "clipboard", _(the R code option will be explained below)_.
+
+OR You can also just click "Import" and the R code will be executed for you and the dataset brought into your R computing session _(but this is NOT a good practice for reproducible research!)_.
 
 ![](import2.png)
 
@@ -135,65 +167,703 @@ After running these 2 lines of code, you should see something like this - the co
 
 ![](import6.png)
 
-#### Import an EXCEL file
+#### **Import an EXCEL file**
 
-aaaaaaaaaaa
+Let's try another format. While you will probably encounter CSV (comma separated value) data files often (since nearly all data collection platforms, databases and software will be able to export this simple non-proprietary format), many people natively open/read CSV files in the EXCEL software. So you will probably also encounter EXCEL (`*.XLS` or `*.XLSX`) formatted data files.
+
+In addition to an EXCEL file using a Microsoft proprietary format, EXCEL files can have formatting (font sizes, colors, borders) and can have multiple TABs (or SHEETs). Here are some screen shots of the [`mydata.xlsx` - EXCEL file](mydata.xlsx) file.
+
+The first "Data" TAB:
+
+![](mydataxls_data.png)
+
+The second "Codebook" TAB:
+
+![](mydataxls_codebook.png)
 
 
-### exploring builtin datasets - see environment also - including data with packages
+To import an EXCEL file into R, we will use the same process as above, but this time we will select "File/Import Dataset/From Excel":
+
+![](importxls.png)
+
+This process uses the [`read_excel()` function](https://readxl.tidyverse.org/reference/read_excel.html){target="_blank"} from the [`readxl`](https://readxl.tidyverse.org){target="_blank"} package.
+
+With the `read_excel()` function, we can specify several options including:
+
+* Which TAB do you want to import _(for now we are only importing one data TAB at a time)_. We are selecting the "Data" TAB.
+* I'm leaving all of the rest as their defaults which include:
+  - not changing the "Range", 
+  - leaving "Max Rows" blank,
+  - and leaving rows to "Skip" as 0, which can be useful if you receive files with a lot of "header" information at the top,,
+  - leaving the "NA" box blank - but you could put in a value like "99" if oyu want all 99's treated as missing - but this is applied to the ENTIRE dataset. We will look at these issues for individual variables below.
+* Also notice that the checkboxes are selected for "First Row as Names" (which is the usual convention) and "Open Data Viewer", which creates the `View(mydata)` in the "Code Preview" window to the right. You can skip this if you like.
+
+So in the "Code Preview" window to the right, we have specified the name of the data file `"mydata.xlsx"` and the "Data" TAB using the option `sheet = "Data"`. Remember to copy this code to the clipboard and save it in a `*.R` program script.
+
+![](importxls2.png)
+
+Here is the `importdata.R` program script we have so far for reading in the `"mydata.csv"` and `"mydata.xlsx"` data files. _At the moment, the second time we "create" the `mydata` R data object we are overwriting the previous one._
+
+Also notice I have added some comments which start with a `#` hashtag. Any text following a `#` will be ignored by R and not executed.
+
+![](importdata_Rscript.png)
+
+#### **Import SPSS data**
+
+For data files from other "common" statistics software like SPSS, SAS and Stata, we can use the "File/Import Dataset/From SPSS (or From SAS or From Stata)". All of these use [`read_xxx()` functions from the `haven` package](https://haven.tidyverse.org/reference/index.html#reading-and-writing){target="_blank"}.
+
+
+![](importother.png)
+
+
+Here is the code generated to import a SPSS datafile:
+
+![](importspss.png)
+
+
+#### **Import SAS data**
+
+Importing a `*.sas7bdat` SAS datafile, is similar to SPSS - here is that code.
+
+Notice that in addition to the datafile `"mydata.sas7bdat"`, the `read_sas()` function also shows `NULL`. When reading in a SAS file, you can also add options for the catalog file and encoding specifics. You can read more on the HELP pages for the [`haven::read_sas()`](https://haven.tidyverse.org/reference/read_sas.html){target="_blank"} function.
+
+
+![](importsas.png)
+
+![](readsashelp.png)
+
+Here is a quick summary of all of the data import codes shown above `importdata.R`:
+
+::: callout-note
+## Using `=` equals for parameter options inside a function
+
+Notice that we used `sheet = "Data"` inside the `readxl::read_excel()` function. The single `=` equals sign is used to assign a value to a parameter or option inside a function.
+:::
+
+```{r eval=FALSE}
+# Import the CSV file
+library(readr)
+mydata <- read_csv("mydata.csv")
+
+# Import the EXCEL file
+# Choose the "Data" TAB
+library(readxl)
+mydata <- read_excel("mydata.xlsx", sheet = "Data")
+
+# Import a SPSS file
+library(haven)
+mydata <- read_sav("mydata.sav")
+
+# Import a SAS file
+library(haven)
+mydata <- read_sas("mydata.sas7bdat", NULL)
+```
+
+### Exploring Built-in Datasets 
+
+If you are looking for other datasets to test out functions or just need some data to play around with, the base R packages and other R packages (like [`palmerpenguins`](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"}) have data built-in to them. You can use these datasets.
+
+We can take a look at what datasets are available using the `data()` function:
+
+```{r eval=FALSE}
+# take a look at the datasets available in the
+# "datasets" base R package
+data()
+```
+
+This will open a viewer window (top left) - also notive that if you search for HELP on the `pressure` dataset, you get a description of the dataset and the original source and citation. Notice in the HELP window, the word `pressure` is followed by curly brackets indicating that the `pressure` dataset is in the built-in R package `{datasets}`.
+
+![](viewdatasets.png)
+
+We can see the `pressure` dataset is indeed in the `datasets` package if we keep scrolling down in the viewer window - also notice the `mtcars` dataset which you will often find in R tutorials and coding examples.
+
+
+![](viewdatasets2.png)
+
+Once you know where to look, you can then explore lots of these datasets. For example, we can take a look at the built-in `pressure` dataset, which includes 19 values showing the relationship between tempeature in degrees Celcius and pressure in mm (or mercury). To "see" this builtin data object, just type the name `pressure` to see (or print out) the object.
+
+
+```{r}
+pressure
+```
+
+Normally most datasets are much larger than this little dataset - I would not advise trying to view most datasets by printing them to the "Console" window pane. Instead you can either click on the object in your "Global Environment" to view it - or you can run the `View()` function to open the viewer window.
+
+You can "load" the built-in `pressure` dataset using the `data(pressure)` function to load the `pressure` dataset to load into your "Global Environment", which loads the dataset into your R session.
+
+If we click on the little "Table icon" all the way to the right of the pressure dataset in the "Global Environment" window - or run `View(pressure)` - we can open the dataset in the Viewer window:
+
+```{r eval=FALSE}
+data(pressure)
+View(pressure)
+```
+
+![](viewpressure.png)
+
+::: callout-tip
+## Explore Datasets in R Packages
+
+I encourage you to use the `data(package = "xxx")` function to see what, if any, datasets may be built-in to the various packages you may install and load during your R computing sessions.
+:::
+
+
+If you are interested in seeing other datasets in other R packages, go ahead and install the [`palmerpenguins`](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"} package and take a look at the `penguins` dataset included:
+
+
+```{r eval=FALSE}
+# look at datasets included with the
+# palmerpenguins dataset
+data(package = "palmerpenguins")
+```
+
+You can learn more about the `penguins` dataset, by opening up the HELP page for the dataset. You can also load the `palmerpenguins` package and then load the `penguins` dataset using this code. 
+
+
+```{r eval=FALSE}
+help(penguins, package = "palmerpenguins")
+library(palmerpenguins)
+data(penguins)
+```
+
+
+![](penguinsdata.png)
+
+And clicking the the little data table icon after loading the `penguins` dataset into the "Global Environment", you can see the dataset in the viewer window.
+
+![](viewpenguins.png)
 
 ---
 
 \newpage
 
-## 2. To subset data.
+## 2. To view The Data.
 
+### Look at small data in Console
+
+Let's work with the `mydata` dataset that we imported above using the `readr::read_csv()` function. 
+
+```{r}
+# import the mydata.csv dataset
+mydata <- readr::read_csv("mydata.csv")
+```
+
+This is not a very large dataset - `mydata` has 21 rows (or observations) and 14 variables (or columns). So, we could view the whole thing by printing it to the "Console" window.
+
+You'll notice that depending on the size of your current "Console" window, font size, zoom settings and more, what you see may vary. Since we read this dataset in using the `readr` package, the data object is now a ["tibble" dataframe](https://tibble.tidyverse.org/) which only shows the columns and rows that will reasonably show up in your "Console" window.
+
+And the output below also lists what kind of column each variable is. For example,
+
+* `Age` is a `<dbl>` indicating it is a numeric variable saved using double-precision, whereas
+* `GenderSTR` is `<chr>` indicating this is a text or character (or "string") type variable.
+
+```{r}
+# print the dataset into the Console
+mydata
+```
+
+### Look the "structure" of the dataset
+
+You can also view the different kinds of variables in the dataset using the `str()` or "structure" function - which lists the type of variable, the number of elements in each column [1:21] indicates each column has 21 elements (or 21 rows) and the other values are a quick "peek" at the data inside the dataset. For example, the first 3 people in this dataset are ages 45, 50 and 35.
+
+```{r}
+str(mydata)
+```
+
+You can also interactively `View` the data by clicking on the data icon and you can also click the little "table" icon to the far right next to the dataset in the "Global Environment"to open the data viewer window on the left. 
+
+```{r echo=FALSE}
+library(fontawesome)
+```
+
+You can also click on the little blue circle to the left of the `mydata` dataset to change the arrow from facing right `r fa(name = "circle-chevron-right", fill="#4d8ebd")` to facing down `r fa(name = "circle-chevron-down", fill="#4d8ebd")` to see the "structure" of the data in the "Global Environment". 
+
+
+![](viewmydata.png)
+
+## 3. To subset the data - select and filter.
+
+### Using base R packages and functions
+
+#### **View parts of the dataset**
+
+Now let's "explore" the data by viewing sections of it.
+
+Using base R commands, we can use functions like `head()` and `tail()` with eash showing either the top or bottom 6 rows of the dataset. We can add a number to the function call to see more or less rows if we wish.
+
+```{r}
+# look at top 6 rows of data
+head(mydata)
+
+# look at the bottom 10 rows of data
+tail(mydata, n=10)
+```
+
+::: callout-note
+## What are these wierd `NA`s?
+
+The `NA` letters that show up is how R stores missing data. If the dataset you import has a blank cell (for either numeric or character type data), then R interprets that as "not available" which is indicated by `NA`. `NA` is a reserved word in R specifically set aside for handling missing values. 
+
+You can learn more about `NA` by running:
+
+```{r eval=FALSE}
+help(NA, package = "base")
+```
+:::
+
+You can also view different parts of the data by using square brackets `[]` to select specific rows and columns using `[row, column]` index indicators.
+
+```{r}
+# Select the values in rows 1-4
+# and in columns 1-3
+mydata[1:4, 1:3]
+```
+
+To select all of a given row or column just leave that index blank.
+
+```{r}
+# show all of rows 1-2
+mydata[1:2, ]
+
+# show all of columns 3-4
+mydata[ ,3:4]
+```
+
+#### **View variables in dataset by name**
+
+We can also select columns from a dataset using the variable (or column) name. To see the names of all of the variables in a dataset, use the `names()` function.
+
+```{r}
+# list variable names in mydata
+names(mydata)
+```
+
+We can use the `$` "dollar sign" operator to "select" named variables out of a dataset. Let's look at all of the ages in `mydata`.
+
+
+```{r}
+# look at all of the ages
+# of the 21 people in mydata
+mydata$Age
+```
+
+We can also use these variable names with the `[]` brackets in base R syntax. And we use the `c()` combine function to help us put a list together. Let's look at the 2 weight columns in the dataset. Put the variable names inside `""` double quotes.
+
+```{r}
+# show all rows for
+# the 2 weight variables in mydata
+mydata[ , c("WeightPRE", "WeightPOST")]
+```
+
+
+### Using `dplyr` functions
+
+#### **Using `tidyverse` packages and functions**
+
+As you can see while base R is very powerful on it's own, the syntax is less than intuitive. There are a whole suite of R packages that are designed to work together and use a different syntax that improves programming workflow and readability.
+
+Learn more about the suite of [`tidyverse`](https://www.tidyverse.org/){target="_blank"} packages. You've already used two of these, [`readr`](https://readr.tidyverse.org/){target="_blank"} and [`haven`](https://haven.tidyverse.org/){target="_blank"} are both part of `tidyverse` for importing datasets.
+
+Another one of these `tidyverse` packages, [`dplyr`](https://dplyr.tidyverse.org/){target="_blank"} is a very good package for "data wrangling".
+
+#### **Pick columns using `dplyr::select()`**
+
+Instead of using the base R `$` selector, the `dplyr` package has a `select()` function where you simply choose variables using their name. Let's look at `Height` and `q1` from the `mydata` dataset.
+
+::: callout-tip
+## Using package::function() syntax
+
+It is good coding practice, especially when loading several packages at once into your computing session, the make sure you are calling the exact function you want from a specific package. So, I'm using the syntax of `package::function()` to help keep track of which package and which function is being used below.
+:::
+
+```{r}
+# load dplyr package
+library(dplyr)
+
+# select Height and q1 from mydata
+dplyr::select(mydata, c(Height, q1))
+```
+
+#### **Workflow using the pipe `%>%` operator**
+
+Another improvement of the `tidyverse` approach of R programming is to use the pipe `%>%` operator. Basically what this syntax does is take the results from "A" and pipe it into --> the next "B" function, e.g. `A %>% B` so we can begin to "daisy-chain" a sequence of programming steps together into a logical workflow and is easy to "read" and follow.
+
+Here is a working exmaple to show the same variable selection process using the `dplyr::select()` function. The code below takes the `mydata` dataset and pipes `%>%` it into the `select()` function. We were also able to drop using the `c()` function here.
+
+```{r}
+# select Height and q1 from mydata
+mydata %>% dplyr::select(Height, q1)
+```
+
+We could even add the base R `head()` function here. If we put each code step on a separate line, you can now see that we are [1] taking the `mydata` dataset "and then" [2] selecting 2 variables "and then" [3] looking at the top 6 rows of the dataset.
+
+```{r}
+# select Height and q1 from mydata
+# and show only the top 6 rows
+mydata %>% 
+  dplyr::select(Height, q1) %>%
+  head()
+```
+
+::: callout-note
+## TL;DR If `%>%` is a pipe, then what is `|>`??
+
+The `%>%` pipe operator is implemented within `tidyverse` from the `magrittr` package which is used by the `tidyverse` packages which started being used quite extensively by R programmers over the last decade.
+
+However, the rest of the R development community which is much larger than just those who use the `tidyverse` suite, also recently added a new base R pipe operator `|>` (since R version 4.1.0). 
+
+Learn more in this [`tidyverse` blog post from 2023](https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/){target="_blank"}
+:::
+
+So, you do have the option to also use the base R `|>` pipe operator.
+
+```{r}
+# select Height and q1 from mydata
+# and show only the top 6 rows
+mydata |> 
+  dplyr::select(Height, q1) |>
+  head()
+```
+
+For now, we will stay with the `%>%` operator for consistency. But be aware that you will see both approaches on the Internet when "Googling" for answers.
+
+#### **Pick rows using `dplyr::filter()`**
+
+In addition to selecting columns or variables from your dataset, you can also pull out a subset of your data by "filtering" out only the rows you want.
+
+For example, suppose we only want to look at the `Age`, `WeightPRE` for the Females in the dataset indicates by `GenderCoded` equal to 2.
+
+For reference, take a look at the [`mydata` codebook](Mydata_Codebook.pdf){target="_blank"} - and here is a screenshot as well:
+
+![](mydataxls_codebook.png)
+
+
+Notice that:
+
+* I changed the order of the columns - this is OK
+* and to filter out and KEEP only the rows for females, I typed `GenderCoded == 2` using two equal signs `==`. R uses two `==` equal signs to perform a logicial operation to ask does the variable `GenderCoded` equal the value of 2, with either a `TRUE` or `FALSE` result. Only the rows with a `TRUE` result are shown.
+
+::: callout-warning
+## Be careful not to mix up `=` and `==`
+
+Odds are you will get errors at some point due to typos or other issues, but a common error is to use a single `=` equals sign when trying to perform a logic operation. Remember to use 2 equals signs `==` if you are trying to perform a `TRUE/FALSE` operation.
+:::
+
+
+```{r}
+# select columns from mydata
+# and then only show rows for females
+mydata %>%
+  select(GenderCoded, Age, WeightPRE) %>%
+  filter(GenderCoded == 2)
+```
+
+Here is an example of the error you will get if you use a single `=` sign instead of `==` two.
+
+```{r}
+# select columns from mydata
+# and then only show rows for females
+mydata %>%
+  select(GenderCoded, Age, WeightPRE) %>%
+  filter(GenderCoded = 2)
+```
+
+#### **sort/Arrange rows using `dplyr::arrange()`**
+
+Here is another helpful function from `dplyr`. Suppose we want to find the 5 oldest people in `mydata` and show their IDs.
+
+Let's use the `dplyr::arrange()` function which will sort our data based on the variable we specify in increasing order (lowest to highest) by default. And we will add the `desc()` function to sort decreasing from largest to smallest.
+
+Learn more by running `help(arrange, package = "dplyr")`
+
+_Note: There was someone with age 99 in this made-up dataset._
+
+```{r}
+# take mydata
+# select SubjectID and Age
+# sort descending by Age
+# show the top 5 IDs and Ages
+mydata %>%
+  select(SubjectID, Age) %>%
+  arrange(desc(Age)) %>%
+  head(n=5)
+```
 
 
 ---
 
 \newpage
 
-## 3. To select, create, and modify variables.
+## 4. To create and modify variables.
+
+To create and add new variables to the dataset, we can use either a base R approach or the `mutate()` function from the `dplyr` package. Let's take a look at both approaches. In the `mydata` dataset, we have `Height` in decimal feet and we have `WeightPRE` and `WeightPOST` in pounds. 
+
+So, let's compute BMI (bodt mass index) as follows from Height (in inches) and Weight (in pounds):
+
+$$BMI = \left(\frac{weight_{(lbs)}}{(height_{(inches)})^2}\right) * 703$$
+
+### Create New Variable - Base R Approach
+
+Create a new variable using the `$` selector operator. Then write out the mathematical equation. I also had to multiple the Height in decimal feet * 12 to get inches.
+
+```{r}
+# Compute BMI forthe PRE Weight
+mydata$bmiPRE <- 
+  (mydata$WeightPRE * 703) / (mydata$Height * 12)^2
+
+# look at result
+mydata$bmiPRE
+```
+
+Look at the "Global Environment" or run the `str()` function to see if a new variable was added to `mydata` - which should now have 15 variables instead of only 14.
+
+You can also list the variable names in the updated dataset.
+
+```{r}
+# look at updated data structure
+str(mydata)
+
+# list the variable names in the
+# updated dataset
+names(mydata)
+```
 
 
+### Create New Variable - `dplyr::mutate()` Approach
+
+In the `dplyr` package, you can create or modify variables using the [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html){target="_blank"} function.
+
+```{r}
+# Compute BMI forthe POST Weight
+# use the dplyr::mutate() function
+mydata <- mydata %>%
+  mutate(
+    bmiPOST = (WeightPOST * 703) / (Height * 12)^2
+    )
+
+# check updates
+str(mydata)
+names(mydata)
+```
 
 
+### Create New Variable - add labels to codes
+
+As you probably noticed in the views of the `mydata` dataset above, there was originally a variable where people were allowed to enter their gender using free text (the `GenderSTR` variable). So, there were entries like "f", "F", "female", "male", "Male" and other variations. So another variable `GenderCoded` was included where 1=male and 2=female, but when we look at `mydata$GenderCoded` all we see are 1's and 2's and `NA`s.
+
+```{r}
+mydata$GenderCoded
+```
+
+It would be nice if we could add some labels. One way to do this is to convert `GenderCoded` from being a simple "numeric" variable to a new class called a "factor" which included both numeric values and text labels.
+
+Here is the base R approach to create a new factor type variable. Learn more by looking at the help page for `factor()`, run `help(factor, package = "base")`.
+
+```{r}
+# create a new factor with labels
+mydata$GenderCoded.f <-
+  factor(mydata$GenderCoded,
+         levels = c(1, 2),
+         labels = c("Male", "Female"))
+
+# look at new variable
+mydata$GenderCoded.f
+```
+
+We can check the type each variable using the `class()` function.
+
+```{r}
+class(mydata$GenderCoded)
+class(mydata$GenderCoded.f)
+```
+
+Another quick way to see these `class` type differences is to use the `table()` function to get the frequencies of each distinct value. I'm also adding the `useNA = "ifany"` option to also get a count of any missing values. Learn more by running `help(table, package = "base")`.
+
+```{r}
+# table of frequencies of GenderCoded - numeric class
+table(mydata$GenderCoded, useNA = "ifany")
+
+# table of GenderCoded.f - factor class
+table(mydata$GenderCoded.f, useNA = "ifany")
+```
 
 ---
 
 \newpage
 
-## 4. To filter the observations according to a certain condition.
+## 5. To get data summary and descriptive statistics.
+
+### Getting summary statistics
+
+#### **summary() function**
+
+One of the best functions that is part of base R is the `summary()` function. Let's see what this gives us for the `mydata` dataset.
+
+As you can see for all of the `numeric` class variables, the `summary()` function gives us the min, max, median, mean, 1st quartileand 3rd quartile and a count and of the the number of missing `NA`s. So you can see the mean `Age` is 44.8 and the median `Age` is 44.0.
+
+For the character variable `GenderSTR` all we know is it has a length of 21.
+
+But for the `factor` type variable `GenderCoded.f` we get the number of Males, Females and `NA`s.
+
+```{r}
+summary(mydata)
+```
+
+So, the `summary()` function is helpful, but you'll notice we do not get the standard deviation. For some reason that was left out of the original `summary()` statistics function.
+
+There are a few other descriptive statistics functions that can be useful. There is a `describe()` function in both the [`Hmisc` package](https://cran.r-project.org/web/packages/Hmisc/){target="_blank"} and the [`psych`](https://cran.r-project.org/web/packages/psych/){target="_blank"} packages.
+
+#### **Hmisc::describe() function**
+
+Let's look at `Hmisc::describe()` for a couple of the variables.
+
+You'll notice that this still doesn't give us the standard deviation, but we get the min,max, mean, median, as well as the `.05` 5th percentile and others, and the output includes a summary ofthe frequency of the distinct values.
+
+```{r}
+mydata %>%
+  select(Age, GenderCoded.f, bmiPRE) %>%
+  Hmisc::describe()
+```
+
+#### **psych::describe() function**
+
+The `psych::describe()` function only works on numeric data. So, let's look at `Age` and `bmiPRE`. This function now gives us the standard deviation `sd` and even the `mad` which is the mean absolute deviation.
+
+```{r}
+mydata %>%
+  select(Age, bmiPRE) %>%
+  psych::describe()
+```
+
+#### **Base R specific statistics functions**
+
+There are many built-in functions in base R for computing specific statistics like `mean()`, `sd()` for standard deviation, `median()`, `min()`, `max()` and `quantile()` to get specific percentiles.
+
+Let get some summary statistics for different variablesin `mydata`.
+
+```{r}
+# get min, max for Age
+min(mydata$Age)
+max(mydata$Age)
+```
+
+WAIT!? - why did I get `NA`? Since there is missing data in this dataset, we need to tell these R functions how to handle the missing data. We need to add `na.rm=TRUE` to remove the `NA`s and then compute the `min()` and `max()` for the non-missing values.
+
+```{r}
+min(mydata$Age, na.rm = TRUE)
+max(mydata$Age, na.rm = TRUE)
+```
+
+If we want, we could get the non-parametric statistics of median, 25th and 75th percentiles for the interquartile range.Let's get these statistics for `bmiPRE`.
+
+```{r}
+# get median bmiPRE
+# and 25th and 75th percentiles for bmiPRE
+median(mydata$bmiPRE,
+       na.rm = TRUE)
+
+quantile(mydata$bmiPRE, 
+         probs = 0.25,
+         na.rm = TRUE)
+
+quantile(mydata$bmiPRE, 
+         probs = 0.75,
+         na.rm = TRUE)
+```
+
+We can also get the `mean()` and `sd()` for `Height`.
+
+```{r}
+mean(mydata$Height, na.rm = TRUE)
+sd(mydata$Height, na.rm = TRUE)
+```
+
+#### **dplyr::summarize() function**
+
+The `dplyr` package also has a `summarize()` function you can use to get specific statistics of your choosing. For example, let's get the `mean()` and `sd()` for `Age.`
+
+```{r}
+mydata %>%
+  dplyr::summarise(
+    mean_age = mean(Age, na.rm = TRUE),
+    sd_age = sd(Age, na.rm = TRUE)
+  )
+```
+
+We can do this same code again but add the `dplyr::group_by()` function to add a grouping variable to get the statistics by.
+
+Let's get the summary stats (`mean` and `sd`) for `Age` by `GenderCoded.f`.
+
+```{r}
+mydata %>%
+  dplyr::group_by(GenderCoded.f) %>%
+  dplyr::summarise(
+    mean_age = mean(Age, na.rm = TRUE),
+    sd_age = sd(Age, na.rm = TRUE)
+  )
+```
+
+### Make summary tables
+
+Creating nicely formatted summary tables is an active area of development in the R community. So, I'm sure there are new functions and packages that I may not have shown here. But here are a few packages I use often for making tables of summary statistics.
+
+#### **`arsenal` package for tables**
+
+The `arsenal` package is useful for making tables - especially with Rmarkdown - to be explained further in a later session [Module 1.3.6](module136_ReproducibleResearch.html). Learn more at [`tableby()` vignette](https://mayoverse.github.io/arsenal/articles/tableby.html){target="_blank"}.
+
+Here is a quick example of some summary statistics for `Age`, `bmiPRE`, and `SES` by `GenderCoded.f` using the `tableby()` function.
+
+First let's add labels for `SES` and create a factor variable.
+
+```{r}
+mydata$SES.f <- 
+  factor(mydata$SES,
+         levels = c(1, 2, 3),
+         labels = c("low income",
+                    "average income",
+                    "high income"))
+```
 
 
+```{r results = "asis"}
+library(arsenal)
+tab1 <- tableby(GenderCoded.f ~ Age + bmiPRE +SES.f, 
+                data = mydata)
+summary(tab1)
+```
 
----
+#### **`gtsummary` package for tables**
 
-\newpage
+The `gtsummary` package is also useful for making tables. We can even use it to make nicely formatted tables in the "Viewer" window pane or in Rmarkdown. Learn more at [`tbl_summary()` vignette](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html){target="_blank"}.
 
-## 5. To explore and summarize data.
+Here is a quick example of some summary statistics for `Age` and `bmiPRE` by `GenderCoded.f` using the `tbl_summary()` function.
 
-### base r - summary stats
+```{r}
+library(gtsummary)
 
-### making tables
-
-### gtsummary package
-
-### other packages - arsenal, tableone and Rmarkdown formatting of tables... get inspired
-
-table competitions
-
----
-
-\newpage
-
-## 6. To run descriptive statistics.
+mydata %>%
+  select(Age, bmiPRE, SES.f, GenderCoded.f) %>%
+  tbl_summary(by = GenderCoded.f)
+```
 
 
+#### **`gmodels` package for R-x-C tables**
 
+If we want to look at a "cross-table" similar to output from SPSS or SAS, the `gmodels` package has the `CrossTable()` function that creates text-based tables similar to these other statistics software packages.
 
+Let's get the frequencies and columns percentages for gender by SES. The first variable is the row variable, the second is the column variable.
 
+```{r}
+library(gmodels)
+
+CrossTable(mydata$GenderCoded.f,  # row variable
+           mydata$SES.f,          # column variable
+           prop.t = FALSE,        # turn off percent of total
+           prop.r = FALSE,        # turn off percent of row
+           prop.c = TRUE,         # turn off percent of column
+           prop.chisq = FALSE,     # turn off percent for chisq test
+           format = "SPSS"        # format like SPSS
+           )
+```
 
 ---
 
@@ -211,5 +881,5 @@ knitr::write_bib(x = c(.packages()),
 
 ## Other Helpful Resources
 
-[**Other Helpful Resources**](./additionalResources.html)
+[**Other Helpful Resources**](./additionalResources.html){target="_blank"}
 
