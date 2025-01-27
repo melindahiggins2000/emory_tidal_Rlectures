@@ -1,5 +1,5 @@
 ---
-title: "Setup Project for PRAMS Data Analysis"
+title: "PRAMS Data Analysis"
 subtitle: "(Asynchronous-Online)"
 bibliography: [pramsref.bib, pramspkg.bib]
 nocite: |
@@ -352,6 +352,26 @@ From this we can see that the population estimates for the "whole USA" for 2020 
 This leads to a percentage of YES estimate of `1609464 * 100 / (1609464 + 225560.3)` = `r 1609464 * 100 / (1609464 + 225560.3)`% which is pretty close to what is in the [CDC PRAMS Indicators Report for GA in 2020](https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf) - with some numerical precision variation due to software algorithms.
 
 **Congratulations on getting started with the PRAMS Dataset**
+
+### 3. Data Wrangling with PRAMS
+
+Examples will be posted here working with the PRAMS Dataset for recoding, creating or modifying variables.
+
+### 4. Visualizing PRAMS Data
+
+Examples will be posted here for making graphs and figures with suggestions on handling very large datasets.
+
+### 5. Missing Data in PRAMS
+
+Examples will be posted here for summarizing and visualizing missing data in PRAMS.
+
+### 6. PRAMS Statistical Tests and Models
+
+Examples will be posted here for statistical tests and models (such as linear and logistic regression) for both the unweighted and weighted data approaches.
+
+### 7. PRAMS Reproducible Research Report
+
+A Rmarkdown analysis report will be provided here as a template to "kick start" your research with the PRAMS dataset.
 
 ---
 

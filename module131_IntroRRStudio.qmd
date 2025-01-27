@@ -50,7 +50,7 @@ Note: [**R**](https://cran.r-project.org/){target="_blank"} is the name of the p
 
 ### Basic R
 
-When you download **R** from [**CRAN**](https://cran.r-project.org/){target="_blank"} and install it on your computer, there is a R application that you can run. However, it is very bare bones. Here is a screenshot of what it looks like on my computer (Windows 11 operating system).
+When you download **R** from [**CRAN**](https://cran.r-project.org/){target="_blank"} and install it on your computer, there is an R application that you can run. However, it is very bare bones. Here is a screenshot of what it looks like on my computer (Windows 11 operating system).
 
 ![](tidalimages/rplain.png)
 
@@ -60,6 +60,16 @@ You can type commands in the console window at the prompt ">" but this is slow a
 
 \newpage
 ### RStudio IDE
+
+::: callout-note
+## RStudio Desktop Software vs Posit the company
+
+RStudio was founded in 2009 [https://posit.co/about/](https://posit.co/about/) when it published the "free and open source" RStudio software. But over time, the RStudio application has expanded beyond just being used for the R programming language. You can now use RStudio for writing and managing projects with Python code, Markdown, LaTeX, Cascading Style Sheets and more. 
+
+\medskip
+
+So, in 2022, RStudio the company became Posit [https://posit.co/blog/rstudio-is-becoming-posit/](https://posit.co/blog/rstudio-is-becoming-posit/) to encompass the broader computing community.
+:::
 
 The [RStudio Integrated Development Environment (IDE)](https://posit.co/download/rstudio-desktop/){target="_blank"} application provides much better tools for managing files within a given "project". This biggest advantage of working in an IDE is everything is contained and managed within a given project, which is linked to a specific folder (container) on your computer (or cloud drive you may have access to).
 
@@ -113,6 +123,8 @@ To explore all of your options, click on the menu at the top for "Tools/Global O
 
 ![](rstudiocustom/slide1.png)
 
+\newpage
+
 Take a look at the left side for the list of all of the options. Some of the most useful options to be aware of are:
 
 * General
@@ -121,13 +133,13 @@ Take a look at the left side for the list of all of the options. Some of the mos
 
 \newpage
 
-In the "General" TAB, this is where you can see and confirm that R is installed and where the R programming language app is installed on your computer.
+In the "General" TAB is where you can see and confirm that R is installed and where the R programming language executable is installed on your computer.
 
 ![](rstudiocustom/slide2.png)
 
 \newpage
 
-You will probably want to explore tuning these appearance parameters to customize the appears to your preferences. For example, you can change the ZOOM level to improve readability. You may also want to change the FONT sizes for the Editor and Help windows as needed. 
+You will probably want to explore fine-tuning these parameters to customize the appearance of your RStudio preferences. For example, you can change the ZOOM level to improve readability. You may also want to change the FONT sizes for the Editor and Help windows as needed. 
 
 ::: callout-tip
 ## ZOOM + FONT
@@ -139,10 +151,13 @@ I also encourage you to try out different "Editor Themes" which will change the 
 
 ![](rstudiocustom/slide3.png)
 
+\newpage
+
 The default "Editor Theme" is textmate.
 
 ![](custom_textmate.png)
 
+\newpage
 
 But here is an example of changing the theme to "Tomorrow Night Blue".
 
@@ -184,7 +199,9 @@ You can actually see this temporary object by typing `.Last.value` - which is on
 [1] 10
 ```
 
-However, if we look at our current computing environment (see upper right window pane), it is still showing as empty. 
+\newpage
+
+However, if we look at our current computing environment (see "Global Environment" upper right window pane), it is still showing as empty. 
 
 ![](rscript01_lastval.png)
 
@@ -201,8 +218,23 @@ ten <- 5 + 5
 
 <br>
 
+\newpage 
 
-To "see" the output of this object - you can either see it now in your Global Environment or type the object name in the Console to view it.
+::: callout-note
+## TL;DR What is the Assign Operator `<-`?
+
+The "R" language is actually a derivative of the [original "S" language](https://en.wikipedia.org/wiki/S_(programming_language)){target="_blank"} which stood for the "language of statistics" - it was written by statisticians for statisticians (and now data scientists). _The original S language was written in the mid-1970's by programmers/statisticians at Bell Labs/AT&T._
+
+\medskip
+
+The `<-` actually comes from the physical key on their ["APL" keyboards](https://en.wikipedia.org/wiki/APL_(programming_language)){target="_blank"}, for the APL programming language they were using at Bell Labs.
+
+\medskip
+
+[A Nice Blog Post on the History of `<-`](https://colinfay.me/r-assignment/){target="_blank"}
+:::
+
+To "see" the output of this object called `ten` - you can either see it now in your Global Environment or type the object name in the Console to view it.
 
 ```{r}
 ten
@@ -215,15 +247,7 @@ ten
 
 It is important to remember that R is an "object-oriented" programming language - everything in R is an object.
 
-::: callout-note
-## TL;DR What is the Assign Operator `<-`?
-
-The "R" language is actually a deriviative of the [original "S" language](https://en.wikipedia.org/wiki/S_(programming_language)){target="_blank"} which stood for the "language of statistics" - it was written by statisiticans for statisticians (and now data scientists). _The original S language was written in the mid-1970's by programmers/statisticians at Bell Labs/AT&T._
-
-The `<-` actually comes from the physical key on their ["APL" keyboards](https://en.wikipedia.org/wiki/APL_(programming_language)){target="_blank"}, for the APL programming language they were using at Bell Labs.
-
-[A Nice Blog Post on the History of `<-`](https://colinfay.me/r-assignment/){target="_blank"}
-:::
+\newpage
 
 ### Built in constants
 
@@ -238,6 +262,11 @@ month.name
 
 <br>
 
+::: callout-important
+## R is Case Sensitive!
+
+A pro and con of the R language is that it is case sensitive. Lower case `x` and uppercase `X` are different objects. As seen above, the lowercase `letters` object is a vector of the 26 lowercase letters, whereas `LETTERS` is a different object vector of the 26 uppercase letters. Be on the lookout for case sensitive spelling and formatting of object, package and function names in R.
+:::
 
 For the constants like `letters` you get a list of the 26 lower case letters in the alphabet. Notice that the number in [square brackets] updates for each new line printed out. This allows you to keep track of the number of elements in the output object. `letters` is an "character" array (or vector) with 26 elements.
 
@@ -250,6 +279,7 @@ length(letters)
 
 <br>
 
+\newpage
 
 ### Getting help
 
@@ -261,9 +291,23 @@ help(pi)
 
 <br>
 
-
-
 ![](rscript01_helppi.png)
+
+The `help()` function defaults to searching for a built-in object, function or dataset by default in the `base` R package. But some functions may exist in multiple packages, so it is always a good idea to add the package when running the `help()` function if possible.
+
+Since `pi` is in the `base` R package, it would be better to run:
+
+```{r eval=FALSE}
+help(pi, package = "base")
+```
+
+If you have no idea what package a function may be in, you can use the `??` search operator. For example, many packages include a plotting related function. If you want to see how many R packages currently installed on your computer have a `plot` related function, type the following:
+
+```{r eval=FALSE}
+??plot
+```
+
+\newpage
 
 ### Try out a built-in R function
 
@@ -289,17 +333,17 @@ seq(10)
 
 And let's look at the help page for the `seq()` function.
 
-![](rscript01_helpseq.png)
+![](rscript01_helpseq1.png)
 
 R allows for what is called "lazy" coding. This basically means you can provide very minimal input and R will try to figure out what you want using the default settings for a given function. In the case of `seq()` the function begins by default at 1 and creates the output in steps of 1 up to the value of 10.
 
-While "lazy" coding practices are common with R, it would actually be better to explicitly define each argument to make sure you get the exact output you want. To do this, inside the parentheses `()` assign a value to each argument. 
+While "lazy" coding practices are common with R, it would actually be better to explicitly define each **argument** to make sure you get the exact output you want. To do this, inside the parentheses `()` we should assign a value to each argument. 
 
-Notice in the "Help" page for `seq()` shown above that the first 3 arguments are: `from`, `to` and `by`. Each of these can be defined inside the `()` by using the syntax of the name of the argument, equals sign `=` and the value (or object) you want to assign:
+Notice in the "Help" page for `seq()` shown above that the first 3 arguments are: `from`, `to` and `by`. Each of these can be defined inside the `()` by using the syntax of the name of the argument, an equals sign `=`, and then the value (or object) you want to assign:
 
 $$argument = value$$
 
-For example:
+For example, the explicit function call should be:
 
 ```{r}
 seq(from = 1,
@@ -310,16 +354,17 @@ seq(from = 1,
 <br>
 
 
-You could easily change these values to get a sequence from 0 to 1 in increments of 0.1 as follows:
+You could easily change these values to get a sequence from 0 to 5 in increments of 0.1 as follows:
 
 ```{r}
 seq(from = 0,
-    to = 1,
+    to = 5,
     by = 0.1)
 ```
 
 <br>
 
+Notice the incremental counter `[#]` on the left to help you keep track of how many elements are in the resulting numeric vector that was the "result" or "output" from the `seq()` function.
 
 ---
 
@@ -331,16 +376,16 @@ seq(from = 0,
 So, as you can tell, the R Console is useful but slow and tedious. Let's create an R script to save all of these commands in a file so that we can easily access everything we've done so far and re-run these commands as needed.
 
 ::: callout-tip
-## Good coding practice
+## Good Reproducible Research Coding Practice
 
-It is a good coding practice to create R code for every step in your data preparation and analysis so that:
+It is a good coding practice to create R code (saved in `*.R` script files or `*.Rmd` Rmarkdown files) for every step in your data preparation and analysis so that:
 
 * you have a record of everything you've done and why
 * other people on your team (including yourself in a few weeks) will know what you did and why
-* you can share your code with others so they will understand what you did and why _(and to publish your code and data with your research articles - YES you can get a DOI citation to add to your CV for data and code as well as for the article)_!!
+* you can share your code with others so they will understand what you did and why _(and to publish your code and data with your research articles - YES you can get a DOI citation to add to your CV for data and code as well as for the article)_!
 :::
 
-In RStudio go to the top menu File/New File/R Script:
+In RStudio go to the top menu "File/New File/R Script":
 
 ![](rscript01_newrscript.png)
 
@@ -367,6 +412,7 @@ seq(from=1, to=10, by=0.5)
 
 <br>
 
+\newpage
 
 ### Create R objects and Use Them
 
@@ -398,6 +444,7 @@ y <- x*x
 
 <br>
 
+\newpage
 
 Once the object `y` is created, we can make a simple 2-dimensional scatterplot using the built-in `plot()` base R function.
 
@@ -409,20 +456,20 @@ plot(x,y)
 <br>
 
 
-The plot is shown below, but if you are running this in the RStudio desktop, check the "Plots" window pane (lower right).
+The plot is shown above, but if you are running this code interactively in the RStudio desktop, check the "Plots" window pane (lower right).
 
 ![](rscript01_makeplot.png)
 
 ### On your own
 
-Download [`Rscript_01.R`](./Rscript_01.R) open it in your RStudio and run through the code. Try out new variations on your own.
+Download [`Rscript_01.R`](./Rscript_01.R) _(right click the linked file and "Save As" the file on your computer)_, then open it in your RStudio and run through the code. Try out new variations on your own.
 
 ---
 
 \newpage
 ## 4. Install and load R packages _(understanding your R session)_
 
-### Status of your session with `sessionInfo()`
+### Status of your current computing R session with `sessionInfo()`
 
 While the base installation of R is pretty powerful on it's own, the beauty of R and the R programming community is that there are literally hundreds of thousands if not millions of people programming in R and creating new functions everyday.
 
@@ -430,9 +477,15 @@ In order to use these new functions, the developers put them together in package
 
 But first, let's take a look at the packages that are part of the basic installation of R. One way to see which packages are currently installed and loaded into your current R computing session, is by running the command `sessionInfo()`.
 
+::: callout-warning
+## Watch spelling - R is case sensitive!
+
+**Notice:** This function name is all lowercase except for the capital "I" in the middle. Be sure you are typing `sessionInfo()` and not `sessioninfo()`.
+:::
+
 You will also notice that the `sessionInfo()` command also lists the version of R I'm currently running (4.4.2), my operating system (Windows 11) and and my locale (USA, East Coast). These details can sometimes be helpful for collaborating with others who may be working with different system settings and for debugging errors.
 
-```
+```{r eval=FALSE}
 sessionInfo()
 ```
 
@@ -456,17 +509,23 @@ See the packages listed under "System Library" which are the ones that were inst
 
 ![](rscript01_baserpkg.png)
 
+\newpage
+
 ### Install a Package and Load it into R session memory
 
 Let's install a "new" R package, like `ggplot2`.
 
-Go to the RStudio menu Tools/Install Packages
+Go to the RStudio menu "Tools/Install" Packages
 
 ![](rscript01_installpkg.png)
+
+\newpage
 
 This will then open up a window where you can type in the name of the package you want. As soon as we start typing `ggplot2` the menu begins listing all packages with that partial spelling...
 
 ![](rscript01_installcran.png)
+
+\newpage
 
 You'll notice that there are 3 parts to the installation:
 
@@ -476,23 +535,35 @@ You'll notice that there are 3 parts to the installation:
 
 ![](rscript01_installcran3parts.png)
 
-### Where to get packages - CRAN
+\newpage
 
-Using the Tools/Install Packages menu from within RStudio automatically links to [CRAN](https://cran.r-project.org/){target="_blank"}, which is the "The Comprehensive R Archive Network". You've already been here once to download and install the R programming language application. 
+### Where to get packages - CRAN Repository
+
+Using the "Tools/Install" Packages menu from within RStudio automatically links to [CRAN](https://cran.r-project.org/){target="_blank"}, which is the "The Comprehensive R Archive Network". You've already been here once to download and install the R programming language application. 
+
+Here is a screenshot of the [CRAN](https://cran.r-project.org/){target="_blank"} homepage.
 
 ![](cran_home.png)
 
-However, you can also click on "Packages" at the left to see the full list of packages currently available. As of right now (01/10/2025 at 5:12pm EST) there are 21,872 packages. This number increases every day as people create, validate and publish their packages on CRAN. You can get a list of all of the packages or if you have no idea what package you need, you can also look at the "Task Views" to see groupings of packages.
+\newpage
+
+Next click on "Packages" at the left to see the full list of packages currently available. As of right now (01/10/2025 at 5:12pm EST) there are 21,872 packages. This number increases every day as people create, validate and publish their packages on CRAN. You can get a list of all of the packages or if you have no idea what package you need, you can also look at the "Task Views" to see groupings of packages.
 
 ![](cran_pkg1.png)
+
+\newpage
 
 Here is what the list of Packages looks like sorted by name:
 
 ![](cran_pkg_names.png)
 
+\newpage
+
 However, you can also browse Packages by "Task View":
 
 ![](cran_taskview.png)
+
+\newpage
 
 For example, suppose you are interested in survival analysis, here is a screenshot of the [Survival Task View](https://cran.r-project.org/web/views/Survival.html){target="_blank"}.
 
@@ -500,56 +571,76 @@ As you can see each Task View has a person(s) listed who help to maintain these 
 
 ![](cran_taskview_survival.png)
 
-### Where to get packages - Bioconductor
+\newpage
+
+### Where to get packages - Bioconductor Repository
 
 While the list of R packages on CRAN is impressive, if you plan to do analyses of biological data, there is a good chance you will need a package from [Bioconductor.org](https://www.bioconductor.org/){target="_blank"}.
 
-As of right now (01/10/2025 at 6:45pm EST) there are 2289 packages. Similar to CRAN, Bioconductor requires each package to meet certain validation criteria and code testing requirements but these criteria are even more stringent on Bioconductor than on CRAN. You'll notice that you can search for packages under the `biocViews` (left side column) or you can sort them alphabetically or search for individual packages in the section on the right side.
+As of right now (01/10/2025 at 6:45pm EST) there are 2289 packages on Bioconductor. Similar to CRAN, Bioconductor requires each package to meet certain validation criteria and code testing requirements but these criteria are even more stringent on Bioconductor than on CRAN. You'll notice that you can search for packages under the `biocViews` (left side column) or you can sort them alphabetically or search for individual packages in the section on the right side.
 
 ![](bioconductor_pkg.png)
 
-The one disadvantage of R packages from Bioconductor is that you cannot install them directly using the RStudio menu for Tools/Install Packages - you cannot "see" the Bioconductor repository from inside RStudio. Instead you'll have to install these using R code. 
+The one disadvantage of R packages from Bioconductor is that you cannot install them directly using the RStudio menu for "Tools/Install" Packages because you cannot "see" the Bioconductor repository from inside RStudio. Instead you have to install Bioconductor packages using R code. 
+
+\newpage
 
 For example, here is what you need to do to install the [`phyloseq`](https://www.bioconductor.org/packages/release/bioc/html/phyloseq.html){target="_blank"} package which "... provides a set of classes and tools to facilitate the import, storage, analysis, and graphical display of microbiome census data".
 
-To install `phyloseq` you need to _(see the black box of code in the screenshot below)_:
+To install `phyloseq` you need to _(see the black box of code in the screenshot shown below)_:
 
-1. Install [`BiocManager`](https://cran.r-project.org/web/packages/BiocManager/index.html){target="_blank"} from CRAN - this package you can install from the RStudio menu for Tools/Install Packages - or you can run the code shown below for `install.packages()`.
-2. Then go to the Console or open an R script and run:
+1. Install [`BiocManager`](https://cran.r-project.org/web/packages/BiocManager/index.html){target="_blank"} from CRAN - this package you can install from the RStudio menu for "Tools/Install Packages" - or you can run the code shown below for `install.packages()`.
 
-```
+
+```{r eval= FALSE}
 install.packages("BiocManager")
 ```
 
+2. Then go to the Console or open an R script and run:
+
+```{r eval=FALSE}
+BiocManager::install("phyloseq")
+```
+
+
 ![](bioconductor_phyloseq.png)
+
+\newpage
 
 ### Where to get packages - Github, friends, teammates, ...
 
-In addition to the CRAN and Bioconductor repositories, you can get packages from Github (and other cloud-based repositories), friends, teammates or write your own. 
+In addition to the CRAN and Bioconductor repositories, you can also get packages from Github (and other cloud-based repositories), friends, teammates or write your own. 
 
-To get an idea of how many packages may be currently on  [Github](https://github.com/){target="_blank"}, we can "search" for "R package" [https://github.com/search?q=R+package&type=repositories](https://github.com/search?q=R+package&type=repositories){target="_blank"} and as you can see this is well over 118,000+ packages.
+To get an idea of how many packages may be currently on  [Github](https://github.com/){target="_blank"}, we can "search" for "R package" at  [https://github.com/search?q=R+package&type=repositories](https://github.com/search?q=R+package&type=repositories){target="_blank"} and as you can see this is well over 118,000+ packages.
 
 ![](github_rpkg.png)
 
-While you can find packages on Github that have not (yet) been published on CRAN or Bioconductor, the developers of packages currently on CRAN and Bioconductor also often publish their development version (think of these as in "beta" and still undergoing testing) on Github. For example, the current published version of the data wrangling R package [`dplyr` on CRAN](https://cran.r-project.org/web/packages/dplyr/index.html){target="_blank"} was last updated on 11/17/2023.
+\newpage
+
+While you can find packages on Github that have not (yet) been published on CRAN or Bioconductor, the developers of packages currently on CRAN and Bioconductor also often publish their development version _(think of these as in "beta" and still undergoing testing)_ on Github. 
+
+For example, the current published version of the data wrangling R package [`dplyr` on CRAN](https://cran.r-project.org/web/packages/dplyr/index.html){target="_blank"} was last updated on 11/17/2023 _(over a year ago)_.
 
 ![](cran_dplyr.png)
 
-But the development version of [`dplyr` on Github](https://github.com/tidyverse/dplyr){target="_blank"} was last updated 5 months ago in August 2024. _There is probably a new version of `dplyr` coming soon for CRAN._
+\newpage
+
+However, the development version of [`dplyr` on Github](https://github.com/tidyverse/dplyr){target="_blank"} was last updated 5 months ago in August 2024. _So, there is probably a new version of `dplyr` coming soon for CRAN._
 
 ![](github_dplyr.png)
 
-So, while the developers haven't published this on CRAN, if you want to test out new functions and updates under development for this package, you can go to the R Console or write an R script to install the development version using these commands (see below) which is explained on the [`dplyr` on Github](https://github.com/tidyverse/dplyr){target="_blank"} website.
+While the developers haven't published this "Github" version of `dplyr` yet on CRAN, if you want to test out new `dplyr` functions and updates under development, you can go to the R Console or write an R script to install the development version using these commands (see below) which is explained on the [`dplyr` on Github](https://github.com/tidyverse/dplyr){target="_blank"} website.
 
-```
+```{r eval=FALSE}
 # install.packages("pak")
 pak::pak("tidyverse/dplyr")
-
 ```
+
+\newpage
 
 ### Finding and vetting R packages
 
-So, as you have seen there are numerous ways to find R packages and there are hundreds of thousands of them out there. Your company or team may have their own custom R package tailored for your specific research areas and data analysis workflows.
+So, as you have seen there are numerous ways to find R packages and there are hundreds of thousands of them out there. Your company or team may also have their own custom R package tailored for your specific research areas and data analysis workflows.
 
 Finding R packages is similar to finding new questionnaires, surveys or instruments for your research. For example, if you want to measure someone's depression levels, you should use a validated instrument like the [Center for Epidemiological Studies-Depression (CESD)](https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/depression-scale){target="_blank"} or the [Beck Depression Index (BDI)](https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/beck-depression){target="_blank"}. These measurement instruments have both been well published and are well established for depression research.
 
@@ -558,38 +649,71 @@ Finding R packages is similar - do your research! Make sure that the R package h
 ::: callout-warning
 ## No oversight company or agency
 
-While it may seem worrisome that there is no governing company or organization that verifies and validates and certifies all R packages, the good news is that the R community is a vast Global community. The development of R is not controlled by a limited number of people hired within some single company - instead there are literally millions of R programmers across the Globe testing and providing feedback on a 24/7 basis. If there is a problem with a package or function, there will be people posting about these issues - see [Additional Resources](additionalResources.html#other-places-to-get-help){target="_blank"}. 
+While it may seem worrisome that there is no governing company or organization that verifies and validates and certifies all R packages, the good news is that the R community is a vast Global community. The development of R is not controlled by a limited number of people hired within a single company - instead there are literally millions of R programmers across the Globe testing and providing feedback on a 24/7 basis. If there is a problem with a package or function, there will be people posting about these issues - see [Additional Resources](additionalResources.html#other-places-to-get-help){target="_blank"}. 
+
+\medskip
 
 **This is the power of Open Source computing!!**
 :::
 
-To get an idea of how long a package has been in use and if it is still being actively supported and how it relates to other similar packages, check out this interactive Shiny app website for [CRAN downloads](https://hadley.shinyapps.io/cran-downloads/){target="_blank"}. Type in the packages you want to compare and change the dates.
+\newpage
 
-Here is an example comparing `arsenal`, `gtsummary`, and `tableone` packages all of which are useful for making tables of summary statistics (aka, "Table 1") - showing the number of downloads since the beginning of Jan 1, 2024.
+#### **Popularity of R Packages**
 
-As you can see the most downloaded is `gtsummary` followed by `tableone` with `arsenal` having the fewest downloads. This does NOT necessarily imply quality, but it does give you some insight into the popularity of these packages. I actually prefer the `arsenal` table package but `tableone` has been around longer and `gtsummary` is written by members of the RStudio/Posit development community and is more well known and popular.
+To get an idea of how long a package has been in use and if it is still being actively supported and how it relates to other similar packages, check out this interactive Shiny app website for package downloads from CRAN [https://hadley.shinyapps.io/cran-downloads/](https://hadley.shinyapps.io/cran-downloads/){target="_blank"}. Type in the packages you want (separated by commas) to compare and put in the date range of interest.
+
+Here is an example comparing the `arsenal`, `gtsummary`, and `tableone` packages all of which are useful for making tables of summary statistics (aka, "Table 1") - showing the number of downloads since the beginning of Jan 1, 2024.
+
+As you can see the most downloaded of these 3 packages is `gtsummary` followed by `tableone` and then `arsenal` having the fewest downloads. This does NOT necessarily imply quality, but it does give you some insight into the popularity of these packages. I actually prefer the `arsenal` table package but `tableone` has been around longer and `gtsummary` is written by members of the RStudio/Posit development community and is more well known and popular. All 3 of these packages can be found in use in current research literature.
+
+You will see examples of all 3 of these table-making packages in [Module lesson 1.3.2](module132_DataWrangling.html)
 
 ![](compare_tablepkg.png)
 
-Here is an example of 2 specific packages I like. The `rggobi` package which was great for visualizing multiple dimensions of data simultaneously but which is no longer supported and the newer `tourr` package which was written by the same developer to replace the `rggobi` package. You can see that in the middle of 2020, the number of downloads for `rggobi` dropped almost to 0 and the `tourr` package downloads started to rise - this is about when they switched over from maintaining one package to supporting the newer one. [`rggobi` on CRAN](https://cran.r-project.org/web/packages/rggobi/index.html){target="_blank"} moved to archived status in July 2020, but [`tourr` on CRAN](https://cran.r-project.org/web/packages/tourr/){target="_blank"} was last updated in April 2024.
+\newpage
+
+Here is an example of two specific packages I like. The `rggobi` package which was great for visualizing multiple dimensions of data simultaneously but which is no longer supported. But there is now a newer `tourr` package which was written by the same developers to replace the `rggobi` package. You can see that in the middle of 2020, the number of downloads for `rggobi` dropped almost to 0 and the `tourr` package downloads started to rise - this is about when `rggobi` was archived on CRAN and they switched over to maintaining the newer `tourr` package. 
+
+* [`rggobi` on CRAN](https://cran.r-project.org/web/packages/rggobi/index.html){target="_blank"} moved to archived status in July 2020, but 
+* [`tourr` on CRAN](https://cran.r-project.org/web/packages/tourr/){target="_blank"} was last updated in April 2024.
 
 ![](compare_rggobi_tourr.png)
 
-So, do your homework and check to see when the package was last updated, who maintains it and how good their documentation is for the package and what it does.
+In summary:
+
+* do your homework,
+* check to see when the package was last updated, 
+* research who maintains it and 
+* review how good their documentation is for the package and what it does, and
+* see if the package has been used by others in your research area.
+
+\newpage
 
 ### Load the new R package into your R session
 
 After you've decided what package you want and have installed it onto your computer, you **must load it into memory for EVERY new R session** for which you want those functions available.
 
-For example, suppose I want to make a plot using the `ggplot2` package. Before I can use the `ggplot()` function, I have to load that package into my computing session. Here is an example:
+::: callout-note
+## Packages - install once, (re)-load every R session
+
+Unless you upgrade R or change computers, you only need to install a given R package once. But you do need to (re)-load the package into your current R session every time you (re)-start R (or RStudio).
+:::
+
+For example, suppose I want to make a plot using the `ggplot2` package. Before I can use the `ggplot()` function, I have to load that package into my computing session. 
+
+Here is my current R session status **BEFORE** I load the `ggplot2` package.
 
 ```{r}
 # show current sessionInfo
 sessionInfo()
+```
 
-# notice that ggplot2 is not listed
-# but let's try the ggplot() function with the
-# built-in pressure dataset
+Since I have not yet loaded the `ggplot2` package into the session, I will get an error.
+
+```{r}
+# I have not yet loaded ggplot2 into the session
+# try the ggplot() function with the
+# built-in pressure dataset to see error
 ggplot(pressure, aes(temperature, pressure)) +
   geom_point()
 ```
@@ -597,7 +721,11 @@ ggplot(pressure, aes(temperature, pressure)) +
 <br>
 
 
-This will generate an error since these functions are not yet available in our session. So, use the `library()` function to LOAD the `ggplot2` functions into current working memory.
+The code above generates an error since these functions are not yet available in our session. 
+
+\newpage
+
+To fix this error, we need to use the `library()` function to load the `ggplot2` functions into current working memory.
 
 ```{r}
 # load ggplot2 package
@@ -610,9 +738,11 @@ sessionInfo()
 <br>
 
 
-Notice that under `other attached packages` we can now see `ggplot2_3.5.1` indicating that yes `ggplot2` is installed and in memory and that version 3.5.1 is the version you are currently using.
+Notice that under `other attached packages` we can now see `ggplot2_3.5.1` indicating that yes `ggplot2` is installed and in memory and that version 3.5.1 is the version I am currently using.
 
-Let's try the plot again.
+\newpage
+
+Let's try the plot again with the `ggplot()` function from the `ggplot2` package.
 
 ```{r}
 # try the plot again
@@ -631,7 +761,9 @@ Everything you close out your R/RStudio computing session (or restart your R ses
 2. The GOOD NEWS is you do not have to re-install the packages - these are already saved on your computer. You only have to re-load them into memory using the `library()` function.
 3. This workflow forces you to document (in your code) which packages you need for your computing sessions and why you are using them.
 
-BUT ... If you do have a core set of packages that you would like to make sure get loaded into memory every time you start R/RStudio, see these helpful posts:
+\medskip
+
+BUT ... If you do have a core set of packages that you would like to make sure get loaded into memory every time you start R/RStudio, see these helpful posts on customizing your startup:
 
 * [https://www.datacamp.com/doc/r/customizing](https://www.datacamp.com/doc/r/customizing){target="_blank"}
 * [https://www.r-bloggers.com/2014/09/fun-with-rprofile-and-customizing-r-startup/](https://www.r-bloggers.com/2014/09/fun-with-rprofile-and-customizing-r-startup/){target="_blank"}
@@ -646,9 +778,11 @@ BUT ... If you do have a core set of packages that you would like to make sure g
 
 We will do more in the later lesson [1.3.6: Putting reproducible research principles into practice](module136_ReproducibleResearch.html), but let's take a look at an Rmarkdown file and how we can use it to create a report that combines together `data + code + documentation` to produce a seamless report.
 
-Go to the RStudio menu and click File/New File/R Markdown:
+Go to the RStudio menu and click "File/New File/R Markdown":
 
-![](rmarkdown_new.png)
+![](rmarkdown_new.png){width=60%}
+
+\newpage
 
 Type in a title, your name, the date and choose the format you'd like to create. For your first document I encourage you to try HTML. But you can create WORD (DOC) documents and even PDFs. In addition to documents, you can also create slide deck presentations, Shiny apps and other custom products like R packages, websites, books, dashboards and many more. 
 
@@ -660,7 +794,6 @@ Type in a title, your name, the date and choose the format you'd like to create.
 * [Rmarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/){target="_blank"}
 :::
 
-
 **To get started, use the built-in template:**
 
 * Type in a title
@@ -670,7 +803,9 @@ Type in a title, your name, the date and choose the format you'd like to create.
     - DOC usually works OK - **but you need MS Word or Open Office installed on your computer.**
     - PDF **NOTE: You need a TEX compiler on your computer** - Learn about installing the `tinytex` [https://yihui.org/tinytex/](https://yihui.org/tinytex/){target="_blank"} R package to create PDFs.
 
-![](rmarkdown_menu1.png)
+![](rmarkdown_menu1.png){width=60%}
+
+\newpage
 
 ### Rmarkdown sections
 
@@ -678,11 +813,15 @@ Here is the **Example RMarkdown Template** provided by RStudio to help you get s
 
 ![](rmarkdown_p01.png)
 
+\newpage
+
 This document consists of the following 3 key sections:
 
 1. YAML (yet another markup language) - this is essentially the metadata for your document and defines elements like the title, author, date and type of output document to be created (HTML in this example).
 
 ![](rmarkdown_yaml.png)
+
+\newpage
 
 2. R code blocks - the goal is to "interweave" code and documentation so these 2 elements live together. That way the analysis output and any associated tables or figures are updated automatically without having to cut-and-paste from other applications into your document - which is time consuming and prone to human errors.
 
@@ -696,7 +835,9 @@ Notice that the code block starts and ends with 3 backticks ` ``` ` and includes
 
 ![](rmarkdown_rmd2.png)
 
-And along with the R code blocks, we can also create our document with "marked up (or marked down)" text. [Rmarkdown](https://rmarkdown.rstudio.com/){target="_blank"} is a version of ["markdown"](https://www.markdownguide.org/){target="_blank"} which is a simplified set of tags that tell the computer how you want a piece of text formatted.
+\newpage
+
+3. Along with the R code blocks, we can also create our document with "marked up (or marked down)" text. [Rmarkdown](https://rmarkdown.rstudio.com/){target="_blank"} is a version of ["markdown"](https://www.markdownguide.org/){target="_blank"} which is a simplified set of tags that tell the computer how you want a piece of text formatted.
 
 For example putting 2 asterisks `**` before and after a word will make it **bold**, putting one `_` underscore before and after a word will make the word _italics_; one or more hashtags `#` indicate a header at certain levels, e.g. 2 hashtags `##` indicate a header level 2.
 
@@ -706,15 +847,17 @@ For example putting 2 asterisks `**` before and after a word will make it **bold
 I encourage you to go through the step by step tutorial at [https://rmarkdown.rstudio.com/lesson-1.html](https://rmarkdown.rstudio.com/lesson-1.html){target="_blank"}.
 :::
 
-
-
 ![](rmarkdown_mdtext.png)
+
+\newpage
 
 Here are all 3 sections outlined.
 
 ![](rmarkdown_all3v2.png)
 
-At the top of the page you'll notice a little blue button that says "knit" - this will "knit" (or combine) the output from the R code chunks and format the text as "marked up" and produce the HTML file:
+\newpage
+
+At the top of the page you'll notice a little blue button that says "knit" - this will "knit" (or combine) the output from the R code chunks and format the text as "marked up" and produce this HTML file _(which will open in a browser window)_:
 
 ![](rmarkdown_html.png)
 

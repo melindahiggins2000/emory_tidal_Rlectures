@@ -20,66 +20,19 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE)
 ```
 
+## COMING SUMMER 2025
+
+Module "1.3.6: Putting Reproducible Research Principles Into Practice" will be posted prior to the In-Person Workshops in Summer 2025.
+
 ## Session Objectives
 
 1. Discuss reproducible research principles.
 2. Apply reproducible research principles to data analysis using R Markdown.
 
-
 Key points to cover:
-1.	Reproducible research principles
-2.	What is R Markdown
-3.	How to create a report using R Markdown
-a.	Customize the layout of presentations or reports
-b.	Insert and create objects, such as tables, images, or videos, within a document
 
-
-
-
-
-
----
-
-## 0. Prework - Before You Begin
-
-
-
-
-
-
----
-
-\newpage
-
-## 1. Discuss reproducible research principles.
-
-
-
----
-
-\newpage
-
-## 2. Apply reproducible research principles to data analysis using R Markdown.
-
-
-
-
-
----
-
-\newpage
-
-```{r echo=FALSE}
-knitr::write_bib(x = c(.packages()), 
-                 file = "packages.bib")
-```
-
-## References
-
-::: {#refs}
-:::
-
-## Other Helpful Resources
-
-[**Other Helpful Resources**](./additionalResources.html)
-
+1. Reproducible research principles
+2. What is R Markdown
+3. How to create a report using R Markdown
+    - Customize the layout of presentations or reports
+    - Insert and create objects, such as tables, images, or videos, within a document

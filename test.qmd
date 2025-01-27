@@ -1,0 +1,36 @@
+---
+title: "test"
+format: 
+  pdf:
+    keep-tex: true
+    header-includes:
+      - \usepackage{booktabs}
+      - \usepackage{caption}
+      - \usepackage{longtable}
+      - \usepackage{colortbl}
+      - \usepackage{array}
+      - \usepackage{anyfontsize}
+      - \usepackage{multirow}
+---
+
+text before table
+
+```{r}
+library(gtsummary)
+
+gt_tbl <- pressure %>%
+  gtsummary::tbl_summary() %>%
+  as_gt()
+```
+
+
+```{r}
+#| label: tbl-tabprint
+#| tbl-pos: h!
+#| results: asis
+
+gt_tbl |>
+  gt::as_latex()
+```
+
+text after table

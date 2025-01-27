@@ -9,34 +9,58 @@ editor_options:
 
 \thispagestyle{fancy}
 
-## R and RStudio Helpful Resources
+## R and RStudio Resources
+
+### R
 
 * [Download: R from CRAN](https://cran.r-project.org/)
     - This is where you can download the R language software for FREE for your own computer.
     - Choose your operating system (Mac OS or Windows or Linux/Unix)
     - NOTE: For Windows, you should also download and install [Rtools](https://cran.r-project.org/bin/windows/) - this is technically optional, but is useful to have. Make sure to download the one for your R version.
+* [R Cookbook](https://rc2e.com/)
+    
+### RStudio
+
 * [Download: RStudio IDE Desktop](https://www.rstudio.com/products/rstudio/download/#download)
     - Note: Windows is listed at the top - just scroll down to see the installer for the Mac OS as well. There are also installers for the versions of Linux/Unix.
 * [RStudio Education](https://education.rstudio.com/)
 * [RStudio Cloud Tutorials](https://rstudio.cloud/learn/primers)
 * [** Quick-R **](https://www.statmethods.net/)
+
+## RMarkdown Resources
+
 * [Rmarkdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html)
-* [tidyverse](https://www.tidyverse.org/)
+* [Book: R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+* [Book: R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
-## Other Helpful Websites
+## R Graphics
 
+* [R Graphics Cookbook - online book](https://r-graphics.org/)
+* [Cookbook for R (graphics) - earlier version](http://www.cookbook-r.com/Graphs/)
+* [R Graph Gallery](https://r-graph-gallery.com/)
+* [Book: R Graphics, 3rd edition by Paul Murrell](https://www.routledge.com/R-Graphics-Third-Edition/Murrell/p/book/9780367780692) and accompanying [R Graphics - book website](https://www.stat.auckland.ac.nz/~paul/RG3e/)
+
+## Online Training and Courses
+
+* [Code Academy](https://www.codecademy.com/learn/learn-r)
+* [Software Carpentry](https://swcarpentry.github.io/r-novice-inflammation/)
+* [swiRl - Learn R in R](https://swirlstats.com/)
 * [Datacamp](https://www.datacamp.com/)
-* [R for SAS Users - My Datacamp Course](https://www.datacamp.com/courses/r-for-sas-users)
+    - [R for SAS Users - My Datacamp Course](https://www.datacamp.com/courses/r-for-sas-users)
 * [Coursera](https://www.coursera.org/)
-* [Reproducible Templates for Analysis and Dissemination - My Coursera Course](https://www.coursera.org/learn/reproducible-templates-analysis)
-* [Emory N741](https://melindahiggins2000.github.io/N741bigdata/)
-* [Emory N736](https://melindahiggins2000.github.io/N736/)
+    - [Reproducible Templates for Analysis and Dissemination - My Coursera Course](https://www.coursera.org/learn/reproducible-templates-analysis)
+* My Courses at Emory:
+    - [Emory N741](https://melindahiggins2000.github.io/N741bigdata/)
+    - [Emory N736](https://melindahiggins2000.github.io/N736/)
 
-## Helpful Online Books
+## Helpful Online Books on R and Statistics with R
 
 * [Book: Statistical Inference via Data Science](https://moderndive.com/)
 * [Book: The Epidemiologist R Handbook](https://epirhandbook.com/en/index.html)
 * [Book/Course: Stat 545](https://stat545.com/)
+* [Book: Statistical Inference via Data Science: A ModernDive into R and the Tidyverse](https://moderndive.com/v2/)
+* [OpenIntro Statistics](https://www.openintro.org/)
+* [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/)
 
 ## Other places to get HELP
 
@@ -57,3 +81,7 @@ editor_options:
         - [NEWS](https://cran.r-project.org/web/packages/dplyr/news/news.html) which will detail the changes for each version updates
 * [R Bloggers](https://www.r-bloggers.com/)
     - This is a really good website which curates thousands of people who are R developers, users and programmers who post articles about R.
+
+## R Packages Used in TIDAL Modules
+
+* [tidyverse](https://www.tidyverse.org/)

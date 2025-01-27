@@ -20,79 +20,23 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE)
 ```
 
+## COMING SUMMER 2025
+
+Module "1.3.5: Statistical Tests and Models" will be posted prior to the In-Person Workshops in Summer 2025.
+
 ## Session Objectives
 
 1. Develop linear and logistic regression models.
 2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.
 3. Interpret a model output.
 
-
-key points
 Key points to cover:
-1.	Run multivariate linear regression models with R.
-2.	Run multivariate logistic regression models with R.
-3.	Include interaction terms in regression models.
-4.	(R packages for complex survey data (e.g., survey package)
-a.	R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models)
-5.	Interpret a model output.
-6.	(Compare the outputs of unweighted and weighted models.)
 
-
-
-
-
-
----
-
-## 0. Prework - Before You Begin
-
-
-
-
-
-
----
-
-\newpage
-
-## 1. Develop linear and logistic regression models.
-
-
-
----
-
-\newpage
-
-## 2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.)
-
-Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.
-
-
-
----
-
-\newpage
-
-## 3. Interpret a model output.
-
-
-
-
----
-
-\newpage
-
-```{r echo=FALSE}
-knitr::write_bib(x = c(.packages()), 
-                 file = "packages.bib")
-```
-
-## References
-
-::: {#refs}
-:::
-
-## Other Helpful Resources
-
-[**Other Helpful Resources**](./additionalResources.html)
+1. Run multivariate linear regression models with R.
+2. Run multivariate logistic regression models with R.
+3. Include interaction terms in regression models.
+4. (R packages for complex survey data (e.g., survey package)
+    - R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models)
+5. Interpret a model output.
+6. (Compare the outputs of unweighted and weighted models.)
 
