@@ -780,7 +780,7 @@ We will do more in the later lesson [1.3.6: Putting reproducible research princi
 
 Go to the RStudio menu and click "File/New File/R Markdown":
 
-![](rmarkdown_new.png){width=60%}
+![](rmarkdown_new.png){width=80%}
 
 \newpage
 
@@ -803,7 +803,7 @@ Type in a title, your name, the date and choose the format you'd like to create.
     - DOC usually works OK - **but you need MS Word or Open Office installed on your computer.**
     - PDF **NOTE: You need a TEX compiler on your computer** - Learn about installing the `tinytex` [https://yihui.org/tinytex/](https://yihui.org/tinytex/){target="_blank"} R package to create PDFs.
 
-![](rmarkdown_menu1.png){width=60%}
+![](rmarkdown_menu1.png){width=80%}
 
 \newpage
 

@@ -63,27 +63,27 @@ Let's begin with a new RStudio Project.
 
 1. First click on the menu at top for "File/New Project":
 
-![](newproject.png){width=60%}
+![](newproject.png){width=80%}
 
 \newpage
 
 2. Next choose either an "Existing Directory" or "New Directory" depending on whether you want to use a folder that already exists on your computer or you want to create a new folder.
 
-![](newproject2.png){width=60%}
+![](newproject2.png){width=80%}
 
 3. For now, let's choose a "New Directory" and then select "New Project"
 
-![](newproject3.png){width=60%}
+![](newproject3.png){width=80%}
 
 \newpage
 
 4. When the next window opens, as an example, I'm creating a new project folder called `myfirstRproject` for my RStudio project under my parent directory, `C:\MyGithub`. _Your folder names and directories will most likely be different than mine._
 
-![](newproject4.png){width=60%}
+![](newproject4.png){width=80%}
 
 5. So, if I look back on my computer in my file manager (I'm on a computer with Windows 11 operating system) - I can now see this new folder on my computer for `C:\MyGithub\myfirstRproject`.
 
-![](newproject6.png){width=60%}
+![](newproject6.png){width=80%}
 
 \newpage
 
@@ -125,7 +125,7 @@ CSV is widely accepted as a "universal" standard as a data format for easy excha
 
 Here is an example of importing the [`mydata.csv` - CSV formatted data](mydata.csv). Let's use the `From Text (readr)` option.
 
-![](import1.png){width=60%}
+![](import1.png){width=80%}
 
 \newpage
 
@@ -156,7 +156,7 @@ The better way is to save the R code commands to import the data so you will be 
 
 Once you copied the R code above to your clipboard, go to "File/New File/R Script" to open a script programming window:
 
-![](import3.png){width=60%}
+![](import3.png){width=80%}
 
 And then "paste" your R code into this window. 
 
@@ -200,7 +200,7 @@ The second "Codebook" TAB:
 
 To import an EXCEL file into R, we will use the same process as above, but this time we will select "File/Import Dataset/From Excel":
 
-![](importxls.png){width=60%}
+![](importxls.png){width=80%}
 
 This process uses the [`read_excel()` function](https://readxl.tidyverse.org/reference/read_excel.html){target="_blank"} from the [`readxl`](https://readxl.tidyverse.org){target="_blank"} package.
 
@@ -233,7 +233,7 @@ Also notice I have added some comments which start with a `#` hashtag. Any text 
 For data files from other "common" statistics software like SPSS, SAS and Stata, we can use the "File/Import Dataset/From SPSS (or From SAS or From Stata)". All of these use [`read_xxx()` functions from the `haven` package](https://haven.tidyverse.org/reference/index.html#reading-and-writing){target="_blank"}.
 
 
-![](importother.png){width=60%}
+![](importother.png){width=80%}
 
 
 Here is the code generated to import a SPSS datafile:
@@ -251,7 +251,7 @@ Notice that in addition to the datafile `"mydata.sas7bdat"`, the `read_sas()` fu
 
 ![](importsas.png)
 
-![](readsashelp.png){width=60%}
+![](readsashelp.png){width=80%}
 
 \newpage
 
