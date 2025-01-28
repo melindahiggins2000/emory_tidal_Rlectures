@@ -35,6 +35,7 @@ editor_options:
 
 ## R Graphics
 
+* [Book: `ggplot2`](https://ggplot2-book.org/)
 * [R Graphics Cookbook - online book](https://r-graphics.org/)
 * [Cookbook for R (graphics) - earlier version](http://www.cookbook-r.com/Graphs/)
 * [R Graph Gallery](https://r-graph-gallery.com/)
@@ -53,7 +54,7 @@ editor_options:
     - [Emory N741](https://melindahiggins2000.github.io/N741bigdata/)
     - [Emory N736](https://melindahiggins2000.github.io/N736/)
 
-## Helpful Online Books on R and Statistics with R
+## More Helpful Online Books on R and Statistics with R
 
 * [Book: Statistical Inference via Data Science](https://moderndive.com/)
 * [Book: The Epidemiologist R Handbook](https://epirhandbook.com/en/index.html)
@@ -81,6 +82,8 @@ editor_options:
         - [NEWS](https://cran.r-project.org/web/packages/dplyr/news/news.html) which will detail the changes for each version updates
 * [R Bloggers](https://www.r-bloggers.com/)
     - This is a really good website which curates thousands of people who are R developers, users and programmers who post articles about R.
+* [STHDA Website for "Statistical tools for high-throughput data analysis"](https://www.sthda.com/english/)
+    - This website will often come up when "Googling" for answers. It has a lot of ads but often has very helpful examples.
 
 ## R Packages Used in TIDAL Modules
 

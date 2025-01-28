@@ -211,9 +211,33 @@ div.csl-indent {
    
   <ul>
 <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link active" data-scroll-target="#session-objectives">Session Objectives</a></li>
-  <li><a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a></li>
-  <li><a href="#base-r-graphical-functions" id="toc-base-r-graphical-functions" class="nav-link" data-scroll-target="#base-r-graphical-functions">1. Base R graphical functions</a></li>
-  <li><a href="#ggplot2-package" id="toc-ggplot2-package" class="nav-link" data-scroll-target="#ggplot2-package">2. ggplot2 package</a></li>
+  <li>
+<a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a>
+  <ul>
+<li><a href="#a.-install-packages" id="toc-a.-install-packages" class="nav-link" data-scroll-target="#a.-install-packages">A. Install packages</a></li>
+  <li><a href="#b.-opencreate-your-rstudio-project" id="toc-b.-opencreate-your-rstudio-project" class="nav-link" data-scroll-target="#b.-opencreate-your-rstudio-project">B. Open/create your RStudio project</a></li>
+  <li><a href="#c.-create-a-new-r-script-and-load-data-into-your-computing-session" id="toc-c.-create-a-new-r-script-and-load-data-into-your-computing-session" class="nav-link" data-scroll-target="#c.-create-a-new-r-script-and-load-data-into-your-computing-session">C. Create a new R script and load data into your computing session</a></li>
+  <li><a href="#d.-get-inspired" id="toc-d.-get-inspired" class="nav-link" data-scroll-target="#d.-get-inspired">D. Get Inspired!</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#base-r-graphical-functions" id="toc-base-r-graphical-functions" class="nav-link" data-scroll-target="#base-r-graphical-functions">1. Base R graphical functions</a>
+  <ul>
+<li><a href="#base-r---scatterplot" id="toc-base-r---scatterplot" class="nav-link" data-scroll-target="#base-r---scatterplot">Base R - Scatterplot</a></li>
+  <li><a href="#base-r---histogram" id="toc-base-r---histogram" class="nav-link" data-scroll-target="#base-r---histogram">Base R - Histogram</a></li>
+  <li><a href="#base-r---barchart" id="toc-base-r---barchart" class="nav-link" data-scroll-target="#base-r---barchart">Base R - Barchart</a></li>
+  <li><a href="#base-r---boxplot" id="toc-base-r---boxplot" class="nav-link" data-scroll-target="#base-r---boxplot">Base R - Boxplot</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#ggplot2-package" id="toc-ggplot2-package" class="nav-link" data-scroll-target="#ggplot2-package">2. <code>ggplot2</code> package</a>
+  <ul>
+<li><a href="#ggplot2---scatterplot" id="toc-ggplot2---scatterplot" class="nav-link" data-scroll-target="#ggplot2---scatterplot"><code>ggplot2</code> - Scatterplot</a></li>
+  <li><a href="#ggplot2---histogram" id="toc-ggplot2---histogram" class="nav-link" data-scroll-target="#ggplot2---histogram"><code>ggplot2</code> - Histogram</a></li>
+  <li><a href="#ggplot2---barchart" id="toc-ggplot2---barchart" class="nav-link" data-scroll-target="#ggplot2---barchart"><code>ggplot2</code> - Barchart</a></li>
+  <li><a href="#ggplot2---boxplot" id="toc-ggplot2---boxplot" class="nav-link" data-scroll-target="#ggplot2---boxplot"><code>ggplot2</code> - Boxplot</a></li>
+  </ul>
+</li>
   <li>
 <a href="#get-boilerplate-code-to-start" id="toc-get-boilerplate-code-to-start" class="nav-link" data-scroll-target="#get-boilerplate-code-to-start">3. Get boilerplate code to start</a>
   <ul>
@@ -253,58 +277,66 @@ div.csl-indent {
 <li>Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.</li>
 </ol>
 <hr></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
+<section id="a.-install-packages" class="level3"><h3 class="anchored" data-anchor-id="a.-install-packages">A. Install packages</h3>
 <p>If you do not have them already, install the following packages from CRAN:</p>
 <ul>
 <li><a href="https://cloud.r-project.org/web/packages/ggplot2/">`ggplot2</a></li>
 <li><a href="https://cloud.r-project.org/web/packages/ggthemes/"><code>ggthemes</code></a></li>
 <li><a href="https://cloud.r-project.org/web/packages/readr/"><code>readr</code></a></li>
-</ul>
-<p>Download the small training dataset:</p>
-<ul>
-<li>
-<a href="mydata.csv"><code>mydata.csv</code></a> - right click and “SaveAs” to download this datafile to your computer - see <a href="module132_DataWrangling.html#to-read-in-data.">“Module 1.3.2: Data Wrangling”</a>
-</li>
-</ul>
-<p>Import the data into your R computing session:</p>
-<ul>
-<li>Here is the code to read the data into your computing session:</li>
-</ul>
+</ul></section><section id="b.-opencreate-your-rstudio-project" class="level3"><h3 class="anchored" data-anchor-id="b.-opencreate-your-rstudio-project">B. Open/create your RStudio project</h3>
+<p>Let’s start with the <code>myfirstRproject</code> RStudio project you created in <a href="module132_DataWrangling.html#begin-with-a-new-rstudio-project">Module 1.3.2 - part 1</a>. If you have not yet created this <code>myfirstRproject</code> RStudio project, go ahead and create a new RStudio Project for this lesson. <em>Feel free to name your project whatever you want, it does not need to be named <code>myfirstRproject</code>.</em></p>
+</section><section id="c.-create-a-new-r-script-and-load-data-into-your-computing-session" class="level3"><h3 class="anchored" data-anchor-id="c.-create-a-new-r-script-and-load-data-into-your-computing-session">C. Create a new R script and load data into your computing session</h3>
+<p>At the end of <a href="module132_DataWrangling.html#save-mydata-as-.rdata-native-r-binary-format">Module 1.3.2 - part 6</a> you saved the <code>mydata</code> dataset in the <code>mydata.RData</code> R binary format.</p>
+<ol type="1">
+<li><p>Go ahead and create a new R script (<code>*.R</code>) for this computing session. <em>We did this already in <a href="module131_IntroRRStudio.html#create-your-first-r-script">Module 1.3.1 - part 3</a> - refer to this section to remember how to create a new R script.</em></p></li>
+<li><p>Put this code into your new R script (<code>*.R</code>) to load <code>mydata.RData</code> into your current computing session.</p></li>
+</ol>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
-<span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"mydata.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 21 × 14
-   SubjectID   Age WeightPRE WeightPOST Height   SES GenderSTR GenderCoded    q1
-       &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
- 1         1    45        68        145    5.6     9 m                   1     4
- 2         2    50       167        166    5.4     2 f                   2     3
- 3         3    35       143        135    5.6     2 &lt;NA&gt;               NA     3
- 4         4    44       216        201    5.6     2 m                   1     4
- 5         5    32       243        223    6       2 m                   1     5
- 6         6    48       165        145    5.2     2 f                   2     2
- 7         8    50        60        132    3.3     2 m                   1     3
- 8         9    51       110        108    5.1     3 f                   2     1
- 9        12    46       167        158    5.5     2 F                   2     1
-10        14    35       190        200    5.8     1 Male                1     4
-# ℹ 11 more rows
-# ℹ 5 more variables: q2 &lt;dbl&gt;, q3 &lt;dbl&gt;, q4 &lt;dbl&gt;, q5 &lt;dbl&gt;, q6 &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load mydata</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"mydata.RData"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data must/should be in your RStudio project
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p><strong>REMEMBER</strong> R/RStudio automatically looks in your current RStudio project folder for all files for your current computing session. So, make sure the <code>mydata.RData</code> file is in your current RStudio project <code>myfirstRproject</code> folder on your computer.</p>
+<p>For a more detailed overview of RStudio projects:</p>
+<ul>
+<li>read <a href="https://epirhandbook.com/en/new_pages/r_projects.html">“Chapter 6: R projects” in the <em>The Epidemiologist R Handbook</em></a> and</li>
+<li>refer to <a href="https://epirhandbook.com/en/new_pages/directories.html">“Chapter 45 Directory interactions” in the <em>The Epidemiologist R Handbook</em></a>.</li>
+</ul>
+</div>
+</div>
+</section><section id="d.-get-inspired" class="level3"><h3 class="anchored" data-anchor-id="d.-get-inspired">D. Get Inspired!</h3>
 <ul>
 <li>Get Inspired at <a href="https://r-graph-gallery.com/">The R Graph Gallery</a>
+</li>
+<li>Also see the <a href="https://r-graph-gallery.com/best-r-chart-examples">Top Curated R Graphs</a>
+</li>
+<li>Also see <a href="additionalResources.html#r-graphics">Additional Resources - R Graphics</a>
 </li>
 </ul>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="base-r-graphical-functions" class="level2"><h2 class="anchored" data-anchor-id="base-r-graphical-functions">1. Base R graphical functions</h2>
+</section></section><section id="base-r-graphical-functions" class="level2"><h2 class="anchored" data-anchor-id="base-r-graphical-functions">1. Base R graphical functions</h2>
 <p>The base R <code>graphics</code> package is very powerful on its own. As you saw in <a href="module131_IntroRRStudio.html">1.3.1: Introduction to R and R Studio</a>, we can make a simple 2-dimensional scatterplot with the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function.</p>
+<section id="base-r---scatterplot" class="level3"><h3 class="anchored" data-anchor-id="base-r---scatterplot">Base R - Scatterplot</h3>
 <p>For example, let’s make a plot of <code>Height</code> on the X-axis (horizontal) and <code>WeightPRE</code> on the Y-axis (vertical) from the <code>mydata</code> dataset. Since we are using base R function, we have to use the <code>$</code>selector to identify the variables we want inside the <code>mydata</code> dataset.</p>
 <p>Learn more about the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function and arguments by running <code><a href="https://rdrr.io/r/graphics/plot.default.html">help(plot, package = "graphics")</a></code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
 <span>     y <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">WeightPRE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'mydata' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The plot does look a little odd - this is due to some data errors in the <code>mydata</code> dataset. We will fix these below. But for now, you can “see” that these data may have some issues that need to be addressed. For example:</p>
@@ -320,22 +352,381 @@ div.csl-indent {
 <li>a subtitle for the graph</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
 <span>     y <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">WeightPRE</span>,</span>
 <span>     xlab <span class="op">=</span> <span class="st">"Height (in decimal inches)"</span>,</span>
-<span>     ylab <span class="op">=</span> <span class="st">""</span>,</span>
-<span>     main <span class="op">=</span> <span class="st">""</span>,</span>
-<span>     sub <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'mydata' not found</code></pre>
+<span>     ylab <span class="op">=</span> <span class="st">"Weight (in pounds) - before intervention"</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Weight by Height in the Mydata Project"</span>,</span>
+<span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>And we could also add color and change the shapes - for example, let’s color and shape the points by <code>GenderCoded</code>, the numeric coding for gender where 1=Male, 2=Female.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Plot code inspiration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I pulled this code together from code examples at:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/12919816/plotting-in-different-shapes-using-pch-argument">Stackoverflow post on using <code>pch</code></a></li>
+<li><a href="https://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r">STHDA post on point shapes</a></li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
+<span>     y <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">WeightPRE</span>,</span>
+<span>     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"green"</span><span class="op">)</span><span class="op">[</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded</span><span class="op">]</span>,</span>
+<span>     pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">19</span><span class="op">)</span><span class="op">[</span><span class="va">mydata</span><span class="op">$</span><span class="va">GenderCoded</span><span class="op">]</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Height (in decimal inches)"</span>,</span>
+<span>     ylab <span class="op">=</span> <span class="st">"Weight (in pounds) - before intervention"</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Weight by Height in the Mydata Project"</span>,</span>
+<span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <a href="https://www.sthda.com/english/wiki/r-base-graphs">STHDA website on “R Base Graphs”</a> has a nice walkthrough of using the base R <code>graphics</code> package to make really nice plots.</p>
+</section><section id="base-r---histogram" class="level3"><h3 class="anchored" data-anchor-id="base-r---histogram">Base R - Histogram</h3>
+<p>As we noted above, let’s take a look at the distribution of the heights in the <code>mydata</code> dataset. There is a specific <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function in the <code>graphics</code> package for making histograms, learn more by running <code><a href="https://rdrr.io/r/graphics/hist.html">help(hist, package = "graphics")</a></code>.</p>
+<p>Notice that we can use some of the same arguments as we did above for <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Height (in decimal inches)"</span>,</span>
+<span>     col <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>     border <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Histogram of Heights"</span>,</span>
+<span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Colors available
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are 657 names colors immediately available to you from the built-in <code>grDevices</code> Base R package which works in conjunction with <code>graphics</code>. You can view the names of all of these colors by running <code><a href="https://rdrr.io/r/grDevices/colors.html">colors()</a></code>. You can also learn more at:</p>
+<ul>
+<li><a href="https://www.sthda.com/english/wiki/colors-in-r#google_vignette">https://www.sthda.com/english/wiki/colors-in-r#google_vignette</a></li>
+<li><a href="https://r-graph-gallery.com/42-colors-names.html">https://r-graph-gallery.com/42-colors-names.html</a></li>
+<li>
+<a href="https://r-graph-gallery.com/ggplot2-color.html">https://r-graph-gallery.com/ggplot2-color.html</a> - which explains how colors can be specified using the built-in color names, but cal also be specified using RGB (red, green, blue) indexes or even Hexcodes for which there are many online tools like <a href="https://htmlcolorcodes.com/">https://htmlcolorcodes.com/</a>.</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list built-in colors</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html">colors</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "white"                "aliceblue"            "antiquewhite"        
+  [4] "antiquewhite1"        "antiquewhite2"        "antiquewhite3"       
+  [7] "antiquewhite4"        "aquamarine"           "aquamarine1"         
+ [10] "aquamarine2"          "aquamarine3"          "aquamarine4"         
+ [13] "azure"                "azure1"               "azure2"              
+ [16] "azure3"               "azure4"               "beige"               
+ [19] "bisque"               "bisque1"              "bisque2"             
+ [22] "bisque3"              "bisque4"              "black"               
+ [25] "blanchedalmond"       "blue"                 "blue1"               
+ [28] "blue2"                "blue3"                "blue4"               
+ [31] "blueviolet"           "brown"                "brown1"              
+ [34] "brown2"               "brown3"               "brown4"              
+ [37] "burlywood"            "burlywood1"           "burlywood2"          
+ [40] "burlywood3"           "burlywood4"           "cadetblue"           
+ [43] "cadetblue1"           "cadetblue2"           "cadetblue3"          
+ [46] "cadetblue4"           "chartreuse"           "chartreuse1"         
+ [49] "chartreuse2"          "chartreuse3"          "chartreuse4"         
+ [52] "chocolate"            "chocolate1"           "chocolate2"          
+ [55] "chocolate3"           "chocolate4"           "coral"               
+ [58] "coral1"               "coral2"               "coral3"              
+ [61] "coral4"               "cornflowerblue"       "cornsilk"            
+ [64] "cornsilk1"            "cornsilk2"            "cornsilk3"           
+ [67] "cornsilk4"            "cyan"                 "cyan1"               
+ [70] "cyan2"                "cyan3"                "cyan4"               
+ [73] "darkblue"             "darkcyan"             "darkgoldenrod"       
+ [76] "darkgoldenrod1"       "darkgoldenrod2"       "darkgoldenrod3"      
+ [79] "darkgoldenrod4"       "darkgray"             "darkgreen"           
+ [82] "darkgrey"             "darkkhaki"            "darkmagenta"         
+ [85] "darkolivegreen"       "darkolivegreen1"      "darkolivegreen2"     
+ [88] "darkolivegreen3"      "darkolivegreen4"      "darkorange"          
+ [91] "darkorange1"          "darkorange2"          "darkorange3"         
+ [94] "darkorange4"          "darkorchid"           "darkorchid1"         
+ [97] "darkorchid2"          "darkorchid3"          "darkorchid4"         
+[100] "darkred"              "darksalmon"           "darkseagreen"        
+[103] "darkseagreen1"        "darkseagreen2"        "darkseagreen3"       
+[106] "darkseagreen4"        "darkslateblue"        "darkslategray"       
+[109] "darkslategray1"       "darkslategray2"       "darkslategray3"      
+[112] "darkslategray4"       "darkslategrey"        "darkturquoise"       
+[115] "darkviolet"           "deeppink"             "deeppink1"           
+[118] "deeppink2"            "deeppink3"            "deeppink4"           
+[121] "deepskyblue"          "deepskyblue1"         "deepskyblue2"        
+[124] "deepskyblue3"         "deepskyblue4"         "dimgray"             
+[127] "dimgrey"              "dodgerblue"           "dodgerblue1"         
+[130] "dodgerblue2"          "dodgerblue3"          "dodgerblue4"         
+[133] "firebrick"            "firebrick1"           "firebrick2"          
+[136] "firebrick3"           "firebrick4"           "floralwhite"         
+[139] "forestgreen"          "gainsboro"            "ghostwhite"          
+[142] "gold"                 "gold1"                "gold2"               
+[145] "gold3"                "gold4"                "goldenrod"           
+[148] "goldenrod1"           "goldenrod2"           "goldenrod3"          
+[151] "goldenrod4"           "gray"                 "gray0"               
+[154] "gray1"                "gray2"                "gray3"               
+[157] "gray4"                "gray5"                "gray6"               
+[160] "gray7"                "gray8"                "gray9"               
+[163] "gray10"               "gray11"               "gray12"              
+[166] "gray13"               "gray14"               "gray15"              
+[169] "gray16"               "gray17"               "gray18"              
+[172] "gray19"               "gray20"               "gray21"              
+[175] "gray22"               "gray23"               "gray24"              
+[178] "gray25"               "gray26"               "gray27"              
+[181] "gray28"               "gray29"               "gray30"              
+[184] "gray31"               "gray32"               "gray33"              
+[187] "gray34"               "gray35"               "gray36"              
+[190] "gray37"               "gray38"               "gray39"              
+[193] "gray40"               "gray41"               "gray42"              
+[196] "gray43"               "gray44"               "gray45"              
+[199] "gray46"               "gray47"               "gray48"              
+[202] "gray49"               "gray50"               "gray51"              
+[205] "gray52"               "gray53"               "gray54"              
+[208] "gray55"               "gray56"               "gray57"              
+[211] "gray58"               "gray59"               "gray60"              
+[214] "gray61"               "gray62"               "gray63"              
+[217] "gray64"               "gray65"               "gray66"              
+[220] "gray67"               "gray68"               "gray69"              
+[223] "gray70"               "gray71"               "gray72"              
+[226] "gray73"               "gray74"               "gray75"              
+[229] "gray76"               "gray77"               "gray78"              
+[232] "gray79"               "gray80"               "gray81"              
+[235] "gray82"               "gray83"               "gray84"              
+[238] "gray85"               "gray86"               "gray87"              
+[241] "gray88"               "gray89"               "gray90"              
+[244] "gray91"               "gray92"               "gray93"              
+[247] "gray94"               "gray95"               "gray96"              
+[250] "gray97"               "gray98"               "gray99"              
+[253] "gray100"              "green"                "green1"              
+[256] "green2"               "green3"               "green4"              
+[259] "greenyellow"          "grey"                 "grey0"               
+[262] "grey1"                "grey2"                "grey3"               
+[265] "grey4"                "grey5"                "grey6"               
+[268] "grey7"                "grey8"                "grey9"               
+[271] "grey10"               "grey11"               "grey12"              
+[274] "grey13"               "grey14"               "grey15"              
+[277] "grey16"               "grey17"               "grey18"              
+[280] "grey19"               "grey20"               "grey21"              
+[283] "grey22"               "grey23"               "grey24"              
+[286] "grey25"               "grey26"               "grey27"              
+[289] "grey28"               "grey29"               "grey30"              
+[292] "grey31"               "grey32"               "grey33"              
+[295] "grey34"               "grey35"               "grey36"              
+[298] "grey37"               "grey38"               "grey39"              
+[301] "grey40"               "grey41"               "grey42"              
+[304] "grey43"               "grey44"               "grey45"              
+[307] "grey46"               "grey47"               "grey48"              
+[310] "grey49"               "grey50"               "grey51"              
+[313] "grey52"               "grey53"               "grey54"              
+[316] "grey55"               "grey56"               "grey57"              
+[319] "grey58"               "grey59"               "grey60"              
+[322] "grey61"               "grey62"               "grey63"              
+[325] "grey64"               "grey65"               "grey66"              
+[328] "grey67"               "grey68"               "grey69"              
+[331] "grey70"               "grey71"               "grey72"              
+[334] "grey73"               "grey74"               "grey75"              
+[337] "grey76"               "grey77"               "grey78"              
+[340] "grey79"               "grey80"               "grey81"              
+[343] "grey82"               "grey83"               "grey84"              
+[346] "grey85"               "grey86"               "grey87"              
+[349] "grey88"               "grey89"               "grey90"              
+[352] "grey91"               "grey92"               "grey93"              
+[355] "grey94"               "grey95"               "grey96"              
+[358] "grey97"               "grey98"               "grey99"              
+[361] "grey100"              "honeydew"             "honeydew1"           
+[364] "honeydew2"            "honeydew3"            "honeydew4"           
+[367] "hotpink"              "hotpink1"             "hotpink2"            
+[370] "hotpink3"             "hotpink4"             "indianred"           
+[373] "indianred1"           "indianred2"           "indianred3"          
+[376] "indianred4"           "ivory"                "ivory1"              
+[379] "ivory2"               "ivory3"               "ivory4"              
+[382] "khaki"                "khaki1"               "khaki2"              
+[385] "khaki3"               "khaki4"               "lavender"            
+[388] "lavenderblush"        "lavenderblush1"       "lavenderblush2"      
+[391] "lavenderblush3"       "lavenderblush4"       "lawngreen"           
+[394] "lemonchiffon"         "lemonchiffon1"        "lemonchiffon2"       
+[397] "lemonchiffon3"        "lemonchiffon4"        "lightblue"           
+[400] "lightblue1"           "lightblue2"           "lightblue3"          
+[403] "lightblue4"           "lightcoral"           "lightcyan"           
+[406] "lightcyan1"           "lightcyan2"           "lightcyan3"          
+[409] "lightcyan4"           "lightgoldenrod"       "lightgoldenrod1"     
+[412] "lightgoldenrod2"      "lightgoldenrod3"      "lightgoldenrod4"     
+[415] "lightgoldenrodyellow" "lightgray"            "lightgreen"          
+[418] "lightgrey"            "lightpink"            "lightpink1"          
+[421] "lightpink2"           "lightpink3"           "lightpink4"          
+[424] "lightsalmon"          "lightsalmon1"         "lightsalmon2"        
+[427] "lightsalmon3"         "lightsalmon4"         "lightseagreen"       
+[430] "lightskyblue"         "lightskyblue1"        "lightskyblue2"       
+[433] "lightskyblue3"        "lightskyblue4"        "lightslateblue"      
+[436] "lightslategray"       "lightslategrey"       "lightsteelblue"      
+[439] "lightsteelblue1"      "lightsteelblue2"      "lightsteelblue3"     
+[442] "lightsteelblue4"      "lightyellow"          "lightyellow1"        
+[445] "lightyellow2"         "lightyellow3"         "lightyellow4"        
+[448] "limegreen"            "linen"                "magenta"             
+[451] "magenta1"             "magenta2"             "magenta3"            
+[454] "magenta4"             "maroon"               "maroon1"             
+[457] "maroon2"              "maroon3"              "maroon4"             
+[460] "mediumaquamarine"     "mediumblue"           "mediumorchid"        
+[463] "mediumorchid1"        "mediumorchid2"        "mediumorchid3"       
+[466] "mediumorchid4"        "mediumpurple"         "mediumpurple1"       
+[469] "mediumpurple2"        "mediumpurple3"        "mediumpurple4"       
+[472] "mediumseagreen"       "mediumslateblue"      "mediumspringgreen"   
+[475] "mediumturquoise"      "mediumvioletred"      "midnightblue"        
+[478] "mintcream"            "mistyrose"            "mistyrose1"          
+[481] "mistyrose2"           "mistyrose3"           "mistyrose4"          
+[484] "moccasin"             "navajowhite"          "navajowhite1"        
+[487] "navajowhite2"         "navajowhite3"         "navajowhite4"        
+[490] "navy"                 "navyblue"             "oldlace"             
+[493] "olivedrab"            "olivedrab1"           "olivedrab2"          
+[496] "olivedrab3"           "olivedrab4"           "orange"              
+[499] "orange1"              "orange2"              "orange3"             
+[502] "orange4"              "orangered"            "orangered1"          
+[505] "orangered2"           "orangered3"           "orangered4"          
+[508] "orchid"               "orchid1"              "orchid2"             
+[511] "orchid3"              "orchid4"              "palegoldenrod"       
+[514] "palegreen"            "palegreen1"           "palegreen2"          
+[517] "palegreen3"           "palegreen4"           "paleturquoise"       
+[520] "paleturquoise1"       "paleturquoise2"       "paleturquoise3"      
+[523] "paleturquoise4"       "palevioletred"        "palevioletred1"      
+[526] "palevioletred2"       "palevioletred3"       "palevioletred4"      
+[529] "papayawhip"           "peachpuff"            "peachpuff1"          
+[532] "peachpuff2"           "peachpuff3"           "peachpuff4"          
+[535] "peru"                 "pink"                 "pink1"               
+[538] "pink2"                "pink3"                "pink4"               
+[541] "plum"                 "plum1"                "plum2"               
+[544] "plum3"                "plum4"                "powderblue"          
+[547] "purple"               "purple1"              "purple2"             
+[550] "purple3"              "purple4"              "red"                 
+[553] "red1"                 "red2"                 "red3"                
+[556] "red4"                 "rosybrown"            "rosybrown1"          
+[559] "rosybrown2"           "rosybrown3"           "rosybrown4"          
+[562] "royalblue"            "royalblue1"           "royalblue2"          
+[565] "royalblue3"           "royalblue4"           "saddlebrown"         
+[568] "salmon"               "salmon1"              "salmon2"             
+[571] "salmon3"              "salmon4"              "sandybrown"          
+[574] "seagreen"             "seagreen1"            "seagreen2"           
+[577] "seagreen3"            "seagreen4"            "seashell"            
+[580] "seashell1"            "seashell2"            "seashell3"           
+[583] "seashell4"            "sienna"               "sienna1"             
+[586] "sienna2"              "sienna3"              "sienna4"             
+[589] "skyblue"              "skyblue1"             "skyblue2"            
+[592] "skyblue3"             "skyblue4"             "slateblue"           
+[595] "slateblue1"           "slateblue2"           "slateblue3"          
+[598] "slateblue4"           "slategray"            "slategray1"          
+[601] "slategray2"           "slategray3"           "slategray4"          
+[604] "slategrey"            "snow"                 "snow1"               
+[607] "snow2"                "snow3"                "snow4"               
+[610] "springgreen"          "springgreen1"         "springgreen2"        
+[613] "springgreen3"         "springgreen4"         "steelblue"           
+[616] "steelblue1"           "steelblue2"           "steelblue3"          
+[619] "steelblue4"           "tan"                  "tan1"                
+[622] "tan2"                 "tan3"                 "tan4"                
+[625] "thistle"              "thistle1"             "thistle2"            
+[628] "thistle3"             "thistle4"             "tomato"              
+[631] "tomato1"              "tomato2"              "tomato3"             
+[634] "tomato4"              "turquoise"            "turquoise1"          
+[637] "turquoise2"           "turquoise3"           "turquoise4"          
+[640] "violet"               "violetred"            "violetred1"          
+[643] "violetred2"           "violetred3"           "violetred4"          
+[646] "wheat"                "wheat1"               "wheat2"              
+[649] "wheat3"               "wheat4"               "whitesmoke"          
+[652] "yellow"               "yellow1"              "yellow2"             
+[655] "yellow3"              "yellow4"              "yellowgreen"         </code></pre>
+</div>
+</div>
+<p><strong>Overlay a Density Curve</strong></p>
+<p>Statisticians often like seeing a histogram <em>(for the frequencies or probability of each value for the variable in the dataset)</em> with an overlaid density curve <em>(which is “smoothed” line for these probabilities)</em>. Statistical software like SAS and SPSS make this really easy. However, in R, we need to think through the process to get this to work.</p>
+<ul>
+<li>First, we need to make the histogram using probabilities for the “bars” in the histogram instead of frequency counts.</li>
+<li>Second, we need to add a density line curve over the histogram “bars”.</li>
+</ul>
+<p>See these online examples:</p>
+<ul>
+<li><a href="https://r-charts.com/distribution/histogram-curves/">https://r-charts.com/distribution/histogram-curves/</a></li>
+<li><a href="https://www.datacamp.com/doc/r/histograms-and-density">https://www.datacamp.com/doc/r/histograms-and-density</a></li>
+<li><a href="https://www.r-bloggers.com/2012/09/histogram-density-plot-combo-in-r/">https://www.r-bloggers.com/2012/09/histogram-density-plot-combo-in-r/</a></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make histogram as we did above</span></span>
+<span><span class="co"># add freq = FALSE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
+<span>     freq <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Height (in decimal inches)"</span>,</span>
+<span>     col <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>     border <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Histogram of Heights"</span>,</span>
+<span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># add density curve line</span></span>
+<span><span class="co"># add na.rm=TRUE to remove </span></span>
+<span><span class="co"># the missing values in Height</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>      col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="base-r---barchart" class="level3"><h3 class="anchored" data-anchor-id="base-r---barchart">Base R - Barchart</h3>
+</section><section id="base-r---boxplot" class="level3"><h3 class="anchored" data-anchor-id="base-r---boxplot">Base R - Boxplot</h3>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="ggplot2-package" class="level2"><h2 class="anchored" data-anchor-id="ggplot2-package">2. ggplot2 package</h2>
+</section></section><section id="ggplot2-package" class="level2"><h2 class="anchored" data-anchor-id="ggplot2-package">2. <code>ggplot2</code> package</h2>
+<p>The <code>ggplot2</code> package name starts with <code>gg</code> which stands for the “grammar of graphics” which is explained in the <a href="https://ggplot2-book.org/introduction#what-is-the-grammar-of-graphics">“ggplot2: Elegant Graphics for Data Analysis (3e)” Book</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many people often ask Hadley Wickham (the developer of <code>ggplot2</code>) what happened to the first <code>ggplot</code>? Technically, there was a <code>ggplot</code> package and you can still view the <a href="https://cran.r-project.org/src/contrib/Archive/ggplot/"><code>ggplot</code> archived package versions on CRAN</a> which date back to 2006 with the last version posted in 2008. However, in 2007, Hadley redesigned the package and published the first version of <a href="https://cran.r-project.org/src/contrib/Archive/ggplot2/"><code>ggplot2</code> <em>(version 0.5.1)</em> was posted on CRAN</a>. So, <code>ggplot2</code> is the package that has stayed in production and actively maintained for nearly 20 years!!</p>
+</div>
+</div>
+<p>Given that <code>ggplot2</code> has been actively maintained for nearly 20 years, it has become <em>almost</em> the defacto graphical standard for R graphics. If you take a look at the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html#available-packages-G">list of packages on CRAN that start with the letter “G”</a>, as of this morning <code>01/28/2025 at 8:23 am EST, USA</code>, there are 230 packages that start with <code>gg</code> - nearly all of these are compatible packages that extend the functionality or work in concert with the <code>ggplot2</code> package.</p>
+<section id="ggplot2---scatterplot" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---scatterplot">
+<code>ggplot2</code> - Scatterplot</h3>
+</section><section id="ggplot2---histogram" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---histogram">
+<code>ggplot2</code> - Histogram</h3>
+</section><section id="ggplot2---barchart" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---barchart">
+<code>ggplot2</code> - Barchart</h3>
+</section><section id="ggplot2---boxplot" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---boxplot">
+<code>ggplot2</code> - Boxplot</h3>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="get-boilerplate-code-to-start" class="level2"><h2 class="anchored" data-anchor-id="get-boilerplate-code-to-start">3. Get boilerplate code to start</h2>
+</section></section><section id="get-boilerplate-code-to-start" class="level2"><h2 class="anchored" data-anchor-id="get-boilerplate-code-to-start">3. Get boilerplate code to start</h2>
 <section id="r-gallery" class="level3"><h3 class="anchored" data-anchor-id="r-gallery">R Gallery</h3>
 </section><section id="r-graphics-cookbook" class="level3"><h3 class="anchored" data-anchor-id="r-graphics-cookbook">R Graphics Cookbook</h3>
 <hr>
@@ -344,9 +735,6 @@ div.csl-indent {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-R-base" class="csl-entry" role="listitem">
 R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-R-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
 </div>
 </div>
 </section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
