@@ -30,4 +30,38 @@ mydata$SES.f <-
                     "average income",
                     "high income"))
 
+# make a copy of the dataset
+mydata_corrected <- mydata
+
+# compute a new corrected height
+# fix heights for these 2 IDs
+mydata_corrected <- 
+  mydata_corrected %>%
+  mutate(Height_corrected = case_when(
+    (SubjectID == 28) ~ 6.2,
+    (SubjectID == 8) ~ NA_real_,
+    .default = Height
+  ))
+
+# for WeightPRE < 100, convert kg to lbs
+mydata_corrected <- mydata_corrected %>%
+  mutate(WeightPRE_corrected = case_when(
+    (WeightPRE < 100) ~ WeightPRE * 2.20462,
+    .default = WeightPRE
+  ))
+
+# For WeightPOST, for
+# SubjectID 28, change WeightPOST=98 to 198
+# since this person's WeightPRE was 230.
+# also fix SubjectID= 20, for
+# WeightPOST from 109 to 209 since
+# their WeightPRE was 260
+
+mydata_corrected <- mydata_corrected %>%
+  mutate(WeightPOST_corrected = case_when(
+    (SubjectID == 28) ~ 198,
+    (SubjectID == 20) ~ 209,
+    .default = WeightPOST
+  ))
+
 

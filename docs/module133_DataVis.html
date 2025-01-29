@@ -241,12 +241,15 @@ div.csl-indent {
   <ul>
 <li><a href="#ggplot2---scatterplot" id="toc-ggplot2---scatterplot" class="nav-link" data-scroll-target="#ggplot2---scatterplot"><code>ggplot2</code> - Scatterplot</a></li>
   <li><a href="#ggplot2---histogram" id="toc-ggplot2---histogram" class="nav-link" data-scroll-target="#ggplot2---histogram"><code>ggplot2</code> - Histogram</a></li>
+  <li><a href="#ggplot2---boxplot-and-variations" id="toc-ggplot2---boxplot-and-variations" class="nav-link" data-scroll-target="#ggplot2---boxplot-and-variations"><code>ggplot2</code> - Boxplot (and variations)</a></li>
   <li><a href="#ggplot2---barchart" id="toc-ggplot2---barchart" class="nav-link" data-scroll-target="#ggplot2---barchart"><code>ggplot2</code> - Barchart</a></li>
-  <li><a href="#ggplot2---boxplot" id="toc-ggplot2---boxplot" class="nav-link" data-scroll-target="#ggplot2---boxplot"><code>ggplot2</code> - Boxplot</a></li>
+  <li><a href="#ggplot2---errorbar-plots" id="toc-ggplot2---errorbar-plots" class="nav-link" data-scroll-target="#ggplot2---errorbar-plots"><code>ggplot2</code> - Errorbar plots</a></li>
+  <li><a href="#lollipop-plot---pre-post-changes" id="toc-lollipop-plot---pre-post-changes" class="nav-link" data-scroll-target="#lollipop-plot---pre-post-changes">lollipop plot? - pre-post changes</a></li>
   </ul>
 </li>
+  <li><a href="#other-graphics-packages-to-know" id="toc-other-graphics-packages-to-know" class="nav-link" data-scroll-target="#other-graphics-packages-to-know">3. Other Graphics Packages to Know</a></li>
   <li>
-<a href="#get-boilerplate-code-to-start" id="toc-get-boilerplate-code-to-start" class="nav-link" data-scroll-target="#get-boilerplate-code-to-start">3. Get boilerplate code to start</a>
+<a href="#other-places-to-get-help-and-get-started" id="toc-other-places-to-get-help-and-get-started" class="nav-link" data-scroll-target="#other-places-to-get-help-and-get-started">4. Other Places to Get Help and Get Started</a>
   <ul>
 <li><a href="#r-gallery" id="toc-r-gallery" class="nav-link" data-scroll-target="#r-gallery">R Gallery</a></li>
   <li><a href="#r-graphics-cookbook" id="toc-r-graphics-cookbook" class="nav-link" data-scroll-target="#r-graphics-cookbook">R Graphics Cookbook</a></li>
@@ -918,21 +921,21 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </div>
 </div>
 </div>
-<p>Notice that there are 4 weights that seem off. Also notice that the values are within a resonable range when considering PRE or POST separately, but when you put them togehter in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.</p>
+<p>Notice that there are 4 weights that seem off. Also notice that the values are within a resonable range when considering PRE or POST separately, but when you put them together in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.</p>
 <ul>
 <li>Two individuals have PRE weights that are &lt; 100 pounds (bottom left side of plot).
 <ul>
 <li>There is a good chance that these weights may have been accidently recorded as kg (kilograms) instead of in pounds.</li>
 </ul>
 </li>
-<li>And there are 2 individuals with POST weights around 100-120 lbs, butforwhom their PRE weights are 225-260 lbs.
+<li>And there are 2 individuals with POST weights around 100-120 lbs, but for whom their PRE weights were 225-260 lbs.
 <ul>
-<li>There is a good chance that these may have a typo in the first number (e.g.&nbsp;a weight of 110 should be 210).</li>
+<li>There is a good chance that these two data points may have had a typo in the first number (e.g.&nbsp;a weight of 110 should be 210).</li>
 </ul>
 </li>
-<li>For this made-up dataset, it also appears that all 4 of these odd data points are Males.</li>
+<li>For this made-up dataset, it also appears that all 4 of these odd data points are Males. It is a good idea to explore other “correlates” that may help identify underlying data collection issues.</li>
 </ul>
-<p>Let’ correct these values.</p>
+<p>Let’s correct these values.</p>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># for WeightPRE &lt; 100, convert kg to lbs</span></span>
 <span><span class="va">mydata_corrected</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -956,19 +959,52 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>    .default <span class="op">=</span> <span class="va">WeightPOST</span></span>
 <span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s redo the plot withe these corrected values:</p>
+<p>Let’s redo the plot with these corrected values - now the PRE and POST weights looks similar.</p>
+<p>I’ve also added a “reference line” (in “red” color) to the plot below. By adding the line “Y = X” we can also visualize which points are above or below the line for people who gained or lost weight from PRE-to-POST, respectively. It looks like most people lost weight - the majority of the points are below the line where PRE &gt; POST weights.</p>
+<p>I also:</p>
+<ul>
+<li>applied colors to each gender category,</li>
+<li>applies shapes to each gender category,</li>
+<li>changed the size of the points,</li>
+<li>assigned custom colors for each gender category,
+<ul>
+<li>the colors are for the non-missing values</li>
+<li>if you want to see the person missing a gender, we have to specifically assign a color for NA using <code>na.value=</code>
+</li>
+</ul>
+</li>
+<li>assigned custom shapes for each gender category,
+<ul>
+<li>the colors are for the non-missing values</li>
+<li>if you want to see the person missing a gender, we have to specifically assign a color for NA using <code>na.value=</code>
+</li>
+</ul>
+</li>
+<li>also notice that I had to provide a custom label in the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> for the shape and color legend - the labels are the same so they will be in the same legend box. <em>It is possible to assign the variables for color and shape to different variables.</em>
+</li>
+</ul>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
 <span>           y <span class="op">=</span> <span class="va">WeightPOST_corrected</span>,</span>
-<span>           color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>           color <span class="op">=</span> <span class="va">GenderCoded.f</span>,</span>
+<span>           shape <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>slope <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>              intercept <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">17</span><span class="op">)</span>,</span>
+<span>                     na.value <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, </span>
+<span>                                <span class="st">"magenta"</span><span class="op">)</span>,</span>
+<span>                     na.value <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) before program"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) after program"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Weights (in pounds) before and after"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>    color <span class="op">=</span> <span class="st">"Gender"</span>,</span>
+<span>    shape <span class="op">=</span> <span class="st">"Gender"</span></span>
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -979,13 +1015,230 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </div>
 </section><section id="ggplot2---histogram" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---histogram">
 <code>ggplot2</code> - Histogram</h3>
+<p>Let’s make a histogram of <code>Age</code> and overlay a density curve like we did above for the heights, but this time using the <code>ggplot2</code> package functions.</p>
+<p>The first step:</p>
+<ul>
+<li>specify the dataset <code>mydata_corrected</code> and “aesthetics” variable <code>x=Age</code> inside the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> step</li>
+<li>then add the geometric object <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>
+</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mydata_corrected</span>, </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Age</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s add some color using <code>fill=</code> for the inside colors of the bars and <code>color=</code> for the border color for the bars.</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Age</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To add the density curve, we need to do 2 things:</p>
+<ol type="1">
+<li>Add an aesthetic <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> to change from counts (or frequencies) for the bars to probabilities. We can do this using the <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat()</a></code> function.
+<ul>
+<li>Learn more by running <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">help(aes_eval, package = "ggplot2")</a></code>.</li>
+</ul>
+</li>
+<li>And then we can add the <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> geometric object and add <code>color=</code> for the overlaid line color.</li>
+</ol>
+<p>And I also added some better labels to the axes, title and subtitle.</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Age</span>,</span>
+<span>           y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Age (in years)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Proportion"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Ages for Participants"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span></span>
+<span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="ggplot2---boxplot-and-variations" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---boxplot-and-variations">
+<code>ggplot2</code> - Boxplot (and variations)</h3>
+<p>Let’s look at the corrected PRE weights by SES.</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>,</span>
+<span>           y <span class="op">=</span> <span class="va">WeightPRE_corrected</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There is one person missing SES. So, let’s filter the dataset and remake the plot. Instead of creating another “new” dataset, we can instead using the <code>dplyr</code> pipe <code>%&gt;%</code> into our plotting workflow asfollows to filter out the missing SES before we make the plot. Notice I can drop the <code>data =</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> step.</p>
+<p>In the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> step below, I used the <code>!</code> exclamation point to indicate that we want to keep all rows for which <code>SES.f</code> is NOT missing, by using <code>!is.na()</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>, </span>
+<span>             y <span class="op">=</span> <span class="va">WeightPRE_corrected</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s add a fill color for the SES categories.</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>, </span>
+<span>             y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And add better labels.</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>, </span>
+<span>             y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Socio-Economic Status Categories"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) before program"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Weights by SES Categories"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span></span>
+<span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Try Another Geom</strong></p>
+<p>One of the cool things about <code>ggplot2</code> is the ability to easily swap out <code>geom</code>’s. Let’s try a violin plot which provides a better idea of the shape of the underlying distributions that you don’t get with a simple boxplot. Change <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> to <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>, </span>
+<span>             y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Socio-Economic Status Categories"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) before program"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Weights by SES Categories"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span></span>
+<span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section><section id="ggplot2---barchart" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---barchart">
 <code>ggplot2</code> - Barchart</h3>
-</section><section id="ggplot2---boxplot" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---boxplot">
-<code>ggplot2</code> - Boxplot</h3>
+<p>Let’s make a simple barchart for <code>SES.f</code> after filtering out the <code>NA</code>s.</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s also make a custered barplot of <code>SES.f</code> by <code>GenderCoded.f</code>. Let’s also filter out the <code>NA</code>s from <code>GenderCoded.f</code> as well.</p>
+<p>To add the 2nd grouping or clustering variable, we add <code>fill=</code> to the aesthetics and then add <code>position = "dodge"</code> for <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> to see the colors side by side instead of stacked.</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s also add custom colors and better labels.</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span>, </span>
+<span>           color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, </span>
+<span>                               <span class="st">"magenta"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Socio-Economic Status Categories"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Frequency"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Frequencies of SES Categories by Gender"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="ggplot2---errorbar-plots" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---errorbar-plots">
+<code>ggplot2</code> - Errorbar plots</h3>
+</section><section id="lollipop-plot---pre-post-changes" class="level3"><h3 class="anchored" data-anchor-id="lollipop-plot---pre-post-changes">lollipop plot? - pre-post changes</h3>
 <hr>
 <div style="page-break-after: always;"></div>
-</section></section><section id="get-boilerplate-code-to-start" class="level2"><h2 class="anchored" data-anchor-id="get-boilerplate-code-to-start">3. Get boilerplate code to start</h2>
+</section></section><section id="other-graphics-packages-to-know" class="level2"><h2 class="anchored" data-anchor-id="other-graphics-packages-to-know">3. Other Graphics Packages to Know</h2>
+<p>ggarrange</p>
+<p>patchwork</p>
+<p>gmodels</p>
+<p>vim</p>
+<p>vcd</p>
+<p>ggally</p>
+<p>gganimate</p>
+<p>UpSet plots</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section><section id="other-places-to-get-help-and-get-started" class="level2"><h2 class="anchored" data-anchor-id="other-places-to-get-help-and-get-started">4. Other Places to Get Help and Get Started</h2>
 <section id="r-gallery" class="level3"><h3 class="anchored" data-anchor-id="r-gallery">R Gallery</h3>
 </section><section id="r-graphics-cookbook" class="level3"><h3 class="anchored" data-anchor-id="r-graphics-cookbook">R Graphics Cookbook</h3>
 <hr>

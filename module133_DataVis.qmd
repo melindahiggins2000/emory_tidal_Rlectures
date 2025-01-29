@@ -370,15 +370,15 @@ ggplot(data = mydata_corrected,
   ) 
 ```
 
-Notice that there are 4 weights that seem off. Also notice that the values are within a resonable range when considering PRE or POST separately, but when you put them togehter in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.
+Notice that there are 4 weights that seem off. Also notice that the values are within a resonable range when considering PRE or POST separately, but when you put them together in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.
 
 * Two individuals have PRE weights that are < 100 pounds (bottom left side of plot).
     - There is a good chance that these weights may have been accidently recorded as kg (kilograms) instead of in pounds.
-* And there are 2 individuals with POST weights around 100-120 lbs, butforwhom their PRE weights are 225-260 lbs.
-    - There is a good chance that these may have a typo in the first number (e.g. a weight of 110 should be 210).
-* For this made-up dataset, it also appears that all 4 of these odd data points are Males.
+* And there are 2 individuals with POST weights around 100-120 lbs, but for whom their PRE weights were 225-260 lbs.
+    - There is a good chance that these two data points may have had a typo in the first number (e.g. a weight of 110 should be 210).
+* For this made-up dataset, it also appears that all 4 of these odd data points are Males. It is a good idea to explore other "correlates" that may help identify underlying data collection issues.
 
-Let' correct these values.
+Let's correct these values.
 
 ```{r}
 # for WeightPRE < 100, convert kg to lbs
@@ -405,33 +405,241 @@ mydata_corrected <- mydata_corrected %>%
   ))
 ```
 
-Let's redo the plot withe these corrected values:
+Let's redo the plot with these corrected values - now the PRE and POST weights looks similar.
 
+I've also added a "reference line" (in "red" color) to the plot below. By adding the line "Y = X" we can also visualize which points are above or below the line for people who gained or lost weight from PRE-to-POST, respectively. It looks like most people lost weight - the majority of the points are below the line where PRE > POST weights.
+
+I also:
+
+* applied colors to each gender category,
+* applies shapes to each gender category,
+* changed the size of the points,
+* assigned custom colors for each gender category,
+    - the colors are for the non-missing values
+    - if you want to see the person missing a gender, we have to specifically assign a color for NA using `na.value=`
+* assigned custom shapes for each gender category,
+    - the colors are for the non-missing values
+    - if you want to see the person missing a gender, we have to specifically assign a color for NA using `na.value=`
+* also notice that I had to provide a custom label in the `labs()` for the shape and color legend - the labels are the same so they will be in the same legend box. _It is possible to assign the variables for color and shape to different variables._
 
 ```{r}
 ggplot(data = mydata_corrected,
        aes(x = WeightPRE_corrected,
            y = WeightPOST_corrected,
-           color = GenderCoded.f)) +
-  geom_point() +
+           color = GenderCoded.f,
+           shape = GenderCoded.f)) +
+  geom_point(size = 2) +
+  geom_abline(slope = 1, 
+              intercept = 0,
+              color = "red") +
+  scale_shape_manual(values = c(16, 17),
+                     na.value = 15) +
+  scale_color_manual(values = c("blue", 
+                                "magenta"),
+                     na.value = "grey30") +
   xlab("Weight (in pounds) before program") +
   ylab("Weight (in pounds) after program") +
   labs(
     title = "Weights (in pounds) before and after",
     subtitle = "Hypothetical Madeup mydata Dataset",
-    color = "Gender"
+    color = "Gender",
+    shape = "Gender"
   ) 
 ```
 
 ### `ggplot2` - Histogram
 
+Let's make a histogram of `Age` and overlay a density curve like we did above for the heights, but this time using the `ggplot2` package functions.
 
+The first step:
+
+* specify the dataset `mydata_corrected` and "aesthetics" variable `x=Age` inside the `ggplot()` step
+* then add the geometric object `geom_histogram()`
+
+```{r}
+ggplot(data = mydata_corrected, 
+       aes(x = Age)) +
+  geom_histogram()
+```
+
+Let's add some color using `fill=` for the inside colors of the bars and `color=` for the border color for the bars.
+
+```{r}
+ggplot(mydata_corrected, 
+       aes(x = Age)) +
+  geom_histogram(fill = "lightblue",
+                 color = "black")
+```
+
+To add the density curve, we need to do 2 things:
+
+1. Add an aesthetic `aes()` to change from counts (or frequencies) for the bars to probabilities. We can do this using the `after_stat()` function.
+    - Learn more by running `help(aes_eval, package = "ggplot2")`.
+2. And then we can add the `geom_density()` geometric object and add `color=` for the overlaid line color.
+
+And I also added some better labels to the axes, title and subtitle.
+
+```{r}
+ggplot(mydata_corrected, 
+       aes(x = Age,
+           y = after_stat(density))) +
+  geom_histogram(fill = "lightblue",
+                 color = "black") +
+  geom_density(color = "red") +
+  xlab("Age (in years)") +
+  ylab("Proportion") +
+  labs(
+    title = "Ages for Participants",
+    subtitle = "Hypothetical Madeup mydata Dataset"
+  ) 
+```
+
+### `ggplot2` - Boxplot (and variations)
+
+Let's look at the corrected PRE weights by SES.
+
+```{r}
+ggplot(data = mydata_corrected,
+       aes(x = SES.f,
+           y = WeightPRE_corrected)) +
+  geom_boxplot()
+```
+
+There is one person missing SES. So, let's filter the dataset and remake the plot. Instead of creating another "new" dataset, we can instead using the `dplyr` pipe `%>%` into our plotting workflow asfollows to filter out the missing SES before we make the plot. Notice I can drop the `data = ` in the `ggplot()` step.
+
+In the `filter()` step below, I used the `!` exclamation point to indicate that we want to keep all rows for which `SES.f` is NOT missing, by using `!is.na()`.
+
+```{r}
+library(dplyr)
+
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  ggplot(aes(x = SES.f, 
+             y = WeightPRE_corrected)) +
+  geom_boxplot()
+```
+
+Let's add a fill color for the SES categories.
+
+```{r}
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  ggplot(aes(x = SES.f, 
+             y = WeightPRE_corrected,
+             fill = SES.f)) +
+  geom_boxplot()
+```
+
+And add better labels.
+
+```{r}
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  ggplot(aes(x = SES.f, 
+             y = WeightPRE_corrected,
+             fill = SES.f)) +
+  geom_boxplot() +
+  xlab("Socio-Economic Status Categories") +
+  ylab("Weight (in pounds) before program") +
+  labs(
+    title = "Weights by SES Categories",
+    subtitle = "Hypothetical Madeup mydata Dataset"
+  ) 
+```
+
+**Try Another Geom**
+
+One of the cool things about `ggplot2` is the ability to easily swap out `geom`'s. Let's try a violin plot which provides a better idea of the shape of the underlying distributions that you don't get with a simple boxplot. Change `geom_boxplot()` to `geom_violin()`.
+
+```{r}
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  ggplot(aes(x = SES.f, 
+             y = WeightPRE_corrected,
+             fill = SES.f)) +
+  geom_violin() +
+  xlab("Socio-Economic Status Categories") +
+  ylab("Weight (in pounds) before program") +
+  labs(
+    title = "Weights by SES Categories",
+    subtitle = "Hypothetical Madeup mydata Dataset"
+  ) 
+```
 
 ### `ggplot2` - Barchart
 
+Let's make a simple barchart for `SES.f` after filtering out the `NA`s.
+
+```{r}
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  ggplot(aes(x = SES.f)) +
+  geom_bar()
+```
+
+Let's also make a custered barplot of `SES.f` by `GenderCoded.f`. Let's also filter out the `NA`s from `GenderCoded.f` as well.
+
+To add the 2nd grouping or clustering variable, we add `fill=` to the aesthetics and then add `position = "dodge"` for `geom_bar()` to see the colors side by side instead of stacked.
+
+```{r}
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  filter(!is.na(GenderCoded.f)) %>%
+  ggplot(aes(x = SES.f,
+             fill = GenderCoded.f)) +
+  geom_bar(position = "dodge")
+```
+
+Let's also add custom colors and better labels.
+
+```{r}
+mydata_corrected %>%
+  filter(!is.na(SES.f)) %>%
+  filter(!is.na(GenderCoded.f)) %>%
+  ggplot(aes(x = SES.f,
+             fill = GenderCoded.f)) +
+  geom_bar(position = "dodge", 
+           color = "black") +
+  scale_fill_manual(values = c("blue", 
+                               "magenta")) +
+  xlab("Socio-Economic Status Categories") +
+  ylab("Frequency") +
+  labs(
+    title = "Frequencies of SES Categories by Gender",
+    subtitle = "Hypothetical Madeup mydata Dataset",
+    fill = "Gender"
+  )
+```
 
 
-### `ggplot2` - Boxplot
+### `ggplot2` - Errorbar plots
+
+
+
+### lollipop plot? - pre-post changes
+
+
+---
+
+\newpage
+
+## 3. Other Graphics Packages to Know
+
+ggarrange
+
+patchwork
+
+gmodels
+
+vim
+
+vcd
+
+ggally
+
+gganimate
+
+UpSet plots
 
 
 
@@ -439,7 +647,7 @@ ggplot(data = mydata_corrected,
 
 \newpage
 
-## 3. Get boilerplate code to start
+## 4. Other Places to Get Help and Get Started
 
 ### R Gallery
 
