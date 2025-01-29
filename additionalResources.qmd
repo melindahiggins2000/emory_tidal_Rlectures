@@ -40,6 +40,7 @@ editor_options:
 * [Cookbook for R (graphics) - earlier version](http://www.cookbook-r.com/Graphs/)
 * [R Graph Gallery](https://r-graph-gallery.com/)
 * [Book: R Graphics, 3rd edition by Paul Murrell](https://www.routledge.com/R-Graphics-Third-Edition/Murrell/p/book/9780367780692) and accompanying [R Graphics - book website](https://www.stat.auckland.ac.nz/~paul/RG3e/)
+* [R Charts Website](https://r-charts.com/)
 
 ## Online Training and Courses
 
@@ -60,6 +61,7 @@ editor_options:
 * [Book: The Epidemiologist R Handbook](https://epirhandbook.com/en/index.html)
 * [Book/Course: Stat 545](https://stat545.com/)
 * [Book: Statistical Inference via Data Science: A ModernDive into R and the Tidyverse](https://moderndive.com/v2/)
+* [Book: R in Action](https://www.manning.com/books/r-in-action-third-edition)
 * [OpenIntro Statistics](https://www.openintro.org/)
 * [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/)
 
@@ -84,6 +86,9 @@ editor_options:
     - This is a really good website which curates thousands of people who are R developers, users and programmers who post articles about R.
 * [STHDA Website for "Statistical tools for high-throughput data analysis"](https://www.sthda.com/english/)
     - This website will often come up when "Googling" for answers. It has a lot of ads but often has very helpful examples.
+* [Quick-R](https://www.statmethods.net/)
+    - This website was originally created by Robert I. Kabacoff, who wrote the [Book: R in Action](https://www.manning.com/books/r-in-action-third-edition).
+    - However, the website has now been taken over by [Datacamp](https://www.datacamp.com/).
 
 ## R Packages Used in TIDAL Modules
 

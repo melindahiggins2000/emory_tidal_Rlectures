@@ -41,6 +41,7 @@ If you do not have them already, install the following packages from CRAN:
 * [`ggplot2](https://cloud.r-project.org/web/packages/ggplot2/)
 * [`ggthemes`](https://cloud.r-project.org/web/packages/ggthemes/)
 * [`readr`](https://cloud.r-project.org/web/packages/readr/)
+* [`dplyr]()
 
 ### B. Open/create your RStudio project
 
@@ -144,10 +145,11 @@ The [STHDA website on "R Base Graphs" ](https://www.sthda.com/english/wiki/r-bas
 
 ### Base R - Histogram
 
+#### **Basic Histogram**
+
 As we noted above, let's take a look at the distribution of the heights in the `mydata` dataset. There is a specific `hist()` function in the `graphics` package for making histograms, learn more by running `help(hist, package = "graphics")`.
 
 Notice that we can use some of the same arguments as we did above for `plot()`.
-
 
 ```{r}
 hist(mydata$Height,
@@ -173,7 +175,7 @@ There are 657 names colors immediately available to you from the built-in `grDev
 colors()
 ```
 
-**Overlay a Density Curve**
+#### **Histogram with Overlaid Density Curve**
 
 Statisticians often like seeing a histogram _(for the frequencies or probability of each value for the variable in the dataset)_ with an overlaid density curve _(which is "smoothed" line for these probabilities)_. Statistical software like SAS and SPSS make this really easy. However, in R, we need to think through the process to get this to work.
 
@@ -204,17 +206,98 @@ lines(density(mydata$Height, na.rm=TRUE),
       col = "black")
 ```
 
+#### **Fix the Heights**
 
+So as you can see in the histogram and in the scatterplot figures above for the `Height` variable, there are 2 people with heights under 4 feet tall. 
+
+```{r}
+# use dplyr::arrange()
+library(dplyr)
+
+mydata %>%
+  select(SubjectID, Height) %>%
+  arrange(Height) %>%
+  head()
+```
+
+Let's look at these values:
+
+* `SubjectID` number 28 has a `Height` of 2.6 feet tall
+    - If this wasn't a made-up dataset, we could ask the original data collectors to see if there is a way to check this value in their records or possibly to re-measure this individual.
+    - For now, let's assume this was a simple typo where the 2 numbers were transposed where this individual should be 6.2 feet tall.
+* `SubjectID` number 8 has a `Height` of 3.3 feet tall
+    - Unfortunately, this is probably not a simple typo. Without further details, we should maybe set this to missing as an unvalidated data point.
+    - As a side-note, I actually ran into this problem in a study where one of the participants was a paraplegic. So, this could be a legitimate height. But when computing BMI, adjustments need to be made or alternative body metrics are needed.
+    - For now, we will set this to missing, `NA_real_` which is missing for "real" numeric variables.
+
+```{r}
+# make a copy of the dataset
+mydata_corrected <- mydata
+
+# compute a new corrected height
+# fix heights for these 2 IDs
+mydata_corrected <- 
+  mydata_corrected %>%
+  mutate(Height_corrected = case_when(
+    (SubjectID == 28) ~ 6.2,
+    (SubjectID == 8) ~ NA_real_,
+    .default = Height
+  ))
+```
+
+Remake the histogram with the corrected heights.
+
+```{r}
+# make histogram as we did above
+# add freq = FALSE
+hist(mydata_corrected$Height_corrected,
+     freq = FALSE,
+     xlab = "Height (in decimal inches)",
+     col = "lightblue",
+     border = "black",
+     main = "Histogram of Heights",
+     sub = "Hypothetical Madeup mydata Dataset")
+
+# add density curve line
+# add na.rm=TRUE to remove 
+# the missing values in Height
+lines(density(mydata_corrected$Height_corrected, na.rm=TRUE),
+      col = "black")
+```
 
 ### Base R - Barchart
 
+Let's make a bar chart for the frequencies for the 3 SES categories:
 
+```{r}
+# get table of frequencies for each category
+tab1 <- table(mydata_corrected$SES.f)
+
+# make plot of the frequencies for 
+# each category
+barplot(tab1,
+        xlab = "SES Categories",
+        ylab = "Frequencies",
+        col = "#f7f445",
+        border = "darkgreen",
+        main = "Socio Economic Status Categories",
+        sub = "Hypothetical Madeup mydata Dataset")
+```
 
 ### Base R - Boxplot
 
+Make side-by-side boxplots of the heights by gender.
 
-
-
+```{r}
+boxplot(Height_corrected ~ GenderCoded.f,
+        data = mydata_corrected,
+        xlab = "Gender",
+        ylab = "Height (in decimal feet)",
+        col = "#f58ef1",
+        border = "darkmagenta",
+        main = "Height by Gender",
+        sub = "Hypothetical Madeup mydata Dataset")
+```
 
 ---
 
@@ -233,11 +316,112 @@ Many people often ask Hadley Wickham (the developer of `ggplot2`) what happened 
 
 Given that `ggplot2` has been actively maintained for nearly 20 years, it has become _almost_ the defacto graphical standard for R graphics. If you take a look at the [list of packages on CRAN that start with the letter "G"](https://cran.r-project.org/web/packages/available_packages_by_name.html#available-packages-G), as of this morning `01/28/2025 at 8:23 am EST, USA`, there are 230 packages that start with `gg` - nearly all of these are compatible packages that extend the functionality or work in concert with the `ggplot2` package. There are also currently 14 packages on the [Bioconductor repository](https://www.bioconductor.org/packages/release/BiocViews.html#___Software) that start with `gg`.
 
-
+Let's make plots similar to the ones above but now using `ggplot2`. When making a `ggplot2` plot, we build the plots using layers that get added to the previous layers.
 
 ### `ggplot2` - Scatterplot
 
+Here are the steps to building a scatterplot.
 
+1. First, load the `ggplot2` package, designate the dataset and variables (aesthetics) to be included.
+
+```{r}
+#load ggplot2
+library(ggplot2)
+
+# create the plot space
+ggplot(data = mydata_corrected,
+       aes(x = WeightPRE,
+           y = WeightPOST))
+```
+
+2. Next add `+` a "geometric object" or "geom" to show the data as points.
+
+```{r}
+ggplot(data = mydata_corrected,
+       aes(x = WeightPRE,
+           y = WeightPOST)) +
+  geom_point()
+```
+
+3. We can add color by `GenderCoded.f`
+
+```{r}
+ggplot(data = mydata_corrected,
+       aes(x = WeightPRE,
+           y = WeightPOST,
+           color = GenderCoded.f)) +
+  geom_point()
+```
+
+4. We can also add labels, a title and better legend title
+
+```{r}
+ggplot(data = mydata_corrected,
+       aes(x = WeightPRE,
+           y = WeightPOST,
+           color = GenderCoded.f)) +
+  geom_point() +
+  xlab("Weight (in pounds) before program") +
+  ylab("Weight (in pounds) after program") +
+  labs(
+    title = "Weights (in pounds) before and after",
+    subtitle = "Hypothetical Madeup mydata Dataset",
+    color = "Gender"
+  ) 
+```
+
+Notice that there are 4 weights that seem off. Also notice that the values are within a resonable range when considering PRE or POST separately, but when you put them togehter in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.
+
+* Two individuals have PRE weights that are < 100 pounds (bottom left side of plot).
+    - There is a good chance that these weights may have been accidently recorded as kg (kilograms) instead of in pounds.
+* And there are 2 individuals with POST weights around 100-120 lbs, butforwhom their PRE weights are 225-260 lbs.
+    - There is a good chance that these may have a typo in the first number (e.g. a weight of 110 should be 210).
+* For this made-up dataset, it also appears that all 4 of these odd data points are Males.
+
+Let' correct these values.
+
+```{r}
+# for WeightPRE < 100, convert kg to lbs
+mydata_corrected <- mydata_corrected %>%
+  mutate(WeightPRE_corrected = case_when(
+    (WeightPRE < 100) ~ WeightPRE * 2.20462,
+    .default = WeightPRE
+  ))
+```
+
+```{r}
+# For WeightPOST, for
+# SubjectID 28, change WeightPOST=98 to 198
+# since this person's WeightPRE was 230.
+# also fix SubjectID= 20, for
+# WeightPOST from 109 to 209 since
+# their WeightPRE was 260
+
+mydata_corrected <- mydata_corrected %>%
+  mutate(WeightPOST_corrected = case_when(
+    (SubjectID == 28) ~ 198,
+    (SubjectID == 20) ~ 209,
+    .default = WeightPOST
+  ))
+```
+
+Let's redo the plot withe these corrected values:
+
+
+```{r}
+ggplot(data = mydata_corrected,
+       aes(x = WeightPRE_corrected,
+           y = WeightPOST_corrected,
+           color = GenderCoded.f)) +
+  geom_point() +
+  xlab("Weight (in pounds) before program") +
+  ylab("Weight (in pounds) after program") +
+  labs(
+    title = "Weights (in pounds) before and after",
+    subtitle = "Hypothetical Madeup mydata Dataset",
+    color = "Gender"
+  ) 
+```
 
 ### `ggplot2` - Histogram
 
