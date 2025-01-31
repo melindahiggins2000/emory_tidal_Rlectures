@@ -115,7 +115,10 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
+}</script><link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="site_libs/plotly-binding-4.10.4/plotly.js"></script><script src="site_libs/typedarray-0.1/typedarray.min.js"></script><script src="site_libs/jquery-3.5.1/jquery.min.js"></script><link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 </head>
 <body class="nav-sidebar docked">
 
@@ -237,24 +240,34 @@ div.csl-indent {
   </ul>
 </li>
   <li>
-<a href="#ggplot2-package" id="toc-ggplot2-package" class="nav-link" data-scroll-target="#ggplot2-package">2. <code>ggplot2</code> package</a>
+<a href="#the-ggplot2-package" id="toc-the-ggplot2-package" class="nav-link" data-scroll-target="#the-ggplot2-package">2. The <code>ggplot2</code> package</a>
   <ul>
 <li><a href="#ggplot2---scatterplot" id="toc-ggplot2---scatterplot" class="nav-link" data-scroll-target="#ggplot2---scatterplot"><code>ggplot2</code> - Scatterplot</a></li>
   <li><a href="#ggplot2---histogram" id="toc-ggplot2---histogram" class="nav-link" data-scroll-target="#ggplot2---histogram"><code>ggplot2</code> - Histogram</a></li>
   <li><a href="#ggplot2---boxplot-and-variations" id="toc-ggplot2---boxplot-and-variations" class="nav-link" data-scroll-target="#ggplot2---boxplot-and-variations"><code>ggplot2</code> - Boxplot (and variations)</a></li>
   <li><a href="#ggplot2---barchart" id="toc-ggplot2---barchart" class="nav-link" data-scroll-target="#ggplot2---barchart"><code>ggplot2</code> - Barchart</a></li>
   <li><a href="#ggplot2---errorbar-plots" id="toc-ggplot2---errorbar-plots" class="nav-link" data-scroll-target="#ggplot2---errorbar-plots"><code>ggplot2</code> - Errorbar plots</a></li>
-  <li><a href="#lollipop-plot---pre-post-changes" id="toc-lollipop-plot---pre-post-changes" class="nav-link" data-scroll-target="#lollipop-plot---pre-post-changes">lollipop plot? - pre-post changes</a></li>
+  <li><a href="#ggplot2---lollipop-plots" id="toc-ggplot2---lollipop-plots" class="nav-link" data-scroll-target="#ggplot2---lollipop-plots"><code>ggplot2</code> - Lollipop plots</a></li>
   </ul>
 </li>
-  <li><a href="#other-graphics-packages-to-know" id="toc-other-graphics-packages-to-know" class="nav-link" data-scroll-target="#other-graphics-packages-to-know">3. Other Graphics Packages to Know</a></li>
   <li>
-<a href="#other-places-to-get-help-and-get-started" id="toc-other-places-to-get-help-and-get-started" class="nav-link" data-scroll-target="#other-places-to-get-help-and-get-started">4. Other Places to Get Help and Get Started</a>
+<a href="#other-graphics-packages-to-know" id="toc-other-graphics-packages-to-know" class="nav-link" data-scroll-target="#other-graphics-packages-to-know">3. Other Graphics Packages to Know</a>
   <ul>
-<li><a href="#r-gallery" id="toc-r-gallery" class="nav-link" data-scroll-target="#r-gallery">R Gallery</a></li>
-  <li><a href="#r-graphics-cookbook" id="toc-r-graphics-cookbook" class="nav-link" data-scroll-target="#r-graphics-cookbook">R Graphics Cookbook</a></li>
+<li>
+<a href="#save-plot-objects-and-reuserearrange-them" id="toc-save-plot-objects-and-reuserearrange-them" class="nav-link" data-scroll-target="#save-plot-objects-and-reuserearrange-them">Save plot objects and reuse/rearrange them</a>
+  <ul class="collapse">
+<li><a href="#patchwork-package" id="toc-patchwork-package" class="nav-link" data-scroll-target="#patchwork-package"><strong><code>patchwork</code> package</strong></a></li>
+  <li><a href="#ggpubr-package-and-ggarrange-function" id="toc-ggpubr-package-and-ggarrange-function" class="nav-link" data-scroll-target="#ggpubr-package-and-ggarrange-function"><strong><code>ggpubr</code> package and <code>ggarrange()</code> function</strong></a></li>
   </ul>
 </li>
+  <li><a href="#ggally-package-and-ggpairs-function" id="toc-ggally-package-and-ggpairs-function" class="nav-link" data-scroll-target="#ggally-package-and-ggpairs-function"><code>GGally</code> package and <code>ggpairs()</code> function</a></li>
+  <li><a href="#visualize-categorical-data-with-vcd-package" id="toc-visualize-categorical-data-with-vcd-package" class="nav-link" data-scroll-target="#visualize-categorical-data-with-vcd-package">Visualize Categorical Data with <code>vcd</code> package</a></li>
+  <li><a href="#example-of-an-animated-graph-with-gganimate" id="toc-example-of-an-animated-graph-with-gganimate" class="nav-link" data-scroll-target="#example-of-an-animated-graph-with-gganimate">Example of an animated graph with <code>gganimate</code></a></li>
+  <li><a href="#interactive-graphics-with-plotly" id="toc-interactive-graphics-with-plotly" class="nav-link" data-scroll-target="#interactive-graphics-with-plotly">Interactive Graphics with <code>plotly</code></a></li>
+  </ul>
+</li>
+  <li><a href="#summary-tables-with-graphics" id="toc-summary-tables-with-graphics" class="nav-link" data-scroll-target="#summary-tables-with-graphics">4. Summary Tables with Graphics</a></li>
+  <li><a href="#other-places-to-get-help-and-get-started" id="toc-other-places-to-get-help-and-get-started" class="nav-link" data-scroll-target="#other-places-to-get-help-and-get-started">5. Other Places to Get Help and Get Started</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="module133_DataVis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -280,12 +293,13 @@ div.csl-indent {
 <ol type="1">
 <li>To visualize data using different R packages.</li>
 </ol>
-<p>Key points to cover:</p>
-<ol type="1">
-<li>Introduce to ggplot2 and other R packages.</li>
-<li>Visualize one, two, or more variables at a time.</li>
-<li>Introduce other resources (e.g., books, blogs, or websites) trainees can refer to.</li>
-</ol>
+<p>This lesson module will include:</p>
+<ul>
+<li>Introductions to <code>ggplot2</code> and other relevant R packages for graphics.</li>
+<li>Visualizing one, two, and more variables at a time.</li>
+<li>Summary Tables with Graphics</li>
+<li>Lists of other resources: books, blogs, websites, etc.</li>
+</ul>
 <hr></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
 <section id="a.-install-packages" class="level3"><h3 class="anchored" data-anchor-id="a.-install-packages">A. Install packages</h3>
 <p>If you do not have them already, install the following packages from CRAN:</p>
@@ -345,7 +359,7 @@ Data must/should be in your RStudio project
 <span>     y <span class="op">=</span> <span class="va">mydata</span><span class="op">$</span><span class="va">WeightPRE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -355,6 +369,7 @@ Data must/should be in your RStudio project
 <li>There are 2 people with heights &lt; 5 feet tall which may be suspect</li>
 <li>There are 2 people with a weight &lt; 100 pounds which may be data entry errors or incorrect units</li>
 </ul>
+<div style="page-break-after: always;"></div>
 <p>For now, let’s add some additional graphical elements:</p>
 <ul>
 <li>a better label for the x-axis</li>
@@ -371,12 +386,14 @@ Data must/should be in your RStudio project
 <span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>And we could also add color and change the shapes - for example, let’s color and shape the points by <code>GenderCoded</code>, the numeric coding for gender where 1=Male, 2=Female.</p>
+<p>And we can add a legend inside the plot as well.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -391,6 +408,8 @@ Plot code inspiration
 <ul>
 <li><a href="https://stackoverflow.com/questions/12919816/plotting-in-different-shapes-using-pch-argument">Stackoverflow post on using <code>pch</code></a></li>
 <li><a href="https://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r">STHDA post on point shapes</a></li>
+<li><a href="https://www.sthda.com/english/wiki/add-legends-to-plots-in-r-software-the-easiest-way">STDHA post on base R legends</a></li>
+<li><a href="https://r-graph-gallery.com/119-add-a-legend-to-a-plot.html">R-Graph Galler post on base R legends</a></li>
 </ul>
 </div>
 </div>
@@ -402,15 +421,18 @@ Plot code inspiration
 <span>     xlab <span class="op">=</span> <span class="st">"Height (in decimal inches)"</span>,</span>
 <span>     ylab <span class="op">=</span> <span class="st">"Weight (in pounds) - before intervention"</span>,</span>
 <span>     main <span class="op">=</span> <span class="st">"Weight by Height in the Mydata Project"</span>,</span>
-<span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">250</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span><span class="op">)</span>,</span>
+<span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"green"</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">19</span><span class="op">)</span>, cex<span class="op">=</span><span class="fl">0.8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The <a href="https://www.sthda.com/english/wiki/r-base-graphs">STHDA website on “R Base Graphs”</a> has a nice walkthrough of using the base R <code>graphics</code> package to make really nice plots.</p>
+<p>The <a href="https://www.sthda.com/english/wiki/r-base-graphs">STHDA website on “R Base Graphs”</a> has a nice walk through of using the base R <code>graphics</code> package to make really nice plots.</p>
+<div style="page-break-after: always;"></div>
 </section><section id="base-r---histogram" class="level3"><h3 class="anchored" data-anchor-id="base-r---histogram">Base R - Histogram</h3>
 <section id="basic-histogram" class="level4"><h4 class="anchored" data-anchor-id="basic-histogram"><strong>Basic Histogram</strong></h4>
 <p>As we noted above, let’s take a look at the distribution of the heights in the <code>mydata</code> dataset. There is a specific <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function in the <code>graphics</code> package for making histograms, learn more by running <code><a href="https://rdrr.io/r/graphics/hist.html">help(hist, package = "graphics")</a></code>.</p>
@@ -424,7 +446,7 @@ Plot code inspiration
 <span>     sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -449,230 +471,11 @@ Colors available
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list built-in colors</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code not run here - do in your session</span></span>
+<span><span class="co"># list built-in colors</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html">colors</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] "white"                "aliceblue"            "antiquewhite"        
-  [4] "antiquewhite1"        "antiquewhite2"        "antiquewhite3"       
-  [7] "antiquewhite4"        "aquamarine"           "aquamarine1"         
- [10] "aquamarine2"          "aquamarine3"          "aquamarine4"         
- [13] "azure"                "azure1"               "azure2"              
- [16] "azure3"               "azure4"               "beige"               
- [19] "bisque"               "bisque1"              "bisque2"             
- [22] "bisque3"              "bisque4"              "black"               
- [25] "blanchedalmond"       "blue"                 "blue1"               
- [28] "blue2"                "blue3"                "blue4"               
- [31] "blueviolet"           "brown"                "brown1"              
- [34] "brown2"               "brown3"               "brown4"              
- [37] "burlywood"            "burlywood1"           "burlywood2"          
- [40] "burlywood3"           "burlywood4"           "cadetblue"           
- [43] "cadetblue1"           "cadetblue2"           "cadetblue3"          
- [46] "cadetblue4"           "chartreuse"           "chartreuse1"         
- [49] "chartreuse2"          "chartreuse3"          "chartreuse4"         
- [52] "chocolate"            "chocolate1"           "chocolate2"          
- [55] "chocolate3"           "chocolate4"           "coral"               
- [58] "coral1"               "coral2"               "coral3"              
- [61] "coral4"               "cornflowerblue"       "cornsilk"            
- [64] "cornsilk1"            "cornsilk2"            "cornsilk3"           
- [67] "cornsilk4"            "cyan"                 "cyan1"               
- [70] "cyan2"                "cyan3"                "cyan4"               
- [73] "darkblue"             "darkcyan"             "darkgoldenrod"       
- [76] "darkgoldenrod1"       "darkgoldenrod2"       "darkgoldenrod3"      
- [79] "darkgoldenrod4"       "darkgray"             "darkgreen"           
- [82] "darkgrey"             "darkkhaki"            "darkmagenta"         
- [85] "darkolivegreen"       "darkolivegreen1"      "darkolivegreen2"     
- [88] "darkolivegreen3"      "darkolivegreen4"      "darkorange"          
- [91] "darkorange1"          "darkorange2"          "darkorange3"         
- [94] "darkorange4"          "darkorchid"           "darkorchid1"         
- [97] "darkorchid2"          "darkorchid3"          "darkorchid4"         
-[100] "darkred"              "darksalmon"           "darkseagreen"        
-[103] "darkseagreen1"        "darkseagreen2"        "darkseagreen3"       
-[106] "darkseagreen4"        "darkslateblue"        "darkslategray"       
-[109] "darkslategray1"       "darkslategray2"       "darkslategray3"      
-[112] "darkslategray4"       "darkslategrey"        "darkturquoise"       
-[115] "darkviolet"           "deeppink"             "deeppink1"           
-[118] "deeppink2"            "deeppink3"            "deeppink4"           
-[121] "deepskyblue"          "deepskyblue1"         "deepskyblue2"        
-[124] "deepskyblue3"         "deepskyblue4"         "dimgray"             
-[127] "dimgrey"              "dodgerblue"           "dodgerblue1"         
-[130] "dodgerblue2"          "dodgerblue3"          "dodgerblue4"         
-[133] "firebrick"            "firebrick1"           "firebrick2"          
-[136] "firebrick3"           "firebrick4"           "floralwhite"         
-[139] "forestgreen"          "gainsboro"            "ghostwhite"          
-[142] "gold"                 "gold1"                "gold2"               
-[145] "gold3"                "gold4"                "goldenrod"           
-[148] "goldenrod1"           "goldenrod2"           "goldenrod3"          
-[151] "goldenrod4"           "gray"                 "gray0"               
-[154] "gray1"                "gray2"                "gray3"               
-[157] "gray4"                "gray5"                "gray6"               
-[160] "gray7"                "gray8"                "gray9"               
-[163] "gray10"               "gray11"               "gray12"              
-[166] "gray13"               "gray14"               "gray15"              
-[169] "gray16"               "gray17"               "gray18"              
-[172] "gray19"               "gray20"               "gray21"              
-[175] "gray22"               "gray23"               "gray24"              
-[178] "gray25"               "gray26"               "gray27"              
-[181] "gray28"               "gray29"               "gray30"              
-[184] "gray31"               "gray32"               "gray33"              
-[187] "gray34"               "gray35"               "gray36"              
-[190] "gray37"               "gray38"               "gray39"              
-[193] "gray40"               "gray41"               "gray42"              
-[196] "gray43"               "gray44"               "gray45"              
-[199] "gray46"               "gray47"               "gray48"              
-[202] "gray49"               "gray50"               "gray51"              
-[205] "gray52"               "gray53"               "gray54"              
-[208] "gray55"               "gray56"               "gray57"              
-[211] "gray58"               "gray59"               "gray60"              
-[214] "gray61"               "gray62"               "gray63"              
-[217] "gray64"               "gray65"               "gray66"              
-[220] "gray67"               "gray68"               "gray69"              
-[223] "gray70"               "gray71"               "gray72"              
-[226] "gray73"               "gray74"               "gray75"              
-[229] "gray76"               "gray77"               "gray78"              
-[232] "gray79"               "gray80"               "gray81"              
-[235] "gray82"               "gray83"               "gray84"              
-[238] "gray85"               "gray86"               "gray87"              
-[241] "gray88"               "gray89"               "gray90"              
-[244] "gray91"               "gray92"               "gray93"              
-[247] "gray94"               "gray95"               "gray96"              
-[250] "gray97"               "gray98"               "gray99"              
-[253] "gray100"              "green"                "green1"              
-[256] "green2"               "green3"               "green4"              
-[259] "greenyellow"          "grey"                 "grey0"               
-[262] "grey1"                "grey2"                "grey3"               
-[265] "grey4"                "grey5"                "grey6"               
-[268] "grey7"                "grey8"                "grey9"               
-[271] "grey10"               "grey11"               "grey12"              
-[274] "grey13"               "grey14"               "grey15"              
-[277] "grey16"               "grey17"               "grey18"              
-[280] "grey19"               "grey20"               "grey21"              
-[283] "grey22"               "grey23"               "grey24"              
-[286] "grey25"               "grey26"               "grey27"              
-[289] "grey28"               "grey29"               "grey30"              
-[292] "grey31"               "grey32"               "grey33"              
-[295] "grey34"               "grey35"               "grey36"              
-[298] "grey37"               "grey38"               "grey39"              
-[301] "grey40"               "grey41"               "grey42"              
-[304] "grey43"               "grey44"               "grey45"              
-[307] "grey46"               "grey47"               "grey48"              
-[310] "grey49"               "grey50"               "grey51"              
-[313] "grey52"               "grey53"               "grey54"              
-[316] "grey55"               "grey56"               "grey57"              
-[319] "grey58"               "grey59"               "grey60"              
-[322] "grey61"               "grey62"               "grey63"              
-[325] "grey64"               "grey65"               "grey66"              
-[328] "grey67"               "grey68"               "grey69"              
-[331] "grey70"               "grey71"               "grey72"              
-[334] "grey73"               "grey74"               "grey75"              
-[337] "grey76"               "grey77"               "grey78"              
-[340] "grey79"               "grey80"               "grey81"              
-[343] "grey82"               "grey83"               "grey84"              
-[346] "grey85"               "grey86"               "grey87"              
-[349] "grey88"               "grey89"               "grey90"              
-[352] "grey91"               "grey92"               "grey93"              
-[355] "grey94"               "grey95"               "grey96"              
-[358] "grey97"               "grey98"               "grey99"              
-[361] "grey100"              "honeydew"             "honeydew1"           
-[364] "honeydew2"            "honeydew3"            "honeydew4"           
-[367] "hotpink"              "hotpink1"             "hotpink2"            
-[370] "hotpink3"             "hotpink4"             "indianred"           
-[373] "indianred1"           "indianred2"           "indianred3"          
-[376] "indianred4"           "ivory"                "ivory1"              
-[379] "ivory2"               "ivory3"               "ivory4"              
-[382] "khaki"                "khaki1"               "khaki2"              
-[385] "khaki3"               "khaki4"               "lavender"            
-[388] "lavenderblush"        "lavenderblush1"       "lavenderblush2"      
-[391] "lavenderblush3"       "lavenderblush4"       "lawngreen"           
-[394] "lemonchiffon"         "lemonchiffon1"        "lemonchiffon2"       
-[397] "lemonchiffon3"        "lemonchiffon4"        "lightblue"           
-[400] "lightblue1"           "lightblue2"           "lightblue3"          
-[403] "lightblue4"           "lightcoral"           "lightcyan"           
-[406] "lightcyan1"           "lightcyan2"           "lightcyan3"          
-[409] "lightcyan4"           "lightgoldenrod"       "lightgoldenrod1"     
-[412] "lightgoldenrod2"      "lightgoldenrod3"      "lightgoldenrod4"     
-[415] "lightgoldenrodyellow" "lightgray"            "lightgreen"          
-[418] "lightgrey"            "lightpink"            "lightpink1"          
-[421] "lightpink2"           "lightpink3"           "lightpink4"          
-[424] "lightsalmon"          "lightsalmon1"         "lightsalmon2"        
-[427] "lightsalmon3"         "lightsalmon4"         "lightseagreen"       
-[430] "lightskyblue"         "lightskyblue1"        "lightskyblue2"       
-[433] "lightskyblue3"        "lightskyblue4"        "lightslateblue"      
-[436] "lightslategray"       "lightslategrey"       "lightsteelblue"      
-[439] "lightsteelblue1"      "lightsteelblue2"      "lightsteelblue3"     
-[442] "lightsteelblue4"      "lightyellow"          "lightyellow1"        
-[445] "lightyellow2"         "lightyellow3"         "lightyellow4"        
-[448] "limegreen"            "linen"                "magenta"             
-[451] "magenta1"             "magenta2"             "magenta3"            
-[454] "magenta4"             "maroon"               "maroon1"             
-[457] "maroon2"              "maroon3"              "maroon4"             
-[460] "mediumaquamarine"     "mediumblue"           "mediumorchid"        
-[463] "mediumorchid1"        "mediumorchid2"        "mediumorchid3"       
-[466] "mediumorchid4"        "mediumpurple"         "mediumpurple1"       
-[469] "mediumpurple2"        "mediumpurple3"        "mediumpurple4"       
-[472] "mediumseagreen"       "mediumslateblue"      "mediumspringgreen"   
-[475] "mediumturquoise"      "mediumvioletred"      "midnightblue"        
-[478] "mintcream"            "mistyrose"            "mistyrose1"          
-[481] "mistyrose2"           "mistyrose3"           "mistyrose4"          
-[484] "moccasin"             "navajowhite"          "navajowhite1"        
-[487] "navajowhite2"         "navajowhite3"         "navajowhite4"        
-[490] "navy"                 "navyblue"             "oldlace"             
-[493] "olivedrab"            "olivedrab1"           "olivedrab2"          
-[496] "olivedrab3"           "olivedrab4"           "orange"              
-[499] "orange1"              "orange2"              "orange3"             
-[502] "orange4"              "orangered"            "orangered1"          
-[505] "orangered2"           "orangered3"           "orangered4"          
-[508] "orchid"               "orchid1"              "orchid2"             
-[511] "orchid3"              "orchid4"              "palegoldenrod"       
-[514] "palegreen"            "palegreen1"           "palegreen2"          
-[517] "palegreen3"           "palegreen4"           "paleturquoise"       
-[520] "paleturquoise1"       "paleturquoise2"       "paleturquoise3"      
-[523] "paleturquoise4"       "palevioletred"        "palevioletred1"      
-[526] "palevioletred2"       "palevioletred3"       "palevioletred4"      
-[529] "papayawhip"           "peachpuff"            "peachpuff1"          
-[532] "peachpuff2"           "peachpuff3"           "peachpuff4"          
-[535] "peru"                 "pink"                 "pink1"               
-[538] "pink2"                "pink3"                "pink4"               
-[541] "plum"                 "plum1"                "plum2"               
-[544] "plum3"                "plum4"                "powderblue"          
-[547] "purple"               "purple1"              "purple2"             
-[550] "purple3"              "purple4"              "red"                 
-[553] "red1"                 "red2"                 "red3"                
-[556] "red4"                 "rosybrown"            "rosybrown1"          
-[559] "rosybrown2"           "rosybrown3"           "rosybrown4"          
-[562] "royalblue"            "royalblue1"           "royalblue2"          
-[565] "royalblue3"           "royalblue4"           "saddlebrown"         
-[568] "salmon"               "salmon1"              "salmon2"             
-[571] "salmon3"              "salmon4"              "sandybrown"          
-[574] "seagreen"             "seagreen1"            "seagreen2"           
-[577] "seagreen3"            "seagreen4"            "seashell"            
-[580] "seashell1"            "seashell2"            "seashell3"           
-[583] "seashell4"            "sienna"               "sienna1"             
-[586] "sienna2"              "sienna3"              "sienna4"             
-[589] "skyblue"              "skyblue1"             "skyblue2"            
-[592] "skyblue3"             "skyblue4"             "slateblue"           
-[595] "slateblue1"           "slateblue2"           "slateblue3"          
-[598] "slateblue4"           "slategray"            "slategray1"          
-[601] "slategray2"           "slategray3"           "slategray4"          
-[604] "slategrey"            "snow"                 "snow1"               
-[607] "snow2"                "snow3"                "snow4"               
-[610] "springgreen"          "springgreen1"         "springgreen2"        
-[613] "springgreen3"         "springgreen4"         "steelblue"           
-[616] "steelblue1"           "steelblue2"           "steelblue3"          
-[619] "steelblue4"           "tan"                  "tan1"                
-[622] "tan2"                 "tan3"                 "tan4"                
-[625] "thistle"              "thistle1"             "thistle2"            
-[628] "thistle3"             "thistle4"             "tomato"              
-[631] "tomato1"              "tomato2"              "tomato3"             
-[634] "tomato4"              "turquoise"            "turquoise1"          
-[637] "turquoise2"           "turquoise3"           "turquoise4"          
-[640] "violet"               "violetred"            "violetred1"          
-[643] "violetred2"           "violetred3"           "violetred4"          
-[646] "wheat"                "wheat1"               "wheat2"              
-[649] "wheat3"               "wheat4"               "whitesmoke"          
-[652] "yellow"               "yellow1"              "yellow2"             
-[655] "yellow3"              "yellow4"              "yellowgreen"         </code></pre>
 </div>
-</div>
+<div style="page-break-after: always;"></div>
 </section><section id="histogram-with-overlaid-density-curve" class="level4"><h4 class="anchored" data-anchor-id="histogram-with-overlaid-density-curve"><strong>Histogram with Overlaid Density Curve</strong></h4>
 <p>Statisticians often like seeing a histogram <em>(for the frequencies or probability of each value for the variable in the dataset)</em> with an overlaid density curve <em>(which is “smoothed” line for these probabilities)</em>. Statistical software like SAS and SPSS make this really easy. However, in R, we need to think through the process to get this to work.</p>
 <ul>
@@ -686,7 +489,7 @@ Colors available
 <li><a href="https://www.r-bloggers.com/2012/09/histogram-density-plot-combo-in-r/">https://www.r-bloggers.com/2012/09/histogram-density-plot-combo-in-r/</a></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make histogram as we did above</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make histogram as we did above</span></span>
 <span><span class="co"># add freq = FALSE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">Height</span>,</span>
 <span>     freq <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -703,15 +506,16 @@ Colors available
 <span>      col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="fix-the-heights" class="level4"><h4 class="anchored" data-anchor-id="fix-the-heights"><strong>Fix the Heights</strong></h4>
 <p>So as you can see in the histogram and in the scatterplot figures above for the <code>Height</code> variable, there are 2 people with heights under 4 feet tall.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use dplyr::arrange()</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use dplyr::arrange()</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">mydata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -742,14 +546,14 @@ Colors available
 <li>
 <code>SubjectID</code> number 8 has a <code>Height</code> of 3.3 feet tall
 <ul>
-<li>Unfortunately, this is probably not a simple typo. Without further details, we should maybe set this to missing as an unvalidated data point.</li>
+<li>Unfortunately, this is probably not a simple typo. Without further details, we should maybe set this to missing as an invalidated data point.</li>
 <li>As a side-note, I actually ran into this problem in a study where one of the participants was a paraplegic. So, this could be a legitimate height. But when computing BMI, adjustments need to be made or alternative body metrics are needed.</li>
 <li>For now, we will set this to missing, <code>NA_real_</code> which is missing for “real” numeric variables.</li>
 </ul>
 </li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make a copy of the dataset</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make a copy of the dataset</span></span>
 <span><span class="va">mydata_corrected</span> <span class="op">&lt;-</span> <span class="va">mydata</span></span>
 <span></span>
 <span><span class="co"># compute a new corrected height</span></span>
@@ -762,9 +566,10 @@ Colors available
 <span>    .default <span class="op">=</span> <span class="va">Height</span></span>
 <span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>Remake the histogram with the corrected heights.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make histogram as we did above</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make histogram as we did above</span></span>
 <span><span class="co"># add freq = FALSE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mydata_corrected</span><span class="op">$</span><span class="va">Height_corrected</span>,</span>
 <span>     freq <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -781,16 +586,25 @@ Colors available
 <span>      col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section></section><section id="base-r---barchart" class="level3"><h3 class="anchored" data-anchor-id="base-r---barchart">Base R - Barchart</h3>
 <p>Let’s make a bar chart for the frequencies for the 3 SES categories:</p>
+<ul>
+<li>fill the bars with a yellow color specified by the HEX code <a href="https://www.color-hex.com/color/f7f445"><code>#f7f445</code></a>
+</li>
+<li>set the border color as <code>darkgreen</code> and make the border line thicker by updating the <code>lwd</code>, see <a href="https://stackoverflow.com/questions/8795862/width-of-edge-of-the-bars-in-r-plots">Stack Overflow Post on bar width</a>.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get table of frequencies for each category</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get table of frequencies for each category</span></span>
 <span><span class="va">tab1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mydata_corrected</span><span class="op">$</span><span class="va">SES.f</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">opar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># save current plotting parameters</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># change border linewidth</span></span>
 <span></span>
 <span><span class="co"># make plot of the frequencies for </span></span>
 <span><span class="co"># each category</span></span>
@@ -803,11 +617,13 @@ Colors available
 <span>        sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span> <span class="co"># reset plotting parameters to defaults</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="base-r---boxplot" class="level3"><h3 class="anchored" data-anchor-id="base-r---boxplot">Base R - Boxplot</h3>
 <p>Make side-by-side boxplots of the heights by gender.</p>
 <div class="cell">
@@ -821,14 +637,14 @@ Colors available
 <span>        sub <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section></section><section id="ggplot2-package" class="level2"><h2 class="anchored" data-anchor-id="ggplot2-package">2. <code>ggplot2</code> package</h2>
+</section></section><section id="the-ggplot2-package" class="level2"><h2 class="anchored" data-anchor-id="the-ggplot2-package">2. The <code>ggplot2</code> package</h2>
 <p>The <code>ggplot2</code> package name starts with <code>gg</code> which stands for the “grammar of graphics” which is explained in the <a href="https://ggplot2-book.org/introduction#what-is-the-grammar-of-graphics">“ggplot2: Elegant Graphics for Data Analysis (3e)” Book</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -845,11 +661,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </div>
 <p>Given that <code>ggplot2</code> has been actively maintained for nearly 20 years, it has become <em>almost</em> the defacto graphical standard for R graphics. If you take a look at the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html#available-packages-G">list of packages on CRAN that start with the letter “G”</a>, as of this morning <code>01/28/2025 at 8:23 am EST, USA</code>, there are 230 packages that start with <code>gg</code> - nearly all of these are compatible packages that extend the functionality or work in concert with the <code>ggplot2</code> package. There are also currently 14 packages on the <a href="https://www.bioconductor.org/packages/release/BiocViews.html#___Software">Bioconductor repository</a> that start with <code>gg</code>.</p>
 <p>Let’s make plots similar to the ones above but now using <code>ggplot2</code>. When making a <code>ggplot2</code> plot, we build the plots using layers that get added to the previous layers.</p>
+<div style="page-break-after: always;"></div>
 <section id="ggplot2---scatterplot" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---scatterplot">
 <code>ggplot2</code> - Scatterplot</h3>
 <p>Here are the steps to building a scatterplot.</p>
 <ol type="1">
-<li>First, load the <code>ggplot2</code> package, designate the dataset and variables (aesthetics) to be included.</li>
+<li>First, load the <code>ggplot2</code> package, designate the dataset and variables (aesthetics) to be included. This creates a plot space with nothing in it - we will add data in the next steps below.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load ggplot2</span></span>
@@ -861,11 +678,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>           y <span class="op">=</span> <span class="va">WeightPOST</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <ol start="2" type="1">
 <li>Next add <code>+</code> a “geometric object” or “geom” to show the data as points.</li>
 </ol>
@@ -876,11 +694,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <ol start="3" type="1">
 <li>We can add color by <code>GenderCoded.f</code>
 </li>
@@ -893,11 +712,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <ol start="4" type="1">
 <li>We can also add labels, a title and better legend title</li>
 </ol>
@@ -916,16 +736,16 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Notice that there are 4 weights that seem off. Also notice that the values are within a resonable range when considering PRE or POST separately, but when you put them together in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.</p>
+<p>Notice that there are 4 weights that seem off. Also notice that the values are within a reasonable range when considering PRE or POST separately, but when you put them together in a scatterplot you can see that the values are off since we expect PRE and POST weights to be somewhat similar.</p>
 <ul>
 <li>Two individuals have PRE weights that are &lt; 100 pounds (bottom left side of plot).
 <ul>
-<li>There is a good chance that these weights may have been accidently recorded as kg (kilograms) instead of in pounds.</li>
+<li>There is a good chance that these weights may have been accidentally recorded as kg (kilograms) instead of in pounds.</li>
 </ul>
 </li>
 <li>And there are 2 individuals with POST weights around 100-120 lbs, but for whom their PRE weights were 225-260 lbs.
@@ -948,17 +768,18 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># For WeightPOST, for</span></span>
 <span><span class="co"># SubjectID 28, change WeightPOST=98 to 198</span></span>
 <span><span class="co"># since this person's WeightPRE was 230.</span></span>
-<span><span class="co"># also fix SubjectID= 20, for</span></span>
+<span><span class="co"># also fix SubjectID = 32, for</span></span>
 <span><span class="co"># WeightPOST from 109 to 209 since</span></span>
 <span><span class="co"># their WeightPRE was 260</span></span>
 <span></span>
 <span><span class="va">mydata_corrected</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>WeightPOST_corrected <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
 <span>    <span class="op">(</span><span class="va">SubjectID</span> <span class="op">==</span> <span class="fl">28</span><span class="op">)</span> <span class="op">~</span> <span class="fl">198</span>,</span>
-<span>    <span class="op">(</span><span class="va">SubjectID</span> <span class="op">==</span> <span class="fl">20</span><span class="op">)</span> <span class="op">~</span> <span class="fl">209</span>,</span>
+<span>    <span class="op">(</span><span class="va">SubjectID</span> <span class="op">==</span> <span class="fl">32</span><span class="op">)</span> <span class="op">~</span> <span class="fl">209</span>,</span>
 <span>    .default <span class="op">=</span> <span class="va">WeightPOST</span></span>
 <span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>Let’s redo the plot with these corrected values - now the PRE and POST weights looks similar.</p>
 <p>I’ve also added a “reference line” (in “red” color) to the plot below. By adding the line “Y = X” we can also visualize which points are above or below the line for people who gained or lost weight from PRE-to-POST, respectively. It looks like most people lost weight - the majority of the points are below the line where PRE &gt; POST weights.</p>
 <p>I also:</p>
@@ -1008,11 +829,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="ggplot2---histogram" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---histogram">
 <code>ggplot2</code> - Histogram</h3>
 <p>Let’s make a histogram of <code>Age</code> and overlay a density curve like we did above for the heights, but this time using the <code>ggplot2</code> package functions.</p>
@@ -1028,11 +850,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>Let’s add some color using <code>fill=</code> for the inside colors of the bars and <code>color=</code> for the border color for the bars.</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
@@ -1041,11 +864,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>                 color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>To add the density curve, we need to do 2 things:</p>
 <ol type="1">
 <li>Add an aesthetic <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> to change from counts (or frequencies) for the bars to probabilities. We can do this using the <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat()</a></code> function.
@@ -1071,11 +895,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="ggplot2---boxplot-and-variations" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---boxplot-and-variations">
 <code>ggplot2</code> - Boxplot (and variations)</h3>
 <p>Let’s look at the corrected PRE weights by SES.</p>
@@ -1086,12 +911,13 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>There is one person missing SES. So, let’s filter the dataset and remake the plot. Instead of creating another “new” dataset, we can instead using the <code>dplyr</code> pipe <code>%&gt;%</code> into our plotting workflow asfollows to filter out the missing SES before we make the plot. Notice I can drop the <code>data =</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> step.</p>
+<div style="page-break-after: always;"></div>
+<p>There is one person missing SES. So, let’s filter the dataset and remake the plot. Instead of creating another “new” dataset, we can instead using the <code>dplyr</code> pipe <code>%&gt;%</code> into our plotting workflow as follows to filter out the missing SES before we make the plot. Notice I can drop the <code>data =</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> step.</p>
 <p>In the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> step below, I used the <code>!</code> exclamation point to indicate that we want to keep all rows for which <code>SES.f</code> is NOT missing, by using <code>!is.na()</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
@@ -1103,11 +929,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>Let’s add a fill color for the SES categories.</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1118,11 +945,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>And add better labels.</p>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1139,20 +967,59 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>Try Another Geom</strong></p>
-<p>One of the cool things about <code>ggplot2</code> is the ability to easily swap out <code>geom</code>’s. Let’s try a violin plot which provides a better idea of the shape of the underlying distributions that you don’t get with a simple boxplot. Change <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> to <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code>.</p>
+<div style="page-break-after: always;"></div>
+<p><strong>Add Another Layer with Points</strong></p>
+<p>We can also add points on top of the boxplots using <code><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter()</a></code> add AFTER <code>geom_boxplot</code>. If you switch the order of these “geom’s” you can specify whether the boxplot is on top of the point or if the points are in top of the boxplots (like we did here).</p>
+<p>In <code><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter()</a></code>, I also added <code>height=0</code> and <code>width=.10</code> to adjust the amount of jitter in the vertical and horizontal directions.</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>, </span>
 <span>             y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
 <span>             fill <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>height<span class="op">=</span><span class="fl">0</span>, </span>
+<span>              width<span class="op">=</span><span class="fl">.10</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Socio-Economic Status Categories"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) before program"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Weights by SES Categories"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"SES Categories"</span></span>
+<span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A couple more packages to look at the distribution of data points by groups are:</p>
+<ul>
+<li>
+<code>beeswarm</code>
+<ul>
+<li><a href="https://r-graph-gallery.com/beeswarm.html">R Graph Gallery Example of <code>beeswarm</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/beeswarm/index.html"><code>beeswarm</code> on CRAN</a></li>
+</ul>
+</li>
+<li><a href="https://cran.r-project.org/web/packages/ggbeeswarm/index.html"><code>ggbeeswarm</code> on CRAN</a></li>
+</ul>
+<div style="page-break-after: always;"></div>
+<p><strong>Try Another Geom</strong></p>
+<p>One of the cool things about <code>ggplot2</code> is the ability to easily swap out <code>geom</code>’s. Let’s try a violin plot which provides a better idea of the shape of the underlying distributions that you don’t get with a simple boxplot. Change <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> to <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code>. I also added the <code>bw</code> argument to change the “bandwidth” for how much smoothing is done. Try changing this number and see what happens. Learn more by running <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">help(geom_violin, package = "ggplot2")</a></code></p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>, </span>
+<span>             y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span>bw<span class="op">=</span><span class="fl">10</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Socio-Economic Status Categories"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) before program"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
@@ -1161,30 +1028,32 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="ggplot2---barchart" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---barchart">
 <code>ggplot2</code> - Barchart</h3>
 <p>Let’s make a simple barchart for <code>SES.f</code> after filtering out the <code>NA</code>s.</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Let’s also make a custered barplot of <code>SES.f</code> by <code>GenderCoded.f</code>. Let’s also filter out the <code>NA</code>s from <code>GenderCoded.f</code> as well.</p>
+<div style="page-break-after: always;"></div>
+<p>Let’s also make a clustered barplot of <code>SES.f</code> by <code>GenderCoded.f</code>. Let’s also filter out the <code>NA</code>s from <code>GenderCoded.f</code> as well.</p>
 <p>To add the 2nd grouping or clustering variable, we add <code>fill=</code> to the aesthetics and then add <code>position = "dodge"</code> for <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> to see the colors side by side instead of stacked.</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>,</span>
@@ -1192,14 +1061,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>Let’s also add custom colors and better labels.</p>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>,</span>
@@ -1217,36 +1087,964 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="ggplot2---errorbar-plots" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---errorbar-plots">
 <code>ggplot2</code> - Errorbar plots</h3>
-</section><section id="lollipop-plot---pre-post-changes" class="level3"><h3 class="anchored" data-anchor-id="lollipop-plot---pre-post-changes">lollipop plot? - pre-post changes</h3>
+<p><strong>Barplot with Error Bars</strong></p>
+<p>Suppose instead of boxplots for looking at the differences in heights by gender, let’s make a plot of the mean heights by gender with error bars added to reflect the 95% confidence intervals for these group means.</p>
+<p>First let’s compute the means using the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function and we’ll pull the 95% confidence interval limits from the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> output for a one-sample t-test.</p>
+<p>Save these outputs into another small dataset called <code>dt</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># capture the means of the correct heights </span></span>
+<span><span class="co"># and get the 95% confidence intervals</span></span>
+<span><span class="co"># upper bound and lower bound by gender</span></span>
+<span><span class="co"># filter out the missing GenderCoded.f</span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Height_corrected</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    lci <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Height_corrected</span>, </span>
+<span>                 conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span><span class="op">$</span><span class="va">conf.int</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    uci <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Height_corrected</span>, </span>
+<span>                 conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span><span class="op">$</span><span class="va">conf.int</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">dt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  GenderCoded.f  mean   lci   uci
+  &lt;fct&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Male           6.1   5.86  6.34
+2 Female         5.59  5.30  5.88</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Use this small dataset <code>dt</code> with the means and 95% confidence intervals limits to make this plot.</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dt</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
+<span>               y <span class="op">=</span> <span class="va">mean</span>, </span>
+<span>               fill <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>, </span>
+<span>           color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>           stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, </span>
+<span>                               <span class="st">"magenta"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
+<span>                    ymin <span class="op">=</span> <span class="va">lci</span>, </span>
+<span>                    ymax <span class="op">=</span> <span class="va">uci</span><span class="op">)</span>, </span>
+<span>                width <span class="op">=</span> <span class="fl">0.4</span>, </span>
+<span>                color <span class="op">=</span><span class="st">"black"</span>, </span>
+<span>                size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Gender"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Mean Height (in decimal feet)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Average Heights by Gender"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Error Bars Represent 95% Confidence Intervals"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p><strong>Lineplot with Points and Error Bars</strong></p>
+<p>We can also remove the bars and just create a line plot connecting the points for the means with the error bars shown. I set <code>size=1.5</code>to make the lines a little thicker in the plot.</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dt</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
+<span>                 y <span class="op">=</span> <span class="va">mean</span>,</span>
+<span>                 color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
+<span>                    ymin <span class="op">=</span> <span class="va">lci</span>, </span>
+<span>                    ymax <span class="op">=</span> <span class="va">uci</span>,</span>
+<span>                    color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>, </span>
+<span>                width <span class="op">=</span> <span class="fl">0.4</span>, </span>
+<span>                size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
+<span>                y <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>, </span>
+<span>            group <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>            size <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>            color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, </span>
+<span>                               <span class="st">"magenta"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Gender"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Mean Height (in decimal feet)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Average Heights by Gender"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Error Bars Represent 95% Confidence Intervals"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="ggplot2---lollipop-plots" class="level3"><h3 class="anchored" data-anchor-id="ggplot2---lollipop-plots">
+<code>ggplot2</code> - Lollipop plots</h3>
+<p>Another plot that can be useful to help visualize changes between two time points,like PRE-to-POST changes is using a “lollipop” plot which utilizes the <code><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment()</a></code> to create line segments with points (the lollipops) on each end.</p>
+<p>The plot below was inspired by the code example at <a href="https://r-graph-gallery.com/303-lollipop-plot-with-2-values.html">https://r-graph-gallery.com/303-lollipop-plot-with-2-values.html</a>.</p>
+<p>Let’s look at the corrected Weights PRE to POST- sorted by their starting PRE weights.</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sort data by WeightPRE_corrected ascending</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">WeightPRE_corrected</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SubjectID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">SubjectID</span>, <span class="va">SubjectID</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SubjectID</span>,</span>
+<span>                   xend <span class="op">=</span> <span class="va">SubjectID</span>,</span>
+<span>                   y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>                   yend <span class="op">=</span> <span class="va">WeightPOST_corrected</span><span class="op">)</span>, </span>
+<span>    color <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SubjectID</span>, </span>
+<span>                 y <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"WeightPRE_corrected"</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SubjectID</span>, </span>
+<span>                 y <span class="op">=</span> <span class="va">WeightPOST_corrected</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"WeightPOST_corrected"</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span></span>
+<span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"PRE"</span>, <span class="st">"POST"</span><span class="op">)</span>,</span>
+<span>    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"coral"</span>,<span class="st">"darkblue"</span><span class="op">)</span>,</span>
+<span>    guide  <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>    name   <span class="op">=</span> <span class="st">"Group"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Subject IDs"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight Change (in pounds) PRE to POST"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
 </section></section><section id="other-graphics-packages-to-know" class="level2"><h2 class="anchored" data-anchor-id="other-graphics-packages-to-know">3. Other Graphics Packages to Know</h2>
-<p>ggarrange</p>
-<p>patchwork</p>
-<p>gmodels</p>
-<p>vim</p>
-<p>vcd</p>
-<p>ggally</p>
-<p>gganimate</p>
-<p>UpSet plots</p>
+<section id="save-plot-objects-and-reuserearrange-them" class="level3"><h3 class="anchored" data-anchor-id="save-plot-objects-and-reuserearrange-them">Save plot objects and reuse/rearrange them</h3>
+<p>Once a “chunk” of <code>ggplot</code> code is run, technically a <code>ggplot2</code> plot object is created. We can save and reuse these objects to create composite figures.</p>
+<p>For example, let’s create the scatterplot, histogram and clustered barplot and save each into three separate plot objects <code>p1</code>, <code>p2</code>, and <code>p3</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the scatterplot, save as p1</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">WeightPRE_corrected</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">WeightPOST_corrected</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">GenderCoded.f</span>,</span>
+<span>    shape <span class="op">=</span> <span class="va">GenderCoded.f</span></span>
+<span>  <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>slope <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>              intercept <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>              color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">17</span><span class="op">)</span>, na.value <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"magenta"</span><span class="op">)</span>,</span>
+<span>                     na.value <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) before program"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight (in pounds) after program"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Weights (in pounds) before and after"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"Gender"</span>,</span>
+<span>    shape <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the histogram, save as p2</span></span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
+<span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Age</span>, </span>
+<span>                 y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Age (in years)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Proportion"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Ages for Participants"</span>, </span>
+<span>       subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the barplot, save as p3</span></span>
+<span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SES.f</span>,</span>
+<span>             fill <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span>, </span>
+<span>           color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, </span>
+<span>                               <span class="st">"magenta"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Socio-Economic Status Categories"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Frequency"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Frequencies of SES Categories by Gender"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div style="page-break-after: always;"></div>
+<section id="patchwork-package" class="level4"><h4 class="anchored" data-anchor-id="patchwork-package"><strong><code>patchwork</code> package</strong></h4>
+<p>After making and saving each of the <code>ggplot2</code> plot objects above, we can arrange them into a new composite plot. The <a href="https://cran.r-project.org/web/packages/patchwork/index.html"><code>patchwork</code> package</a> is really good for making these composite figures.</p>
+<p>Learn more at <a href="https://patchwork.data-imaginist.com/articles/patchwork.html">https://patchwork.data-imaginist.com/articles/patchwork.html</a></p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load patchwork package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># put p1 and p2 side-by-side</span></span>
+<span><span class="co"># and put both of these on top of p3</span></span>
+<span><span class="op">(</span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="va">p3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="ggpubr-package-and-ggarrange-function" class="level4"><h4 class="anchored" data-anchor-id="ggpubr-package-and-ggarrange-function"><strong><code>ggpubr</code> package and <code>ggarrange()</code> function</strong></h4>
+<p>Another package that is useful for arrange plot objects into composite plots is the <a href="https://cran.r-project.org/web/packages/ggpubr/"><code>ggpubr</code> package</a> with the <a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html"><code>ggarrange()</code> function</a>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load ggpubr package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># use ggarrange twice</span></span>
+<span><span class="co"># put p1 and p2 side by side</span></span>
+<span><span class="co"># then put on top of p3</span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">ggarrange</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">ggarrange</a></span><span class="op">(</span><span class="va">p1</span>, <span class="va">p2</span>, widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="va">p3</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section></section><section id="ggally-package-and-ggpairs-function" class="level3"><h3 class="anchored" data-anchor-id="ggally-package-and-ggpairs-function">
+<code>GGally</code> package and <code>ggpairs()</code> function</h3>
+<p>If you would like to make a scatterplot matrix to look at the associations (correlations) between multiple numeric variables at the same time, the <a href="https://ggobi.github.io/ggally/articles/ggpairs.html"><code>GGally::ggpairs()</code> function</a> is useful.</p>
+<p>In the plot below, we can see the 2-dimensional scatterplots between the heights and weights at PRE and POST. The plot also provides the Pearson’s correlations for all of the pairwise associations between each combination of 2 variables.</p>
+<p>I also added a “best fit” linear line by adding <code>lower = list(continuous = "smooth")</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
+<span>        columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Height_corrected"</span>, </span>
+<span>                    <span class="st">"WeightPRE_corrected"</span>, </span>
+<span>                    <span class="st">"WeightPOST_corrected"</span><span class="op">)</span>,</span>
+<span>        lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>continuous <span class="op">=</span> <span class="st">"smooth"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>What is really cool about this plotting function is the easy way to add in a 3rd variable like gender to see if these correlations (and scatterplots) change by gender (i.e.&nbsp;does gender moderate the associations?). Notice that we get separate lines for each gender and we get the correlations for each gender as well.</p>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
+<span>        mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>,</span>
+<span>        columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Height_corrected"</span>, </span>
+<span>                    <span class="st">"WeightPRE_corrected"</span>, </span>
+<span>                    <span class="st">"WeightPOST_corrected"</span><span class="op">)</span>,</span>
+<span>        lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>continuous <span class="op">=</span> <span class="st">"smooth"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>And if we add <code>GenderCoded.f</code> to the list of variable columns to be included, we now also get bar charts for the frequencies of each gender, histograms of each variable for each gender, boxplots for each variable by each gender, along with the density curves by gender and the correlation matrix.</p>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
+<span>        mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>,</span>
+<span>        columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GenderCoded.f"</span>,</span>
+<span>                    <span class="st">"Height_corrected"</span>, </span>
+<span>                    <span class="st">"WeightPRE_corrected"</span>, </span>
+<span>                    <span class="st">"WeightPOST_corrected"</span><span class="op">)</span>,</span>
+<span>        lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>continuous <span class="op">=</span> <span class="st">"smooth"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="visualize-categorical-data-with-vcd-package" class="level3"><h3 class="anchored" data-anchor-id="visualize-categorical-data-with-vcd-package">Visualize Categorical Data with <code>vcd</code> package</h3>
+<p>The <a href="https://cran.r-project.org/web/packages/vcd/index.html"><code>vcd</code> package</a> for “visualizing categorical data” has been around for over 20 years!! It is a helpful package for visualizing multiple categorical variables at once.</p>
+<p>Let’s visualize the relative proportions of gender and SES using the <code><a href="https://rdrr.io/pkg/vcd/man/mosaic.html">vcd::mosaic()</a></code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">vcd</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">vcd</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/vcd/man/mosaic.html">mosaic</a></span><span class="op">(</span><span class="va">GenderCoded.f</span> <span class="op">~</span> <span class="va">SES.f</span>, </span>
+<span>            data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
+<span>            gp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html">gpar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gray"</span>,<span class="st">"dark magenta"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>            main <span class="op">=</span> <span class="st">"Gender and SES"</span>,</span>
+<span>            <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="example-of-an-animated-graph-with-gganimate" class="level3"><h3 class="anchored" data-anchor-id="example-of-an-animated-graph-with-gganimate">Example of an animated graph with <code>gganimate</code>
+</h3>
+<p>Learn how to make an animated figure with the <code>gganimate</code> package at <a href="https://gganimate.com/">https://gganimate.com/</a>. The animation demo shown below is of the relationship between Life Expectancy and GDP (gross domestic product) per capita in 142 countries over 12 years from 1952 to 2007.</p>
+<p>The animated figure is viewable in the HTML website at <a href="https://melindahiggins2000.github.io/emory_tidal_Rlectures/module133_DataVis.html">https://melindahiggins2000.github.io/emory_tidal_Rlectures/module133_DataVis.html</a>. In the PDF file only a static view is shown for the single year “1976” from the <a href="https://jennybc.github.io/gapminder/">1gapminder`</a> dataset and R package.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="myannimategif.gif" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="interactive-graphics-with-plotly" class="level3"><h3 class="anchored" data-anchor-id="interactive-graphics-with-plotly">Interactive Graphics with <code>plotly</code>
+</h3>
+<p>Another cool package is the <code>plotly</code> graphics package which allows for active interaction with the plot. This works in the RStudio environment (viewing in the “Viewer” window) and from within an HTML formatted document rendered from Rmarkdown.</p>
+<p>Learn more at <a href="https://plotly-r.com/">https://plotly-r.com/</a>.</p>
+<p>Here is an interactive version (on this website for the HTML version) of the side-by-side boxplots above - with a horizontal orientation. <em>This plot will NOT be interactive in the PDF document but the figure will be shown.</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
+<span><span class="va">fig</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html">plot_ly</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
+<span>               x <span class="op">=</span> <span class="op">~</span><span class="va">WeightPRE_corrected</span>, </span>
+<span>               color <span class="op">=</span> <span class="op">~</span><span class="va">SES.f</span>, </span>
+<span>               type <span class="op">=</span> <span class="st">"box"</span>,</span>
+<span>               orientation <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span>
+<span><span class="va">fig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-23673e4d770f032e2839" style="width:100%;height:650px;"></div>
+<script type="application/json" data-for="htmlwidget-23673e4d770f032e2839">{"x":{"visdat":{"24303eee7d3e":["function () ","plotlyVisDat"]},"cur_data":"24303eee7d3e","attrs":{"24303eee7d3e":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section></section><section id="summary-tables-with-graphics" class="level2"><h2 class="anchored" data-anchor-id="summary-tables-with-graphics">4. Summary Tables with Graphics</h2>
+<p>There are a number of other packages that allow you to insert small graphs or figures inside of a table.</p>
+<p>The <a href="https://r-graph-gallery.com/table.html">R Graph Gallery</a> has a nice summary of table packages with these features. Some of these packages include:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/gtExtras/index.html"><code>gtExtras</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/huxtable/index.html"><code>huxtable</code></a></li>
+<li><a href="https://ardata-fr.github.io/flextable-book/index.html#help-and-resources"><code>flextable</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/skimr/index.html"><code>skimr</code></a></li>
+<li><a href="https://modelsummary.com/vignettes/datasummary.html"><code>modelsummary</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/rhandsontable/index.html"><code>rhandsontable</code></a></li>
+</ul>
+<p>As an example, let’s look at the code at <a href="https://r-graph-gallery.com/368-plotting-in-cells-with-gtextras.html">https://r-graph-gallery.com/368-plotting-in-cells-with-gtextras.html</a> for making a table of summary statistics with a plot overview including a list of categories and percentage of missing data for that variable.</p>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jthomasmock/gtExtras">gtExtras</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Height_corrected</span>,</span>
+<span>         <span class="va">WeightPRE_corrected</span>,</span>
+<span>         <span class="va">WeightPOST_corrected</span>,</span>
+<span>         <span class="va">GenderCoded.f</span>,</span>
+<span>         <span class="va">SES.f</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.html">gt_plt_summary</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="dhnxpdoizv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#dhnxpdoizv table {
+  font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#dhnxpdoizv thead, #dhnxpdoizv tbody, #dhnxpdoizv tfoot, #dhnxpdoizv tr, #dhnxpdoizv td, #dhnxpdoizv th {
+  border-style: none;
+}
+
+#dhnxpdoizv p {
+  margin: 0;
+  padding: 0;
+}
+
+#dhnxpdoizv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #FFFFFF;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#dhnxpdoizv .gt_title {
+  color: #333333;
+  font-size: 24px;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dhnxpdoizv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dhnxpdoizv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dhnxpdoizv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dhnxpdoizv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dhnxpdoizv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dhnxpdoizv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dhnxpdoizv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dhnxpdoizv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#dhnxpdoizv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dhnxpdoizv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dhnxpdoizv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dhnxpdoizv .gt_row {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #F6F7F7;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dhnxpdoizv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dhnxpdoizv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dhnxpdoizv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dhnxpdoizv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dhnxpdoizv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dhnxpdoizv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dhnxpdoizv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dhnxpdoizv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_striped {
+  background-color: #FAFAFA;
+}
+
+#dhnxpdoizv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dhnxpdoizv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dhnxpdoizv .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dhnxpdoizv .gt_left {
+  text-align: left;
+}
+
+#dhnxpdoizv .gt_center {
+  text-align: center;
+}
+
+#dhnxpdoizv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dhnxpdoizv .gt_font_normal {
+  font-weight: normal;
+}
+
+#dhnxpdoizv .gt_font_bold {
+  font-weight: bold;
+}
+
+#dhnxpdoizv .gt_font_italic {
+  font-style: italic;
+}
+
+#dhnxpdoizv .gt_super {
+  font-size: 65%;
+}
+
+#dhnxpdoizv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#dhnxpdoizv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dhnxpdoizv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#dhnxpdoizv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#dhnxpdoizv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dhnxpdoizv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dhnxpdoizv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#dhnxpdoizv .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dhnxpdoizv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<th colspan="7" class="gt_heading gt_title gt_font_normal">.</th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">21 rows x 5 cols</th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Column</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Plot Overview</th>
+<th id="n_missing" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Missing</th>
+<th id="Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="Median" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Median</th>
+<th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="type"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:20px;width:25px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#f18e2c;overflow:visible;position:relative;"><path d="M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32zM96 416v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V416c0-17.7 14.3-32 32-32s32 14.3 32 32z"></path></svg></td>
+<td class="gt_row gt_left" headers="name" style="font-weight: bold">Height_corrected</td>
+<td class="gt_row gt_center" headers="value"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="141.73pt" height="34.02pt" viewbox="0 0 141.73 34.02"><defs><style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg=="><rect x="0.00" y="0.00" width="141.73" height="34.02"></rect></clippath></defs><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"></g><defs><clippath id="cpMS4wMHwxNDAuNzR8MS4wMHwyMy42Mw=="><rect x="1.00" y="1.00" width="139.74" height="22.64"></rect></clippath></defs><g clip-path="url(#cpMS4wMHwxNDAuNzR8MS4wMHwyMy42Mw==)"><rect x="7.35" y="20.40" width="31.76" height="3.23" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="39.11" y="4.23" width="31.76" height="19.40" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="70.87" y="7.46" width="31.76" height="16.17" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="102.63" y="1.00" width="31.76" height="22.64" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="33.06" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="133.91" cy="20.40" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><line x1="83.48" y1="23.63" x2="83.48" y2="1.00" style="stroke-width: 1.07; stroke-linecap: butt;"></line></g><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"><polyline points="1.00,23.63 140.74,23.63 " style="stroke-width: 0.75;"></polyline><polyline points="34.05,26.47 34.05,23.63 " style="stroke-width: 0.75;"></polyline><polyline points="132.92,26.47 132.92,23.63 " style="stroke-width: 0.75;"></polyline><text x="34.05" y="33.29" text-anchor="middle" style="font-size: 6.00px; font-family: &quot;Arial&quot;;" textlength="10.80px" lengthadjust="spacingAndGlyphs">5.1</text><text x="132.92" y="33.29" text-anchor="middle" style="font-size: 6.00px; font-family: &quot;Arial&quot;;" textlength="10.80px" lengthadjust="spacingAndGlyphs">6.5</text></g></svg></td>
+<td class="gt_row gt_right" headers="n_missing">9.5%</td>
+<td class="gt_row gt_right" headers="Mean">5.9</td>
+<td class="gt_row gt_right" headers="Median">5.8</td>
+<td class="gt_row gt_right" headers="SD">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="type"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:20px;width:25px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#f18e2c;overflow:visible;position:relative;"><path d="M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32zM96 416v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V416c0-17.7 14.3-32 32-32s32 14.3 32 32z"></path></svg></td>
+<td class="gt_row gt_left gt_striped" headers="name" style="font-weight: bold">WeightPRE_corrected</td>
+<td class="gt_row gt_center gt_striped" headers="value"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="141.73pt" height="34.02pt" viewbox="0 0 141.73 34.02"><defs><style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg=="><rect x="0.00" y="0.00" width="141.73" height="34.02"></rect></clippath></defs><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"></g><defs><clippath id="cpMS4wMHwxNDAuNzR8MS4wMHwyMy42Mw=="><rect x="1.00" y="1.00" width="139.74" height="22.64"></rect></clippath></defs><g clip-path="url(#cpMS4wMHwxNDAuNzR8MS4wMHwyMy42Mw==)"><rect x="7.35" y="20.80" width="25.41" height="2.83" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="32.76" y="15.15" width="25.41" height="8.49" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="58.16" y="1.00" width="25.41" height="22.64" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="83.57" y="3.83" width="25.41" height="19.81" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="108.98" y="20.80" width="25.41" height="2.83" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="28.16" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="111.24" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><line x1="72.41" y1="23.63" x2="72.41" y2="1.00" style="stroke-width: 1.07; stroke-linecap: butt;"></line></g><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"><polyline points="1.00,23.63 140.74,23.63 " style="stroke-width: 0.75;"></polyline><polyline points="28.97,26.47 28.97,23.63 " style="stroke-width: 0.75;"></polyline><polyline points="110.43,26.47 110.43,23.63 " style="stroke-width: 0.75;"></polyline><text x="28.97" y="33.29" text-anchor="middle" style="font-size: 6.00px; font-family: &quot;Arial&quot;;" textlength="10.80px" lengthadjust="spacingAndGlyphs">110</text><text x="110.43" y="33.29" text-anchor="middle" style="font-size: 6.00px; font-family: &quot;Arial&quot;;" textlength="10.80px" lengthadjust="spacingAndGlyphs">260</text></g></svg></td>
+<td class="gt_row gt_right gt_striped" headers="n_missing">4.8%</td>
+<td class="gt_row gt_right gt_striped" headers="Mean">192.9</td>
+<td class="gt_row gt_right gt_striped" headers="Median">190.0</td>
+<td class="gt_row gt_right gt_striped" headers="SD">42.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type"><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:20px;width:25px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#f18e2c;overflow:visible;position:relative;"><path d="M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32zM96 416v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V416c0-17.7 14.3-32 32-32s32 14.3 32 32z"></path></svg></td>
+<td class="gt_row gt_left" headers="name" style="font-weight: bold">WeightPOST_corrected</td>
+<td class="gt_row gt_center" headers="value"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="141.73pt" height="34.02pt" viewbox="0 0 141.73 34.02"><defs><style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg=="><rect x="0.00" y="0.00" width="141.73" height="34.02"></rect></clippath></defs><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"></g><defs><clippath id="cpMS4wMHwxNDAuNzR8MS4wMHwyMy42Mw=="><rect x="1.00" y="1.00" width="139.74" height="22.64"></rect></clippath></defs><g clip-path="url(#cpMS4wMHwxNDAuNzR8MS4wMHwyMy42Mw==)"><rect x="7.35" y="15.15" width="31.76" height="8.49" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="39.11" y="6.66" width="31.76" height="16.98" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="70.87" y="1.00" width="31.76" height="22.64" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><rect x="102.63" y="15.15" width="31.76" height="8.49" style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8BB87;"></rect><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="12.32" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><circle cx="118.81" cy="20.80" r="0.46" style="stroke-width: 0.71; stroke: none;"></circle><line x1="78.22" y1="23.63" x2="78.22" y2="1.00" style="stroke-width: 1.07; stroke-linecap: butt;"></line></g><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"><polyline points="1.00,23.63 140.74,23.63 " style="stroke-width: 0.75;"></polyline><polyline points="13.37,26.47 13.37,23.63 " style="stroke-width: 0.75;"></polyline><polyline points="117.76,26.47 117.76,23.63 " style="stroke-width: 0.75;"></polyline><text x="13.37" y="33.29" text-anchor="middle" style="font-size: 6.00px; font-family: &quot;Arial&quot;;" textlength="10.80px" lengthadjust="spacingAndGlyphs">108</text><text x="117.76" y="33.29" text-anchor="middle" style="font-size: 6.00px; font-family: &quot;Arial&quot;;" textlength="10.80px" lengthadjust="spacingAndGlyphs">240</text></g></svg></td>
+<td class="gt_row gt_right" headers="n_missing">4.8%</td>
+<td class="gt_row gt_right" headers="Mean">182.2</td>
+<td class="gt_row gt_right" headers="Median">190.0</td>
+<td class="gt_row gt_right" headers="SD">35.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="type"><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:20px;width:20px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#4e79a7;overflow:visible;position:relative;"><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"></path></svg></td>
+<td class="gt_row gt_left gt_striped" headers="name" style="font-weight: bold"><div style="max-width: 150px;">
+<details style="font-weight: normal !important;"><summary style="font-weight: bold !important;">
+GenderCoded.f
+</summary>
+Male and Female
+</details>
+</div></td>
+<td class="gt_row gt_center gt_striped" headers="value"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="141.73pt" height="34.02pt" viewbox="0 0 141.73 34.02"><defs><style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg=="><rect x="0.00" y="0.00" width="141.73" height="34.02"></rect></clippath></defs><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"></g><defs><clippath id="cpMS4wMHwxNDAuNzR8Mi45OXwyMy42MQ=="><rect x="1.00" y="2.99" width="139.74" height="20.62"></rect></clippath></defs><g clip-path="url(#cpMS4wMHwxNDAuNzR8Mi45OXwyMy42MQ==)"><rect x="81.90" y="3.93" width="58.84" height="18.75" style="stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DDEAF7;"></rect><rect x="1.00" y="3.93" width="80.90" height="18.75" style="stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #3181BD;"></rect></g><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"><text x="1.00" y="30.18" style="font-size: 8.00px; font-family: &quot;Arial&quot;;" textlength="43.60px" lengthadjust="spacingAndGlyphs">2 categories</text></g></svg></td>
+<td class="gt_row gt_right gt_striped" headers="n_missing">9.5%</td>
+<td class="gt_row gt_right gt_striped" headers="Mean">—</td>
+<td class="gt_row gt_right gt_striped" headers="Median">—</td>
+<td class="gt_row gt_right gt_striped" headers="SD">—</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type"><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:20px;width:20px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#4e79a7;overflow:visible;position:relative;"><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"></path></svg></td>
+<td class="gt_row gt_left" headers="name" style="font-weight: bold"><div style="max-width: 150px;">
+<details style="font-weight: normal !important;"><summary style="font-weight: bold !important;">
+SES.f
+</summary>
+average income, low income and high income
+</details>
+</div></td>
+<td class="gt_row gt_center" headers="value"><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="141.73pt" height="34.02pt" viewbox="0 0 141.73 34.02"><defs><style type="text/css">    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {      fill: none;      stroke: #000000;      stroke-linecap: round;      stroke-linejoin: round;      stroke-miterlimit: 10.00;    }    .svglite text {      white-space: pre;    }  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg=="><rect x="0.00" y="0.00" width="141.73" height="34.02"></rect></clippath></defs><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"></g><defs><clippath id="cpMS4wMHwxNDAuNzR8Mi45OXwyMy42MQ=="><rect x="1.00" y="2.99" width="139.74" height="20.62"></rect></clippath></defs><g clip-path="url(#cpMS4wMHwxNDAuNzR8Mi45OXwyMy42MQ==)"><rect x="118.67" y="3.93" width="22.06" height="18.75" style="stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DDEAF7;"></rect><rect x="89.25" y="3.93" width="29.42" height="18.75" style="stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #91B4DA;"></rect><rect x="1.00" y="3.93" width="88.26" height="18.75" style="stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #3181BD;"></rect></g><g clip-path="url(#cpMC4wMHwxNDEuNzN8MC4wMHwzNC4wMg==)"><text x="1.00" y="30.18" style="font-size: 8.00px; font-family: &quot;Arial&quot;;" textlength="43.60px" lengthadjust="spacingAndGlyphs">3 categories</text></g></svg></td>
+<td class="gt_row gt_right" headers="n_missing">9.5%</td>
+<td class="gt_row gt_right" headers="Mean">—</td>
+<td class="gt_row gt_right" headers="Median">—</td>
+<td class="gt_row gt_right" headers="SD">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="other-places-to-get-help-and-get-started" class="level2"><h2 class="anchored" data-anchor-id="other-places-to-get-help-and-get-started">4. Other Places to Get Help and Get Started</h2>
-<section id="r-gallery" class="level3"><h3 class="anchored" data-anchor-id="r-gallery">R Gallery</h3>
-</section><section id="r-graphics-cookbook" class="level3"><h3 class="anchored" data-anchor-id="r-graphics-cookbook">R Graphics Cookbook</h3>
-<hr>
-<div style="page-break-after: always;"></div>
-</section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+</section><section id="other-places-to-get-help-and-get-started" class="level2"><h2 class="anchored" data-anchor-id="other-places-to-get-help-and-get-started">5. Other Places to Get Help and Get Started</h2>
+<ul>
+<li>See the summary of graphics resources at <a href="./additionalResources.html#r-graphics">Additional Resources - R Graphics</a>
+</li>
+</ul>
+<hr></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-gt" class="csl-entry" role="listitem">
+Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, JooYoung Seo, Ken Brevoort, and Olivier Roy. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
+</div>
+<div id="ref-R-ggpubr" class="csl-entry" role="listitem">
+Kassambara, Alboukadel. 2023. <em>Ggpubr: Ggplot2 Based Publication Ready Plots</em>. <a href="https://rpkgs.datanovia.com/ggpubr/">https://rpkgs.datanovia.com/ggpubr/</a>.
+</div>
+<div id="ref-vcd2006" class="csl-entry" role="listitem">
+Meyer, David, Achim Zeileis, and Kurt Hornik. 2006. <span>“The Strucplot Framework: Visualizing Multi-Way Contingency Tables with Vcd.”</span> <em>Journal of Statistical Software</em> 17 (3): 1–48. <a href="https://doi.org/10.18637/jss.v017.i03">https://doi.org/10.18637/jss.v017.i03</a>.
+</div>
+<div id="ref-R-vcd" class="csl-entry" role="listitem">
+Meyer, David, Achim Zeileis, Kurt Hornik, and Michael Friendly. 2023. <em>Vcd: Visualizing Categorical Data</em>. <a href="https://CRAN.R-project.org/package=vcd">https://CRAN.R-project.org/package=vcd</a>.
+</div>
+<div id="ref-R-gtExtras" class="csl-entry" role="listitem">
+Mock, Thomas. 2024. <em>gtExtras: Extending Gt for Beautiful HTML Tables</em>. <a href="https://github.com/jthomasmock/gtExtras">https://github.com/jthomasmock/gtExtras</a>.
+</div>
+<div id="ref-R-patchwork" class="csl-entry" role="listitem">
+Pedersen, Thomas Lin. 2024. <em>Patchwork: The Composer of Plots</em>. <a href="https://patchwork.data-imaginist.com">https://patchwork.data-imaginist.com</a>.
+</div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
 R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-R-GGally" class="csl-entry" role="listitem">
+Schloerke, Barret, Di Cook, Joseph Larmarange, Francois Briatte, Moritz Marbach, Edwin Thoen, Amos Elberg, and Jason Crowley. 2024. <em>GGally: Extension to Ggplot2</em>. <a href="https://ggobi.github.io/ggally/">https://ggobi.github.io/ggally/</a>.
+</div>
+<div id="ref-plotly2020" class="csl-entry" role="listitem">
+Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+</div>
+<div id="ref-R-plotly" class="csl-entry" role="listitem">
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2024. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
 </div>
 <div id="ref-ggplot22016" class="csl-entry" role="listitem">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
@@ -1256,6 +2054,9 @@ Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takaha
 </div>
 <div id="ref-R-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
+</div>
+<div id="ref-vcd2007" class="csl-entry" role="listitem">
+Zeileis, Achim, David Meyer, and Kurt Hornik. 2007. <span>“Residual-Based Shadings for Visualizing (Conditional) Independence.”</span> <em>Journal of Computational and Graphical Statistics</em> 16 (3): 507–25. <a href="https://doi.org/10.1198/106186007X237856">https://doi.org/10.1198/106186007X237856</a>.
 </div>
 </div>
 </section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>

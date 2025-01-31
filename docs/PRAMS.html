@@ -238,13 +238,13 @@ div.csl-indent {
   <ul>
 <li><a href="#breastfeeding-summary---unweighted-data" id="toc-breastfeeding-summary---unweighted-data" class="nav-link" data-scroll-target="#breastfeeding-summary---unweighted-data">Breastfeeding summary - UNWEIGHTED data</a></li>
   <li><a href="#breastfeeding-summary---weighted-data" id="toc-breastfeeding-summary---weighted-data" class="nav-link" data-scroll-target="#breastfeeding-summary---weighted-data">Breastfeeding summary - WEIGHTED data</a></li>
+  </ul>
+</li>
   <li><a href="#data-wrangling-with-prams" id="toc-data-wrangling-with-prams" class="nav-link" data-scroll-target="#data-wrangling-with-prams">3. Data Wrangling with PRAMS</a></li>
   <li><a href="#visualizing-prams-data" id="toc-visualizing-prams-data" class="nav-link" data-scroll-target="#visualizing-prams-data">4. Visualizing PRAMS Data</a></li>
   <li><a href="#missing-data-in-prams" id="toc-missing-data-in-prams" class="nav-link" data-scroll-target="#missing-data-in-prams">5. Missing Data in PRAMS</a></li>
   <li><a href="#prams-statistical-tests-and-models" id="toc-prams-statistical-tests-and-models" class="nav-link" data-scroll-target="#prams-statistical-tests-and-models">6. PRAMS Statistical Tests and Models</a></li>
   <li><a href="#prams-reproducible-research-report" id="toc-prams-reproducible-research-report" class="nav-link" data-scroll-target="#prams-reproducible-research-report">7. PRAMS Reproducible Research Report</a></li>
-  </ul>
-</li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="PRAMS.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -410,8 +410,8 @@ Memory Warning
 <span><span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used  (Mb) gc trigger   (Mb)  max used  (Mb)
-Ncells 2107864 112.6    4135958  220.9   4135958 220.9
-Vcells 3850988  29.4  153275530 1169.4 112103535 855.3</code></pre>
+Ncells 2107863 112.6    4137001  221.0   4137001 221.0
+Vcells 3850976  29.4  153275515 1169.4 112103523 855.3</code></pre>
 </div>
 </div>
 <p>After we remove everything, let’s look at the session memory again.</p>
@@ -518,6 +518,34 @@ STATE   NO  YES &lt;NA&gt;
 </section><section id="breastfeeding-summary---weighted-data" class="level3"><h3 class="anchored" data-anchor-id="breastfeeding-summary---weighted-data">Breastfeeding summary - WEIGHTED data</h3>
 <p>In the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> the columns that have the 95% CI (confidence intervals) for the percentages are the population weighted percentage estimates for the Stats of GA during that year.</p>
 <p>To get the estimated percentage of women in the stats of GA who had “ever breastfed” in 2017, we need to use the <code>survey</code> package and apply the proper sample weighting to get these estimates.</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://r-survey.r-forge.r-project.org/survey/">survey</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Let's look at just GA to start with</span></span>
+<span><span class="co"># use dplyr to filter out just GA</span></span>
+<span><span class="va">prams_ga</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">STATE</span> <span class="op">==</span> <span class="st">"GA"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create the survey design file for GA</span></span>
+<span><span class="va">prams_ga.svy</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svydesign.html">svydesign</a></span><span class="op">(</span>ids <span class="op">=</span> <span class="op">~</span><span class="fl">0</span>, strata <span class="op">=</span> <span class="op">~</span><span class="va">SUD_NEST</span>, </span>
+<span>            fpc <span class="op">=</span> <span class="op">~</span><span class="va">TOTCNT</span>, weights <span class="op">=</span> <span class="op">~</span><span class="va">WTANAL</span>, </span>
+<span>            data <span class="op">=</span> <span class="va">prams_ga</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get a table of ever breastfed</span></span>
+<span><span class="co"># by YEAR</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyby.html">svyby</a></span><span class="op">(</span><span class="op">~</span><span class="va">BF5EVER.f</span>, <span class="op">~</span><span class="va">NEST_YR</span>,</span>
+<span>      design <span class="op">=</span> <span class="va">prams_ga.svy</span>,</span>
+<span>      <span class="va">svytotal</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     NEST_YR BF5EVER.fNO BF5EVER.fYES se.BF5EVER.fNO se.BF5EVER.fYES
+2017    2017    17639.96    101686.10       2045.415        2271.075
+2018    2018    20187.62     98909.35       2151.496        2351.330
+2019    2019    24099.04     95019.86       2273.415        2279.851
+2020    2020    21827.55     94125.72       2209.745        2457.097
+2021    2021    23724.68     93896.73       2266.811        2256.488</code></pre>
+</div>
+</div>
 <p>From this we can see that the population estimates for 2017 are:</p>
 <ul>
 <li>Breastfed ever = NO: 17639.96 +/- 2045.415</li>
@@ -525,6 +553,27 @@ STATE   NO  YES &lt;NA&gt;
 </ul>
 <p>This leads to a percentage of YES estimate of <code>101686.10 * 100 / (101686.10 + 17639.96)</code> = 85.2170096% which should match pretty closely to what is in the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a>.</p>
 <p>We can also get the percentage of overall breastfeeding YES for the USA for the 40 “states” (technically 38 states, Puerto Rico, and New York City) that were included in the PRAMS dataset in 2020 (see the last column in the CDC report), using the following R code. <em>Note: 2 “states” did not have data in 2020: Connecticut and Florida.</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get overall for 2020 - all states</span></span>
+<span><span class="co"># make survey design file</span></span>
+<span><span class="va">prams.svy</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svydesign.html">svydesign</a></span><span class="op">(</span>ids <span class="op">=</span> <span class="op">~</span><span class="fl">0</span>, strata <span class="op">=</span> <span class="op">~</span><span class="va">SUD_NEST</span>, </span>
+<span>            fpc <span class="op">=</span> <span class="op">~</span><span class="va">TOTCNT</span>, weights <span class="op">=</span> <span class="op">~</span><span class="va">WTANAL</span>, </span>
+<span>            data <span class="op">=</span> <span class="va">prams</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyby.html">svyby</a></span><span class="op">(</span><span class="op">~</span><span class="va">BF5EVER.f</span>, <span class="op">~</span><span class="va">NEST_YR</span>,</span>
+<span>      design <span class="op">=</span> <span class="va">prams.svy</span>,</span>
+<span>      <span class="va">svytotal</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     NEST_YR BF5EVER.fNO BF5EVER.fYES se.BF5EVER.fNO se.BF5EVER.fYES
+2016    2016    187666.4      1324171       4398.541        4798.836
+2017    2017    208863.1      1497127       4762.339        5452.232
+2018    2018    242991.5      1716913       5220.222        5979.598
+2019    2019    236841.9      1680987       5404.761        6877.697
+2020    2020    225560.3      1609464       4884.871        5540.240
+2021    2021    212618.8      1521303       5196.234        6058.572</code></pre>
+</div>
+</div>
 <p>From this we can see that the population estimates for the “whole USA” for 2020 were:</p>
 <ul>
 <li>Breastfed ever = NO: 225560.3 +/- 4884.871</li>
@@ -532,19 +581,19 @@ STATE   NO  YES &lt;NA&gt;
 </ul>
 <p>This leads to a percentage of YES estimate of <code>1609464 * 100 / (1609464 + 225560.3)</code> = 87.7080483% which is pretty close to what is in the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> - with some numerical precision variation due to software algorithms.</p>
 <p><strong>Congratulations on getting started with the PRAMS Dataset</strong></p>
-</section><section id="data-wrangling-with-prams" class="level3"><h3 class="anchored" data-anchor-id="data-wrangling-with-prams">3. Data Wrangling with PRAMS</h3>
+</section></section><section id="data-wrangling-with-prams" class="level2"><h2 class="anchored" data-anchor-id="data-wrangling-with-prams">3. Data Wrangling with PRAMS</h2>
 <p>Examples will be posted here working with the PRAMS Dataset for recoding, creating or modifying variables.</p>
-</section><section id="visualizing-prams-data" class="level3"><h3 class="anchored" data-anchor-id="visualizing-prams-data">4. Visualizing PRAMS Data</h3>
+</section><section id="visualizing-prams-data" class="level2"><h2 class="anchored" data-anchor-id="visualizing-prams-data">4. Visualizing PRAMS Data</h2>
 <p>Examples will be posted here for making graphs and figures with suggestions on handling very large datasets.</p>
-</section><section id="missing-data-in-prams" class="level3"><h3 class="anchored" data-anchor-id="missing-data-in-prams">5. Missing Data in PRAMS</h3>
+</section><section id="missing-data-in-prams" class="level2"><h2 class="anchored" data-anchor-id="missing-data-in-prams">5. Missing Data in PRAMS</h2>
 <p>Examples will be posted here for summarizing and visualizing missing data in PRAMS.</p>
-</section><section id="prams-statistical-tests-and-models" class="level3"><h3 class="anchored" data-anchor-id="prams-statistical-tests-and-models">6. PRAMS Statistical Tests and Models</h3>
+</section><section id="prams-statistical-tests-and-models" class="level2"><h2 class="anchored" data-anchor-id="prams-statistical-tests-and-models">6. PRAMS Statistical Tests and Models</h2>
 <p>Examples will be posted here for statistical tests and models (such as linear and logistic regression) for both the unweighted and weighted data approaches.</p>
-</section><section id="prams-reproducible-research-report" class="level3"><h3 class="anchored" data-anchor-id="prams-reproducible-research-report">7. PRAMS Reproducible Research Report</h3>
+</section><section id="prams-reproducible-research-report" class="level2"><h2 class="anchored" data-anchor-id="prams-reproducible-research-report">7. PRAMS Reproducible Research Report</h2>
 <p>A Rmarkdown analysis report will be provided here as a template to “kick start” your research with the PRAMS dataset.</p>
 <hr>
 <div style="page-break-after: always;"></div>
-</section></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+</section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-R-Matrix" class="csl-entry" role="listitem">
 Bates, Douglas, Martin Maechler, and Mikael Jagan. 2024. <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. <a href="https://Matrix.R-forge.R-project.org">https://Matrix.R-forge.R-project.org</a>.

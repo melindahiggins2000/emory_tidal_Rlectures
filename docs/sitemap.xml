@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://emorytidal.netlify.app/test.html</loc>
+    <lastmod>2025-01-30T13:51:42.733Z</lastmod>
+  </url>
+  <url>
     <loc>https://emorytidal.netlify.app/module135_StatisticalTests.html</loc>
-    <lastmod>2025-01-26T11:25:32.522Z</lastmod>
+    <lastmod>2025-01-31T00:36:32.876Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module133_DataVis.html</loc>
-    <lastmod>2025-01-29T12:02:24.820Z</lastmod>
+    <lastmod>2025-01-31T00:23:26.749Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module131_IntroRRStudio.html</loc>
-    <lastmod>2025-01-27T12:14:25.991Z</lastmod>
+    <lastmod>2025-01-30T18:16:14.454Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/additionalResources.html</loc>
-    <lastmod>2025-01-28T14:57:44.472Z</lastmod>
+    <lastmod>2025-01-31T00:34:19.916Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/PRAMS.html</loc>
-    <lastmod>2025-01-26T11:45:03.738Z</lastmod>
+    <lastmod>2025-01-31T00:47:56.442Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/index.html</loc>
@@ -26,14 +30,14 @@
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module132_DataWrangling.html</loc>
-    <lastmod>2025-01-27T12:14:45.737Z</lastmod>
+    <lastmod>2025-01-30T18:16:19.747Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module134_MissingWeight.html</loc>
-    <lastmod>2025-01-26T11:25:21.220Z</lastmod>
+    <lastmod>2025-01-31T00:36:27.400Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module136_ReproducibleResearch.html</loc>
-    <lastmod>2025-01-26T11:25:04.289Z</lastmod>
+    <lastmod>2025-01-31T00:36:40.485Z</lastmod>
   </url>
 </urlset>

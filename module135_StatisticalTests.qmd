@@ -18,6 +18,13 @@ knitr::opts_chunk$set(echo = TRUE,
                       error = TRUE,
                       message = FALSE,
                       warning = FALSE)
+knitr::opts_chunk$set(
+  comment = '', fig.width = 6, fig.height = 6
+)
+# be sure to cover these
+# https://easystats.github.io/easystats/
+# and tidymodels, broom, purrr, etc
+# effect sizes
 ```
 
 ## COMING SUMMER 2025

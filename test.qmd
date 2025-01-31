@@ -1,6 +1,7 @@
 ---
 title: "test"
-format: 
+format:
+  html: default
   pdf:
     keep-tex: true
     header-includes:
@@ -24,13 +25,28 @@ gt_tbl <- pressure %>%
 ```
 
 
-```{r}
-#| label: tbl-tabprint
-#| tbl-pos: h!
-#| results: asis
+text after table
 
-gt_tbl |>
-  gt::as_latex()
+
+
+```{r}
+knitr::is_html_output()
+knitr::is_latex_output()
 ```
 
-text after table
+```{r eval = knitr::is_html_output()}
+gt_tbl
+```
+
+# save for future
+
+
+```{r eval = knitr::is_html_output()}
+knitr::include_graphics("myannimategif.gif")
+```
+
+```{r eval = knitr::is_latex_output()}
+knitr::include_graphics("myannimategif.png")
+```
+
+

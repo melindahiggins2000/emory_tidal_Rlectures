@@ -134,13 +134,6 @@
 \def\fps@figure{htbp}
 \makeatother
 
-\usepackage{booktabs}
-\usepackage{caption}
-\usepackage{longtable}
-\usepackage{colortbl}
-\usepackage{array}
-\usepackage{anyfontsize}
-\usepackage{multirow}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -235,37 +228,49 @@ text before table
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}[h!]
-
-\caption{\label{tbl-tabprint}}
-
-\centering{
+text after table
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{gt\_tbl }\SpecialCharTok{|\textgreater{}}
-\NormalTok{  gt}\SpecialCharTok{::}\FunctionTok{as\_latex}\NormalTok{()}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{is\_html\_output}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lc}
-\toprule
-\textbf{Characteristic} & \textbf{N = 19}\textsuperscript{\textit{1}} \\ 
-\midrule\addlinespace[2.5pt]
-temperature & 180 (80, 280) \\ 
-pressure & 9 (0, 157) \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\textsuperscript{\textit{1}}Median (Q1, Q3)\\
-\end{minipage}
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
 
-}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{is\_latex\_output}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
-\end{table}%
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
 
-text after table
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gt\_tbl}
+\end{Highlighting}
+\end{Shaded}
+
+\section{save for future}\label{save-for-future}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"myannimategif.gif"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"myannimategif.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=3.46in,height=\textheight,keepaspectratio]{myannimategif.png}
 
 
 
