@@ -42,10 +42,10 @@ This lesson module will include:
 
 If you do not have them already, install the following packages from CRAN:
 
-* [`ggplot2](https://cloud.r-project.org/web/packages/ggplot2/)
+* [`ggplot2`](https://cloud.r-project.org/web/packages/ggplot2/)
 * [`ggthemes`](https://cloud.r-project.org/web/packages/ggthemes/)
 * [`readr`](https://cloud.r-project.org/web/packages/readr/)
-* [`dplyr]()
+* [`dplyr`](https://cloud.r-project.org/web/packages/dplyr/)
 
 ### B. Open/create your RStudio project
 
@@ -179,11 +179,11 @@ hist(mydata$Height,
 ::: callout-tip
 ## Colors available
 
-There are 657 names colors immediately available to you from the built-in `grDevices` Base R package which works in conjunction with `graphics`. You can view the names of all of these colors by running `colors()`. You can also learn more at:
+There are 657 names of colors immediately available to you from the built-in `grDevices` Base R package which works in conjunction with `graphics`. You can view the names of all of these colors by running `colors()`. You can also learn more at:
 
 * [https://www.sthda.com/english/wiki/colors-in-r#google_vignette](https://www.sthda.com/english/wiki/colors-in-r#google_vignette)
 * [https://r-graph-gallery.com/42-colors-names.html](https://r-graph-gallery.com/42-colors-names.html)
-* [https://r-graph-gallery.com/ggplot2-color.html](https://r-graph-gallery.com/ggplot2-color.html) - which explains how colors can be specified using the built-in color names, but cal also be specified using RGB (red, green, blue) indexes or even Hexcodes for which there are many online tools like [https://htmlcolorcodes.com/](https://htmlcolorcodes.com/).
+* [https://r-graph-gallery.com/ggplot2-color.html](https://r-graph-gallery.com/ggplot2-color.html) - which explains how colors can be specified using the built-in color names, but can also be specified using RGB (red, green, blue) indexes or even Hexcodes for which there are many online tools like [https://htmlcolorcodes.com/](https://htmlcolorcodes.com/).
 :::
 
 ```{r eval=FALSE}
@@ -450,14 +450,14 @@ mydata_corrected <- mydata_corrected %>%
 
 \newpage
 
-Let's redo the plot with these corrected values - now the PRE and POST weights looks similar.
+Let's redo the plot with these corrected values - now the PRE and POST weights look similar.
 
 I've also added a "reference line" (in "red" color) to the plot below. By adding the line "Y = X" we can also visualize which points are above or below the line for people who gained or lost weight from PRE-to-POST, respectively. It looks like most people lost weight - the majority of the points are below the line where PRE > POST weights.
 
 I also:
 
 * applied colors to each gender category,
-* applies shapes to each gender category,
+* applied shapes to each gender category,
 * changed the size of the points,
 * assigned custom colors for each gender category,
     - the colors are for the non-missing values
@@ -560,7 +560,7 @@ ggplot(data = mydata_corrected,
 
 \newpage
 
-There is one person missing SES. So, let's filter the dataset and remake the plot. Instead of creating another "new" dataset, we can instead using the `dplyr` pipe `%>%` into our plotting workflow as follows to filter out the missing SES before we make the plot. Notice I can drop the `data = ` in the `ggplot()` step.
+There is one person missing SES. So, let's filter the dataset and remake the plot. Instead of creating another "new" dataset, we can use the `dplyr` pipe `%>%` into our plotting workflow as follows to filter out the missing SES before we make the plot. Notice I can drop the `data = ` in the `ggplot()` step.
 
 In the `filter()` step below, I used the `!` exclamation point to indicate that we want to keep all rows for which `SES.f` is NOT missing, by using `!is.na()`.
 
@@ -610,7 +610,7 @@ mydata_corrected %>%
 
 **Add Another Layer with Points**
 
-We can also add points on top of the boxplots using `geom_jitter()` add AFTER `geom_boxplot`. If you switch the order of these "geom's" you can specify whether the boxplot is on top of the point or if the points are in top of the boxplots (like we did here). 
+We can also add points on top of the boxplots using `geom_jitter()` AFTER using `geom_boxplot`. If you switch the order of these "geom's" you can specify whether the boxplot is on top of the points or if the points are on top of the boxplots (like we did here). 
 
 In `geom_jitter()`, I also added `height=0` and `width=.10` to adjust the amount of jitter in the vertical and horizontal directions.
 
@@ -1032,7 +1032,7 @@ vcd::mosaic(GenderCoded.f ~ SES.f,
 
 Learn how to make an animated figure with the `gganimate` package at [https://gganimate.com/](https://gganimate.com/). The animation demo shown below is of the relationship between Life Expectancy and GDP (gross domestic product) per capita in 142 countries over 12 years from 1952 to 2007.
 
-The animated figure is viewable in the HTML website at [https://melindahiggins2000.github.io/emory_tidal_Rlectures/module133_DataVis.html](https://melindahiggins2000.github.io/emory_tidal_Rlectures/module133_DataVis.html). In the PDF file only a static view is shown for the single year "1976" from the [1gapminder`](https://jennybc.github.io/gapminder/) dataset and R package.
+The animated figure is viewable in the HTML website at [https://melindahiggins2000.github.io/emory_tidal_Rlectures/module133_DataVis.html](https://melindahiggins2000.github.io/emory_tidal_Rlectures/module133_DataVis.html). In the PDF file only a static view is shown for the single year "1976" from the [`gapminder`](https://jennybc.github.io/gapminder/) dataset and R package.
 
 ```{r eval = knitr::is_html_output(), echo=FALSE, out.width="95%"}
 knitr::include_graphics("myannimategif.gif")
@@ -1050,7 +1050,7 @@ Another cool package is the `plotly` graphics package which allows for active in
 
 Learn more at [https://plotly-r.com/](https://plotly-r.com/).
 
-Here is an interactive version (on this website for the HTML version) of the side-by-side boxplots above - with a horizontal orientation. _This plot will NOT be interactive in the PDF document but the figure will be shown._
+Here is an interactive version (on this website for the HTML version) of the side-by-side boxplots below - with a horizontal orientation. _This plot will NOT be interactive in the PDF document but the figure will be shown._
 
 ```{r}
 library(plotly)
