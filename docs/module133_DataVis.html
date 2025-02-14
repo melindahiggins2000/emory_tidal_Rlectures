@@ -268,6 +268,7 @@ div.csl-indent {
 </li>
   <li><a href="#summary-tables-with-graphics" id="toc-summary-tables-with-graphics" class="nav-link" data-scroll-target="#summary-tables-with-graphics">4. Summary Tables with Graphics</a></li>
   <li><a href="#other-places-to-get-help-and-get-started" id="toc-other-places-to-get-help-and-get-started" class="nav-link" data-scroll-target="#other-places-to-get-help-and-get-started">5. Other Places to Get Help and Get Started</a></li>
+  <li><a href="#r-code-for-this-module" id="toc-r-code-for-this-module" class="nav-link" data-scroll-target="#r-code-for-this-module">R Code For This Module</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="module133_DataVis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -1440,8 +1441,8 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>               orientation <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span>
 <span><span class="va">fig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-756691294d0407ab61b8" style="width:100%;height:650px;"></div>
-<script type="application/json" data-for="htmlwidget-756691294d0407ab61b8">{"x":{"visdat":{"a7a877b75ca3":["function () ","plotlyVisDat"]},"cur_data":"a7a877b75ca3","attrs":{"a7a877b75ca3":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a64fa9b0bcc241b3eff5" style="width:100%;height:650px;"></div>
+<script type="application/json" data-for="htmlwidget-a64fa9b0bcc241b3eff5">{"x":{"visdat":{"6b6021630dc":["function () ","plotlyVisDat"]},"cur_data":"6b6021630dc","attrs":{"6b6021630dc":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section></section><section id="summary-tables-with-graphics" class="level2"><h2 class="anchored" data-anchor-id="summary-tables-with-graphics">4. Summary Tables with Graphics</h2>
@@ -1467,24 +1468,24 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>         <span class="va">SES.f</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.html">gt_plt_summary</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="vgrjnehlby" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gpjqcbtpvj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#vgrjnehlby table {
+#gpjqcbtpvj table {
   font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vgrjnehlby thead, #vgrjnehlby tbody, #vgrjnehlby tfoot, #vgrjnehlby tr, #vgrjnehlby td, #vgrjnehlby th {
+#gpjqcbtpvj thead, #gpjqcbtpvj tbody, #gpjqcbtpvj tfoot, #gpjqcbtpvj tr, #gpjqcbtpvj td, #gpjqcbtpvj th {
   border-style: none;
 }
 
-#vgrjnehlby p {
+#gpjqcbtpvj p {
   margin: 0;
   padding: 0;
 }
 
-#vgrjnehlby .gt_table {
+#gpjqcbtpvj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1510,12 +1511,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-left-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_caption {
+#gpjqcbtpvj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vgrjnehlby .gt_title {
+#gpjqcbtpvj .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -1527,7 +1528,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-width: 0;
 }
 
-#vgrjnehlby .gt_subtitle {
+#gpjqcbtpvj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1539,7 +1540,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-top-width: 0;
 }
 
-#vgrjnehlby .gt_heading {
+#gpjqcbtpvj .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1551,13 +1552,13 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_bottom_border {
+#gpjqcbtpvj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_col_headings {
+#gpjqcbtpvj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -1572,7 +1573,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_col_heading {
+#gpjqcbtpvj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1592,7 +1593,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   overflow-x: hidden;
 }
 
-#vgrjnehlby .gt_column_spanner_outer {
+#gpjqcbtpvj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1604,15 +1605,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 4px;
 }
 
-#vgrjnehlby .gt_column_spanner_outer:first-child {
+#gpjqcbtpvj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vgrjnehlby .gt_column_spanner_outer:last-child {
+#gpjqcbtpvj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vgrjnehlby .gt_column_spanner {
+#gpjqcbtpvj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1624,11 +1625,11 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   width: 100%;
 }
 
-#vgrjnehlby .gt_spanner_row {
+#gpjqcbtpvj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vgrjnehlby .gt_group_heading {
+#gpjqcbtpvj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1654,7 +1655,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   text-align: left;
 }
 
-#vgrjnehlby .gt_empty_group_heading {
+#gpjqcbtpvj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1669,15 +1670,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   vertical-align: middle;
 }
 
-#vgrjnehlby .gt_from_md > :first-child {
+#gpjqcbtpvj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vgrjnehlby .gt_from_md > :last-child {
+#gpjqcbtpvj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vgrjnehlby .gt_row {
+#gpjqcbtpvj .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -1696,7 +1697,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   overflow-x: hidden;
 }
 
-#vgrjnehlby .gt_stub {
+#gpjqcbtpvj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1709,7 +1710,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#vgrjnehlby .gt_stub_row_group {
+#gpjqcbtpvj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1723,15 +1724,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   vertical-align: top;
 }
 
-#vgrjnehlby .gt_row_group_first td {
+#gpjqcbtpvj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vgrjnehlby .gt_row_group_first th {
+#gpjqcbtpvj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vgrjnehlby .gt_summary_row {
+#gpjqcbtpvj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1741,16 +1742,16 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#vgrjnehlby .gt_first_summary_row {
+#gpjqcbtpvj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_first_summary_row.thick {
+#gpjqcbtpvj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vgrjnehlby .gt_last_summary_row {
+#gpjqcbtpvj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1760,7 +1761,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_grand_summary_row {
+#gpjqcbtpvj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1770,7 +1771,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#vgrjnehlby .gt_first_grand_summary_row {
+#gpjqcbtpvj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1780,7 +1781,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-top-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_last_grand_summary_row_top {
+#gpjqcbtpvj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1790,11 +1791,11 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_striped {
+#gpjqcbtpvj .gt_striped {
   background-color: #FAFAFA;
 }
 
-#vgrjnehlby .gt_table_body {
+#gpjqcbtpvj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1803,7 +1804,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_footnotes {
+#gpjqcbtpvj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1817,7 +1818,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_footnote {
+#gpjqcbtpvj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1826,7 +1827,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#vgrjnehlby .gt_sourcenotes {
+#gpjqcbtpvj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1840,7 +1841,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#vgrjnehlby .gt_sourcenote {
+#gpjqcbtpvj .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1848,72 +1849,72 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#vgrjnehlby .gt_left {
+#gpjqcbtpvj .gt_left {
   text-align: left;
 }
 
-#vgrjnehlby .gt_center {
+#gpjqcbtpvj .gt_center {
   text-align: center;
 }
 
-#vgrjnehlby .gt_right {
+#gpjqcbtpvj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vgrjnehlby .gt_font_normal {
+#gpjqcbtpvj .gt_font_normal {
   font-weight: normal;
 }
 
-#vgrjnehlby .gt_font_bold {
+#gpjqcbtpvj .gt_font_bold {
   font-weight: bold;
 }
 
-#vgrjnehlby .gt_font_italic {
+#gpjqcbtpvj .gt_font_italic {
   font-style: italic;
 }
 
-#vgrjnehlby .gt_super {
+#gpjqcbtpvj .gt_super {
   font-size: 65%;
 }
 
-#vgrjnehlby .gt_footnote_marks {
+#gpjqcbtpvj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vgrjnehlby .gt_asterisk {
+#gpjqcbtpvj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vgrjnehlby .gt_indent_1 {
+#gpjqcbtpvj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vgrjnehlby .gt_indent_2 {
+#gpjqcbtpvj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vgrjnehlby .gt_indent_3 {
+#gpjqcbtpvj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vgrjnehlby .gt_indent_4 {
+#gpjqcbtpvj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vgrjnehlby .gt_indent_5 {
+#gpjqcbtpvj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vgrjnehlby .katex-display {
+#gpjqcbtpvj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vgrjnehlby div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gpjqcbtpvj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2014,7 +2015,10 @@ average income, low income and high income
 <li>See the summary of graphics resources at <a href="./additionalResources.html#r-graphics">Additional Resources - R Graphics</a>
 </li>
 </ul>
-<hr></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+<hr></section><section id="r-code-for-this-module" class="level2"><h2 class="anchored" data-anchor-id="r-code-for-this-module">R Code For This Module</h2>
+<ul>
+<li><a href=""><code>module_133.R</code></a></li>
+</ul></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-R-gt" class="csl-entry" role="listitem">
 Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, JooYoung Seo, Ken Brevoort, and Olivier Roy. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.

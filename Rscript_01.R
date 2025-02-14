@@ -1,5 +1,8 @@
-# R Script 01 =================================
-# Console Commands Line Examples ==============
+# Module 1.3.1 Code =============================
+# Section 3. Create your first R script =========
+
+# R Script 01 ===================================
+# Console Commands Line Examples ================
 4 + 4
 sqrt(25)
 pi
@@ -15,7 +18,7 @@ seq(from=1, to=10, by=0.5)
 # Notice it is empty
 
 
-# EXERCISE 01 =================================
+# EXERCISE 01 ===================================
 # How to save the output?
 # save sequence of numbers in object x
 x <- seq(from=1, to=10, by=0.5)
@@ -36,7 +39,7 @@ plot(x,y)
 
 
 
-# EXERCISE 02 =================================
+# EXERCISE 02 ===================================
 # create a new object cosx
 cosx <- cos(x)
 

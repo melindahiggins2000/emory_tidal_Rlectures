@@ -1131,6 +1131,10 @@ knitr::write_bib(x = c(.packages()),
                  file = "packages.bib")
 ```
 
+## R Code For This Module
+
+* [`module_133.R`]()
+
 ## References
 
 ::: {#refs}

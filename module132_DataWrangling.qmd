@@ -50,6 +50,8 @@ Before you begin, please go ahead and install the following packages - these are
 * [`gtsummary` on CRAN](https://cran.r-project.org/web/packages/gtsummary/){target="_blank"} and [`gtsummary` package website](https://www.danieldsjoberg.com/gtsummary/)
 * [`tableone` on CRAN](https://cran.r-project.org/web/packages/tableone/){target="_blank"}
 * [`gmodels` on CRAN](https://cran.r-project.org/web/packages/gmodels/){target="_blank"}
+* [`pkgsearch` on CRAN](https://cran.r-project.org/web/packages/pkgsearch/){target="_blank"}
+* [`palmerpenguins` on CRAN](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"}
 
 
 See [Module 1.3.1 on Installing Packages](module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session){target="_blank"}
@@ -1345,6 +1347,10 @@ Be aware that many of these import/export functions do work pretty well, but som
 knitr::write_bib(x = c(.packages()), 
                  file = "packages.bib")
 ```
+
+## R Code For This Module
+
+* [`module_132.R`]()
 
 ## References
 

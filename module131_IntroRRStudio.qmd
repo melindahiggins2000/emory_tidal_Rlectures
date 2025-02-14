@@ -873,6 +873,11 @@ knitr::write_bib(x = c(.packages()),
                  file = "packages.bib")
 ```
 
+## R Code For This Module
+
+* [`module_131.R`](module_131.R)
+* [`Rscript_01.R`](Rscript_01.R)
+
 ## References
 
 ::: {#refs}
