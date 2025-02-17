@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu "Tools/Install" Packages interface:
 
 * [`readr` on CRAN](https://cran.r-project.org/web/packages/readr/){target="_blank"} and [`readr` package website](https://readr.tidyverse.org/){target="_blank"}
-* [`readxl` on CRAN](https://cran.r-project.org/web/packages/readxl/){target="_blank"} and [`readxl`` package website](https://readxl.tidyverse.org/){target="_blank"}
+* [`readxl` on CRAN](https://cran.r-project.org/web/packages/readxl/){target="_blank"} and [`readxl` package website](https://readxl.tidyverse.org/){target="_blank"}
 * [`haven` on CRAN](https://cran.r-project.org/web/packages/haven/){target="_blank"} and [`haven` package website](https://haven.tidyverse.org/){target="_blank"}
 * [`dplyr` on CRAN](https://cran.r-project.org/web/packages/dplyr/){target="_blank"} and [`dplyr` package website](https://dplyr.tidyverse.org/){target="_blank"}
 * [`Hmisc` on CRAN](https://cran.r-project.org/web/packages/Hmisc/){target="_blank"} and [`Hmisc`package website](https://hbiostat.org/r/hmisc/){target="_blank"} 
@@ -1350,7 +1350,7 @@ knitr::write_bib(x = c(.packages()),
 
 ## R Code For This Module
 
-* [`module_132.R`]()
+* [`module_132.R`](module_132.R)
 
 ## References
 
