@@ -43,13 +43,12 @@ This lesson module will include:
 If you do not have them already, install the following packages from CRAN:
 
 * [`ggplot2`](https://cloud.r-project.org/web/packages/ggplot2/)
-* [`ggthemes`](https://cloud.r-project.org/web/packages/ggthemes/)
-* [`readr`](https://cloud.r-project.org/web/packages/readr/)
 * [`dplyr`](https://cloud.r-project.org/web/packages/dplyr/)
-* ['patchwork`](https://cran.r-project.org/web/packages/patchwork/)
+* [`patchwork`](https://cran.r-project.org/web/packages/patchwork/)
 * [`ggpubr`](https://cran.r-project.org/web/packages/ggpubr/)
 * [`GGally`](https://cran.r-project.org/web/packages/GGally/)
 * [`vcd`](https://cran.r-project.org/web/packages/vcd/)
+* Optional [`gapminder`](https://cran.r-project.org/web/packages/gapminder/)
 * Optional [`gganimate`](https://cran.r-project.org/web/packages/gganimate/)
 * Optional [`plotly`](https://cran.r-project.org/web/packages/plotly/)
 * Optional [`gt`](https://cran.r-project.org/web/packages/gt/)
@@ -394,6 +393,12 @@ ggplot(data = mydata_corrected,
 
 3. We can add color by `GenderCoded.f`
 
+::: callout-note
+## Automatic Legend
+
+Notice that by adding `color = GenderCoded.f` inside the `aes()` aesthetic that a legend for the coloring of the points is automatically added to the plot. This can be disabled if you wish. Learn more about colors and legends in the [`ggplot2` book - Chapter 11](https://ggplot2-book.org/scales-colour).
+:::
+
 ```{r}
 ggplot(data = mydata_corrected,
        aes(x = WeightPRE,
@@ -473,7 +478,7 @@ I also:
 * assigned custom shapes for each gender category,
     - the colors are for the non-missing values
     - if you want to see the person missing a gender, we have to specifically assign a color for NA using `na.value=`
-* also notice that I had to provide a custom label in the `labs()` for the shape and color legend - the labels are the same so they will be in the same legend box. _It is possible to assign the variables for color and shape to different variables._
+* also notice that I had to provide a custom label in the `labs()` for the shape and color legend - **the labels are the same for `color` and `shape`** so they will be in the same legend box. _It is possible to assign the variables for color and shape to different variables._
 
 ```{r}
 ggplot(data = mydata_corrected,
@@ -584,7 +589,7 @@ mydata_corrected %>%
 
 \newpage
 
-Let's add a fill color for the SES categories.
+Let's add a fill color for the SES categories. Notice that a legend is automatically added to the plot for the SES colors.
 
 ```{r}
 mydata_corrected %>%
@@ -597,7 +602,7 @@ mydata_corrected %>%
 
 \newpage
 
-And add better labels.
+And add better axis labels plus a title and subtitle.
 
 ```{r}
 mydata_corrected %>%
@@ -699,7 +704,11 @@ mydata_corrected %>%
 
 \newpage
 
-Let's also add custom colors and better labels.
+Let's also add custom colors and better labels. A few notes:
+
+* `fill` controls the interior filled color for the bars
+* `color` controls the border color of the bars
+* `scale_fill_manual()` is where you add custom colors
 
 ```{r}
 mydata_corrected %>%
@@ -728,9 +737,45 @@ mydata_corrected %>%
 
 Suppose instead of boxplots for looking at the differences in heights by gender, let's make a plot of the mean heights by gender with error bars added to reflect the 95% confidence intervals for these group means.
 
-First let's compute the means using the `mean()` function and we'll pull the 95% confidence interval limits from the `t.test()` output for a one-sample t-test.
+First let's compute the means using the `mean()` function and we'll pull the 95% confidence interval limits from the `t.test()` output for a one-sample t-test _(see details below)_.
 
 Save these outputs into another small dataset called `dt`.
+
+**Let's take a look at the `t.test()` output.**
+
+```{r}
+tt1 <- t.test(mydata_corrected$Height_corrected, 
+              conf.level = 0.95)
+```
+
+If we ask to "see" the `tt1` object printed to the console, we get the abbreviated t-test results:
+
+```{r}
+tt1
+```
+
+But the `tt1` t-test output object actually has a bunch of details stored inside it. Let's look at the structure of the t-test object:
+
+```{r}
+str(tt1)
+```
+
+We can select elements of this t-test object just like we select variables out of a dataset using the `$` dollar sign selector. Let's take a look at the `conf.int` part of the t-test object for the 95% confidence interval limits.
+
+
+```{r}
+tt1$conf.int
+```
+
+We can further pull out each limit separately using the `[]` square brackets to pull specifically the first element `[1]` for the lower limit of the 95% confidence interval and the second element `[2]` for the upper limit of the 95% confidence interval.
+
+```{r}
+tt1$conf.int[1]
+tt1$conf.int[2]
+```
+
+So, we use this knowledge inside the `mutate` step in the code below to make sure we capture the lower confidence interval `lci` and upper confidence interval `uci` for each gender category which we will later use for making our errorbars.
+
 
 ```{r}
 # capture the means of the correct heights 
@@ -992,6 +1037,8 @@ ggpairs(mydata_corrected,
 \newpage
 
 What is really cool about this plotting function is the easy way to add in a 3rd variable like gender to see if these correlations (and scatterplots) change by gender (i.e. does gender moderate the associations?). Notice that we get separate lines for each gender and we get the correlations for each gender as well.
+
+If you look at the correlations by gender between `Height_corrected` and `WeightPOST_corrected` the correlation for Males was 0.692 and for Females was 0.913, so it does look like the correlation is stronger for the Females than the Males. For this made-up dataset, this doesn't matter. But this approach is a good way to start exploring your data for moderating effects.
 
 ```{r}
 ggpairs(mydata_corrected,

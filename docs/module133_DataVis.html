@@ -306,13 +306,13 @@ div.csl-indent {
 <p>If you do not have them already, install the following packages from CRAN:</p>
 <ul>
 <li><a href="https://cloud.r-project.org/web/packages/ggplot2/"><code>ggplot2</code></a></li>
-<li><a href="https://cloud.r-project.org/web/packages/ggthemes/"><code>ggthemes</code></a></li>
-<li><a href="https://cloud.r-project.org/web/packages/readr/"><code>readr</code></a></li>
 <li><a href="https://cloud.r-project.org/web/packages/dplyr/"><code>dplyr</code></a></li>
-<li><a href="https://cran.r-project.org/web/packages/patchwork/">’patchwork`</a></li>
+<li><a href="https://cran.r-project.org/web/packages/patchwork/"><code>patchwork</code></a></li>
 <li><a href="https://cran.r-project.org/web/packages/ggpubr/"><code>ggpubr</code></a></li>
 <li><a href="https://cran.r-project.org/web/packages/GGally/"><code>GGally</code></a></li>
 <li><a href="https://cran.r-project.org/web/packages/vcd/"><code>vcd</code></a></li>
+<li>Optional <a href="https://cran.r-project.org/web/packages/gapminder/"><code>gapminder</code></a>
+</li>
 <li>Optional <a href="https://cran.r-project.org/web/packages/gganimate/"><code>gganimate</code></a>
 </li>
 <li>Optional <a href="https://cran.r-project.org/web/packages/plotly/"><code>plotly</code></a>
@@ -717,6 +717,19 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <li>We can add color by <code>GenderCoded.f</code>
 </li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Automatic Legend
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that by adding <code>color = GenderCoded.f</code> inside the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> aesthetic that a legend for the coloring of the points is automatically added to the plot. This can be disabled if you wish. Learn more about colors and legends in the <a href="https://ggplot2-book.org/scales-colour"><code>ggplot2</code> book - Chapter 11</a>.</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">WeightPRE</span>,</span>
@@ -814,7 +827,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </li>
 </ul>
 </li>
-<li>also notice that I had to provide a custom label in the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> for the shape and color legend - the labels are the same so they will be in the same legend box. <em>It is possible to assign the variables for color and shape to different variables.</em>
+<li>also notice that I had to provide a custom label in the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> for the shape and color legend - <strong>the labels are the same for <code>color</code> and <code>shape</code></strong> so they will be in the same legend box. <em>It is possible to assign the variables for color and shape to different variables.</em>
 </li>
 </ul>
 <div class="cell">
@@ -948,7 +961,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </div>
 </div>
 <div style="page-break-after: always;"></div>
-<p>Let’s add a fill color for the SES categories.</p>
+<p>Let’s add a fill color for the SES categories. Notice that a legend is automatically added to the plot for the SES colors.</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -964,7 +977,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </div>
 </div>
 <div style="page-break-after: always;"></div>
-<p>And add better labels.</p>
+<p>And add better axis labels plus a title and subtitle.</p>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1080,7 +1093,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </div>
 </div>
 <div style="page-break-after: always;"></div>
-<p>Let’s also add custom colors and better labels.</p>
+<p>Let’s also add custom colors and better labels. A few notes:</p>
+<ul>
+<li>
+<code>fill</code> controls the interior filled color for the bars</li>
+<li>
+<code>color</code> controls the border color of the bars</li>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual()</a></code> is where you add custom colors</li>
+</ul>
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1110,10 +1131,76 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <code>ggplot2</code> - Errorbar plots</h3>
 <p><strong>Barplot with Error Bars</strong></p>
 <p>Suppose instead of boxplots for looking at the differences in heights by gender, let’s make a plot of the mean heights by gender with error bars added to reflect the 95% confidence intervals for these group means.</p>
-<p>First let’s compute the means using the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function and we’ll pull the 95% confidence interval limits from the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> output for a one-sample t-test.</p>
+<p>First let’s compute the means using the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function and we’ll pull the 95% confidence interval limits from the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> output for a one-sample t-test <em>(see details below)</em>.</p>
 <p>Save these outputs into another small dataset called <code>dt</code>.</p>
+<p><strong>Let’s take a look at the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> output.</strong></p>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># capture the means of the correct heights </span></span>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tt1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">mydata_corrected</span><span class="op">$</span><span class="va">Height_corrected</span>, </span>
+<span>              conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we ask to “see” the <code>tt1</code> object printed to the console, we get the abbreviated t-test results:</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tt1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  mydata_corrected$Height_corrected
+t = 61.664, df = 18, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 5.658315 6.057475
+sample estimates:
+mean of x 
+ 5.857895 </code></pre>
+</div>
+</div>
+<p>But the <code>tt1</code> t-test output object actually has a bunch of details stored inside it. Let’s look at the structure of the t-test object:</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">tt1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 10
+ $ statistic  : Named num 61.7
+  ..- attr(*, "names")= chr "t"
+ $ parameter  : Named num 18
+  ..- attr(*, "names")= chr "df"
+ $ p.value    : num 2.13e-22
+ $ conf.int   : num [1:2] 5.66 6.06
+  ..- attr(*, "conf.level")= num 0.95
+ $ estimate   : Named num 5.86
+  ..- attr(*, "names")= chr "mean of x"
+ $ null.value : Named num 0
+  ..- attr(*, "names")= chr "mean"
+ $ stderr     : num 0.095
+ $ alternative: chr "two.sided"
+ $ method     : chr "One Sample t-test"
+ $ data.name  : chr "mydata_corrected$Height_corrected"
+ - attr(*, "class")= chr "htest"</code></pre>
+</div>
+</div>
+<p>We can select elements of this t-test object just like we select variables out of a dataset using the <code>$</code> dollar sign selector. Let’s take a look at the <code>conf.int</code> part of the t-test object for the 95% confidence interval limits.</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tt1</span><span class="op">$</span><span class="va">conf.int</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.658315 6.057475
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<p>We can further pull out each limit separately using the <code>[]</code> square brackets to pull specifically the first element <code>[1]</code> for the lower limit of the 95% confidence interval and the second element <code>[2]</code> for the upper limit of the 95% confidence interval.</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tt1</span><span class="op">$</span><span class="va">conf.int</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.658315</code></pre>
+</div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tt1</span><span class="op">$</span><span class="va">conf.int</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.057475</code></pre>
+</div>
+</div>
+<p>So, we use this knowledge inside the <code>mutate</code> step in the code below to make sure we capture the lower confidence interval <code>lci</code> and upper confidence interval <code>uci</code> for each gender category which we will later use for making our errorbars.</p>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># capture the means of the correct heights </span></span>
 <span><span class="co"># and get the 95% confidence intervals</span></span>
 <span><span class="co"># upper bound and lower bound by gender</span></span>
 <span><span class="co"># filter out the missing GenderCoded.f</span></span>
@@ -1138,7 +1225,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <div style="page-break-after: always;"></div>
 <p>Use this small dataset <code>dt</code> with the means and 95% confidence intervals limits to make this plot.</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dt</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dt</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
 <span>               y <span class="op">=</span> <span class="va">mean</span>, </span>
 <span>               fill <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>, </span>
@@ -1162,7 +1249,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1171,7 +1258,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p><strong>Lineplot with Points and Error Bars</strong></p>
 <p>We can also remove the bars and just create a line plot connecting the points for the means with the error bars shown. I set <code>size=1.5</code>to make the lines a little thicker in the plot.</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dt</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dt</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">GenderCoded.f</span>, </span>
 <span>                 y <span class="op">=</span> <span class="va">mean</span>,</span>
 <span>                 color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>,</span>
@@ -1199,7 +1286,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1211,7 +1298,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p>The plot below was inspired by the code example at <a href="https://r-graph-gallery.com/303-lollipop-plot-with-2-values.html">https://r-graph-gallery.com/303-lollipop-plot-with-2-values.html</a>.</p>
 <p>Let’s look at the corrected Weights PRE to POST- sorted by their starting PRE weights.</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sort data by WeightPRE_corrected ascending</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sort data by WeightPRE_corrected ascending</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">WeightPRE_corrected</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1243,7 +1330,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Weight Change (in pounds) PRE to POST"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1255,7 +1342,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p>Once a “chunk” of <code>ggplot</code> code is run, technically a <code>ggplot2</code> plot object is created. We can save and reuse these objects to create composite figures.</p>
 <p>For example, let’s create the scatterplot, histogram and clustered barplot and save each into three separate plot objects <code>p1</code>, <code>p2</code>, and <code>p3</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the scatterplot, save as p1</span></span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the scatterplot, save as p1</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
@@ -1282,7 +1369,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the histogram, save as p2</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the histogram, save as p2</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
 <span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Age</span>, </span>
@@ -1295,7 +1382,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>       subtitle <span class="op">=</span> <span class="st">"Hypothetical Madeup mydata Dataset"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the barplot, save as p3</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make the barplot, save as p3</span></span>
 <span></span>
 <span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">SES.f</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1319,7 +1406,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p>After making and saving each of the <code>ggplot2</code> plot objects above, we can arrange them into a new composite plot. The <a href="https://cran.r-project.org/web/packages/patchwork/index.html"><code>patchwork</code> package</a> is really good for making these composite figures.</p>
 <p>Learn more at <a href="https://patchwork.data-imaginist.com/articles/patchwork.html">https://patchwork.data-imaginist.com/articles/patchwork.html</a></p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load patchwork package</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load patchwork package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># put p1 and p2 side-by-side</span></span>
@@ -1327,7 +1414,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span><span class="op">(</span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="va">p3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1336,7 +1423,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </section><section id="ggpubr-package-and-ggarrange-function" class="level4"><h4 class="anchored" data-anchor-id="ggpubr-package-and-ggarrange-function"><strong><code>ggpubr</code> package and <code>ggarrange()</code> function</strong></h4>
 <p>Another package that is useful for arrange plot objects into composite plots is the <a href="https://cran.r-project.org/web/packages/ggpubr/"><code>ggpubr</code> package</a> with the <a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html"><code>ggarrange()</code> function</a>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load ggpubr package</span></span>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load ggpubr package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># use ggarrange twice</span></span>
@@ -1347,7 +1434,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>  <span class="va">p3</span>, nrow <span class="op">=</span> <span class="fl">2</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1359,7 +1446,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p>In the plot below, we can see the 2-dimensional scatterplots between the heights and weights at PRE and POST. The plot also provides the Pearson’s correlations for all of the pairwise associations between each combination of 2 variables.</p>
 <p>I also added a “best fit” linear line by adding <code>lower = list(continuous = "smooth")</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
 <span>        columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Height_corrected"</span>, </span>
@@ -1368,15 +1455,16 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>        lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>continuous <span class="op">=</span> <span class="st">"smooth"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
 <p>What is really cool about this plotting function is the easy way to add in a 3rd variable like gender to see if these correlations (and scatterplots) change by gender (i.e.&nbsp;does gender moderate the associations?). Notice that we get separate lines for each gender and we get the correlations for each gender as well.</p>
+<p>If you look at the correlations by gender between <code>Height_corrected</code> and <code>WeightPOST_corrected</code> the correlation for Males was 0.692 and for Females was 0.913, so it does look like the correlation is stronger for the Females than the Males. For this made-up dataset, this doesn’t matter. But this approach is a good way to start exploring your data for moderating effects.</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
 <span>        mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>,</span>
 <span>        columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Height_corrected"</span>, </span>
 <span>                    <span class="st">"WeightPRE_corrected"</span>, </span>
@@ -1384,7 +1472,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>        lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>continuous <span class="op">=</span> <span class="st">"smooth"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1392,7 +1480,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <div style="page-break-after: always;"></div>
 <p>And if we add <code>GenderCoded.f</code> to the list of variable columns to be included, we now also get bar charts for the frequencies of each gender, histograms of each variable for each gender, boxplots for each variable by each gender, along with the density curves by gender and the correlation matrix.</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">mydata_corrected</span>,</span>
 <span>        mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">GenderCoded.f</span><span class="op">)</span>,</span>
 <span>        columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GenderCoded.f"</span>,</span>
 <span>                    <span class="st">"Height_corrected"</span>, </span>
@@ -1401,7 +1489,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>        lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>continuous <span class="op">=</span> <span class="st">"smooth"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1411,7 +1499,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p>The <a href="https://cran.r-project.org/web/packages/vcd/index.html"><code>vcd</code> package</a> for “visualizing categorical data” has been around for over 20 years!! It is a helpful package for visualizing multiple categorical variables at once.</p>
 <p>Let’s visualize the relative proportions of gender and SES using the <code><a href="https://rdrr.io/pkg/vcd/man/mosaic.html">vcd::mosaic()</a></code> function.</p>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">vcd</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">vcd</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">vcd</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/vcd/man/mosaic.html">mosaic</a></span><span class="op">(</span><span class="va">GenderCoded.f</span> <span class="op">~</span> <span class="va">SES.f</span>, </span>
 <span>            data <span class="op">=</span> <span class="va">mydata_corrected</span>,</span>
@@ -1420,7 +1508,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>            <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module133_DataVis_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1445,7 +1533,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <p>Learn more at <a href="https://plotly-r.com/">https://plotly-r.com/</a>.</p>
 <p>Here is an interactive version (on this website for the HTML version) of the side-by-side boxplots below - with a horizontal orientation. <em>This plot will NOT be interactive in the PDF document but the figure will be shown.</em></p>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
 <span><span class="va">fig</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/plotly/man/plot_ly.html">plot_ly</a></span><span class="op">(</span><span class="va">mydata_corrected</span>, </span>
 <span>               x <span class="op">=</span> <span class="op">~</span><span class="va">WeightPRE_corrected</span>, </span>
 <span>               color <span class="op">=</span> <span class="op">~</span><span class="va">SES.f</span>, </span>
@@ -1453,8 +1541,8 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>               orientation <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span>
 <span><span class="va">fig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-081429824cda44624c80" style="width:100%;height:650px;"></div>
-<script type="application/json" data-for="htmlwidget-081429824cda44624c80">{"x":{"visdat":{"d5247c534303":["function () ","plotlyVisDat"]},"cur_data":"d5247c534303","attrs":{"d5247c534303":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-9cd16aad54241d45a85e" style="width:100%;height:650px;"></div>
+<script type="application/json" data-for="htmlwidget-9cd16aad54241d45a85e">{"x":{"visdat":{"48ec7d9d134f":["function () ","plotlyVisDat"]},"cur_data":"48ec7d9d134f","attrs":{"48ec7d9d134f":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section></section><section id="summary-tables-with-graphics" class="level2"><h2 class="anchored" data-anchor-id="summary-tables-with-graphics">4. Summary Tables with Graphics</h2>
@@ -1470,7 +1558,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 </ul>
 <p>As an example, let’s look at the code at <a href="https://r-graph-gallery.com/368-plotting-in-cells-with-gtextras.html">https://r-graph-gallery.com/368-plotting-in-cells-with-gtextras.html</a> for making a table of summary statistics with a plot overview including a list of categories and percentage of missing data for that variable.</p>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jthomasmock/gtExtras">gtExtras</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jthomasmock/gtExtras">gtExtras</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">mydata_corrected</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Height_corrected</span>,</span>
@@ -1480,24 +1568,24 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>         <span class="va">SES.f</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.html">gt_plt_summary</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="iujcmecmar" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rknuefieax" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#iujcmecmar table {
+#rknuefieax table {
   font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#iujcmecmar thead, #iujcmecmar tbody, #iujcmecmar tfoot, #iujcmecmar tr, #iujcmecmar td, #iujcmecmar th {
+#rknuefieax thead, #rknuefieax tbody, #rknuefieax tfoot, #rknuefieax tr, #rknuefieax td, #rknuefieax th {
   border-style: none;
 }
 
-#iujcmecmar p {
+#rknuefieax p {
   margin: 0;
   padding: 0;
 }
 
-#iujcmecmar .gt_table {
+#rknuefieax .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1523,12 +1611,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-left-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_caption {
+#rknuefieax .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#iujcmecmar .gt_title {
+#rknuefieax .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -1540,7 +1628,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-width: 0;
 }
 
-#iujcmecmar .gt_subtitle {
+#rknuefieax .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1552,7 +1640,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-top-width: 0;
 }
 
-#iujcmecmar .gt_heading {
+#rknuefieax .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1564,13 +1652,13 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_bottom_border {
+#rknuefieax .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_col_headings {
+#rknuefieax .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -1585,7 +1673,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_col_heading {
+#rknuefieax .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1605,7 +1693,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   overflow-x: hidden;
 }
 
-#iujcmecmar .gt_column_spanner_outer {
+#rknuefieax .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1617,15 +1705,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 4px;
 }
 
-#iujcmecmar .gt_column_spanner_outer:first-child {
+#rknuefieax .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iujcmecmar .gt_column_spanner_outer:last-child {
+#rknuefieax .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iujcmecmar .gt_column_spanner {
+#rknuefieax .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1637,11 +1725,11 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   width: 100%;
 }
 
-#iujcmecmar .gt_spanner_row {
+#rknuefieax .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#iujcmecmar .gt_group_heading {
+#rknuefieax .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1667,7 +1755,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   text-align: left;
 }
 
-#iujcmecmar .gt_empty_group_heading {
+#rknuefieax .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1682,15 +1770,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   vertical-align: middle;
 }
 
-#iujcmecmar .gt_from_md > :first-child {
+#rknuefieax .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iujcmecmar .gt_from_md > :last-child {
+#rknuefieax .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iujcmecmar .gt_row {
+#rknuefieax .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -1709,7 +1797,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   overflow-x: hidden;
 }
 
-#iujcmecmar .gt_stub {
+#rknuefieax .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1722,7 +1810,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#iujcmecmar .gt_stub_row_group {
+#rknuefieax .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1736,15 +1824,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   vertical-align: top;
 }
 
-#iujcmecmar .gt_row_group_first td {
+#rknuefieax .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#iujcmecmar .gt_row_group_first th {
+#rknuefieax .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#iujcmecmar .gt_summary_row {
+#rknuefieax .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1754,16 +1842,16 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#iujcmecmar .gt_first_summary_row {
+#rknuefieax .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_first_summary_row.thick {
+#rknuefieax .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#iujcmecmar .gt_last_summary_row {
+#rknuefieax .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1773,7 +1861,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_grand_summary_row {
+#rknuefieax .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1783,7 +1871,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#iujcmecmar .gt_first_grand_summary_row {
+#rknuefieax .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1793,7 +1881,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-top-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_last_grand_summary_row_top {
+#rknuefieax .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1803,11 +1891,11 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_striped {
+#rknuefieax .gt_striped {
   background-color: #FAFAFA;
 }
 
-#iujcmecmar .gt_table_body {
+#rknuefieax .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1816,7 +1904,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_footnotes {
+#rknuefieax .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1830,7 +1918,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_footnote {
+#rknuefieax .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1839,7 +1927,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#iujcmecmar .gt_sourcenotes {
+#rknuefieax .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1853,7 +1941,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#iujcmecmar .gt_sourcenote {
+#rknuefieax .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1861,72 +1949,72 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#iujcmecmar .gt_left {
+#rknuefieax .gt_left {
   text-align: left;
 }
 
-#iujcmecmar .gt_center {
+#rknuefieax .gt_center {
   text-align: center;
 }
 
-#iujcmecmar .gt_right {
+#rknuefieax .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iujcmecmar .gt_font_normal {
+#rknuefieax .gt_font_normal {
   font-weight: normal;
 }
 
-#iujcmecmar .gt_font_bold {
+#rknuefieax .gt_font_bold {
   font-weight: bold;
 }
 
-#iujcmecmar .gt_font_italic {
+#rknuefieax .gt_font_italic {
   font-style: italic;
 }
 
-#iujcmecmar .gt_super {
+#rknuefieax .gt_super {
   font-size: 65%;
 }
 
-#iujcmecmar .gt_footnote_marks {
+#rknuefieax .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#iujcmecmar .gt_asterisk {
+#rknuefieax .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#iujcmecmar .gt_indent_1 {
+#rknuefieax .gt_indent_1 {
   text-indent: 5px;
 }
 
-#iujcmecmar .gt_indent_2 {
+#rknuefieax .gt_indent_2 {
   text-indent: 10px;
 }
 
-#iujcmecmar .gt_indent_3 {
+#rknuefieax .gt_indent_3 {
   text-indent: 15px;
 }
 
-#iujcmecmar .gt_indent_4 {
+#rknuefieax .gt_indent_4 {
   text-indent: 20px;
 }
 
-#iujcmecmar .gt_indent_5 {
+#rknuefieax .gt_indent_5 {
   text-indent: 25px;
 }
 
-#iujcmecmar .katex-display {
+#rknuefieax .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#iujcmecmar div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rknuefieax div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

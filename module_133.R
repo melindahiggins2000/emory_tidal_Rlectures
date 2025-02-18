@@ -2,9 +2,16 @@
 # Section 0. Pre-work =====================================
 # Make sure you have these packages installed
 #   - ggplot2
-#   - ggthemes
-#   - readr
 #   - dplyr
+#   - patchwork
+#   - ggpubr
+#   - GGally
+#   - vcd
+#   - gapminder (optional)
+#   - gganimate (optional)
+#   - plotly (optional)
+#   - gt (optional)
+#   - gtExtras (optional)
 
 # load mydata.RData from the end of Module 1.3.2
 load(file = "mydata.RData")
@@ -14,7 +21,7 @@ load(file = "mydata.RData")
 plot(x = mydata$Height,
      y = mydata$WeightPRE)
 
-# Add Labels
+# Add axis labels, main title and subtitle
 plot(x = mydata$Height,
      y = mydata$WeightPRE,
      xlab = "Height (in decimal inches)",
@@ -22,7 +29,9 @@ plot(x = mydata$Height,
      main = "Weight by Height in the Mydata Project",
      sub = "Hypothetical Madeup mydata Dataset")
 
-# Add colors and a legend
+# Add colors with col 
+# and change plot characters with pch
+# and add a legend
 plot(x = mydata$Height,
      y = mydata$WeightPRE,
      col = c("blue", "green")[mydata$GenderCoded],
@@ -74,6 +83,8 @@ mydata %>%
   head()
 
 # make a copy of the dataset
+# this new dataset will have the 
+# corrected values and updates
 mydata_corrected <- mydata
 
 # compute a new corrected height
@@ -139,25 +150,28 @@ boxplot(Height_corrected ~ GenderCoded.f,
 #load ggplot2
 library(ggplot2)
 
+# build a plot step by step
+# and add layers using geoms and more
 # create the plot space
 ggplot(data = mydata_corrected,
        aes(x = WeightPRE,
            y = WeightPOST))
 
-# add geom_point() to "see" the points
+# next add + geom_point() layer to "see" the points
 ggplot(data = mydata_corrected,
        aes(x = WeightPRE,
            y = WeightPOST)) +
   geom_point()
 
 # add color by gender
+# notice this automatically adds a legend
 ggplot(data = mydata_corrected,
        aes(x = WeightPRE,
            y = WeightPOST,
            color = GenderCoded.f)) +
   geom_point()
 
-# add labels, title, legend title
+# add labels, title, legend title using labs()
 ggplot(data = mydata_corrected,
        aes(x = WeightPRE,
            y = WeightPOST,
@@ -180,7 +194,7 @@ mydata_corrected <- mydata_corrected %>%
     .default = WeightPRE
   ))
 
-# For WeightPOST, for
+# Also for WeightPOST, for
 # SubjectID 28, change WeightPOST=98 to 198
 # since this person's WeightPRE was 230.
 # also fix SubjectID = 32, for
@@ -221,20 +235,23 @@ ggplot(data = mydata_corrected,
   ) 
 
 # ggplot2 - Histogram =====================================
+# make histogram of Age
 ggplot(data = mydata_corrected, 
        aes(x = Age)) +
   geom_histogram()
 
 # add color
+# use fill for the bar color
+# use color for the bar outline color
 ggplot(mydata_corrected, 
        aes(x = Age)) +
   geom_histogram(fill = "lightblue",
                  color = "black")
 
 # to add density curve
-# update aes with after_stat() to get probabilities
-# instead of frequencies (counts)
-# add geom_density in a different color
+# update aes with after_stat(density) to get 
+# probabilities instead of frequencies (counts)
+# add geom_density line in a different color, red
 # add axis labels and titles
 ggplot(mydata_corrected, 
        aes(x = Age,
@@ -256,7 +273,9 @@ ggplot(data = mydata_corrected,
            y = WeightPRE_corrected)) +
   geom_boxplot()
 
-# filter out the person missing SES
+# filter out the one person missing SES
+# using dplyr filter() and pipe %>%
+# the results into ggplot()
 # and then make the ggplot
 library(dplyr)
 
@@ -266,7 +285,8 @@ mydata_corrected %>%
              y = WeightPRE_corrected)) +
   geom_boxplot()
 
-# add fill colors
+# add fill colors by SES category
+# notice the legend that gets created
 mydata_corrected %>%
   filter(!is.na(SES.f)) %>%
   ggplot(aes(x = SES.f, 
@@ -274,7 +294,7 @@ mydata_corrected %>%
              fill = SES.f)) +
   geom_boxplot()
 
-# add better labels
+# add better axis labels, title and subtitle
 mydata_corrected %>%
   filter(!is.na(SES.f)) %>%
   ggplot(aes(x = SES.f, 
@@ -289,7 +309,8 @@ mydata_corrected %>%
   ) 
 
 # add another layer on top with points
-# use geom_jitter()
+# use geom_jitter() and change the jitter
+# height and width a little
 mydata_corrected %>%
   filter(!is.na(SES.f)) %>%
   ggplot(aes(x = SES.f, 
@@ -330,6 +351,9 @@ mydata_corrected %>%
   geom_bar()
 
 # add clustering by gender with SES
+# use position = "dodge" to put
+# the bars side-by-side otherwise
+# they will show up as stacked by default
 mydata_corrected %>%
   filter(!is.na(SES.f)) %>%
   filter(!is.na(GenderCoded.f)) %>%
@@ -337,7 +361,10 @@ mydata_corrected %>%
              fill = GenderCoded.f)) +
   geom_bar(position = "dodge")
 
-# add custom colors and better labels
+# add custom colors using scale_fill_manual()
+# fill is the inside color
+# and color is the border color
+# and better labels
 mydata_corrected %>%
   filter(!is.na(SES.f)) %>%
   filter(!is.na(GenderCoded.f)) %>%
@@ -356,6 +383,25 @@ mydata_corrected %>%
   )
 
 # ggplot2 - Errorbar Plots ================================
+# looking a t-test output
+tt1 <- t.test(mydata_corrected$Height_corrected, 
+              conf.level = 0.95)
+
+# look at the output in the console
+tt1
+
+# look at the complete structure
+# of the tt1 t-test output object
+str(tt1)
+
+# select the conf.int part of tt1
+tt1$conf.int
+
+# look at the lower and upper limits
+# get each value separately
+tt1$conf.int[1] # for the lower ci limit
+tt1$conf.int[2] # for the upper ci limit
+
 # make plot of the means of the heights by gender
 # and get the 95% confidence intervals
 # by running a t-test and getting these numbers
@@ -400,6 +446,7 @@ ggplot(data = dt) +
   )
 
 # make a different variation
+# lineplot with errorbars
 # make an errorbar plot connected by a line
 ggplot(data = dt) +
   geom_point(aes(x = GenderCoded.f, 
@@ -465,8 +512,8 @@ ggplot(data) +
   ylab("Weight Change (in pounds) PRE to POST")
 
 # Section 3. Other Graphics Packages to Know ==============
-# save plot objects and reuse or rearrange them
-# make the scatterplot, save as p1
+# save plot objects and reuse or rearrange them ===========
+# make the scatterplot, save as plot object p1
 
 p1 <- ggplot(
   data = mydata_corrected,
@@ -568,7 +615,10 @@ ggpairs(mydata_corrected,
         lower = list(continuous = "smooth"))
 
 # add gender to the variable list
-# to get more details
+# to get more details - notice you get
+# bar charts for the counts of gender
+# boxplots by gender
+# and stacked histograms by gender
 ggpairs(mydata_corrected,
         mapping = aes(color = GenderCoded.f),
         columns = c("GenderCoded.f",
@@ -576,6 +626,59 @@ ggpairs(mydata_corrected,
                     "WeightPRE_corrected", 
                     "WeightPOST_corrected"),
         lower = list(continuous = "smooth"))
+
+# Visualize Categorical Data with vcd package  ============
+# Let’s visualize the relative proportions of gender 
+# and SES using the vcd::mosaic() function.
+library(vcd)
+
+vcd::mosaic(GenderCoded.f ~ SES.f, 
+            data = mydata_corrected,
+            gp = gpar(fill = c("gray","dark magenta")),
+            main = "Gender and SES",
+)
+
+# Example of an animated graph with gganimate =============
+# if you would like to try this
+library(gapminder)
+library(gganimate)
+
+ggplot(gapminder, 
+       aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', 
+       x = 'GDP per capita', 
+       y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+
+# Interactive Graphics with plotly ========================
+library(plotly)
+
+fig <- plot_ly(mydata_corrected, 
+               x = ~WeightPRE_corrected, 
+               color = ~SES.f, 
+               type = "box",
+               orientation = "h")
+fig
+
+# Section 4. Summary Tables with Graphics =================
+# example of a summary table with graphics ================
+library(gtExtras)
+
+mydata_corrected %>%
+  select(Height_corrected,
+         WeightPRE_corrected,
+         WeightPOST_corrected,
+         GenderCoded.f,
+         SES.f) %>%
+  gt_plt_summary()
+
 
 
 
