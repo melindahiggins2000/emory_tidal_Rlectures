@@ -309,6 +309,18 @@ div.csl-indent {
 <li><a href="https://cloud.r-project.org/web/packages/ggthemes/"><code>ggthemes</code></a></li>
 <li><a href="https://cloud.r-project.org/web/packages/readr/"><code>readr</code></a></li>
 <li><a href="https://cloud.r-project.org/web/packages/dplyr/"><code>dplyr</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/patchwork/">’patchwork`</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ggpubr/"><code>ggpubr</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/GGally/"><code>GGally</code></a></li>
+<li><a href="https://cran.r-project.org/web/packages/vcd/"><code>vcd</code></a></li>
+<li>Optional <a href="https://cran.r-project.org/web/packages/gganimate/"><code>gganimate</code></a>
+</li>
+<li>Optional <a href="https://cran.r-project.org/web/packages/plotly/"><code>plotly</code></a>
+</li>
+<li>Optional <a href="https://cran.r-project.org/web/packages/gt/"><code>gt</code></a>
+</li>
+<li>Optional <a href="https://cran.r-project.org/web/packages/gtExtras/"><code>gtExtras</code></a>
+</li>
 </ul></section><section id="b.-opencreate-your-rstudio-project" class="level3"><h3 class="anchored" data-anchor-id="b.-opencreate-your-rstudio-project">B. Open/create your RStudio project</h3>
 <p>Let’s start with the <code>myfirstRproject</code> RStudio project you created in <a href="module132_DataWrangling.html#begin-with-a-new-rstudio-project">Module 1.3.2 - part 1</a>. If you have not yet created this <code>myfirstRproject</code> RStudio project, go ahead and create a new RStudio Project for this lesson. <em>Feel free to name your project whatever you want, it does not need to be named <code>myfirstRproject</code>.</em></p>
 </section><section id="c.-create-a-new-r-script-and-load-data-into-your-computing-session" class="level3"><h3 class="anchored" data-anchor-id="c.-create-a-new-r-script-and-load-data-into-your-computing-session">C. Create a new R script and load data into your computing session</h3>
@@ -1441,8 +1453,8 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>               orientation <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span>
 <span><span class="va">fig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-626b632e7841ede5e9d4" style="width:100%;height:650px;"></div>
-<script type="application/json" data-for="htmlwidget-626b632e7841ede5e9d4">{"x":{"visdat":{"a3b065e1275b":["function () ","plotlyVisDat"]},"cur_data":"a3b065e1275b","attrs":{"a3b065e1275b":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-081429824cda44624c80" style="width:100%;height:650px;"></div>
+<script type="application/json" data-for="htmlwidget-081429824cda44624c80">{"x":{"visdat":{"d5247c534303":["function () ","plotlyVisDat"]},"cur_data":"d5247c534303","attrs":{"d5247c534303":{"x":{},"orientation":"h","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"WeightPRE_corrected"},"yaxis":{"domain":[0,1],"automargin":true},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":[190,230,200,190],"orientation":"h","type":"box","name":"low income","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":[167,143,216,243,165,132.27719999999999,167,240,250,175,220,230],"orientation":"h","type":"box","name":"average income","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":[110,180,260],"orientation":"h","type":"box","name":"high income","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section></section><section id="summary-tables-with-graphics" class="level2"><h2 class="anchored" data-anchor-id="summary-tables-with-graphics">4. Summary Tables with Graphics</h2>
@@ -1468,24 +1480,24 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
 <span>         <span class="va">SES.f</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_plt_summary.html">gt_plt_summary</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="cldoybnfju" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="iujcmecmar" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#cldoybnfju table {
+#iujcmecmar table {
   font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cldoybnfju thead, #cldoybnfju tbody, #cldoybnfju tfoot, #cldoybnfju tr, #cldoybnfju td, #cldoybnfju th {
+#iujcmecmar thead, #iujcmecmar tbody, #iujcmecmar tfoot, #iujcmecmar tr, #iujcmecmar td, #iujcmecmar th {
   border-style: none;
 }
 
-#cldoybnfju p {
+#iujcmecmar p {
   margin: 0;
   padding: 0;
 }
 
-#cldoybnfju .gt_table {
+#iujcmecmar .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1511,12 +1523,12 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-left-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_caption {
+#iujcmecmar .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cldoybnfju .gt_title {
+#iujcmecmar .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -1528,7 +1540,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-width: 0;
 }
 
-#cldoybnfju .gt_subtitle {
+#iujcmecmar .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1540,7 +1552,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-top-width: 0;
 }
 
-#cldoybnfju .gt_heading {
+#iujcmecmar .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1552,13 +1564,13 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_bottom_border {
+#iujcmecmar .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_col_headings {
+#iujcmecmar .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -1573,7 +1585,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_col_heading {
+#iujcmecmar .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1593,7 +1605,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   overflow-x: hidden;
 }
 
-#cldoybnfju .gt_column_spanner_outer {
+#iujcmecmar .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1605,15 +1617,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 4px;
 }
 
-#cldoybnfju .gt_column_spanner_outer:first-child {
+#iujcmecmar .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cldoybnfju .gt_column_spanner_outer:last-child {
+#iujcmecmar .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cldoybnfju .gt_column_spanner {
+#iujcmecmar .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1625,11 +1637,11 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   width: 100%;
 }
 
-#cldoybnfju .gt_spanner_row {
+#iujcmecmar .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cldoybnfju .gt_group_heading {
+#iujcmecmar .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1655,7 +1667,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   text-align: left;
 }
 
-#cldoybnfju .gt_empty_group_heading {
+#iujcmecmar .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1670,15 +1682,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   vertical-align: middle;
 }
 
-#cldoybnfju .gt_from_md > :first-child {
+#iujcmecmar .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cldoybnfju .gt_from_md > :last-child {
+#iujcmecmar .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cldoybnfju .gt_row {
+#iujcmecmar .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -1697,7 +1709,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   overflow-x: hidden;
 }
 
-#cldoybnfju .gt_stub {
+#iujcmecmar .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1710,7 +1722,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#cldoybnfju .gt_stub_row_group {
+#iujcmecmar .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1724,15 +1736,15 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   vertical-align: top;
 }
 
-#cldoybnfju .gt_row_group_first td {
+#iujcmecmar .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cldoybnfju .gt_row_group_first th {
+#iujcmecmar .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cldoybnfju .gt_summary_row {
+#iujcmecmar .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1742,16 +1754,16 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#cldoybnfju .gt_first_summary_row {
+#iujcmecmar .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_first_summary_row.thick {
+#iujcmecmar .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cldoybnfju .gt_last_summary_row {
+#iujcmecmar .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1761,7 +1773,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_grand_summary_row {
+#iujcmecmar .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1771,7 +1783,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#cldoybnfju .gt_first_grand_summary_row {
+#iujcmecmar .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1781,7 +1793,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-top-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_last_grand_summary_row_top {
+#iujcmecmar .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1791,11 +1803,11 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_striped {
+#iujcmecmar .gt_striped {
   background-color: #FAFAFA;
 }
 
-#cldoybnfju .gt_table_body {
+#iujcmecmar .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1804,7 +1816,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-bottom-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_footnotes {
+#iujcmecmar .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1818,7 +1830,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_footnote {
+#iujcmecmar .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1827,7 +1839,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#cldoybnfju .gt_sourcenotes {
+#iujcmecmar .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1841,7 +1853,7 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   border-right-color: #D3D3D3;
 }
 
-#cldoybnfju .gt_sourcenote {
+#iujcmecmar .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1849,72 +1861,72 @@ Why is the package <code>ggplot2</code> and not <code>ggplot</code>?
   padding-right: 5px;
 }
 
-#cldoybnfju .gt_left {
+#iujcmecmar .gt_left {
   text-align: left;
 }
 
-#cldoybnfju .gt_center {
+#iujcmecmar .gt_center {
   text-align: center;
 }
 
-#cldoybnfju .gt_right {
+#iujcmecmar .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cldoybnfju .gt_font_normal {
+#iujcmecmar .gt_font_normal {
   font-weight: normal;
 }
 
-#cldoybnfju .gt_font_bold {
+#iujcmecmar .gt_font_bold {
   font-weight: bold;
 }
 
-#cldoybnfju .gt_font_italic {
+#iujcmecmar .gt_font_italic {
   font-style: italic;
 }
 
-#cldoybnfju .gt_super {
+#iujcmecmar .gt_super {
   font-size: 65%;
 }
 
-#cldoybnfju .gt_footnote_marks {
+#iujcmecmar .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cldoybnfju .gt_asterisk {
+#iujcmecmar .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cldoybnfju .gt_indent_1 {
+#iujcmecmar .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cldoybnfju .gt_indent_2 {
+#iujcmecmar .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cldoybnfju .gt_indent_3 {
+#iujcmecmar .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cldoybnfju .gt_indent_4 {
+#iujcmecmar .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cldoybnfju .gt_indent_5 {
+#iujcmecmar .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cldoybnfju .katex-display {
+#iujcmecmar .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cldoybnfju div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#iujcmecmar div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

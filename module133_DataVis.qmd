@@ -46,6 +46,14 @@ If you do not have them already, install the following packages from CRAN:
 * [`ggthemes`](https://cloud.r-project.org/web/packages/ggthemes/)
 * [`readr`](https://cloud.r-project.org/web/packages/readr/)
 * [`dplyr`](https://cloud.r-project.org/web/packages/dplyr/)
+* ['patchwork`](https://cran.r-project.org/web/packages/patchwork/)
+* [`ggpubr`](https://cran.r-project.org/web/packages/ggpubr/)
+* [`GGally`](https://cran.r-project.org/web/packages/GGally/)
+* [`vcd`](https://cran.r-project.org/web/packages/vcd/)
+* Optional [`gganimate`](https://cran.r-project.org/web/packages/gganimate/)
+* Optional [`plotly`](https://cran.r-project.org/web/packages/plotly/)
+* Optional [`gt`](https://cran.r-project.org/web/packages/gt/)
+* Optional [`gtExtras`](https://cran.r-project.org/web/packages/gtExtras/)
 
 ### B. Open/create your RStudio project
 
