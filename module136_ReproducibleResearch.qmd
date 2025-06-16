@@ -1,6 +1,6 @@
 ---
 title: "1.3.6: Putting Reproducible Research Principles Into Practice"
-subtitle: "(Asynchronous-Online)"
+subtitle: "(In Person)"
 bibliography: ./packages.bib
 nocite: |
   @*

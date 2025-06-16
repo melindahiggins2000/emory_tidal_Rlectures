@@ -1,6 +1,6 @@
 ---
 title: "1.3.5: Statistical Tests and Models"
-subtitle: "(Asynchronous-Online)"
+subtitle: "(In Person)"
 bibliography: ./packages.bib
 nocite: |
   @*
