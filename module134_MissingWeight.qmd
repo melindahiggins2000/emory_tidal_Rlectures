@@ -1,5 +1,5 @@
 ---
-title: "1.3.4: Missing Data and Sampling Weights"
+title: "1.3.4: Missing Data and Sampling Weights (brief intro)"
 subtitle: "(In Person)"
 bibliography: ./packages.bib
 nocite: |
@@ -36,6 +36,8 @@ Module "1.3.4: Missing Data and Sampling Weights" will be posted prior to the In
 3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)
 4. Discuss potential bias when removing missing observations without careful examination.
 
+[to be removed.............]
+
 Key points:
 
 1. R packages that support missing data examination
@@ -45,4 +47,358 @@ Key points:
     - What to do if such association significantly differs between complete and missing observations
 5. R packages for complex survey data (e.g., survey package)
     - R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models
+
+---
+
+## 0. Prework - Before You Begin
+
+### Install Packages
+
+Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu "Tools/Install" Packages interface:
+
+* [`VIM` on CRAN](https://cran.r-project.org/web/packages/VIM/index.html){target="_blank"} and [`VIM` package website](https://statistikat.github.io/VIM/index.html){target="_blank"}
+* [`skimr` on CRAN](https://cran.r-project.org/web/packages/skimr/index.html) and [`skimr` website](https://docs.ropensci.org/skimr/) - OPTIONAL
+* [`modelsummary` on CRAN](https://cran.r-project.org/web/packages/modelsummary/) and [`modelsummary` website](https://modelsummary.com/) - OPTIONAL
+* [`tinytable` on CRAN](https://cran.r-project.org/web/packages/tinytable/index.html) and [`tinytable` website](https://vincentarelbundock.github.io/tinytable/) - OPTIONAL
+* [`summarytools` on CRAN](https://cran.r-project.org/web/packages/summarytools/) and [`summarytools` on Github](https://github.com/dcomtois/summarytools) - OPTIONAL
+* mice
+* mi
+* 
+* 
+* [`palmerpenguins` on CRAN](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"}
+
+See [Module 1.3.1 on Installing Packages](module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session){target="_blank"}
+
+See additional resources below...
+
+add to prework?
+
+### Begin with a NEW RStudio Project
+
+Let's begin with a new RStudio Project.
+
+---
+
+\newpage
+
+## 1. Identify and summarize missing data.
+
+### Find Missing Data in Your Dataset.
+
+One simple way to find missing data is to open it in the Data Viewer window and sort the data.
+
+For example, load the `VIM` package and take a look at the `sleep` dataset provided within this package.
+
+```{r}
+library(VIM)
+data("sleep")
+```
+
+Click on the sleep dataset to open it in the data viewer:
+
+![](vim_sleep_nas_view.png){width=80%}
+
+Notice the light grey `NA`s shown for the missing data spots in this dataset.
+
+If we click on the column for the `Dream` variable and sort these values, notice that the `NA`s all now show up at the bottom of the viewer window. It does not matter if you sort ascending or descending, the `NA`s are always at the bottom of the viewer.
+
+![](vim_sleep_nas_view2.png){width=80%}
+
+This method is ok for a small dataset with not too many variables or rows of data. But let's look at other ways to summarize the amounts of missing data in your dataset.
+
+### Describe Missing Data.
+
+**Built-in `summary()` function**
+
+As we saw back in [Module 1.3.2, Section 5](https://emorytidal.netlify.app/module132_datawrangling#to-get-data-summary-and-descriptive-statistics.){target="_blank"}, we can use the `summary()` function to get some basic statistics for each variable in the dataset, including the number of `NA`s.
+
+```{r}
+summary(sleep)
+```
+
+\newpage
+
+**`skimr` package**
+
+Another helpful package is the `skimr` package which has the `skim()` function which provides a count of the amount of missing data and the proportion of complete data for that variable.
+
+::: callout-note
+## Rmarkdown for `skimr` package
+
+When "knitting" to HTML the code below creates the summary table with the miniture histograms. However, when "knitting" to PDF (using the default portrait layout)m the histograms get cutoff on the page. Additional LaTex customization is needed to change the layout to landscape to be able to see the histograms.
+:::
+
+```{r}
+library(skimr)
+skim(sleep)
+```
+
+\newpage
+
+**`modelsummary` package**
+
+Another helpful package is the `modelsummary` package which has the `datasummary_skim()` function which is a slightly better version built off the `skimr::skim()` package and function.
+
+::: callout-note
+## Rmarkdown for `modelsummary` package
+
+The `tinytable` package is also used below with the `modelsummary` output to better control the placement of the resulting table when "knitting" to PDF.
+:::
+
+```{r}
+library(modelsummary)
+library(tinytable)
+datasummary_skim(sleep) %>%
+  theme_tt("placement", latex_float = "H")
+```
+
+\newpage
+
+**`summarytools` package**
+
+Another package that also provides a nice summary of the variables in the dataset, is the `dfSummary()` from the `summarytools` dataset.
+
+_NOTE: Learn more about how to use `summarytools::dfSummary()` in an Rmarkdown document at [https://cran.r-project.org/web/packages/summarytools/vignettes/rmarkdown.html](https://cran.r-project.org/web/packages/summarytools/vignettes/rmarkdown.html)._
+
+```{r eval = FALSE}
+library(summarytools)
+view(dfSummary(sleep))
+```
+
+![](dfsummary_html.png)
+
+
+
+\newpage
+
+::: callout-tip
+## Try It On Your Own
+
+Try running `summary()` or `skim()` on the `penguins` dataset from the `palmerpenguins` package. Notice the summaries for the numeric and the factor type variables.
+:::
+
+
+```{r}
+library(palmerpenguins)
+summary(penguins)
+skim(penguins)
+```
+
+### Visualize Missing Data.
+
+**Making plots with `VIM` package**
+
+The `VIM` package has an "aggregate" function `aggr()` which counts up the amounts of missing data for each variable and combinations of variables. The `sleep` dataset only has 10 variables.
+
+::: callout-warning
+## WARNING - Too Many Variables
+
+Before using the `aggr()` function, limit the number of variables. FIRST create a dataset with only the variables you are interested in BEFORE running the function - otherwise you may lock up your computer if you feed it too many variables at once.
+:::
+
+```{r}
+# get a quick count of the amount of missing
+# data in the sleep dataset for each variable
+a <- aggr(sleep, plot = FALSE)
+a
+```
+
+The default output from above only lists the variables that have one or more rows with missing data. However, you can get a complete list with:
+
+```{r}
+a$missings
+```
+
+Next let's get some plots. 
+
+The plot on the LEFT below is a simple bar plot showing the missing counts for each variable in the dataset. 
+
+* Also notice that there are only 5 variables with one or more missing values:
+
+    * `NonD`
+    * `Dream`
+    * `Sleep`
+    * `Span`
+    * `Gest`
+
+The plot on the RIGHT however, shows the amounts of missing data for the various patterns of missing data for the 10 variables in the `sleep` dataset.
+
+For example, notice that of the 62 rows of data in the `sleep` dataset:
+
+* there are only 42 rows with complete data with no missing data on all 10 variables;
+* the next largest "pattern" of missing data is 9 rows that are missing both `NonD` and `Dream` variables.; and
+* there are 3 rows of data with the `gest` variable with missing data.
+
+
+```{r}
+# make plots of the amounts and patterns of missing data
+plot(a, numbers = TRUE, prop = FALSE)
+```
+
+**Marginplots - see how missingness varys with other measures**
+
+In addition to a usual scatterplot, the `marginplot()` function in the `VIM` package, also shows information about missing values in the plot margins.
+
+The red boxplot on the left shows the distrubution of all values of `Sleep` where `Dream` contains a missing value. The blue boxplot on the left shows the distribution of the values of `Sleep` where `Dream` is observed.
+
+```{r}
+x <- sleep[, c("Dream", "Sleep")]
+marginplot(x)
+```
+
+**Visualize Missing Data with the `naniar` package**
+
+The naniar package "provides principled, tidy ways to summarise, visualise, and manipulate missing data with minimal deviations from the workflows in ggplot2 and tidy data." _See [`naniar` website](https://naniar.njtierney.com/index.html)._
+
+For example, let's make a similar to plot to what we did above to visualize the scatterplot between `Dream` and `Sleep` but also consider the amounts of missing data of one variable relative to the other variable in the plot. We can do this using the `geom_miss_point()` function provided in the `naniar` package which works with `ggplot2`.
+
+```{r}
+library(naniar)
+library(ggplot2)
+
+ggplot(sleep, 
+       aes(x = Dream, 
+           y = Sleep)) + 
+  geom_miss_point()
+```
+
+
+
+---
+
+\newpage
+
+## 2. Learn methods to handle missing data according to variable type.
+
+discuss pairwise versus listwise and discuss impacts on modeling
+especially for stepwise variable selection - always check the final N for each model
+
+show correlations pairwise and listwise
+
+add details on modeling adjustments - covariate predicted missingness
+
+options on imputation - brief intro
+
+
+```{r}
+sleep$NonD_missing <- 
+  as.numeric(is.na(sleep$NonD))
+
+correlation::correlation(sleep)
+
+t.test(BodyWgt ~ NonD_missing,
+       data = sleep)
+t.test(BrainWgt ~ NonD_missing,
+       data = sleep)
+t.test(Sleep ~ NonD_missing,
+       data = sleep)
+t.test(Span ~ NonD_missing,
+       data = sleep)
+t.test(Gest ~ NonD_missing,
+       data = sleep)
+t.test(Pred ~ NonD_missing,
+       data = sleep)
+t.test(Exp ~ NonD_missing,
+       data = sleep)
+t.test(Danger ~ NonD_missing,
+       data = sleep)
+```
+
+
+
+
+
+**Marginplot of Imputed Values - Example**
+
+Let's take the little dataset `x` which is a subset of the `sleep` dataset which has all 62 rows but only the `Dream` and `Sleep` variables.
+
+There are a few built-in imputation functions in `VIM`. Let's see what the `kNN()` (k-nearest neighbor) function does.
+
+```{r}
+x_imputed <- kNN(x)
+```
+
+Now look at the plot again for these new `Dream` and `Sleep` variables for the k-nearest neighbor imputed variables. Notice the coloring of the points - the blue are the original values and the other colors represent the structure of missings.
+
+* brown points represent values where Dream was missing initially
+* beige points represent values where Sleep was missing initially
+* black points represent values where both Dream and Sleep were missing initially
+
+The `kNN()` method appears to preserve the correlation between `Dream` and `Sleep`.
+
+```{r}
+marginplot(x_imputed, delimiter = "_imp")
+```
+
+
+
+
+---
+
+\newpage
+
+## 3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)
+
+introduction to survey weights
+
+show how this impacts the amounts of missing data
+
+---
+
+\newpage
+
+## 4. Discuss potential bias when removing missing observations without careful examination.
+
+talk about assumptions for missing data - MCAR, MAR and NMAR (or MNAR)
+
+add more examples here 
+
+also for publication - running models for comparison - sensitivity tests
+- model for all complete data
+- models based on pairwise selections - n changes
+- models before and after covariate adjustments
+- models before and after imputation
+
+---
+
+\newpage
+
+```{r echo=FALSE}
+knitr::write_bib(x = c(.packages()), 
+                 file = "packages.bib")
+```
+
+## R Code For This Module
+
+* [`module_134.R`](module_134.R)
+
+## References
+
+::: {#refs}
+:::
+
+## Other Helpful Resources
+
+[**Other Helpful Resources**](./additionalResources.html){target="_blank"}
+
+**Missing Data Resources**
+
+* [CRAN Task View for Missing Data](https://cran.r-project.org/web/views/MissingData.html)
+* [R-miss-tastic Website](https://rmisstastic.netlify.app/)
+* [Flexible Imputation of Missing Data (online book for 2nd edition) by Stef van Buuren](https://stefvanbuuren.name/fimd/)
+
+* more ...
+* https://www.datawim.com/post/missing-data-visualization-in-r/
+* https://libguides.princeton.edu/R-Missingdata
+* https://cran.r-project.org/web/packages/mice/index.html
+* https://cran.r-project.org/web/views/MissingData.html
+* https://rmisstastic.netlify.app/
+* https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018
+* https://modelsummary.com/vignettes/datasummary.html
+* https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/
+* https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html
+* https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html
+
+
+
 

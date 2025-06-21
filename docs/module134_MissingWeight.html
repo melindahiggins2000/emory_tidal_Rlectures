@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.39">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>1.3.4: Missing Data and Sampling Weights – R Training - TIDAL Lectures</title>
+<title>1.3.4: Missing Data and Sampling Weights (brief intro) – R Training - TIDAL Lectures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -16,6 +16,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -53,7 +87,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-0f678b7eab269e1f93ad2a885b46ecea.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0272949737e784d0dcbc7a02c8fdb0fd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6c703c4903b7f250f915dd0acf0b5a99.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -178,11 +212,32 @@ div.csl-indent {
   <ul>
 <li><a href="#coming-summer-2025" id="toc-coming-summer-2025" class="nav-link active" data-scroll-target="#coming-summer-2025">COMING SUMMER 2025</a></li>
   <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives">Session Objectives</a></li>
+  <li>
+<a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a>
+  <ul>
+<li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install Packages</a></li>
+  <li><a href="#begin-with-a-new-rstudio-project" id="toc-begin-with-a-new-rstudio-project" class="nav-link" data-scroll-target="#begin-with-a-new-rstudio-project">Begin with a NEW RStudio Project</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#identify-and-summarize-missing-data." id="toc-identify-and-summarize-missing-data." class="nav-link" data-scroll-target="#identify-and-summarize-missing-data.">1. Identify and summarize missing data.</a>
+  <ul>
+<li><a href="#find-missing-data-in-your-dataset." id="toc-find-missing-data-in-your-dataset." class="nav-link" data-scroll-target="#find-missing-data-in-your-dataset.">Find Missing Data in Your Dataset.</a></li>
+  <li><a href="#describe-missing-data." id="toc-describe-missing-data." class="nav-link" data-scroll-target="#describe-missing-data.">Describe Missing Data.</a></li>
+  <li><a href="#visualize-missing-data." id="toc-visualize-missing-data." class="nav-link" data-scroll-target="#visualize-missing-data.">Visualize Missing Data.</a></li>
+  </ul>
+</li>
+  <li><a href="#learn-methods-to-handle-missing-data-according-to-variable-type." id="toc-learn-methods-to-handle-missing-data-according-to-variable-type." class="nav-link" data-scroll-target="#learn-methods-to-handle-missing-data-according-to-variable-type.">2. Learn methods to handle missing data according to variable type.</a></li>
+  <li><a href="#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro" id="toc-use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro" class="nav-link" data-scroll-target="#use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro">3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)</a></li>
+  <li><a href="#discuss-potential-bias-when-removing-missing-observations-without-careful-examination." id="toc-discuss-potential-bias-when-removing-missing-observations-without-careful-examination." class="nav-link" data-scroll-target="#discuss-potential-bias-when-removing-missing-observations-without-careful-examination.">4. Discuss potential bias when removing missing observations without careful examination.</a></li>
+  <li><a href="#r-code-for-this-module" id="toc-r-code-for-this-module" class="nav-link" data-scroll-target="#r-code-for-this-module">R Code For This Module</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="module134_MissingWeight.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">1.3.4: Missing Data and Sampling Weights</h1>
+<h1 class="title">1.3.4: Missing Data and Sampling Weights (brief intro)</h1>
 <p class="subtitle lead">(In Person)</p>
 </div>
 
@@ -206,6 +261,7 @@ div.csl-indent {
 <li>Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)</li>
 <li>Discuss potential bias when removing missing observations without careful examination.</li>
 </ol>
+<p>[to be removed………….]</p>
 <p>Key points:</p>
 <ol type="1">
 <li>R packages that support missing data examination</li>
@@ -222,39 +278,1137 @@ div.csl-indent {
 </ul>
 </li>
 </ol>
+<hr></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
+<section id="install-packages" class="level3"><h3 class="anchored" data-anchor-id="install-packages">Install Packages</h3>
+<p>Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu “Tools/Install” Packages interface:</p>
+<ul>
+<li>
+<a href="https://cran.r-project.org/web/packages/VIM/index.html" target="_blank"><code>VIM</code> on CRAN</a> and <a href="https://statistikat.github.io/VIM/index.html" target="_blank"><code>VIM</code> package website</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/skimr/index.html"><code>skimr</code> on CRAN</a> and <a href="https://docs.ropensci.org/skimr/"><code>skimr</code> website</a> - OPTIONAL</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/modelsummary/"><code>modelsummary</code> on CRAN</a> and <a href="https://modelsummary.com/"><code>modelsummary</code> website</a> - OPTIONAL</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/tinytable/index.html"><code>tinytable</code> on CRAN</a> and <a href="https://vincentarelbundock.github.io/tinytable/"><code>tinytable</code> website</a> - OPTIONAL</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/summarytools/"><code>summarytools</code> on CRAN</a> and <a href="https://github.com/dcomtois/summarytools"><code>summarytools</code> on Github</a> - OPTIONAL</li>
+<li>mice</li>
+<li>mi</li>
+<li>
+</li><li>
+</li><li><a href="https://cran.r-project.org/web/packages/palmerpenguins/" target="_blank"><code>palmerpenguins</code> on CRAN</a></li>
+</ul>
+<p>See <a href="module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session" target="_blank">Module 1.3.1 on Installing Packages</a></p>
+<p>See additional resources below…</p>
+<p>add to prework?</p>
+</section><section id="begin-with-a-new-rstudio-project" class="level3"><h3 class="anchored" data-anchor-id="begin-with-a-new-rstudio-project">Begin with a NEW RStudio Project</h3>
+<p>Let’s begin with a new RStudio Project.</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="identify-and-summarize-missing-data." class="level2"><h2 class="anchored" data-anchor-id="identify-and-summarize-missing-data.">1. Identify and summarize missing data.</h2>
+<section id="find-missing-data-in-your-dataset." class="level3"><h3 class="anchored" data-anchor-id="find-missing-data-in-your-dataset.">Find Missing Data in Your Dataset.</h3>
+<p>One simple way to find missing data is to open it in the Data Viewer window and sort the data.</p>
+<p>For example, load the <code>VIM</code> package and take a look at the <code>sleep</code> dataset provided within this package.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/statistikat/VIM">VIM</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"sleep"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Click on the sleep dataset to open it in the data viewer:</p>
+<p><img src="vim_sleep_nas_view.png" class="img-fluid" style="width:80.0%"></p>
+<p>Notice the light grey <code>NA</code>s shown for the missing data spots in this dataset.</p>
+<p>If we click on the column for the <code>Dream</code> variable and sort these values, notice that the <code>NA</code>s all now show up at the bottom of the viewer window. It does not matter if you sort ascending or descending, the <code>NA</code>s are always at the bottom of the viewer.</p>
+<p><img src="vim_sleep_nas_view2.png" class="img-fluid" style="width:80.0%"></p>
+<p>This method is ok for a small dataset with not too many variables or rows of data. But let’s look at other ways to summarize the amounts of missing data in your dataset.</p>
+</section><section id="describe-missing-data." class="level3"><h3 class="anchored" data-anchor-id="describe-missing-data.">Describe Missing Data.</h3>
+<p><strong>Built-in <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function</strong></p>
+<p>As we saw back in <a href="https://emorytidal.netlify.app/module132_datawrangling#to-get-data-summary-and-descriptive-statistics." target="_blank">Module 1.3.2, Section 5</a>, we can use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function to get some basic statistics for each variable in the dataset, including the number of <code>NA</code>s.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    BodyWgt            BrainWgt            NonD            Dream      
+ Min.   :   0.005   Min.   :   0.14   Min.   : 2.100   Min.   :0.000  
+ 1st Qu.:   0.600   1st Qu.:   4.25   1st Qu.: 6.250   1st Qu.:0.900  
+ Median :   3.342   Median :  17.25   Median : 8.350   Median :1.800  
+ Mean   : 198.790   Mean   : 283.13   Mean   : 8.673   Mean   :1.972  
+ 3rd Qu.:  48.203   3rd Qu.: 166.00   3rd Qu.:11.000   3rd Qu.:2.550  
+ Max.   :6654.000   Max.   :5712.00   Max.   :17.900   Max.   :6.600  
+                                      NA's   :14       NA's   :12     
+     Sleep            Span              Gest             Pred      
+ Min.   : 2.60   Min.   :  2.000   Min.   : 12.00   Min.   :1.000  
+ 1st Qu.: 8.05   1st Qu.:  6.625   1st Qu.: 35.75   1st Qu.:2.000  
+ Median :10.45   Median : 15.100   Median : 79.00   Median :3.000  
+ Mean   :10.53   Mean   : 19.878   Mean   :142.35   Mean   :2.871  
+ 3rd Qu.:13.20   3rd Qu.: 27.750   3rd Qu.:207.50   3rd Qu.:4.000  
+ Max.   :19.90   Max.   :100.000   Max.   :645.00   Max.   :5.000  
+ NA's   :4       NA's   :4         NA's   :4                       
+      Exp            Danger     
+ Min.   :1.000   Min.   :1.000  
+ 1st Qu.:1.000   1st Qu.:1.000  
+ Median :2.000   Median :2.000  
+ Mean   :2.419   Mean   :2.613  
+ 3rd Qu.:4.000   3rd Qu.:4.000  
+ Max.   :5.000   Max.   :5.000  
+                                </code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p><strong><code>skimr</code> package</strong></p>
+<p>Another helpful package is the <code>skimr</code> package which has the <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> function which provides a count of the amount of missing data and the proportion of complete data for that variable.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rmarkdown for <code>skimr</code> package
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When “knitting” to HTML the code below creates the summary table with the miniture histograms. However, when “knitting” to PDF (using the default portrait layout)m the histograms get cutoff on the page. Additional LaTex customization is needed to change the layout to landscape to be able to see the histograms.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">sleep</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BodyWgt</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">198.79</td>
+<td style="text-align: right;">899.16</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">3.34</td>
+<td style="text-align: right;">48.20</td>
+<td style="text-align: right;">6654.0</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BrainWgt</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">283.13</td>
+<td style="text-align: right;">930.28</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">17.25</td>
+<td style="text-align: right;">166.00</td>
+<td style="text-align: right;">5712.0</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NonD</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">8.67</td>
+<td style="text-align: right;">3.67</td>
+<td style="text-align: right;">2.10</td>
+<td style="text-align: right;">6.25</td>
+<td style="text-align: right;">8.35</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">17.9</td>
+<td style="text-align: left;">▅▇▆▃▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dream</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">1.97</td>
+<td style="text-align: right;">1.44</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">1.80</td>
+<td style="text-align: right;">2.55</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: left;">▇▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sleep</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">10.53</td>
+<td style="text-align: right;">4.61</td>
+<td style="text-align: right;">2.60</td>
+<td style="text-align: right;">8.05</td>
+<td style="text-align: right;">10.45</td>
+<td style="text-align: right;">13.20</td>
+<td style="text-align: right;">19.9</td>
+<td style="text-align: left;">▅▅▇▃▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Span</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">19.88</td>
+<td style="text-align: right;">18.21</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">6.62</td>
+<td style="text-align: right;">15.10</td>
+<td style="text-align: right;">27.75</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gest</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">142.35</td>
+<td style="text-align: right;">146.81</td>
+<td style="text-align: right;">12.00</td>
+<td style="text-align: right;">35.75</td>
+<td style="text-align: right;">79.00</td>
+<td style="text-align: right;">207.50</td>
+<td style="text-align: right;">645.0</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pred</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.87</td>
+<td style="text-align: right;">1.48</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">▇▇▆▃▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exp</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.42</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">▇▃▁▂▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Danger</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.61</td>
+<td style="text-align: right;">1.44</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">▇▆▅▅▃</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p><strong><code>modelsummary</code> package</strong></p>
+<p>Another helpful package is the <code>modelsummary</code> package which has the <code><a href="https://modelsummary.com/man/datasummary_skim.html">datasummary_skim()</a></code> function which is a slightly better version built off the <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skimr::skim()</a></code> package and function.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rmarkdown for <code>modelsummary</code> package
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>tinytable</code> package is also used below with the <code>modelsummary</code> output to better control the placement of the resulting table when “knitting” to PDF.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/tinytable/">tinytable</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://modelsummary.com/man/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/theme_tt.html">theme_tt</a></span><span class="op">(</span><span class="st">"placement"</span>, latex_float <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<!-- preamble start -->
 
+    <script>
 
+      function styleCell_byqbay1vpss5dyiixlhd(i, j, css_id) {
+          var table = document.getElementById("tinytable_byqbay1vpss5dyiixlhd");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_byqbay1vpss5dyiixlhd');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_byqbay1vpss5dyiixlhd(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_byqbay1vpss5dyiixlhd");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 10, j: 7 }, { i: 10, j: 6 }, { i: 10, j: 5 }, { i: 10, j: 4 }, { i: 10, j: 1 }, { i: 10, j: 3 }, { i: 10, j: 0 }, { i: 10, j: 2 }, { i: 10, j: 8 },  ], css_id: 'tinytable_css_86vpvgbgq0tyd27zjttq',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 4, j: 0 }, { i: 6, j: 0 }, { i: 8, j: 0 }, { i: 2, j: 1 }, { i: 1, j: 0 }, { i: 4, j: 1 }, { i: 3, j: 0 }, { i: 6, j: 1 }, { i: 5, j: 0 }, { i: 8, j: 1 }, { i: 7, j: 0 }, { i: 1, j: 3 }, { i: 9, j: 0 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 1, j: 1 }, { i: 4, j: 2 }, { i: 3, j: 1 }, { i: 6, j: 2 }, { i: 5, j: 1 }, { i: 8, j: 2 }, { i: 7, j: 1 }, { i: 1, j: 4 }, { i: 9, j: 1 }, { i: 3, j: 4 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 3, j: 2 }, { i: 6, j: 3 }, { i: 5, j: 2 }, { i: 8, j: 3 }, { i: 7, j: 2 }, { i: 1, j: 5 }, { i: 9, j: 2 }, { i: 3, j: 5 }, { i: 2, j: 4 }, { i: 5, j: 5 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 5, j: 3 }, { i: 8, j: 4 }, { i: 7, j: 3 }, { i: 1, j: 6 }, { i: 9, j: 3 }, { i: 3, j: 6 }, { i: 2, j: 5 }, { i: 5, j: 6 }, { i: 4, j: 5 }, { i: 7, j: 6 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 7, j: 4 }, { i: 1, j: 7 }, { i: 9, j: 4 }, { i: 3, j: 7 }, { i: 2, j: 6 }, { i: 5, j: 7 }, { i: 4, j: 6 }, { i: 7, j: 7 }, { i: 6, j: 6 }, { i: 9, j: 7 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 1, j: 8 }, { i: 9, j: 5 }, { i: 3, j: 8 }, { i: 2, j: 7 }, { i: 5, j: 8 }, { i: 4, j: 7 }, { i: 7, j: 8 }, { i: 6, j: 7 }, { i: 9, j: 8 }, { i: 8, j: 7 }, { i: 2, j: 8 }, { i: 4, j: 8 }, { i: 6, j: 8 }, { i: 8, j: 8 },  ], css_id: 'tinytable_css_01oocrxgee3ifiytwcda',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 6 }, { i: 0, j: 8 }, { i: 0, j: 5 }, { i: 0, j: 7 }, { i: 0, j: 4 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_ccfc3md9cdmvakyoa5m9',}, 
+          ];
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-R-gt" class="csl-entry" role="listitem">
-Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, JooYoung Seo, Ken Brevoort, and Olivier Roy. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_byqbay1vpss5dyiixlhd(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_86vpvgbgq0tyd27zjttq, .table th.tinytable_css_86vpvgbgq0tyd27zjttq { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_01oocrxgee3ifiytwcda, .table th.tinytable_css_01oocrxgee3ifiytwcda { text-align: left; }
+      .table td.tinytable_css_ccfc3md9cdmvakyoa5m9, .table th.tinytable_css_ccfc3md9cdmvakyoa5m9 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+<div class="container">
+      <table class="table table-borderless" id="tinytable_byqbay1vpss5dyiixlhd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col"> </th>
+                <th scope="col">Unique</th>
+                <th scope="col">Missing Pct.</th>
+                <th scope="col">Mean</th>
+                <th scope="col">SD</th>
+                <th scope="col">Min</th>
+                <th scope="col">Median</th>
+                <th scope="col">Max</th>
+                <th scope="col">Histogram</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td>BodyWgt</td>
+                  <td>60</td>
+                  <td>0</td>
+                  <td>198.8</td>
+                  <td>899.2</td>
+                  <td>0.0</td>
+                  <td>3.3</td>
+                  <td>6654.0</td>
+                  <td><img src="./tinytable_assets/id4v7aqpwi1ezcfjmozpoj.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>BrainWgt</td>
+                  <td>59</td>
+                  <td>0</td>
+                  <td>283.1</td>
+                  <td>930.3</td>
+                  <td>0.1</td>
+                  <td>17.2</td>
+                  <td>5712.0</td>
+                  <td><img src="./tinytable_assets/idukcmhw2bladm2sqqm3qf.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>NonD</td>
+                  <td>40</td>
+                  <td>23</td>
+                  <td>8.7</td>
+                  <td>3.7</td>
+                  <td>2.1</td>
+                  <td>8.4</td>
+                  <td>17.9</td>
+                  <td><img src="./tinytable_assets/idabz3s9sf5iv28yyj32zu.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Dream</td>
+                  <td>31</td>
+                  <td>19</td>
+                  <td>2.0</td>
+                  <td>1.4</td>
+                  <td>0.0</td>
+                  <td>1.8</td>
+                  <td>6.6</td>
+                  <td><img src="./tinytable_assets/idtthqbdnb968tspvep4ll.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Sleep</td>
+                  <td>45</td>
+                  <td>6</td>
+                  <td>10.5</td>
+                  <td>4.6</td>
+                  <td>2.6</td>
+                  <td>10.4</td>
+                  <td>19.9</td>
+                  <td><img src="./tinytable_assets/idn6j4dow4ie9z60wcvyee.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Span</td>
+                  <td>48</td>
+                  <td>6</td>
+                  <td>19.9</td>
+                  <td>18.2</td>
+                  <td>2.0</td>
+                  <td>15.1</td>
+                  <td>100.0</td>
+                  <td><img src="./tinytable_assets/id03xp48tkt4wstnhvbyi8.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Gest</td>
+                  <td>50</td>
+                  <td>6</td>
+                  <td>142.4</td>
+                  <td>146.8</td>
+                  <td>12.0</td>
+                  <td>79.0</td>
+                  <td>645.0</td>
+                  <td><img src="./tinytable_assets/idyuj7cbh2b62ff66cj96z.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Pred</td>
+                  <td>5</td>
+                  <td>0</td>
+                  <td>2.9</td>
+                  <td>1.5</td>
+                  <td>1.0</td>
+                  <td>3.0</td>
+                  <td>5.0</td>
+                  <td><img src="./tinytable_assets/id3kzhqxug79pb8bnsxo9h.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Exp</td>
+                  <td>5</td>
+                  <td>0</td>
+                  <td>2.4</td>
+                  <td>1.6</td>
+                  <td>1.0</td>
+                  <td>2.0</td>
+                  <td>5.0</td>
+                  <td><img src="./tinytable_assets/id41ddqt0810k16swfxe81.png" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td>Danger</td>
+                  <td>5</td>
+                  <td>0</td>
+                  <td>2.6</td>
+                  <td>1.4</td>
+                  <td>1.0</td>
+                  <td>2.0</td>
+                  <td>5.0</td>
+                  <td><img src="./tinytable_assets/idsgu0q20j7589cukkxjec.png" style="height: 1em;"></td>
+                </tr>
+</tbody>
+</table>
 </div>
-<div id="ref-R-ggpubr" class="csl-entry" role="listitem">
-Kassambara, Alboukadel. 2023. <em>Ggpubr: Ggplot2 Based Publication Ready Plots</em>. <a href="https://rpkgs.datanovia.com/ggpubr/">https://rpkgs.datanovia.com/ggpubr/</a>.
+<!-- hack to avoid NA insertion in last line -->
 </div>
-<div id="ref-vcd2006" class="csl-entry" role="listitem">
-Meyer, David, Achim Zeileis, and Kurt Hornik. 2006. <span>“The Strucplot Framework: Visualizing Multi-Way Contingency Tables with Vcd.”</span> <em>Journal of Statistical Software</em> 17 (3): 1–48. <a href="https://doi.org/10.18637/jss.v017.i03">https://doi.org/10.18637/jss.v017.i03</a>.
 </div>
-<div id="ref-R-vcd" class="csl-entry" role="listitem">
-Meyer, David, Achim Zeileis, Kurt Hornik, and Michael Friendly. 2023. <em>Vcd: Visualizing Categorical Data</em>. <a href="https://CRAN.R-project.org/package=vcd">https://CRAN.R-project.org/package=vcd</a>.
+<div style="page-break-after: always;"></div>
+<p><strong><code>summarytools</code> package</strong></p>
+<p>Another package that also provides a nice summary of the variables in the dataset, is the <code><a href="https://rdrr.io/pkg/summarytools/man/dfSummary.html">dfSummary()</a></code> from the <code>summarytools</code> dataset.</p>
+<p><em>NOTE: Learn more about how to use <code><a href="https://rdrr.io/pkg/summarytools/man/dfSummary.html">summarytools::dfSummary()</a></code> in an Rmarkdown document at <a href="https://cran.r-project.org/web/packages/summarytools/vignettes/rmarkdown.html">https://cran.r-project.org/web/packages/summarytools/vignettes/rmarkdown.html</a>.</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dcomtois/summarytools">summarytools</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/summarytools/man/view.html">view</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/summarytools/man/dfSummary.html">dfSummary</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ref-R-gtExtras" class="csl-entry" role="listitem">
-Mock, Thomas. 2024. <em>gtExtras: Extending Gt for Beautiful HTML Tables</em>. <a href="https://github.com/jthomasmock/gtExtras">https://github.com/jthomasmock/gtExtras</a>.
+<p><img src="dfsummary_html.png" class="img-fluid"></p>
+<div style="page-break-after: always;"></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-R-patchwork" class="csl-entry" role="listitem">
-Pedersen, Thomas Lin. 2024. <em>Patchwork: The Composer of Plots</em>. <a href="https://patchwork.data-imaginist.com">https://patchwork.data-imaginist.com</a>.
+<div class="callout-title-container flex-fill">
+Try It On Your Own
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try running <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> or <code><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim()</a></code> on the <code>penguins</code> dataset from the <code>palmerpenguins</code> package. Notice the summaries for the numeric and the factor type variables.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      species          island    bill_length_mm  bill_depth_mm  
+ Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
+ Chinstrap: 68   Dream    :124   1st Qu.:39.23   1st Qu.:15.60  
+ Gentoo   :124   Torgersen: 52   Median :44.45   Median :17.30  
+                                 Mean   :43.92   Mean   :17.15  
+                                 3rd Qu.:48.50   3rd Qu.:18.70  
+                                 Max.   :59.60   Max.   :21.50  
+                                 NA's   :2       NA's   :2      
+ flipper_length_mm  body_mass_g       sex           year     
+ Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
+ 1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
+ Median :197.0     Median :4050   NA's  : 11   Median :2008  
+ Mean   :200.9     Mean   :4202                Mean   :2008  
+ 3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
+ Max.   :231.0     Max.   :6300                Max.   :2009  
+ NA's   :2         NA's   :2                                 </code></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">penguins</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">344</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 33%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">species</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Ade: 152, Gen: 124, Chi: 68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">island</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Bis: 168, Dre: 124, Tor: 52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sex</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">mal: 168, fem: 165</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">bill_length_mm</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">43.92</td>
+<td style="text-align: right;">5.46</td>
+<td style="text-align: right;">32.1</td>
+<td style="text-align: right;">39.23</td>
+<td style="text-align: right;">44.45</td>
+<td style="text-align: right;">48.5</td>
+<td style="text-align: right;">59.6</td>
+<td style="text-align: left;">▃▇▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bill_depth_mm</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">17.15</td>
+<td style="text-align: right;">1.97</td>
+<td style="text-align: right;">13.1</td>
+<td style="text-align: right;">15.60</td>
+<td style="text-align: right;">17.30</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">21.5</td>
+<td style="text-align: left;">▅▅▇▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">flipper_length_mm</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">200.92</td>
+<td style="text-align: right;">14.06</td>
+<td style="text-align: right;">172.0</td>
+<td style="text-align: right;">190.00</td>
+<td style="text-align: right;">197.00</td>
+<td style="text-align: right;">213.0</td>
+<td style="text-align: right;">231.0</td>
+<td style="text-align: left;">▂▇▃▅▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">body_mass_g</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">4201.75</td>
+<td style="text-align: right;">801.95</td>
+<td style="text-align: right;">2700.0</td>
+<td style="text-align: right;">3550.00</td>
+<td style="text-align: right;">4050.00</td>
+<td style="text-align: right;">4750.0</td>
+<td style="text-align: right;">6300.0</td>
+<td style="text-align: left;">▃▇▆▃▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2008.03</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">2007.0</td>
+<td style="text-align: right;">2007.00</td>
+<td style="text-align: right;">2008.00</td>
+<td style="text-align: right;">2009.0</td>
+<td style="text-align: right;">2009.0</td>
+<td style="text-align: left;">▇▁▇▁▇</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="visualize-missing-data." class="level3"><h3 class="anchored" data-anchor-id="visualize-missing-data.">Visualize Missing Data.</h3>
+<p><strong>Making plots with <code>VIM</code> package</strong></p>
+<p>The <code>VIM</code> package has an “aggregate” function <code><a href="https://rdrr.io/pkg/VIM/man/aggr.html">aggr()</a></code> which counts up the amounts of missing data for each variable and combinations of variables. The <code>sleep</code> dataset only has 10 variables.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+WARNING - Too Many Variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before using the <code><a href="https://rdrr.io/pkg/VIM/man/aggr.html">aggr()</a></code> function, limit the number of variables. FIRST create a dataset with only the variables you are interested in BEFORE running the function - otherwise you may lock up your computer if you feed it too many variables at once.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get a quick count of the amount of missing</span></span>
+<span><span class="co"># data in the sleep dataset for each variable</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/VIM/man/aggr.html">aggr</a></span><span class="op">(</span><span class="va">sleep</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Missings in variables:
+ Variable Count
+     NonD    14
+    Dream    12
+    Sleep     4
+     Span     4
+     Gest     4</code></pre>
+</div>
+</div>
+<p>The default output from above only lists the variables that have one or more rows with missing data. However, you can get a complete list with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span><span class="op">$</span><span class="va">missings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Variable Count
+BodyWgt   BodyWgt     0
+BrainWgt BrainWgt     0
+NonD         NonD    14
+Dream       Dream    12
+Sleep       Sleep     4
+Span         Span     4
+Gest         Gest     4
+Pred         Pred     0
+Exp           Exp     0
+Danger     Danger     0</code></pre>
+</div>
+</div>
+<p>Next let’s get some plots.</p>
+<p>The plot on the LEFT below is a simple bar plot showing the missing counts for each variable in the dataset.</p>
+<ul>
+<li>
+<p>Also notice that there are only 5 variables with one or more missing values:</p>
+<ul>
+<li><code>NonD</code></li>
+<li><code>Dream</code></li>
+<li><code>Sleep</code></li>
+<li><code>Span</code></li>
+<li><code>Gest</code></li>
+</ul>
+</li>
+</ul>
+<p>The plot on the RIGHT however, shows the amounts of missing data for the various patterns of missing data for the 10 variables in the <code>sleep</code> dataset.</p>
+<p>For example, notice that of the 62 rows of data in the <code>sleep</code> dataset:</p>
+<ul>
+<li>there are only 42 rows with complete data with no missing data on all 10 variables;</li>
+<li>the next largest “pattern” of missing data is 9 rows that are missing both <code>NonD</code> and <code>Dream</code> variables.; and</li>
+<li>there are 3 rows of data with the <code>gest</code> variable with missing data.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make plots of the amounts and patterns of missing data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">a</span>, numbers <span class="op">=</span> <span class="cn">TRUE</span>, prop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Marginplots - see how missingness varys with other measures</strong></p>
+<p>In addition to a usual scatterplot, the <code><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot()</a></code> function in the <code>VIM</code> package, also shows information about missing values in the plot margins.</p>
+<p>The red boxplot on the left shows the distrubution of all values of <code>Sleep</code> where <code>Dream</code> contains a missing value. The blue boxplot on the left shows the distribution of the values of <code>Sleep</code> where <code>Dream</code> is observed.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dream"</span>, <span class="st">"Sleep"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visualize Missing Data with the <code>naniar</code> package</strong></p>
+<p>The naniar package “provides principled, tidy ways to summarise, visualise, and manipulate missing data with minimal deviations from the workflows in ggplot2 and tidy data.” <em>See <a href="https://naniar.njtierney.com/index.html"><code>naniar</code> website</a>.</em></p>
+<p>For example, let’s make a similar to plot to what we did above to visualize the scatterplot between <code>Dream</code> and <code>Sleep</code> but also consider the amounts of missing data of one variable relative to the other variable in the plot. We can do this using the <code><a href="https://naniar.njtierney.com/reference/geom_miss_point.html">geom_miss_point()</a></code> function provided in the <code>naniar</code> package which works with <code>ggplot2</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sleep</span>, </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Dream</span>, </span>
+<span>           y <span class="op">=</span> <span class="va">Sleep</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://naniar.njtierney.com/reference/geom_miss_point.html">geom_miss_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="learn-methods-to-handle-missing-data-according-to-variable-type." class="level2"><h2 class="anchored" data-anchor-id="learn-methods-to-handle-missing-data-according-to-variable-type.">2. Learn methods to handle missing data according to variable type.</h2>
+<p>discuss pairwise versus listwise and discuss impacts on modeling especially for stepwise variable selection - always check the final N for each model</p>
+<p>show correlations pairwise and listwise</p>
+<p>add details on modeling adjustments - covariate predicted missingness</p>
+<p>options on imputation - brief intro</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sleep</span><span class="op">$</span><span class="va">NonD_missing</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">NonD</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">correlation</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Correlation Matrix (pearson-method)
+
+Parameter1 |   Parameter2 |     r |         95% CI |     t | df |         p
+---------------------------------------------------------------------------
+BodyWgt    |     BrainWgt |  0.93 | [ 0.89,  0.96] | 20.28 | 60 | &lt; .001***
+BodyWgt    |         NonD | -0.38 | [-0.60, -0.10] | -2.75 | 46 | 0.211    
+BodyWgt    |        Dream | -0.11 | [-0.38,  0.17] | -0.76 | 48 | &gt; .999   
+BodyWgt    |        Sleep | -0.31 | [-0.52, -0.05] | -2.42 | 56 | 0.418    
+BodyWgt    |         Span |  0.30 | [ 0.05,  0.52] |  2.37 | 56 | 0.441    
+BodyWgt    |         Gest |  0.65 | [ 0.47,  0.78] |  6.42 | 56 | &lt; .001***
+BodyWgt    |         Pred |  0.06 | [-0.19,  0.30] |  0.46 | 60 | &gt; .999   
+BodyWgt    |          Exp |  0.34 | [ 0.10,  0.54] |  2.78 | 60 | 0.186    
+BodyWgt    |       Danger |  0.13 | [-0.12,  0.37] |  1.04 | 60 | &gt; .999   
+BodyWgt    | NonD_missing |  0.23 | [-0.02,  0.45] |  1.80 | 60 | &gt; .999   
+BrainWgt   |         NonD | -0.37 | [-0.59, -0.10] | -2.69 | 46 | 0.226    
+BrainWgt   |        Dream | -0.11 | [-0.37,  0.18] | -0.73 | 48 | &gt; .999   
+BrainWgt   |        Sleep | -0.36 | [-0.56, -0.11] | -2.87 | 56 | 0.156    
+BrainWgt   |         Span |  0.51 | [ 0.29,  0.68] |  4.43 | 56 | 0.002**  
+BrainWgt   |         Gest |  0.75 | [ 0.61,  0.84] |  8.41 | 56 | &lt; .001***
+BrainWgt   |         Pred |  0.03 | [-0.22,  0.28] |  0.26 | 60 | &gt; .999   
+BrainWgt   |          Exp |  0.37 | [ 0.13,  0.57] |  3.06 | 60 | 0.098    
+BrainWgt   |       Danger |  0.15 | [-0.11,  0.38] |  1.14 | 60 | &gt; .999   
+BrainWgt   | NonD_missing |  0.18 | [-0.07,  0.41] |  1.41 | 60 | &gt; .999   
+NonD       |        Dream |  0.51 | [ 0.27,  0.70] |  4.07 | 46 | 0.007**  
+NonD       |        Sleep |  0.96 | [ 0.93,  0.98] | 24.14 | 46 | &lt; .001***
+NonD       |         Span | -0.38 | [-0.61, -0.10] | -2.73 | 43 | 0.219    
+NonD       |         Gest | -0.59 | [-0.76, -0.36] | -4.79 | 42 | &lt; .001***
+NonD       |         Pred | -0.32 | [-0.55, -0.04] | -2.28 | 46 | 0.551    
+NonD       |          Exp | -0.54 | [-0.72, -0.31] | -4.39 | 46 | 0.002**  
+NonD       |       Danger | -0.48 | [-0.68, -0.23] | -3.75 | 46 | 0.017*   
+NonD       | NonD_missing |       |                |       | 46 |          
+Dream      |        Sleep |  0.73 | [ 0.56,  0.84] |  7.18 | 46 | &lt; .001***
+Dream      |         Span | -0.30 | [-0.54, -0.01] | -2.08 | 45 | 0.828    
+Dream      |         Gest | -0.45 | [-0.66, -0.18] | -3.35 | 44 | 0.055    
+Dream      |         Pred | -0.45 | [-0.65, -0.19] | -3.47 | 48 | 0.038*   
+Dream      |          Exp | -0.54 | [-0.71, -0.30] | -4.41 | 48 | 0.002**  
+Dream      |       Danger | -0.58 | [-0.74, -0.36] | -4.92 | 48 | &lt; .001***
+Dream      | NonD_missing | -0.19 | [-0.44,  0.09] | -1.33 | 48 | &gt; .999   
+Sleep      |         Span | -0.41 | [-0.61, -0.16] | -3.24 | 52 | 0.066    
+Sleep      |         Gest | -0.63 | [-0.77, -0.44] | -5.87 | 52 | &lt; .001***
+Sleep      |         Pred | -0.40 | [-0.59, -0.15] | -3.23 | 56 | 0.066    
+Sleep      |          Exp | -0.64 | [-0.77, -0.46] | -6.27 | 56 | &lt; .001***
+Sleep      |       Danger | -0.59 | [-0.73, -0.39] | -5.44 | 56 | &lt; .001***
+Sleep      | NonD_missing | -0.08 | [-0.33,  0.18] | -0.60 | 56 | &gt; .999   
+Span       |         Gest |  0.61 | [ 0.42,  0.76] |  5.68 | 53 | &lt; .001***
+Span       |         Pred | -0.10 | [-0.35,  0.16] | -0.77 | 56 | &gt; .999   
+Span       |          Exp |  0.36 | [ 0.11,  0.57] |  2.89 | 56 | 0.153    
+Span       |       Danger |  0.06 | [-0.20,  0.32] |  0.46 | 56 | &gt; .999   
+Span       | NonD_missing |  0.08 | [-0.18,  0.33] |  0.63 | 56 | &gt; .999   
+Gest       |         Pred |  0.20 | [-0.06,  0.44] |  1.53 | 56 | &gt; .999   
+Gest       |          Exp |  0.64 | [ 0.45,  0.77] |  6.20 | 56 | &lt; .001***
+Gest       |       Danger |  0.38 | [ 0.13,  0.58] |  3.06 | 56 | 0.098    
+Gest       | NonD_missing |  0.20 | [-0.06,  0.44] |  1.55 | 56 | &gt; .999   
+Pred       |          Exp |  0.62 | [ 0.44,  0.75] |  6.09 | 60 | &lt; .001***
+Pred       |       Danger |  0.92 | [ 0.86,  0.95] | 17.69 | 60 | &lt; .001***
+Pred       | NonD_missing |  0.05 | [-0.20,  0.29] |  0.37 | 60 | &gt; .999   
+Exp        |       Danger |  0.79 | [ 0.67,  0.87] |  9.89 | 60 | &lt; .001***
+Exp        | NonD_missing |  0.25 | [ 0.00,  0.47] |  1.96 | 60 | 0.981    
+Danger     | NonD_missing |  0.07 | [-0.19,  0.31] |  0.51 | 60 | &gt; .999   
+
+p-value adjustment method: Holm (1979)
+Observations: 44-62</code></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">BodyWgt</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  BodyWgt by NonD_missing
+t = -1.0239, df = 13.351, p-value = 0.3241
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -1502.0470   534.3593
+sample estimates:
+mean in group 0 mean in group 1 
+       89.53492       573.37879 </code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">BrainWgt</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  BrainWgt by NonD_missing
+t = -0.96511, df = 14.651, p-value = 0.3502
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -1272.563   480.454
+sample estimates:
+mean in group 0 mean in group 1 
+       193.7025        589.7571 </code></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Sleep by NonD_missing
+t = 0.57598, df = 12.498, p-value = 0.5749
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -2.683161  4.623161
+sample estimates:
+mean in group 0 mean in group 1 
+          10.70            9.73 </code></pre>
+</div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Span</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Span by NonD_missing
+t = -0.86773, df = 38.531, p-value = 0.3909
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -12.021726   4.805658
+sample estimates:
+mean in group 0 mean in group 1 
+       19.06889        22.67692 </code></pre>
+</div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Gest</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Gest by NonD_missing
+t = -1.2435, df = 16.636, p-value = 0.2309
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -185.81590   48.15032
+sample estimates:
+mean in group 0 mean in group 1 
+       125.7386        194.5714 </code></pre>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Pred</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Pred by NonD_missing
+t = -0.33283, df = 18.543, p-value = 0.743
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -1.2165041  0.8831708
+sample estimates:
+mean in group 0 mean in group 1 
+       2.833333        3.000000 </code></pre>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Exp</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Exp by NonD_missing
+t = -1.7467, df = 18.278, p-value = 0.09747
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -2.0573419  0.1882943
+sample estimates:
+mean in group 0 mean in group 1 
+       2.208333        3.142857 </code></pre>
+</div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Danger</span> <span class="op">~</span> <span class="va">NonD_missing</span>,</span>
+<span>       data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Danger by NonD_missing
+t = -0.44672, df = 18.075, p-value = 0.6604
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -1.2726861  0.8262576
+sample estimates:
+mean in group 0 mean in group 1 
+       2.562500        2.785714 </code></pre>
+</div>
+</div>
+<p><strong>Marginplot of Imputed Values - Example</strong></p>
+<p>Let’s take the little dataset <code>x</code> which is a subset of the <code>sleep</code> dataset which has all 62 rows but only the <code>Dream</code> and <code>Sleep</code> variables.</p>
+<p>There are a few built-in imputation functions in <code>VIM</code>. Let’s see what the <code><a href="https://rdrr.io/pkg/VIM/man/kNN.html">kNN()</a></code> (k-nearest neighbor) function does.</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_imputed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/VIM/man/kNN.html">kNN</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now look at the plot again for these new <code>Dream</code> and <code>Sleep</code> variables for the k-nearest neighbor imputed variables. Notice the coloring of the points - the blue are the original values and the other colors represent the structure of missings.</p>
+<ul>
+<li>brown points represent values where Dream was missing initially</li>
+<li>beige points represent values where Sleep was missing initially</li>
+<li>black points represent values where both Dream and Sleep were missing initially</li>
+</ul>
+<p>The <code><a href="https://rdrr.io/pkg/VIM/man/kNN.html">kNN()</a></code> method appears to preserve the correlation between <code>Dream</code> and <code>Sleep</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot</a></span><span class="op">(</span><span class="va">x_imputed</span>, delimiter <span class="op">=</span> <span class="st">"_imp"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<div style="page-break-after: always;"></div>
+</section><section id="use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro" class="level2"><h2 class="anchored" data-anchor-id="use-a-survey-sampling-weight-to-generate-more-representative-descriptive-and-inferential-statistical-values-brief-intro">3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)</h2>
+<p>introduction to survey weights</p>
+<p>show how this impacts the amounts of missing data</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section><section id="discuss-potential-bias-when-removing-missing-observations-without-careful-examination." class="level2"><h2 class="anchored" data-anchor-id="discuss-potential-bias-when-removing-missing-observations-without-careful-examination.">4. Discuss potential bias when removing missing observations without careful examination.</h2>
+<p>talk about assumptions for missing data - MCAR, MAR and NMAR (or MNAR)</p>
+<p>add more examples here</p>
+<p>also for publication - running models for comparison - sensitivity tests - model for all complete data - models based on pairwise selections - n changes - models before and after covariate adjustments - models before and after imputation</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section><section id="r-code-for-this-module" class="level2"><h2 class="anchored" data-anchor-id="r-code-for-this-module">R Code For This Module</h2>
+<ul>
+<li><a href="module_134.R"><code>module_134.R</code></a></li>
+</ul></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-modelsummary2022" class="csl-entry" role="listitem">
+Arel-Bundock, Vincent. 2022. <span>“<span class="nocase">modelsummary</span>: Data and Model Summaries in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 103 (1): 1–23. <a href="https://doi.org/10.18637/jss.v103.i01">https://doi.org/10.18637/jss.v103.i01</a>.
+</div>
+<div id="ref-R-modelsummary" class="csl-entry" role="listitem">
+———. 2025a. <em>Modelsummary: Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready</em>. <a href="https://modelsummary.com">https://modelsummary.com</a>.
+</div>
+<div id="ref-R-tinytable" class="csl-entry" role="listitem">
+———. 2025b. <em>Tinytable: Simple and Configurable Tables in HTML, LaTeX, Markdown, Word, PNG, PDF, and Typst Formats</em>. <a href="https://vincentarelbundock.github.io/tinytable/">https://vincentarelbundock.github.io/tinytable/</a>.
+</div>
+<div id="ref-R-palmerpenguins" class="csl-entry" role="listitem">
+Horst, Allison, Alison Hill, and Kristen Gorman. 2022. <em>Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data</em>. <a href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>.
+</div>
+<div id="ref-R-colorspace" class="csl-entry" role="listitem">
+Ihaka, Ross, Paul Murrell, Kurt Hornik, Jason C. Fisher, Reto Stauffer, Claus O. Wilke, Claire D. McWhite, and Achim Zeileis. 2023. <em>Colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes</em>. <a href="https://colorspace.R-Forge.R-project.org/">https://colorspace.R-Forge.R-project.org/</a>.
+</div>
+<div id="ref-VIM2016" class="csl-entry" role="listitem">
+Kowarik, Alexander, and Matthias Templ. 2016. <span>“Imputation with the <span>R</span> Package <span>VIM</span>.”</span> <em>Journal of Statistical Software</em> 74 (7): 1–16. <a href="https://doi.org/10.18637/jss.v074.i07">https://doi.org/10.18637/jss.v074.i07</a>.
 </div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
-R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2025. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
-<div id="ref-R-GGally" class="csl-entry" role="listitem">
-Schloerke, Barret, Di Cook, Joseph Larmarange, Francois Briatte, Moritz Marbach, Edwin Thoen, Amos Elberg, and Jason Crowley. 2024. <em>GGally: Extension to Ggplot2</em>. <a href="https://ggobi.github.io/ggally/">https://ggobi.github.io/ggally/</a>.
+<div id="ref-colorspace2009b" class="csl-entry" role="listitem">
+Stauffer, Reto, Georg J. Mayr, Markus Dabernig, and Achim Zeileis. 2009. <span>“Somewhere over the Rainbow: How to Make Effective Use of Colors in Meteorological Visualizations.”</span> <em>Bulletin of the American Meteorological Society</em> 96 (2): 203–16. <a href="https://doi.org/10.1175/BAMS-D-13-00155.1">https://doi.org/10.1175/BAMS-D-13-00155.1</a>.
 </div>
-<div id="ref-plotly2020" class="csl-entry" role="listitem">
-Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+<div id="ref-R-VIM" class="csl-entry" role="listitem">
+Templ, Matthias, Alexander Kowarik, Andreas Alfons, Gregor de Cillia, and Wolfgang Rannetbauer. 2022. <em>VIM: Visualization and Imputation of Missing Values</em>. <a href="https://github.com/statistikat/VIM">https://github.com/statistikat/VIM</a>.
 </div>
-<div id="ref-R-plotly" class="csl-entry" role="listitem">
-Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2024. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+<div id="ref-naniar2023" class="csl-entry" role="listitem">
+Tierney, Nicholas, and Dianne Cook. 2023. <span>“Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.”</span> <em>Journal of Statistical Software</em> 105 (7): 1–31. <a href="https://doi.org/10.18637/jss.v105.i07">https://doi.org/10.18637/jss.v105.i07</a>.
+</div>
+<div id="ref-R-naniar" class="csl-entry" role="listitem">
+Tierney, Nicholas, Di Cook, Miles McBain, and Colin Fay. 2024. <em>Naniar: Data Structures, Summaries, and Visualisations for Missing Data</em>. <a href="https://github.com/njtierney/naniar">https://github.com/njtierney/naniar</a>.
+</div>
+<div id="ref-R-skimr" class="csl-entry" role="listitem">
+Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2022. <em>Skimr: Compact and Flexible Summaries of Data</em>. <a href="https://docs.ropensci.org/skimr/">https://docs.ropensci.org/skimr/</a>.
 </div>
 <div id="ref-ggplot22016" class="csl-entry" role="listitem">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
@@ -262,13 +1416,35 @@ Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Spr
 <div id="ref-R-ggplot2" class="csl-entry" role="listitem">
 Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
-<div id="ref-R-dplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
+<div id="ref-colorspace2020a" class="csl-entry" role="listitem">
+Zeileis, Achim, Jason C. Fisher, Kurt Hornik, Ross Ihaka, Claire D. McWhite, Paul Murrell, Reto Stauffer, and Claus O. Wilke. 2020. <span>“<span class="nocase">colorspace</span>: A Toolbox for Manipulating and Assessing Colors and Palettes.”</span> <em>Journal of Statistical Software</em> 96 (1): 1–49. <a href="https://doi.org/10.18637/jss.v096.i01">https://doi.org/10.18637/jss.v096.i01</a>.
 </div>
-<div id="ref-vcd2007" class="csl-entry" role="listitem">
-Zeileis, Achim, David Meyer, and Kurt Hornik. 2007. <span>“Residual-Based Shadings for Visualizing (Conditional) Independence.”</span> <em>Journal of Computational and Graphical Statistics</em> 16 (3): 507–25. <a href="https://doi.org/10.1198/106186007X237856">https://doi.org/10.1198/106186007X237856</a>.
+<div id="ref-colorspace2009a" class="csl-entry" role="listitem">
+Zeileis, Achim, Kurt Hornik, and Paul Murrell. 2009. <span>“Escaping <span>RGB</span>land: Selecting Colors for Statistical Graphics.”</span> <em>Computational Statistics &amp; Data Analysis</em> 53 (9): 3259–70. <a href="https://doi.org/10.1016/j.csda.2008.11.033">https://doi.org/10.1016/j.csda.2008.11.033</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div>
+</section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
+<p><a href="./additionalResources.html" target="_blank"><strong>Other Helpful Resources</strong></a></p>
+<p><strong>Missing Data Resources</strong></p>
+<ul>
+<li><p><a href="https://cran.r-project.org/web/views/MissingData.html">CRAN Task View for Missing Data</a></p></li>
+<li><p><a href="https://rmisstastic.netlify.app/">R-miss-tastic Website</a></p></li>
+<li><p><a href="https://stefvanbuuren.name/fimd/">Flexible Imputation of Missing Data (online book for 2nd edition) by Stef van Buuren</a></p></li>
+<li><p>more …</p></li>
+<li><p>https://www.datawim.com/post/missing-data-visualization-in-r/</p></li>
+<li><p>https://libguides.princeton.edu/R-Missingdata</p></li>
+<li><p>https://cran.r-project.org/web/packages/mice/index.html</p></li>
+<li><p>https://cran.r-project.org/web/views/MissingData.html</p></li>
+<li><p>https://rmisstastic.netlify.app/</p></li>
+<li><p>https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018</p></li>
+<li><p>https://modelsummary.com/vignettes/datasummary.html</p></li>
+<li><p>https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/</p></li>
+<li><p>https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html</p></li>
+<li><p>https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html</p></li>
+</ul>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
