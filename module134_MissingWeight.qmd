@@ -40,38 +40,26 @@ knitr::opts_chunk$set(
 
 If you do not have them already, install the following packages from CRAN (using the RStudio Menu "Tools/Install" Packages interface):
 
-* [`VIM`](https://cran.r-project.org/web/packages/VIM/index.html){target="_blank"}
-    - [`VIM` package website](https://statistikat.github.io/VIM/index.html){target="_blank"}
-* [`skimr`](https://cran.r-project.org/web/packages/skimr/index.html){target="_blank"} - OPTIONAL
-    - [`skimr` website](https://docs.ropensci.org/skimr/){target="_blank"}
-* [`modelsummary`](https://cran.r-project.org/web/packages/modelsummary/){target="_blank"} - OPTIONAL
-    - [`modelsummary` website](https://modelsummary.com/){target="_blank"}
-* [`tinytable`](https://cran.r-project.org/web/packages/tinytable/index.html){target="_blank"} - OPTIONAL
-    - [`tinytable` website](https://vincentarelbundock.github.io/tinytable/){target="_blank"}
-* [`summarytools`](https://cran.r-project.org/web/packages/summarytools/){target="_blank"} - OPTIONAL
-    - [`summarytools` on Github](https://github.com/dcomtois/summarytools){target="_blank"}
-* [`palmerpenguins`](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"}
-    - [`palmerpenguins` website](https://allisonhorst.github.io/palmerpenguins/){target="_blank"}
-* [`ggplot2`](https://cloud.r-project.org/web/packages/ggplot2/){target="_blank"}
-    - [`ggplot2` website](https://ggplot2.tidyverse.org/){target="_blank"}
-* [`naniar`](https://cran.r-project.org/web/packages/naniar/){target="_blank"}
-    - [`naniar` website](https://naniar.njtierney.com/){target="_blank"}
-* dplyr
-* gtsummary
+* [`VIM`](https://cran.r-project.org/web/packages/VIM/index.html){target="_blank"} and [`VIM` package website](https://statistikat.github.io/VIM/index.html){target="_blank"}
+* (Optional) [`skimr`](https://cran.r-project.org/web/packages/skimr/index.html){target="_blank"} and [`skimr` website](https://docs.ropensci.org/skimr/){target="_blank"}
+* (Optional) [`modelsummary`](https://cran.r-project.org/web/packages/modelsummary/){target="_blank"} and [`modelsummary` website](https://modelsummary.com/){target="_blank"}
+* (Optional) [`summarytools`](https://cran.r-project.org/web/packages/summarytools/){target="_blank"} and [`summarytools` on Github](https://github.com/dcomtois/summarytools){target="_blank"}
+* [`palmerpenguins`](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"} and [`palmerpenguins` website](https://allisonhorst.github.io/palmerpenguins/){target="_blank"}
+* [`ggplot2`](https://cloud.r-project.org/web/packages/ggplot2/){target="_blank"} and [`ggplot2` website](https://ggplot2.tidyverse.org/){target="_blank"}
+* [`naniar`](https://cran.r-project.org/web/packages/naniar/){target="_blank"} and [`naniar` website](https://naniar.njtierney.com/){target="_blank"}
+* [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) and [`dplyr` website](https://dplyr.tidyverse.org/)
+* [`gtsummary`](https://cran.r-project.org/web/packages/gtsummary/) and [`gtsummary` website](https://www.danieldsjoberg.com/gtsummary/)
+* [`Hmisc`](https://cran.r-project.org/web/packages/Hmisc/) and [`Hmisc` website](https://hbiostat.org/r/hmisc/)
+* [`mice`](https://cran.r-project.org/web/packages/mice/index.html){target="_blank"} and [mice website](https://amices.org/mice/){target="_blank"}
 
-* [`mice`](https://cran.r-project.org/web/packages/mice/index.html){target="_blank"}
-    - [mice website](https://amices.org/mice/){target="_blank"}
-    - [BOOK: Flexible Imputation of Missing Data, 2nd ed., by Stef van Buuren (`mice` package author)](https://stefvanbuuren.name/fimd/){target="_blank"}
-* 
-* 
-* 
+### B. Review these online Book Chapters:
 
+* [BOOK: Flexible Imputation of Missing Data, 2nd ed., by Stef van Buuren (`mice` package author) - Chapter 1 "Introduction", Sections 1.1-1.4](https://stefvanbuuren.name/fimd/ch-introduction.html){target="_blank"}
+* [BOOK: The Epidemiologist R Handbook - Chapter 20 "Missing Data"](https://www.epirhandbook.com/en/new_pages/missing_data.html)
 
-### B. Open/create an RStudio project for this lesson
+### C. Open/create an RStudio project for this lesson
 
 Let's start with the `myfirstRproject` RStudio project you created in [Module 1.3.2 - part 1](module132_DataWrangling.html#begin-with-a-new-rstudio-project). If you have not yet created this `myfirstRproject` RStudio project, go ahead and create a new RStudio Project for this lesson. _Feel free to name your project whatever you want, it does not need to be named `myfirstRproject`._
-
-
 
 ---
 
@@ -123,7 +111,7 @@ Another helpful package is the `skimr` package which has the `skim()` function w
 ::: callout-note
 ## Rmarkdown for `skimr` package
 
-When "knitting" to HTML the code below creates the summary table with the miniture histograms. However, when "knitting" to PDF (using the default portrait layout)m the histograms get cutoff on the page. Additional LaTex customization is needed to change the layout to landscape to be able to see the histograms.
+When "knitting" to HTML the code below creates the summary table with the miniture histograms. However, when "knitting" to PDF (using the default portrait layout) the histograms get cutoff on the page. Additional LaTex customization is needed to change the layout to landscape to be able to see the histograms.
 :::
 
 ```{r}
@@ -137,13 +125,13 @@ skim(sleep)
 
 Another helpful package is the `modelsummary` package which has the `datasummary_skim()` function which is a slightly better version built off the `skimr::skim()` package and function.
 
-::: callout-note
-## Rmarkdown for `modelsummary` package
+```{r eval=FALSE, echo=TRUE}
+library(modelsummary)
+datasummary_skim(sleep) 
+```
 
-The `tinytable` package is also used below with the `modelsummary` output to better control the placement of the resulting table when "knitting" to PDF.
-:::
-
-```{r}
+```{r eval=TRUE, echo=FALSE}
+# The `tinytable` package is used below with the `modelsummary` output to better control the placement of the resulting table when "knitting" to PDF.
 library(modelsummary)
 library(tinytable)
 datasummary_skim(sleep) %>%
@@ -158,7 +146,7 @@ Another package that also provides a nice summary of the variables in the datase
 
 _NOTE: Learn more about how to use `summarytools::dfSummary()` in an Rmarkdown document at [https://cran.r-project.org/web/packages/summarytools/vignettes/rmarkdown.html](https://cran.r-project.org/web/packages/summarytools/vignettes/rmarkdown.html)._
 
-```{r eval = FALSE}
+```{r eval=FALSE, echo=TRUE}
 library(summarytools)
 view(dfSummary(sleep))
 ```
@@ -238,7 +226,7 @@ Exploring patterns of missingness can be informative to better understand why th
 
 \newpage
 
-**Marginplots - see how missingness varys with other measures**
+**Marginplots - see how missingness varies with other measures**
 
 In addition to a usual scatterplot, the `marginplot()` function in the `VIM` package, also shows information about missing values in the plot margins.
 
@@ -297,6 +285,8 @@ gg_miss_upset(sleep)
 
 Setting aside bias concerns for the moment, missing data logistically causes issues with code - especially in R. At first glance this seems to be a huge pain since we get errors or nonsensical output. But these issues force us to deal with the missing data and provide explicit instructions to the computer code on how we want to addressthe missing data. _Learn more in the [Flexible Imputation of Missing Data BOOK](https://stefvanbuuren.name/fimd/sec-problem.html)._
 
+### Impact of missing data for descriptive stats like the mean
+
 For example, let's find the mean of the `Dream` variable in the `sleep` dataset.
 
 ```{r}
@@ -310,6 +300,8 @@ mean(sleep$Dream, na.rm = TRUE)
 ```
 
 \newpage
+
+### Impact of missing data for summary statistics
 
 We did do a deep dive above and we know that there are 12 rows with missing values for the Dream variable. But if we had run the `mean()` function with `na.rm = TRUE`, we might not have know just how much data was missing. So, it is always a good idea to make sure to check for missing data and assess how much you have PRIOR to conducting any analyses.
 
@@ -338,6 +330,8 @@ sleep %>%
 
 \newpage
 
+### Impact of missing data for regression models
+
 When running a model, like a regression model between `Dream` and `Sleep`, let's look at the summary output from fitting a linear model using the built-in `lm()` function:
 
 ```{r}
@@ -353,6 +347,8 @@ Notice the output tells us that `(14 observations deleted due to missingness)`. 
 Keep in mind, when you are fitting any model (linear or logistic regression, analysis of variance, etc), the default is (almost) always to use a LISTWISE deletion, which removes ALL rows with any missing data on any of the variables considered in the model - including predictors, covariates, and outcome(s).
 
 \newpage
+
+### Impact of missing data for correlation matrix - cor() function
 
 Let's also look at a small correlation matrix considering PAIRWISE versus LISTWISE deletion of missing data for 3 variables from the `sleep` dataset. Notice that the correlation between `BrainWgt` and `Dream` and `Sleep` are slightly different between LISTWISE and PAIRWISE approaches. These are all `pearson` correlations be default. 
 
@@ -376,7 +372,11 @@ sleep %>%
 
 \newpage
 
+### Impact of missing data for correlation matrix - Hmisc package
+
 There is also a helpful correlation function `rcorr()` in the `Hmisc` package. From this function we can save the output and get the n's and p-values in addition to the (Pearson) correlations. These numeric data have to be converted to a numeric matrix prior to inputting them to the `rcorr()` function, which is why `as.matrix()` is used in the code chunk below. 
+
+**NOTE**: PAIRWISE deletion is the default setting for `Hmisc::rcorr()`.
 
 ```{r}
 library(Hmisc)
@@ -554,6 +554,20 @@ sd(xsub, na.rm = TRUE)
 
 This is a simple example and illustrates why we don't want to use mean-substitution for missing data. It also highlights that the goals of missing data imputation ideally shouldn't cause bias for estimating statistics like the mean and shouldn't increase or decrease the underlying variance of the original variables. And in theory the new variable with imputed data also shouldn't change the correlations (relationships) between the variables in the dataset. As you can see this can get complex rapidly and no imputation method is perfect. Often multiple missing inputation methods should be explored and some methods may work better for different models and statistical tests than others.
 
+::: callout-note
+## Commonly accepted use of mean-substitution
+
+The one place where I see mean substitution used often is for survey instruments. For example the [CESD (Center for Epidemiological Studies-Depression)](https://www.apa.org/pi/about/publications/caregivers/practice-settings/assessment/tools/depression-scale) which has 20 items with a 4-point Likert-scaled response coded 0, 1, 2, 3. 
+
+\medskip
+
+For this instrument you can compute a valid score from only 16 of the 20 items by taking the mean of these 16 items. This is equivalent to using mean-substitution for the 4 missing responses (e.g. CESD allows up to 20% missing items within a given subject, within a given row of data). But this is ROWWISE mean substitution. The example above is illustrating COLUMNWISE mean substitution.
+
+\medskip
+
+To avoid mean-substitution bias even for ROWWISE substitution, you ideally want to use this on less than 5%-10% of your sample. If more than 5%-10% of your sample is not completing the survey, there may still be underlying response bias issues that need to be addressed.
+:::
+
 \newpage
 
 ### Example of k-nearest neighbor (kNN) missing imputation method
@@ -584,6 +598,8 @@ marginplot(x_imputed, delimiter = "_imp")
 
 \newpage
 
+### kNN imputed values - compare correlations before and after
+
 Let's compare the results before and after the imputation for correlation and for a simple regression model. This is a "sensitivity" test of sorts. It is always a good idea to compare the results before and after applying any imputation method.
 
 Correlation Original Data:
@@ -604,6 +620,8 @@ x_imputed %>%
 ```
 
 \newpage
+
+### kNN imputed values - compare regression before and after
 
 Simple Linear Regression Original Data:
 
@@ -634,7 +652,30 @@ library(mice)
 imp <- mice(x, seed = 1, m = 20, print = FALSE)
 fit <- with(imp, lm(Sleep ~ Dream))
 summary(pool(fit))
+```
 
+::: callout-tip
+## Look at one of the regression models from the impute data
+
+We can "peek under the hood" to look at one of the individual imputed datasets by running the following code. If you'd like to look at another model just change `1` to another number up to `20` (since there were 20 imputations performed).
+
+\medskip
+
+```{r eval=FALSE, echo=TRUE}
+# see simple output
+fit[["analyses"]][[1]]
+
+# get summary detailed output
+summary(fit[["analyses"]][[1]])
+```
+:::
+
+```{r eval=TRUE, echo=FALSE}
+# see simple output
+fit[["analyses"]][[1]]
+
+# get summary detailed output
+summary(fit[["analyses"]][[1]])
 ```
 
 ---
