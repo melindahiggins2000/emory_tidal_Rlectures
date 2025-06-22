@@ -25,63 +25,59 @@ knitr::opts_chunk$set(
 # in this module
 ```
 
-## COMING SUMMER 2025
+## Session Objectives _(updated)_
 
-Module "1.3.4: Missing Data and Sampling Weights" will be posted prior to the In-Person Workshops in Summer 2025.
-
-## Session Objectives
-
-1. Identify and summarize missing data.
-2. Learn methods to handle missing data according to variable type.
-3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)
-4. Discuss potential bias when removing missing observations without careful examination.
-
-[to be removed.............]
-
-Key points:
-
-1. R packages that support missing data examination
-2. Mean/median imputation for continuous variables
-3. What to do with missing observations for categorical variables
-4. Ways to examine potential differences between complete and missing observations in association between certain independent and dependent variables
-    - What to do if such association significantly differs between complete and missing observations
-5. R packages for complex survey data (e.g., survey package)
-    - R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models
+1. Identify, summarize and visualize missing data.
+2. Missing Data Mechanisms (bias mechanisms or models)
+3. Missing Data Handling and Imputation Methods (brief intro)
+4. Impact of Sampling Weights for Survey Data (brief intro)
 
 ---
 
 ## 0. Prework - Before You Begin
 
-### Install Packages
+### A. Install packages
 
-Before you begin, please go ahead and install the following packages - these are all on CRAN, so you can install them using the RStudio Menu "Tools/Install" Packages interface:
+If you do not have them already, install the following packages from CRAN (using the RStudio Menu "Tools/Install" Packages interface):
 
-* [`VIM` on CRAN](https://cran.r-project.org/web/packages/VIM/index.html){target="_blank"} and [`VIM` package website](https://statistikat.github.io/VIM/index.html){target="_blank"}
-* [`skimr` on CRAN](https://cran.r-project.org/web/packages/skimr/index.html) and [`skimr` website](https://docs.ropensci.org/skimr/) - OPTIONAL
-* [`modelsummary` on CRAN](https://cran.r-project.org/web/packages/modelsummary/) and [`modelsummary` website](https://modelsummary.com/) - OPTIONAL
-* [`tinytable` on CRAN](https://cran.r-project.org/web/packages/tinytable/index.html) and [`tinytable` website](https://vincentarelbundock.github.io/tinytable/) - OPTIONAL
-* [`summarytools` on CRAN](https://cran.r-project.org/web/packages/summarytools/) and [`summarytools` on Github](https://github.com/dcomtois/summarytools) - OPTIONAL
-* mice
-* mi
+* [`VIM`](https://cran.r-project.org/web/packages/VIM/index.html){target="_blank"}
+    - [`VIM` package website](https://statistikat.github.io/VIM/index.html){target="_blank"}
+* [`skimr`](https://cran.r-project.org/web/packages/skimr/index.html){target="_blank"} - OPTIONAL
+    - [`skimr` website](https://docs.ropensci.org/skimr/){target="_blank"}
+* [`modelsummary`](https://cran.r-project.org/web/packages/modelsummary/){target="_blank"} - OPTIONAL
+    - [`modelsummary` website](https://modelsummary.com/){target="_blank"}
+* [`tinytable`](https://cran.r-project.org/web/packages/tinytable/index.html){target="_blank"} - OPTIONAL
+    - [`tinytable` website](https://vincentarelbundock.github.io/tinytable/){target="_blank"}
+* [`summarytools`](https://cran.r-project.org/web/packages/summarytools/){target="_blank"} - OPTIONAL
+    - [`summarytools` on Github](https://github.com/dcomtois/summarytools){target="_blank"}
+* [`palmerpenguins`](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"}
+    - [`palmerpenguins` website](https://allisonhorst.github.io/palmerpenguins/){target="_blank"}
+* [`ggplot2`](https://cloud.r-project.org/web/packages/ggplot2/){target="_blank"}
+    - [`ggplot2` website](https://ggplot2.tidyverse.org/){target="_blank"}
+* [`naniar`](https://cran.r-project.org/web/packages/naniar/){target="_blank"}
+    - [`naniar` website](https://naniar.njtierney.com/){target="_blank"}
+* dplyr
+* gtsummary
+
+* [`mice`](https://cran.r-project.org/web/packages/mice/index.html){target="_blank"}
+    - [mice website](https://amices.org/mice/){target="_blank"}
+    - [BOOK: Flexible Imputation of Missing Data, 2nd ed., by Stef van Buuren (`mice` package author)](https://stefvanbuuren.name/fimd/){target="_blank"}
 * 
 * 
-* [`palmerpenguins` on CRAN](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"}
+* 
 
-See [Module 1.3.1 on Installing Packages](module131_IntroRRStudio.html#install-and-load-r-packages-understanding-your-r-session){target="_blank"}
 
-See additional resources below...
+### B. Open/create an RStudio project for this lesson
 
-add to prework?
+Let's start with the `myfirstRproject` RStudio project you created in [Module 1.3.2 - part 1](module132_DataWrangling.html#begin-with-a-new-rstudio-project). If you have not yet created this `myfirstRproject` RStudio project, go ahead and create a new RStudio Project for this lesson. _Feel free to name your project whatever you want, it does not need to be named `myfirstRproject`._
 
-### Begin with a NEW RStudio Project
 
-Let's begin with a new RStudio Project.
 
 ---
 
 \newpage
 
-## 1. Identify and summarize missing data.
+## 1. Identify, summarize and visualize missing data
 
 ### Find Missing Data in Your Dataset.
 
@@ -105,6 +101,8 @@ If we click on the column for the `Dream` variable and sort these values, notice
 ![](vim_sleep_nas_view2.png){width=80%}
 
 This method is ok for a small dataset with not too many variables or rows of data. But let's look at other ways to summarize the amounts of missing data in your dataset.
+
+\newpage
 
 ### Describe Missing Data.
 
@@ -167,8 +165,6 @@ view(dfSummary(sleep))
 
 ![](dfsummary_html.png)
 
-
-
 \newpage
 
 ::: callout-tip
@@ -181,8 +177,15 @@ Try running `summary()` or `skim()` on the `penguins` dataset from the `palmerpe
 ```{r}
 library(palmerpenguins)
 summary(penguins)
+```
+
+\newpage
+
+```{r}
 skim(penguins)
 ```
+
+\newpage
 
 ### Visualize Missing Data.
 
@@ -191,29 +194,28 @@ skim(penguins)
 The `VIM` package has an "aggregate" function `aggr()` which counts up the amounts of missing data for each variable and combinations of variables. The `sleep` dataset only has 10 variables.
 
 ::: callout-warning
-## WARNING - Too Many Variables
+## WARNING - Beware of Using Too Many Variables at Once
 
 Before using the `aggr()` function, limit the number of variables. FIRST create a dataset with only the variables you are interested in BEFORE running the function - otherwise you may lock up your computer if you feed it too many variables at once.
 :::
 
 ```{r}
-# get a quick count of the amount of missing
-# data in the sleep dataset for each variable
+# get the amount of missing data in the sleep dataset
 a <- aggr(sleep, plot = FALSE)
 a
 ```
 
-The default output from above only lists the variables that have one or more rows with missing data. However, you can get a complete list with:
+The default output from above only lists the variables that have one or more rows with missing data. However, you can get a list of all of the variables with this code:
 
 ```{r}
 a$missings
 ```
 
-Next let's get some plots. 
+\newpage
 
-The plot on the LEFT below is a simple bar plot showing the missing counts for each variable in the dataset. 
+Next, let's get some plots of the missing data in the `sleep` dataset. 
 
-* Also notice that there are only 5 variables with one or more missing values:
+The plot on the LEFT below is a simple bar plot showing the missing counts for each variable in the dataset. Notice that there are only 5 variables with one or more missing values:
 
     * `NonD`
     * `Dream`
@@ -221,19 +223,20 @@ The plot on the LEFT below is a simple bar plot showing the missing counts for e
     * `Span`
     * `Gest`
 
-The plot on the RIGHT however, shows the amounts of missing data for the various patterns of missing data for the 10 variables in the `sleep` dataset.
+The plot on the RIGHT however, shows the amounts of missing data for the various patterns of missing data for the 10 variables in the `sleep` dataset. For example, notice that of the 62 rows of data in the `sleep` dataset:
 
-For example, notice that of the 62 rows of data in the `sleep` dataset:
+* there are only 42 rows with complete data with no missing data on all 10 variables _(i.e., 42/62 = 67.7% of the data is complete for all 10 variables)_;
+* the next largest "pattern" of missing data is 9 rows that have both `NonD` and `Dream` variables with missing values; and
+* there are 3 rows of data with the `gest` variable having missing data.
 
-* there are only 42 rows with complete data with no missing data on all 10 variables;
-* the next largest "pattern" of missing data is 9 rows that are missing both `NonD` and `Dream` variables.; and
-* there are 3 rows of data with the `gest` variable with missing data.
-
-
-```{r}
+```{r fig.width=6.5, fig.height=4.0}
 # make plots of the amounts and patterns of missing data
 plot(a, numbers = TRUE, prop = FALSE)
 ```
+
+Exploring patterns of missingness can be informative to better understand why the data might be missing and possibly provide insights into the underlying mechanisms causing or leading to the missing data.
+
+\newpage
 
 **Marginplots - see how missingness varys with other measures**
 
@@ -241,10 +244,12 @@ In addition to a usual scatterplot, the `marginplot()` function in the `VIM` pac
 
 The red boxplot on the left shows the distrubution of all values of `Sleep` where `Dream` contains a missing value. The blue boxplot on the left shows the distribution of the values of `Sleep` where `Dream` is observed.
 
-```{r}
+```{r fig.width=6.5, fig.height=6.5}
 x <- sleep[, c("Dream", "Sleep")]
 marginplot(x)
 ```
+
+\newpage
 
 **Visualize Missing Data with the `naniar` package**
 
@@ -252,7 +257,7 @@ The naniar package "provides principled, tidy ways to summarise, visualise, and 
 
 For example, let's make a similar to plot to what we did above to visualize the scatterplot between `Dream` and `Sleep` but also consider the amounts of missing data of one variable relative to the other variable in the plot. We can do this using the `geom_miss_point()` function provided in the `naniar` package which works with `ggplot2`.
 
-```{r}
+```{r fig.width=6.5, fig.height=6.5}
 library(naniar)
 library(ggplot2)
 
@@ -262,63 +267,310 @@ ggplot(sleep,
   geom_miss_point()
 ```
 
+\newpage
 
+We can also create an [UpSet plot](https://upset.app/) which is useful for visualizing intersections between sets. In the case of missing data, we are interested in visualizing how the missing data for each variable overlaps with each other (i.e., the missing data patterns). 
+
+To create an UpSet plot for the missing data patterns for the 10 variables in the `sleep` dataset, we can use the `gg_miss_upset()` function. The plot produced is similar to the plot above from the `VIM` package.
+
+Notice that the plot ONLY shows patterns for the 20 of 62 rows and for the 5 of 10 variables with any missing data. The plot shows that:
+
+* 9 rows have missing data for both the `Dream` and `NonD` variables
+* 3 rows have missing data for the `Gest` variable
+* 2 rows have missing data for the `Span` variable
+* 2 rows have missing data for both `Sleep` and `NonD`
+* 2 rows have missing data for `Sleep`, `Dream` and `NonD` variables
+* 1 row has missing data for both `Span` and `Gest`
+* 1 row has missing data for `Span`, `Dream` and `NonD` variables
+
+```{r}
+gg_miss_upset(sleep)
+```
 
 ---
 
 \newpage
 
-## 2. Learn methods to handle missing data according to variable type.
+## 2. Missing Data Mechanisms (bias mechanisms or models)
 
-discuss pairwise versus listwise and discuss impacts on modeling
-especially for stepwise variable selection - always check the final N for each model
+### Why should we worry about missing data?
 
-show correlations pairwise and listwise
+Setting aside bias concerns for the moment, missing data logistically causes issues with code - especially in R. At first glance this seems to be a huge pain since we get errors or nonsensical output. But these issues force us to deal with the missing data and provide explicit instructions to the computer code on how we want to addressthe missing data. _Learn more in the [Flexible Imputation of Missing Data BOOK](https://stefvanbuuren.name/fimd/sec-problem.html)._
 
-add details on modeling adjustments - covariate predicted missingness
-
-options on imputation - brief intro
-
+For example, let's find the mean of the `Dream` variable in the `sleep` dataset.
 
 ```{r}
-sleep$NonD_missing <- 
-  as.numeric(is.na(sleep$NonD))
-
-correlation::correlation(sleep)
-
-t.test(BodyWgt ~ NonD_missing,
-       data = sleep)
-t.test(BrainWgt ~ NonD_missing,
-       data = sleep)
-t.test(Sleep ~ NonD_missing,
-       data = sleep)
-t.test(Span ~ NonD_missing,
-       data = sleep)
-t.test(Gest ~ NonD_missing,
-       data = sleep)
-t.test(Pred ~ NonD_missing,
-       data = sleep)
-t.test(Exp ~ NonD_missing,
-       data = sleep)
-t.test(Danger ~ NonD_missing,
-       data = sleep)
+mean(sleep$Dream)
 ```
 
-
-
-
-
-**Marginplot of Imputed Values - Example**
-
-Let's take the little dataset `x` which is a subset of the `sleep` dataset which has all 62 rows but only the `Dream` and `Sleep` variables.
-
-There are a few built-in imputation functions in `VIM`. Let's see what the `kNN()` (k-nearest neighbor) function does.
+We get `NA` since there is missing data for the `Dream` variable, thus the mean of all rows is "not available". So, we need to tell R to first remove the missing values (the `NA`s) prior to computing the mean.
 
 ```{r}
+mean(sleep$Dream, na.rm = TRUE)
+```
+
+\newpage
+
+We did do a deep dive above and we know that there are 12 rows with missing values for the Dream variable. But if we had run the `mean()` function with `na.rm = TRUE`, we might not have know just how much data was missing. So, it is always a good idea to make sure to check for missing data and assess how much you have PRIOR to conducting any analyses.
+
+As we saw in [Module 1.3.2, section 5](https://emorytidal.netlify.app/module132_datawrangling#gtsummary-package-for-tables) we can use the `gtsummary` package with the `tbl_summary()` function to get better summary statistics including a list of the amount of unknown (missing) rows. Let's get the means (and standard deviations) for 3 of the variables in the `sleep` dataset. Notice that there are no "unknowns" for `BrainWgt` since it has no missing values.
+
+::: callout-tip
+## Customizing `gtsummary::tbl_summary()`
+
+Learn more at [Multiline Summaries Using `tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html#continuous2) on how I customized this table to include the count (N) of non-missing rows, mean and standard deviation along with the counts for the unknowns.
+:::
+
+```{r}
+library(dplyr)
+library(gtsummary)
+
+sleep %>%
+  select(Dream, Gest, BrainWgt) %>%
+  tbl_summary(
+    type = all_continuous() ~ "continuous2",
+    statistic = all_continuous() ~ c(
+      "{N_nonmiss}",
+      "{mean} ({sd})"
+    )
+  )
+```
+
+\newpage
+
+When running a model, like a regression model between `Dream` and `Sleep`, let's look at the summary output from fitting a linear model using the built-in `lm()` function:
+
+```{r}
+summary(lm(Sleep ~ Dream, data = sleep))
+```
+
+Notice the output tells us that `(14 observations deleted due to missingness)`. So this model was fit with only 62-14 = 48 rows (77.4%) of the original 62 rows of data. The model was fit using only the complete dataset based on the 2 variables in the model: `Dream` and `Sleep`, where
+
+- there are 10 rows missing data for only the `Dream` variable,
+- 2 rows missing data for both `Dream` and `Sleep` variables,
+- and 2 rows missing data for only the `Sleep` variable.
+
+Keep in mind, when you are fitting any model (linear or logistic regression, analysis of variance, etc), the default is (almost) always to use a LISTWISE deletion, which removes ALL rows with any missing data on any of the variables considered in the model - including predictors, covariates, and outcome(s).
+
+\newpage
+
+Let's also look at a small correlation matrix considering PAIRWISE versus LISTWISE deletion of missing data for 3 variables from the `sleep` dataset. Notice that the correlation between `BrainWgt` and `Dream` and `Sleep` are slightly different between LISTWISE and PAIRWISE approaches. These are all `pearson` correlations be default. 
+
+**LISTWISE deletion**
+
+```{r}
+# LISTWISE deletion, use = "complete.obs"
+sleep %>%
+  select(BrainWgt, Dream, Sleep) %>%
+  cor(use = "complete.obs")
+```
+
+**PAIRWISE deletion**
+
+```{r}
+# PAIRWISE deletion, use = "pairwise.complete.obs"
+sleep %>%
+  select(BrainWgt, Dream, Sleep) %>%
+  cor(use = "pairwise.complete.obs")
+```
+
+\newpage
+
+There is also a helpful correlation function `rcorr()` in the `Hmisc` package. From this function we can save the output and get the n's and p-values in addition to the (Pearson) correlations. These numeric data have to be converted to a numeric matrix prior to inputting them to the `rcorr()` function, which is why `as.matrix()` is used in the code chunk below. 
+
+```{r}
+library(Hmisc)
+c1 <- sleep %>%
+  select(BrainWgt, Dream, Sleep) %>%
+  as.matrix() %>%
+  rcorr()
+```
+
+Show the correlations:
+
+```{r}
+c1$r
+```
+
+Get the sample sizes for each correlation in the matrix:
+
+```{r}
+c1$n
+```
+
+Get each individual p-value for each correlation:
+
+```{r}
+c1$P
+```
+
+\newpage
+
+::: callout-note
+## Getting complete data
+
+Note: The `rcorr()` function uses a PAIRWISE missing values deletion approach. If we want the LISTWISE correlations, we have to get complete data first. Use `complete.cases()` from the built-in `stats` package with `dplyr::filter()` to pull out only the 48 rows in the `sleep` dataset with complete cases on these 3 variables.
+:::
+
+```{r}
+c2 <- sleep %>%
+  select(BrainWgt, Dream, Sleep) %>%
+  filter(complete.cases(.)) %>% 
+  as.matrix() %>%
+  rcorr()
+```
+
+Show the correlations:
+
+```{r}
+c2$r
+```
+
+Get the sample sizes for each correlation in the matrix:
+
+```{r}
+c2$n
+```
+
+Get each individual p-value for each correlation:
+
+```{r}
+c2$P
+```
+
+\newpage
+
+### Missing Data Mechanisms
+
+There are entire books and entire courses dedicated to understanding and dealing with missing data mechanisms, which we will not have time to go into depth in this TIDAL course. 
+
+Learn more at:
+
+* [https://stefvanbuuren.name/fimd/sec-MCAR.html](https://stefvanbuuren.name/fimd/sec-MCAR.html)
+* [BOOK: Statistical Analysis with Missing Data, Third Edition, by Roderick Little, Donald Rubin](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119482260)
+
+The 3 missing data mechanisms to know are:
+
+* MCAR = "missing completely at random"
+    - This assumes that the missingness is not related to the data at all.
+    - If the probability of being missing is the same for all cases, then the data are said to be missing completely at random (MCAR). 
+    
+* MAR = "missing at random"
+    - If the probability of being missing is the same only within groups defined by the observed data, then the data are missing at random (MAR).
+    - For example, if people with higher levels of depression who were more likely to not answer a question or not complete the study, the the missingness is "dependent" upon depression levels measured in the study.
+    
+* MNAR (or NMAR) = "missing not at random (not missing at random)"
+    - MNAR means that the probability of being missing varies for reasons that are unknown to us. 
+    - An example of MNAR in public opinion research occurs if those with weaker opinions respond less often (e.g., non-response bias). 
+    
+There is a nice summary of different approaches and assumptions and the effects to the models and statistical estimates, see [FIMD Book, Section 1.3.8 Summary](https://stefvanbuuren.name/fimd/sec-simplesolutions.html). This table illustrates that many "ad hoc" missing imputation approaches can result in standard errors that are too large or too small leading to incorrect calculations for p-values and confidence intervals.
+
+\newpage
+
+**Compare rows with and without missing data**
+
+Let's take a look at the `BodyWgt` and `BrainWgt` variables and compare the values for rows with and without missing data for the `Dream` variable. Here are the steps involved:
+
+1. Create an indicator variable where 0=not missing and 1=missing for the `Dream` variable.
+2. Run comparisons for the rows (subjects) with and without missing `Dream` data.
+3. Potentially make plots to compare the rows with and without missing values for `Dream`.
+
+Note: Both `BodyWgt` and `BrainWgt` are highly right skewed, so I did a log transform of both. Notice that the p-values for the non-parametric independent group test (Mann Whitney/Wilcoxon Rank Sum test) are the same, since the tests are based on ranks.
+
+```{r}
+# make small dataset
+s1 <- sleep %>%
+  select(BodyWgt, BrainWgt, Dream)
+
+# add missing indicator
+s1$Dream_missing <- as.numeric(is.na(s1$Dream))
+
+# both BodyWgt and BrainWgt are highly right skewed
+# do a log transform of both
+s1 <- s1 %>%
+  mutate(log_BodyWgt = log(BodyWgt),
+         log_BrainWgt = log(BrainWgt)) 
+```
+
+Table comparing `BodyWgt` and `BrainWgt` for rows with and without missing `Dream` data. Both are statistically significant - the animals with missing `Dream` valus are larger (bigger body and brain weights).
+
+```{r}
+s1 %>%
+  tbl_summary(
+    by = Dream_missing,
+    include = c(BodyWgt, log_BodyWgt,
+                BrainWgt, log_BrainWgt)
+  ) %>%
+  add_p()
+```
+
+\newpage
+
+Side-by-side boxplots for the (log) of `BodyWgt` for rows with missing Dream data and without.
+
+```{r}
+ggplot(s1, aes(group = Dream_missing,
+               y = log_BodyWgt)) +
+  geom_boxplot()
+```
+
+---
+
+\newpage
+
+## 3. Missing Data Handling and Imputation Methods (brief intro)
+
+### Imputation - Mean Substitution
+
+There are many ideas and options for creating data to "fill-in" or "impute" the spots for the missing values. Keep in mind that these methods are "making up" new (unobserved) data. Iideally, the missing imputation methods should be as unbiased as possible and should not increase or decrease the variability of the data. As good as some methods may be, always keep in mind that we will never know for sure if these new imputed data are "correct" or if they are the best they can be.
+
+A simple example, suppose we have a variable with 5 numbers. Let's compute the mean and standard deviation of these numbers.
+
+```{r}
+x <- c(2, 4, 3, 5, 10)
+mean(x, na.rm = TRUE)
+sd(x, na.rm = TRUE)
+```
+
+Now let's set the 1st value to missing - replace the 2 with `NA.` Notice that the mean increases and the standard deviation decreased slightly from 3.114 to 3.109.
+
+```{r}
+xna <- c(NA, 4, 3, 5, 10)
+mean(xna, na.rm = TRUE)
+sd(xna, na.rm = TRUE)
+```
+
+\newpage
+
+Now, let's take the mean we just computed from the 4 non-missing values which was 5.5 and substitute it in for the missing value an recompute the new mean and standard deviation.
+
+```{r}
+xsub <- c(5.5, 4, 3, 5, 10)
+mean(xsub, na.rm = TRUE)
+sd(xsub, na.rm = TRUE)
+```
+
+**IMPORTANT** The new mean of `xsub` is the same = 5.5 as the mean for `xna`, but the standard deviation for this new list of 5 numbers is much smaller = 2.693 down from 3.109. And this "shrinking" of the standard deviation is even more pronounced from the original 5 numbers which was 3.114 for `x`. And the mean of the original numbers was 4.8 which is smaller than the mean-subtituted list for `xsub`.
+
+This is a simple example and illustrates why we don't want to use mean-substitution for missing data. It also highlights that the goals of missing data imputation ideally shouldn't cause bias for estimating statistics like the mean and shouldn't increase or decrease the underlying variance of the original variables. And in theory the new variable with imputed data also shouldn't change the correlations (relationships) between the variables in the dataset. As you can see this can get complex rapidly and no imputation method is perfect. Often multiple missing inputation methods should be explored and some methods may work better for different models and statistical tests than others.
+
+\newpage
+
+### Example of k-nearest neighbor (kNN) missing imputation method
+
+Instead of using mean substitution, let's look at another method - k-nearest neighbor, which is a "donor-based" method. Learn more at:
+
+* [VIM Vignette on "Donor based Imputation Methods"](https://cran.r-project.org/web/packages/VIM/vignettes/donorImp.html)
+* [Datacamp Course on Imputation](https://campus.datacamp.com/courses/handling-missing-data-with-imputations-in-r/donor-based-imputation?ex=9)
+
+Let's take the little dataset `x` which is a subset of the `sleep` dataset which has all 62 rows but only the `Dream` and `Sleep` variables. For these 2 variables, let's see what the `kNN()` (k-nearest neighbor) function in the `VIM` package does.
+
+```{r}
+x <- sleep[, c("Dream", "Sleep")]
 x_imputed <- kNN(x)
 ```
 
-Now look at the plot again for these new `Dream` and `Sleep` variables for the k-nearest neighbor imputed variables. Notice the coloring of the points - the blue are the original values and the other colors represent the structure of missings.
+Now look at a scatterplot plot for these new `Dream` and `Sleep` variables with imputed values from the k-nearest neighbor approach. Notice the coloring of the points - the blue are the original values and the other colors represent the structure of missings.
 
 * brown points represent values where Dream was missing initially
 * beige points represent values where Sleep was missing initially
@@ -330,34 +582,68 @@ The `kNN()` method appears to preserve the correlation between `Dream` and `Slee
 marginplot(x_imputed, delimiter = "_imp")
 ```
 
+\newpage
 
+Let's compare the results before and after the imputation for correlation and for a simple regression model. This is a "sensitivity" test of sorts. It is always a good idea to compare the results before and after applying any imputation method.
 
+Correlation Original Data:
+
+```{r}
+x %>%
+  as.matrix() %>%
+  Hmisc::rcorr()
+```
+
+Correlation kNN Imputed Data:
+
+```{r}
+x_imputed %>%
+  select(Dream, Sleep) %>%
+  as.matrix() %>%
+  Hmisc::rcorr()
+```
+
+\newpage
+
+Simple Linear Regression Original Data:
+
+```{r}
+summary(lm(Sleep ~ Dream, data = x))
+```
+
+Simple Linear Regression kNN Imputed Data:
+
+```{r}
+summary(lm(Sleep ~ Dream, data = x_imputed))
+```
+
+Notice that the correlations were similar. The regression intercepts and slopes were slightly different and the "Std. Error" for the regression coefficients for the imputed model were smaller than for the original data.
+
+\newpage
+
+### Example of multiple missing imputation method (using `mice`)
+
+Let's take a look at the `mice` (Multivariate Imputation by Chained Equations) package. The `mice` package provides for Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in [Van Buuren and Groothuis-Oudshoorn (2011)](https://www.jstatsoft.org/article/view/v045i03).  
+
+Let's re-run the simple linear regression model above, but this time let's create 20 imputed datasets, run 20 regression models and then pool the results. See [FIMD Book Section 1.4](https://stefvanbuuren.name/fimd/sec-nutshell.html)
+
+Compare these regression results to the models above. Notice that the "std.error" for the regression coefficients are larger than they were for the kNN results and closer to fitting the model with the original data.
+
+```{r}
+library(mice)
+imp <- mice(x, seed = 1, m = 20, print = FALSE)
+fit <- with(imp, lm(Sleep ~ Dream))
+summary(pool(fit))
+
+```
 
 ---
 
 \newpage
 
-## 3. Use a survey sampling weight to generate more representative descriptive and inferential statistical values (brief intro)
+## 4. Impact of Sampling Weights for Survey Data (brief intro)
 
-introduction to survey weights
-
-show how this impacts the amounts of missing data
-
----
-
-\newpage
-
-## 4. Discuss potential bias when removing missing observations without careful examination.
-
-talk about assumptions for missing data - MCAR, MAR and NMAR (or MNAR)
-
-add more examples here 
-
-also for publication - running models for comparison - sensitivity tests
-- model for all complete data
-- models based on pairwise selections - n changes
-- models before and after covariate adjustments
-- models before and after imputation
+see [Missing Data in PRAMS module](https://melindahiggins2000.github.io/emory_tidal_Rlectures/PRAMS.html#missing-data-in-prams).
 
 ---
 
@@ -379,26 +665,21 @@ knitr::write_bib(x = c(.packages()),
 
 ## Other Helpful Resources
 
-[**Other Helpful Resources**](./additionalResources.html){target="_blank"}
-
 **Missing Data Resources**
 
 * [CRAN Task View for Missing Data](https://cran.r-project.org/web/views/MissingData.html)
 * [R-miss-tastic Website](https://rmisstastic.netlify.app/)
 * [Flexible Imputation of Missing Data (online book for 2nd edition) by Stef van Buuren](https://stefvanbuuren.name/fimd/)
+* [Blog post on Missing Data Visualization in R using ggplot2](https://www.datawim.com/post/missing-data-visualization-in-r/)
+* [Missing data R tutorial](https://libguides.princeton.edu/R-Missingdata)
+* [CRAN Task View on Missing Data](https://cran.r-project.org/web/views/MissingData.html)
+* [A resource website on missing values](https://rmisstastic.netlify.app/)
+* [Handling missing values with R - tutorial](https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018)
+* [Blog post "My favourite R package for: summarising data"](https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/)
 
-* more ...
-* https://www.datawim.com/post/missing-data-visualization-in-r/
-* https://libguides.princeton.edu/R-Missingdata
-* https://cran.r-project.org/web/packages/mice/index.html
-* https://cran.r-project.org/web/views/MissingData.html
-* https://rmisstastic.netlify.app/
-* https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018
-* https://modelsummary.com/vignettes/datasummary.html
-* https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/
-* https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html
-* https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html
+and
 
+[**Other Helpful Resources**](./additionalResources.html){target="_blank"}
 
 
 
