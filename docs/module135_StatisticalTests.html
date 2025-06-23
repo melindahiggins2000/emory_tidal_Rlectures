@@ -176,8 +176,27 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#coming-summer-2025" id="toc-coming-summer-2025" class="nav-link active" data-scroll-target="#coming-summer-2025">COMING SUMMER 2025</a></li>
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives">Session Objectives</a></li>
+<li><a href="#session-objectives" id="toc-session-objectives" class="nav-link active" data-scroll-target="#session-objectives">Session Objectives</a></li>
+  <li>
+<a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a>
+  <ul>
+<li><a href="#a.-install-packages" id="toc-a.-install-packages" class="nav-link" data-scroll-target="#a.-install-packages">A. Install packages</a></li>
+  <li><a href="#b.-review-these-online-book-chapters" id="toc-b.-review-these-online-book-chapters" class="nav-link" data-scroll-target="#b.-review-these-online-book-chapters">B. Review these online Book Chapters:</a></li>
+  <li><a href="#c.-opencreate-an-rstudio-project-for-this-lesson" id="toc-c.-opencreate-an-rstudio-project-for-this-lesson" class="nav-link" data-scroll-target="#c.-opencreate-an-rstudio-project-for-this-lesson">C. Open/create an RStudio project for this lesson</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#develop-linear-and-logistic-regression-models." id="toc-develop-linear-and-logistic-regression-models." class="nav-link" data-scroll-target="#develop-linear-and-logistic-regression-models.">1. Develop linear and logistic regression models.</a>
+  <ul>
+<li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
+  </ul>
+</li>
+  <li><a href="#linear-and-logistic-regression-models-with-complex-survey-sampling-weights" id="toc-linear-and-logistic-regression-models-with-complex-survey-sampling-weights" class="nav-link" data-scroll-target="#linear-and-logistic-regression-models-with-complex-survey-sampling-weights">2. Linear and Logistic Regression Models with complex survey sampling weights</a></li>
+  <li><a href="#interpret-a-model-output" id="toc-interpret-a-model-output" class="nav-link" data-scroll-target="#interpret-a-model-output">3. Interpret a model output</a></li>
+  <li><a href="#r-code-for-this-module" id="toc-r-code-for-this-module" class="nav-link" data-scroll-target="#r-code-for-this-module">R Code For This Module</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="module135_StatisticalTests.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -197,68 +216,96 @@ div.csl-indent {
   
 
 
-</header><section id="coming-summer-2025" class="level2"><h2 class="anchored" data-anchor-id="coming-summer-2025">COMING SUMMER 2025</h2>
-<p>Module “1.3.5: Statistical Tests and Models” will be posted prior to the In-Person Workshops in Summer 2025.</p>
-</section><section id="session-objectives" class="level2"><h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
+</header><section id="session-objectives" class="level2"><h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
 <ol type="1">
 <li>Develop linear and logistic regression models.</li>
 <li>(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.</li>
 <li>Interpret a model output.</li>
 </ol>
-<p>Key points to cover:</p>
-<ol type="1">
-<li>Run multivariate linear regression models with R.</li>
-<li>Run multivariate logistic regression models with R.</li>
-<li>Include interaction terms in regression models.</li>
-<li>(R packages for complex survey data (e.g., survey package)
+<hr></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
+<section id="a.-install-packages" class="level3"><h3 class="anchored" data-anchor-id="a.-install-packages">A. Install packages</h3>
+<p>If you do not have them already, install the following packages from CRAN (using the RStudio Menu “Tools/Install” Packages interface):</p>
 <ul>
-<li>R codes to generate weighted descriptive statistics and contingency tables, as well as to develop weighted linear models)</li>
-</ul>
+<li>
+<a href="https://cran.r-project.org/web/packages/VIM/index.html" target="_blank"><code>VIM</code></a> and <a href="https://statistikat.github.io/VIM/index.html" target="_blank"><code>VIM</code> package website</a>
 </li>
-<li>Interpret a model output.</li>
-<li>(Compare the outputs of unweighted and weighted models.)</li>
-</ol>
-
-
-
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-modelsummary2022" class="csl-entry" role="listitem">
-Arel-Bundock, Vincent. 2022. <span>“<span class="nocase">modelsummary</span>: Data and Model Summaries in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 103 (1): 1–23. <a href="https://doi.org/10.18637/jss.v103.i01">https://doi.org/10.18637/jss.v103.i01</a>.
-</div>
-<div id="ref-R-modelsummary" class="csl-entry" role="listitem">
-———. 2025a. <em>Modelsummary: Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready</em>. <a href="https://modelsummary.com">https://modelsummary.com</a>.
-</div>
-<div id="ref-R-tinytable" class="csl-entry" role="listitem">
-———. 2025b. <em>Tinytable: Simple and Configurable Tables in HTML, LaTeX, Markdown, Word, PNG, PDF, and Typst Formats</em>. <a href="https://vincentarelbundock.github.io/tinytable/">https://vincentarelbundock.github.io/tinytable/</a>.
-</div>
-<div id="ref-R-palmerpenguins" class="csl-entry" role="listitem">
-Horst, Allison, Alison Hill, and Kristen Gorman. 2022. <em>Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data</em>. <a href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>.
-</div>
-<div id="ref-R-colorspace" class="csl-entry" role="listitem">
-Ihaka, Ross, Paul Murrell, Kurt Hornik, Jason C. Fisher, Reto Stauffer, Claus O. Wilke, Claire D. McWhite, and Achim Zeileis. 2023. <em>Colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes</em>. <a href="https://colorspace.R-Forge.R-project.org/">https://colorspace.R-Forge.R-project.org/</a>.
-</div>
-<div id="ref-VIM2016" class="csl-entry" role="listitem">
-Kowarik, Alexander, and Matthias Templ. 2016. <span>“Imputation with the <span>R</span> Package <span>VIM</span>.”</span> <em>Journal of Statistical Software</em> 74 (7): 1–16. <a href="https://doi.org/10.18637/jss.v074.i07">https://doi.org/10.18637/jss.v074.i07</a>.
-</div>
+<li>(Optional) <a href="https://cran.r-project.org/web/packages/skimr/index.html" target="_blank"><code>skimr</code></a> and <a href="https://docs.ropensci.org/skimr/" target="_blank"><code>skimr</code> website</a>
+</li>
+<li>(Optional) <a href="https://cran.r-project.org/web/packages/modelsummary/" target="_blank"><code>modelsummary</code></a> and <a href="https://modelsummary.com/" target="_blank"><code>modelsummary</code> website</a>
+</li>
+<li>(Optional) <a href="https://cran.r-project.org/web/packages/summarytools/" target="_blank"><code>summarytools</code></a> and <a href="https://github.com/dcomtois/summarytools" target="_blank"><code>summarytools</code> on Github</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/palmerpenguins/" target="_blank"><code>palmerpenguins</code></a> and <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank"><code>palmerpenguins</code> website</a>
+</li>
+<li>
+<a href="https://cloud.r-project.org/web/packages/ggplot2/" target="_blank"><code>ggplot2</code></a> and <a href="https://ggplot2.tidyverse.org/" target="_blank"><code>ggplot2</code> website</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/naniar/" target="_blank"><code>naniar</code></a> and <a href="https://naniar.njtierney.com/" target="_blank"><code>naniar</code> website</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a> and <a href="https://dplyr.tidyverse.org/"><code>dplyr</code> website</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/gtsummary/"><code>gtsummary</code></a> and <a href="https://www.danieldsjoberg.com/gtsummary/"><code>gtsummary</code> website</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/Hmisc/"><code>Hmisc</code></a> and <a href="https://hbiostat.org/r/hmisc/"><code>Hmisc</code> website</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank"><code>mice</code></a> and <a href="https://amices.org/mice/" target="_blank">mice website</a>
+</li>
+</ul></section><section id="b.-review-these-online-book-chapters" class="level3"><h3 class="anchored" data-anchor-id="b.-review-these-online-book-chapters">B. Review these online Book Chapters:</h3>
+<ul>
+<li><a href="https://stefvanbuuren.name/fimd/ch-introduction.html" target="_blank">BOOK: Flexible Imputation of Missing Data, 2nd ed., by Stef van Buuren (<code>mice</code> package author) - Chapter 1 “Introduction”, Sections 1.1-1.4</a></li>
+<li><a href="https://www.epirhandbook.com/en/new_pages/missing_data.html">BOOK: The Epidemiologist R Handbook - Chapter 20 “Missing Data”</a></li>
+</ul></section><section id="c.-opencreate-an-rstudio-project-for-this-lesson" class="level3"><h3 class="anchored" data-anchor-id="c.-opencreate-an-rstudio-project-for-this-lesson">C. Open/create an RStudio project for this lesson</h3>
+<p>Let’s start with the <code>myfirstRproject</code> RStudio project you created in <a href="module132_DataWrangling.html#begin-with-a-new-rstudio-project">Module 1.3.2 - part 1</a>. If you have not yet created this <code>myfirstRproject</code> RStudio project, go ahead and create a new RStudio Project for this lesson. <em>Feel free to name your project whatever you want, it does not need to be named <code>myfirstRproject</code>.</em></p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="develop-linear-and-logistic-regression-models." class="level2"><h2 class="anchored" data-anchor-id="develop-linear-and-logistic-regression-models.">1. Develop linear and logistic regression models.</h2>
+<section id="linear-regression" class="level3"><h3 class="anchored" data-anchor-id="linear-regression">Linear Regression</h3>
+<p>One aaaaaaaaaaaaaaa</p>
+</section><section id="logistic-regression" class="level3"><h3 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h3>
+<p>xxxxxxxxxxxxxxxxxx</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="linear-and-logistic-regression-models-with-complex-survey-sampling-weights" class="level2"><h2 class="anchored" data-anchor-id="linear-and-logistic-regression-models-with-complex-survey-sampling-weights">2. Linear and Logistic Regression Models with complex survey sampling weights</h2>
+<p>aaaaaaaaaaaaa</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section><section id="interpret-a-model-output" class="level2"><h2 class="anchored" data-anchor-id="interpret-a-model-output">3. Interpret a model output</h2>
+<p>aaaaaaaaaaaaa</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section><section id="r-code-for-this-module" class="level2"><h2 class="anchored" data-anchor-id="r-code-for-this-module">R Code For This Module</h2>
+<ul>
+<li><a href="module_135.R"><code>module_135.R</code></a></li>
+</ul></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-R-base" class="csl-entry" role="listitem">
 R Core Team. 2025. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
-<div id="ref-colorspace2009b" class="csl-entry" role="listitem">
-Stauffer, Reto, Georg J. Mayr, Markus Dabernig, and Achim Zeileis. 2009. <span>“Somewhere over the Rainbow: How to Make Effective Use of Colors in Meteorological Visualizations.”</span> <em>Bulletin of the American Meteorological Society</em> 96 (2): 203–16. <a href="https://doi.org/10.1175/BAMS-D-13-00155.1">https://doi.org/10.1175/BAMS-D-13-00155.1</a>.
 </div>
-<div id="ref-R-VIM" class="csl-entry" role="listitem">
-Templ, Matthias, Alexander Kowarik, Andreas Alfons, Gregor de Cillia, and Wolfgang Rannetbauer. 2022. <em>VIM: Visualization and Imputation of Missing Values</em>. <a href="https://github.com/statistikat/VIM">https://github.com/statistikat/VIM</a>.
-</div>
-<div id="ref-R-skimr" class="csl-entry" role="listitem">
-Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2022. <em>Skimr: Compact and Flexible Summaries of Data</em>. <a href="https://docs.ropensci.org/skimr/">https://docs.ropensci.org/skimr/</a>.
-</div>
-<div id="ref-colorspace2020a" class="csl-entry" role="listitem">
-Zeileis, Achim, Jason C. Fisher, Kurt Hornik, Ross Ihaka, Claire D. McWhite, Paul Murrell, Reto Stauffer, and Claus O. Wilke. 2020. <span>“<span class="nocase">colorspace</span>: A Toolbox for Manipulating and Assessing Colors and Palettes.”</span> <em>Journal of Statistical Software</em> 96 (1): 1–49. <a href="https://doi.org/10.18637/jss.v096.i01">https://doi.org/10.18637/jss.v096.i01</a>.
-</div>
-<div id="ref-colorspace2009a" class="csl-entry" role="listitem">
-Zeileis, Achim, Kurt Hornik, and Paul Murrell. 2009. <span>“Escaping <span>RGB</span>land: Selecting Colors for Statistical Graphics.”</span> <em>Computational Statistics &amp; Data Analysis</em> 53 (9): 3259–70. <a href="https://doi.org/10.1016/j.csda.2008.11.033">https://doi.org/10.1016/j.csda.2008.11.033</a>.
-</div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
+<p><strong>Missing Data Resources</strong></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/views/MissingData.html">CRAN Task View for Missing Data</a></li>
+<li><a href="https://rmisstastic.netlify.app/">R-miss-tastic Website</a></li>
+<li><a href="https://stefvanbuuren.name/fimd/">Flexible Imputation of Missing Data (online book for 2nd edition) by Stef van Buuren</a></li>
+<li><a href="https://www.datawim.com/post/missing-data-visualization-in-r/">Blog post on Missing Data Visualization in R using ggplot2</a></li>
+<li><a href="https://libguides.princeton.edu/R-Missingdata">Missing data R tutorial</a></li>
+<li><a href="https://cran.r-project.org/web/views/MissingData.html">CRAN Task View on Missing Data</a></li>
+<li><a href="https://rmisstastic.netlify.app/">A resource website on missing values</a></li>
+<li><a href="https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018">Handling missing values with R - tutorial</a></li>
+<li><a href="https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/">Blog post “My favourite R package for: summarising data”</a></li>
+</ul>
+<p>and</p>
+<p><a href="./additionalResources.html" target="_blank"><strong>Other Helpful Resources</strong></a></p>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

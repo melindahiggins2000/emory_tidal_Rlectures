@@ -357,23 +357,335 @@ This leads to a percentage of YES estimate of `1609464 * 100 / (1609464 + 225560
 
 ## 3. Data Wrangling with PRAMS
 
+Data wrangling with the PRAMS data isn't much different from the methods already covered in [Module 1.3.2](https://emorytidal.netlify.app/module132_datawrangling).
+
 Examples will be posted here working with the PRAMS Dataset for recoding, creating or modifying variables.
+
+```{r}
+# create a factor variable
+# and add labels
+prams$VITAMIN.f <- factor(
+  prams$VITAMIN,
+  levels = c(1, 2, 3, 4),
+  labels = c("1 = DIDNT TAKE VITAMIN",
+             "2 = 1-3 TIMES/WEEK",
+             "3 = 4-6 TIMES/WEEK",
+             "4 = EVERY DAY/WEEK")
+)
+
+# create variable for anyone who
+# took vitamins 4+ times a week
+prams$VITAMIN_4plus <- 
+  ifelse(prams$VITAMIN > 2, 1, 0)
+
+# add labels, make a factor
+prams$VITAMIN_4plus.f <- factor(
+  prams$VITAMIN_4plus,
+  levels = c(0, 1),
+  labels = c("3x/week or less",
+             "4x/week or more")
+)
+
+# get stats for 2020 for GA
+prams %>%
+  filter(NEST_YR == 2020) %>% 
+  filter(STATE == "GA") %>%
+  with(., table(STATE, VITAMIN_4plus.f, 
+                useNA = "ifany"))
+
+prams_ga <- prams %>%
+  filter(STATE == "GA")
+
+# create the survey design file for GA
+prams_ga.svy <- 
+  svydesign(ids = ~0, strata = ~SUD_NEST, 
+            fpc = ~TOTCNT, weights = ~WTANAL, 
+            data = prams_ga)
+
+# get a table of vitamins 4+ times per week
+# by YEAR
+svyby(~VITAMIN_4plus.f, ~NEST_YR,
+      design = prams_ga.svy,
+      svytotal, na.rm=TRUE)
+```
+
+The unweighted breakdown for GA in 2020
+
+* NO Vitamins =< 3x/wk    443 64.2%
+* YES Vitamins => 4x/wk   247 35.8%
+* Total                   690
+
+Weighted Breakdown for GA in 2020
+
+* NO Vitamins =< 3x/wk    75313.80 +/- 2779.229 (64.1%) []
+* YES Vitamins => 4x/wk   42263.67 +/- 2802.984 (35.9%) [33.6%, 38.3%]
+* Total                   117,577.47
+
+get proportions and ci's
+
+```{r}
+prams_ga2000 <- prams %>%
+  filter(STATE == "GA") %>%
+  filter(NEST_YR == 2020)
+
+# create the survey design file for GA
+# for year 2020
+prams_ga2000.svy <- 
+  svydesign(ids = ~0, strata = ~SUD_NEST, 
+            fpc = ~TOTCNT, weights = ~WTANAL, 
+            data = prams_ga2000)
+
+svytable(~VITAMIN_4plus, 
+         prams_ga2000.svy)
+
+svyciprop(~VITAMIN_4plus, 
+          prams_ga2000.svy, 
+          na.rm = T)
+```
+
+
+Compare the results below to the EXCEL spreadsheet [Pregnancy Risk Assessment Monitoring System (PRAMS) MCH Indicators (standard version)](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.cdc.gov%2Fprams%2Fmedia%2Ffiles%2F2024%2F08%2FPRAMS-MCH-Indicators-2016-2022-508.xlsx&wdOrigin=BROWSELINK) - see 2020 for GA - 1st set of indicators for Vitamins taken 4x a week or more.
+
+
+```{r}
+prams_ga2000 <- prams %>%
+  filter(STATE == "GA") %>%
+  filter(NEST_YR == 2020)
+
+# create the survey design file for GA
+# for year 2020
+prams_ga2000.svy <- 
+  svydesign(ids = ~0, strata = ~SUD_NEST, 
+            fpc = ~TOTCNT, weights = ~WTANAL, 
+            data = prams_ga2000)
+
+# get a table of vitamins 4+ times per week
+# by YEAR
+svyby(~VITAMIN_4plus.f, ~NEST_YR,
+      design = prams_ga2000.svy,
+      svytotal, na.rm=TRUE)
+
+# add custom statistic forconfidence intervals
+confidence_intervals <- function(data, variable, by, ...) {
+  
+  ## extract the confidence intervals and multiply to get percentages
+  props <- svyciprop(as.formula(paste0( "~" , variable)),
+              data, na.rm = TRUE)
+  
+  ## extract the confidence intervals 
+  as.numeric(confint(props) * 100) %>% ## make numeric and multiply for percentage
+    round(., digits = 1) %>%           ## round to one digit
+    c(.) %>%                           ## extract the numbers from matrix
+    paste0(., collapse = "-")          ## combine to single character
+}
+
+library(gtsummary)
+tbl_svysummary(
+  data = prams_ga2000.svy,
+  include = c(VITAMIN_4plus),
+  statistic = list(everything() ~ c("{n} ({p}%)"))
+  ) %>%
+  add_n() %>%  
+  add_stat(fns = everything() ~ confidence_intervals) %>%
+  modify_header(
+    list(
+      n ~ "**Weighted total (N)**",
+      stat_0 ~ "**Weighted Count**",
+      add_stat_1 ~ "**95%CI**"
+    ))
+```
+
 
 ## 4. Visualizing PRAMS Data
 
 Examples will be posted here for making graphs and figures with suggestions on handling very large datasets.
 
+let's look at maternal age variable `MAT_AGE_PU`, see [PRAMS Codebook](https://www.cdc.gov/prams/php/data-research/codebooks-phase-8.html).
+
+Histogram of Maternal Age - Unweighted
+
+```{r}
+hist(prams$MAT_AGE_PU)
+```
+
+Histogram of Maternal Age - Complex Survey Weighted
+
+```{r}
+# use survey design data
+# get histogram using svyhist() function
+svyhist(formula = ~MAT_AGE_PU,
+        design = prams.svy)
+```
+
+Maternal weight gain in lbs
+
+```{r}
+# MOMLBS
+hist(prams$MOMLBS)
+
+summary(prams$MOMLBS)
+
+svyhist(formula = ~MOMLBS,
+        design = prams.svy)
+```
+
+
+scatterplot of weight gain by age
+
+look at ga for 2020
+
+```{r}
+library(ggplot2)
+ggplot(prams_ga2000, aes(x=MAT_AGE_PU, y=MOMLBS)) +
+  geom_point()
+
+```
+
+weighted plot - notice the varying sizes of the dots (bubbles)
+
+```{r}
+svyplot(MOMLBS~MAT_AGE_PU, 
+        prams_ga2000.svy,
+        style = "bubble")
+```
+
+another option - gray scale hex symbols - darker indicate higher counts, see `help(svyplot, package = "survey")`.
+
+```{r}
+svyplot(MOMLBS~MAT_AGE_PU, 
+        prams_ga2000.svy,
+        style = "grayhex")
+```
+
+
+
+
 ## 5. Missing Data in PRAMS
 
 Examples will be posted here for summarizing and visualizing missing data in PRAMS.
+
+```{r}
+prams_ga2000 <- prams %>%
+  filter(STATE == "GA") %>%
+  filter(NEST_YR == 2020)
+
+# amount of missing data for VITAMIN
+# unweighted
+ #   1    2    3    4 <NA> 
+ # 390   53   33  214    2
+# 2/692 = 0.289%
+table(prams_ga2000$VITAMIN, useNA = "ifany")
+
+
+# add missing indicator for VITAMIN
+prams_ga2000$VITAMIN_na <-
+  as.numeric(is.na(prams_ga2000$VITAMIN))
+sum(prams_ga2000$VITAMIN_na)
+
+# create the survey design file for GA
+# for year 2020
+prams_ga2000.svy <- 
+  svydesign(ids = ~0, strata = ~SUD_NEST, 
+            fpc = ~TOTCNT, weights = ~WTANAL, 
+            data = prams_ga2000)
+
+tbl_svysummary(
+  data = prams_ga2000.svy,
+  include = c(VITAMIN_na),
+  statistic = list(everything() ~ c("{n} ({p}%)"))
+  ) %>%
+  add_n() %>%  
+  add_stat(fns = everything() ~ confidence_intervals) %>%
+  modify_header(
+    list(
+      n ~ "**Weighted total (N)**",
+      stat_0 ~ "**Weighted Count**",
+      add_stat_1 ~ "**95%CI**"
+    ))
+# weighted 0.3%, CI: 0.1 to 1.8%
+```
+
 
 ## 6. PRAMS Statistical Tests and Models
 
 Examples will be posted here for statistical tests and models (such as linear and logistic regression) for both the unweighted and weighted data approaches.
 
+association of age and weight gain - linear regression
+
+```{r}
+lm1 <- lm(MOMLBS ~ MAT_AGE_PU,
+          data = prams_ga2000)
+summary(lm1)
+```
+
+weighted
+
+```{r}
+summary(svyglm(MOMLBS ~ MAT_AGE_PU, 
+               design = prams_ga2000.svy))
+```
+
+contingency tables - vitamin use by breastfeeding
+
+```{r}
+table(prams_ga2000$VITAMIN_4plus.f, 
+      prams_ga2000$BF5EVER.f,
+      useNA = "ifany")
+
+library(gmodels)
+CrossTable(x = prams_ga2000$VITAMIN_4plus.f, 
+           y = prams_ga2000$BF5EVER.f,
+           expected = TRUE,
+           prop.r = FALSE,
+           prop.c = TRUE,
+           prop.t = FALSE,
+           prop.chisq = FALSE,
+           chisq = TRUE,
+           format = "SPSS")
+```
+
+weighted
+
+```{r}
+svytable(~VITAMIN_4plus.f + BF5EVER.f, 
+         prams_ga2000.svy)
+
+svychisq(~VITAMIN_4plus.f + BF5EVER.f, 
+         prams_ga2000.svy, 
+         statistic = "Chisq")
+```
+
+logistic regression
+
+look at vitamin use by breastfeeding and maternal age
+
+```{r}
+glm1 <-glm(VITAMIN_4plus ~ MAT_AGE_PU + BF5EVER.f,
+           data = prams_ga2000,
+           family = "binomial")
+gtsummary::tbl_regression(glm1,
+                          exponentiate = TRUE)
+```
+
+weighted
+
+```{r}
+wtglm1 <- svyglm(VITAMIN_4plus ~ MAT_AGE_PU + BF5EVER.f, 
+                 design = prams_ga2000.svy,
+                 family=quasibinomial())
+summary(wtglm1)
+exp(coef(wtglm1))
+```
+
 ## 7. PRAMS Reproducible Research Report
 
 A Rmarkdown analysis report will be provided here as a template to "kick start" your research with the PRAMS dataset.
+
+1. Download this Rmarkdown template [PRAMS Report](prams_report.Rmd).
+2. Knit to HTML
+3. Knit to DOC
+4. Knit to PDF (if you've installed `tinytex` package)
+5. Knit with Parameters - Change the year from 2020 to 2018 and re-knit the document
 
 ---
 

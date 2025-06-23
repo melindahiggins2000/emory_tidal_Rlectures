@@ -98,7 +98,7 @@ Let's begin with a new RStudio Project.
 * [`mydata.xlsx` - EXCEL file](mydata.xlsx)
 * [`mydata.sav` - SPSS Dataset](mydata.sav)
 * [`mydata.sas7bdat` - SAS Dataset](mydata.sas7bdat)
-* [`Mydata_Codebook.pdf` - Codebook Details on "mydata" dataset](Mydata_Codebook.pdf)
+* [`Mydata_Codebook.pdf` - Codebook for "mydata" dataset](Mydata_Codebook.pdf)
 
 7. After putting these files into your new RStudio project folder, you should see something like this now in your RStudio Files Listing (bottom right window pane):
 

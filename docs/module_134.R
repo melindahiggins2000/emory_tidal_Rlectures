@@ -2,16 +2,16 @@
 # Section 0. Pre-work =====================================
 # Make sure you have these packages installed
 #   - VIM
-- skimr (optional)
-- modelsummary (optional)
-- summarytools (optional)
-- palmerpenguins
-- ggplot2
-- naniar 
-- dplyr
-- gtsummary 
-- Hmisc
-- mice 
+# - skimr (optional)
+# - modelsummary (optional)
+# - summarytools (optional)
+# - palmerpenguins
+# - ggplot2
+# - naniar 
+# - dplyr
+# - gtsummary 
+# - Hmisc
+# - mice 
 
 
 # NOTE: Built-in datasets will be used for this module, so no new data needs to be loaded here.

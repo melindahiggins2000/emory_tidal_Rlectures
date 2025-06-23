@@ -350,7 +350,7 @@ Keep in mind, when you are fitting any model (linear or logistic regression, ana
 
 ### Impact of missing data for correlation matrix - cor() function
 
-Let's also look at a small correlation matrix considering PAIRWISE versus LISTWISE deletion of missing data for 3 variables from the `sleep` dataset. Notice that the correlation between `BrainWgt` and `Dream` and `Sleep` are slightly different between LISTWISE and PAIRWISE approaches. These are all `pearson` correlations be default. 
+Let's also look at a small correlation matrix considering PAIRWISE versus LISTWISE deletion of missing data for 3 variables from the `sleep` dataset. Notice that the correlation between `BrainWgt` and `Dream` and `Sleep` are slightly different between LISTWISE and PAIRWISE approaches. These are all `pearson` correlations by default. 
 
 **LISTWISE deletion**
 
@@ -492,7 +492,7 @@ s1 <- s1 %>%
          log_BrainWgt = log(BrainWgt)) 
 ```
 
-Table comparing `BodyWgt` and `BrainWgt` for rows with and without missing `Dream` data. Both are statistically significant - the animals with missing `Dream` valus are larger (bigger body and brain weights).
+Table comparing `BodyWgt` and `BrainWgt` for rows with and without missing `Dream` data. Both are statistically significant - the animals with missing `Dream` values are larger (bigger body and brain weights).
 
 ```{r}
 s1 %>%
@@ -522,7 +522,7 @@ ggplot(s1, aes(group = Dream_missing,
 
 ### Imputation - Mean Substitution
 
-There are many ideas and options for creating data to "fill-in" or "impute" the spots for the missing values. Keep in mind that these methods are "making up" new (unobserved) data. Iideally, the missing imputation methods should be as unbiased as possible and should not increase or decrease the variability of the data. As good as some methods may be, always keep in mind that we will never know for sure if these new imputed data are "correct" or if they are the best they can be.
+There are many ideas and options for creating data to "fill-in" or "impute" the spots for the missing values. Keep in mind that these methods are "making up" new (unobserved) data. Ideally, the missing imputation methods should be as unbiased as possible and should not increase or decrease the variability of the data. As good as some methods may be, always keep in mind that we will never know for sure if these new imputed data are "correct" or if they are the best they can be.
 
 A simple example, suppose we have a variable with 5 numbers. Let's compute the mean and standard deviation of these numbers.
 
