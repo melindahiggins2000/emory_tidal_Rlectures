@@ -4,6 +4,7 @@ author: "Melinda Higgins"
 date: "2025-06-23"
 output:
   pdf_document: default
+  word_document: default
   html_document: default
 subtitle: "Example Report from TIDAL Course - Summer 2025"
 params:
@@ -17,7 +18,7 @@ params:
     - 2019
     - 2020
     - 2021
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -131,6 +132,7 @@ vitamin_mch <- data.frame(
   wtpct_95ciup = c(34.5, 40.4, 42.7, 40.7, 45.6)
 )
 ```
+
 \newpage
 
 ### MCH Indicators for GA between 2017-2021 for "Ever Breastfed".
@@ -184,6 +186,7 @@ tbl_svysummary(
   as_gt() %>%
   tab_options(latex.tbl.pos = "h")
 ```
+
 \newpage
 
 ### MCH Indicators for GA between 2017-2021 for "Multivitamin use 4+ times a week during the month before pregnancy".
@@ -224,6 +227,7 @@ tbl_svysummary(
   as_gt() %>%
   tab_options(latex.tbl.pos = "h")
 ```
+
 \newpage
 
 ### Logistic Regression - Breastfed Ever by Maternal Age and Multivitamin Use

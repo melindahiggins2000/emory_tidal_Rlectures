@@ -17,6 +17,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -176,24 +210,49 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#session-objectives" id="toc-session-objectives" class="nav-link active" data-scroll-target="#session-objectives">Session Objectives</a></li>
+<li><a href="#session-objectives-updated" id="toc-session-objectives-updated" class="nav-link active" data-scroll-target="#session-objectives-updated">Session Objectives <em>(updated)</em></a></li>
   <li>
 <a href="#prework---before-you-begin" id="toc-prework---before-you-begin" class="nav-link" data-scroll-target="#prework---before-you-begin">0. Prework - Before You Begin</a>
   <ul>
 <li><a href="#a.-install-packages" id="toc-a.-install-packages" class="nav-link" data-scroll-target="#a.-install-packages">A. Install packages</a></li>
-  <li><a href="#b.-review-these-online-book-chapters" id="toc-b.-review-these-online-book-chapters" class="nav-link" data-scroll-target="#b.-review-these-online-book-chapters">B. Review these online Book Chapters:</a></li>
-  <li><a href="#c.-opencreate-an-rstudio-project-for-this-lesson" id="toc-c.-opencreate-an-rstudio-project-for-this-lesson" class="nav-link" data-scroll-target="#c.-opencreate-an-rstudio-project-for-this-lesson">C. Open/create an RStudio project for this lesson</a></li>
+  <li><a href="#b.-opencreate-an-rstudio-project-for-this-lesson" id="toc-b.-opencreate-an-rstudio-project-for-this-lesson" class="nav-link" data-scroll-target="#b.-opencreate-an-rstudio-project-for-this-lesson">B. Open/create an RStudio project for this lesson</a></li>
   </ul>
 </li>
   <li>
-<a href="#develop-linear-and-logistic-regression-models." id="toc-develop-linear-and-logistic-regression-models." class="nav-link" data-scroll-target="#develop-linear-and-logistic-regression-models.">1. Develop linear and logistic regression models.</a>
+<a href="#develop-linear-regression-models-and-explore-results." id="toc-develop-linear-regression-models-and-explore-results." class="nav-link" data-scroll-target="#develop-linear-regression-models-and-explore-results.">1. Develop linear regression models and explore results.</a>
   <ul>
-<li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
+<li>
+<a href="#linear-regression-modeling" id="toc-linear-regression-modeling" class="nav-link" data-scroll-target="#linear-regression-modeling">Linear Regression Modeling</a>
+  <ul class="collapse">
+<li><a href="#using-the-lm-function-and-exploring-output" id="toc-using-the-lm-function-and-exploring-output" class="nav-link" data-scroll-target="#using-the-lm-function-and-exploring-output">Using the <code>lm()</code> function and exploring output</a></li>
+  <li><a href="#nicer-formatted-regression-table-using-gtsummarytbl_regression" id="toc-nicer-formatted-regression-table-using-gtsummarytbl_regression" class="nav-link" data-scroll-target="#nicer-formatted-regression-table-using-gtsummarytbl_regression">Nicer formatted regression table using <code>gtsummary::tbl_regression</code></a></li>
+  <li><a href="#more-output-options-for-regression-using-easystats" id="toc-more-output-options-for-regression-using-easystats" class="nav-link" data-scroll-target="#more-output-options-for-regression-using-easystats">More output options for regression using <code>easystats</code></a></li>
+  <li><a href="#other-options-within-tidyverse-packages" id="toc-other-options-within-tidyverse-packages" class="nav-link" data-scroll-target="#other-options-within-tidyverse-packages">Other options within <code>tidyverse</code> packages</a></li>
+  <li><a href="#companion-for-applied-regression---the-car-and-effects-packages" id="toc-companion-for-applied-regression---the-car-and-effects-packages" class="nav-link" data-scroll-target="#companion-for-applied-regression---the-car-and-effects-packages">“Companion for Applied Regression” - the <code>car</code> and <code>effects</code> packages</a></li>
+  <li><a href="#one-more---the-olsrr-package" id="toc-one-more---the-olsrr-package" class="nav-link" data-scroll-target="#one-more---the-olsrr-package">One more - the <code>olsrr</code> package</a></li>
   </ul>
 </li>
-  <li><a href="#linear-and-logistic-regression-models-with-complex-survey-sampling-weights" id="toc-linear-and-logistic-regression-models-with-complex-survey-sampling-weights" class="nav-link" data-scroll-target="#linear-and-logistic-regression-models-with-complex-survey-sampling-weights">2. Linear and Logistic Regression Models with complex survey sampling weights</a></li>
-  <li><a href="#interpret-a-model-output" id="toc-interpret-a-model-output" class="nav-link" data-scroll-target="#interpret-a-model-output">3. Interpret a model output</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#develop-logistic-regression-models-and-explore-results." id="toc-develop-logistic-regression-models-and-explore-results." class="nav-link" data-scroll-target="#develop-logistic-regression-models-and-explore-results.">2. Develop logistic regression models and explore results.</a>
+  <ul>
+<li><a href="#simple-glm-output" id="toc-simple-glm-output" class="nav-link" data-scroll-target="#simple-glm-output">Simple <code>glm()</code> output</a></li>
+  <li><a href="#get-detailed-glm-regression-output." id="toc-get-detailed-glm-regression-output." class="nav-link" data-scroll-target="#get-detailed-glm-regression-output.">Get detailed <code>glm()</code> regression output.</a></li>
+  <li><a href="#use-gtsummarytbl_regression" id="toc-use-gtsummarytbl_regression" class="nav-link" data-scroll-target="#use-gtsummarytbl_regression">Use gtsummary::tbl_regression()</a></li>
+  <li><a href="#interpret-odds-ratios-as-effect-sizes" id="toc-interpret-odds-ratios-as-effect-sizes" class="nav-link" data-scroll-target="#interpret-odds-ratios-as-effect-sizes">Interpret Odds Ratios as Effect Sizes</a></li>
+  <li><a href="#auc-and-roc-curve-plot" id="toc-auc-and-roc-curve-plot" class="nav-link" data-scroll-target="#auc-and-roc-curve-plot">AUC and ROC curve plot</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#perform-t-tests-explore-results." id="toc-perform-t-tests-explore-results." class="nav-link" data-scroll-target="#perform-t-tests-explore-results.">3. Perform t-tests explore results.</a>
+  <ul>
+<li><a href="#t-tests" id="toc-t-tests" class="nav-link" data-scroll-target="#t-tests">T-tests</a></li>
+  <li><a href="#compute-effect-size-for-t-test" id="toc-compute-effect-size-for-t-test" class="nav-link" data-scroll-target="#compute-effect-size-for-t-test">Compute effect size for t-test</a></li>
+  <li><a href="#get-a-simple-summary-table" id="toc-get-a-simple-summary-table" class="nav-link" data-scroll-target="#get-a-simple-summary-table">Get a simple summary table</a></li>
+  </ul>
+</li>
+  <li><a href="#modeling-with-complex-survey-weights" id="toc-modeling-with-complex-survey-weights" class="nav-link" data-scroll-target="#modeling-with-complex-survey-weights">4. Modeling with Complex Survey Weights</a></li>
   <li><a href="#r-code-for-this-module" id="toc-r-code-for-this-module" class="nav-link" data-scroll-target="#r-code-for-this-module">R Code For This Module</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
@@ -216,11 +275,13 @@ div.csl-indent {
   
 
 
-</header><section id="session-objectives" class="level2"><h2 class="anchored" data-anchor-id="session-objectives">Session Objectives</h2>
+</header><section id="session-objectives-updated" class="level2"><h2 class="anchored" data-anchor-id="session-objectives-updated">Session Objectives <em>(updated)</em>
+</h2>
 <ol type="1">
-<li>Develop linear and logistic regression models.</li>
-<li>(Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.</li>
-<li>Interpret a model output.</li>
+<li>Develop linear regression models and explore results.</li>
+<li>Develop logistic regression models and explore results.</li>
+<li>Perform t-tests and ANOVA and explore results.</li>
+<li>Modeling with Complex Survey Weights</li>
 </ol>
 <hr></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
 <section id="a.-install-packages" class="level3"><h3 class="anchored" data-anchor-id="a.-install-packages">A. Install packages</h3>
@@ -229,54 +290,2134 @@ div.csl-indent {
 <li>
 <a href="https://cran.r-project.org/web/packages/VIM/index.html" target="_blank"><code>VIM</code></a> and <a href="https://statistikat.github.io/VIM/index.html" target="_blank"><code>VIM</code> package website</a>
 </li>
-<li>(Optional) <a href="https://cran.r-project.org/web/packages/skimr/index.html" target="_blank"><code>skimr</code></a> and <a href="https://docs.ropensci.org/skimr/" target="_blank"><code>skimr</code> website</a>
-</li>
-<li>(Optional) <a href="https://cran.r-project.org/web/packages/modelsummary/" target="_blank"><code>modelsummary</code></a> and <a href="https://modelsummary.com/" target="_blank"><code>modelsummary</code> website</a>
-</li>
-<li>(Optional) <a href="https://cran.r-project.org/web/packages/summarytools/" target="_blank"><code>summarytools</code></a> and <a href="https://github.com/dcomtois/summarytools" target="_blank"><code>summarytools</code> on Github</a>
+<li>
+<a href="https://cran.r-project.org/web/packages/gtsummary/" target="_blank"><code>gtsummary</code></a> and <a href="https://www.danieldsjoberg.com/gtsummary/" target="_blank"><code>gtsummary</code> website</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/palmerpenguins/" target="_blank"><code>palmerpenguins</code></a> and <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank"><code>palmerpenguins</code> website</a>
+<a href="https://cran.r-project.org/web/packages/easystats/index.html" target="_blank"><code>easystats</code></a> and <a href="https://easystats.github.io/easystats/" target="_blank"><code>easystats</code> website</a>
 </li>
 <li>
-<a href="https://cloud.r-project.org/web/packages/ggplot2/" target="_blank"><code>ggplot2</code></a> and <a href="https://ggplot2.tidyverse.org/" target="_blank"><code>ggplot2</code> website</a>
+<a href="https://cran.r-project.org/web/packages/car/" target="_blank"><code>car</code></a> and <a href="https://www.john-fox.ca/Companion/index.html" target="_blank"><code>car</code> BOOK website</a>
+</li>
+<li><a href="https://cran.r-project.org/web/packages/effects/" target="_blank"><code>effects</code></a></li>
+<li>
+<a href="https://cran.r-project.org/web/packages/olsrr/" target="_blank"><code>olsrr</code></a> and <a href="https://olsrr.rsquaredacademy.com/" target="_blank"><code>olsrr</code> website</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/naniar/" target="_blank"><code>naniar</code></a> and <a href="https://naniar.njtierney.com/" target="_blank"><code>naniar</code> website</a>
+<a href="https://cran.r-project.org/web/packages/dplyr/index.html" target="_blank">dplyr</a> and <a href="https://dplyr.tidyverse.org/" target="_blank"><code>dplyr</code> website</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a> and <a href="https://dplyr.tidyverse.org/"><code>dplyr</code> website</a>
+<a href="https://cran.r-project.org/web/packages/ROCR/" target="_blank"><code>ROCR</code></a> and <a href="https://ipa-tys.github.io/ROCR/" target="_blank"><code>ROCR</code> website</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/gtsummary/"><code>gtsummary</code></a> and <a href="https://www.danieldsjoberg.com/gtsummary/"><code>gtsummary</code> website</a>
+<a href="https://cran.r-project.org/web/packages/effectsize/" target="_blank"><code>effectsize</code></a> and <a href="https://easystats.github.io/effectsize/" target="_blank"><code>effectsize</code> website</a>
 </li>
-<li>
-<a href="https://cran.r-project.org/web/packages/Hmisc/"><code>Hmisc</code></a> and <a href="https://hbiostat.org/r/hmisc/"><code>Hmisc</code> website</a>
-</li>
-<li>
-<a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank"><code>mice</code></a> and <a href="https://amices.org/mice/" target="_blank">mice website</a>
-</li>
-</ul></section><section id="b.-review-these-online-book-chapters" class="level3"><h3 class="anchored" data-anchor-id="b.-review-these-online-book-chapters">B. Review these online Book Chapters:</h3>
-<ul>
-<li><a href="https://stefvanbuuren.name/fimd/ch-introduction.html" target="_blank">BOOK: Flexible Imputation of Missing Data, 2nd ed., by Stef van Buuren (<code>mice</code> package author) - Chapter 1 “Introduction”, Sections 1.1-1.4</a></li>
-<li><a href="https://www.epirhandbook.com/en/new_pages/missing_data.html">BOOK: The Epidemiologist R Handbook - Chapter 20 “Missing Data”</a></li>
-</ul></section><section id="c.-opencreate-an-rstudio-project-for-this-lesson" class="level3"><h3 class="anchored" data-anchor-id="c.-opencreate-an-rstudio-project-for-this-lesson">C. Open/create an RStudio project for this lesson</h3>
+</ul></section><section id="b.-opencreate-an-rstudio-project-for-this-lesson" class="level3"><h3 class="anchored" data-anchor-id="b.-opencreate-an-rstudio-project-for-this-lesson">B. Open/create an RStudio project for this lesson</h3>
 <p>Let’s start with the <code>myfirstRproject</code> RStudio project you created in <a href="module132_DataWrangling.html#begin-with-a-new-rstudio-project">Module 1.3.2 - part 1</a>. If you have not yet created this <code>myfirstRproject</code> RStudio project, go ahead and create a new RStudio Project for this lesson. <em>Feel free to name your project whatever you want, it does not need to be named <code>myfirstRproject</code>.</em></p>
 <hr>
 <div style="page-break-after: always;"></div>
-</section></section><section id="develop-linear-and-logistic-regression-models." class="level2"><h2 class="anchored" data-anchor-id="develop-linear-and-logistic-regression-models.">1. Develop linear and logistic regression models.</h2>
-<section id="linear-regression" class="level3"><h3 class="anchored" data-anchor-id="linear-regression">Linear Regression</h3>
-<p>One aaaaaaaaaaaaaaa</p>
-</section><section id="logistic-regression" class="level3"><h3 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h3>
-<p>xxxxxxxxxxxxxxxxxx</p>
+</section></section><section id="develop-linear-regression-models-and-explore-results." class="level2"><h2 class="anchored" data-anchor-id="develop-linear-regression-models-and-explore-results.">1. Develop linear regression models and explore results.</h2>
+<section id="linear-regression-modeling" class="level3"><h3 class="anchored" data-anchor-id="linear-regression-modeling">Linear Regression Modeling</h3>
+<p>As we saw briefly in <a href="https://melindahiggins2000.github.io/emory_tidal_Rlectures/module134_MissingWeight.html#impact-of-missing-data-for-regression-models">Module 1.3.4 - section 2 on missing data in regression models</a>, linear regression can be accomplished using the built-in <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function.</p>
+<p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> stands for linear models. You can use this function for building both regression and ANOVA (analysis of variance) type models. <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> is another option for ANOVA as well.</p>
+<p>Let’s take a closer look at the little linear model we ran for the <code>sleep</code> dataset from the <code>VIM</code> package. We will run the regression model again and save the output to an object called <code>lm1</code>. Look at default output.</p>
+<section id="using-the-lm-function-and-exploring-output" class="level4"><h4 class="anchored" data-anchor-id="using-the-lm-function-and-exploring-output">Using the <code>lm()</code> function and exploring output</h4>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load VIM Package to get sleep dataset</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/statistikat/VIM">VIM</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># run model for predicting "Sleep" from "Dream"</span></span>
+<span><span class="co"># save the output in lm1</span></span>
+<span><span class="va">lm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># look at default output</span></span>
+<span><span class="va">lm1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sleep ~ Dream, data = sleep)
+
+Coefficients:
+(Intercept)        Dream  
+      6.027        2.305  </code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Let’s take a moment to take a look at the <code>lm1</code> object in the Global Environment. Notice that only the intercept and slope terms are printed in the default output, but the <code>lm1</code> object is actually a list of 13 elements only one of which are the “coefficients” from the model.</p>
+<p><img src="lm1_object.png" class="img-fluid"></p>
+<div style="page-break-after: always;"></div>
+<p>Next, to get more detailed output we need to run <code>summary(lm1)</code> which technically runs <code><a href="https://rdrr.io/r/stats/summary.lm.html">summary.lm()</a></code> which is a special summary function specific for <code>lm</code> class type objects.</p>
+<p>So, let’s save the <code>summary(lm1)</code> output and also take a look at that object <code>slm1</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save the summary of lm1</span></span>
+<span><span class="va">slm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># look at default output</span></span>
+<span><span class="va">slm1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sleep ~ Dream, data = sleep)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.2765 -2.0384 -0.1096  2.1599  9.2624 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   6.0273     0.7960   7.572 1.27e-09 ***
+Dream         2.3051     0.3209   7.183 4.85e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.178 on 46 degrees of freedom
+  (14 observations deleted due to missingness)
+Multiple R-squared:  0.5287,    Adjusted R-squared:  0.5184 
+F-statistic: 51.59 on 1 and 46 DF,  p-value: 4.849e-09</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>But here is what is in the <code>slm1</code> object in the Global Environment - also a list with 12 elements. We get the <code>coefficients</code> again, but we get even more info - including the <code>df</code> (degrees of freedom), <code>r.squared</code> and <code>adj.r.squared</code>.</p>
+<p><img src="slm1_object.png" class="img-fluid"></p>
+<div style="page-break-after: always;"></div>
+</section><section id="nicer-formatted-regression-table-using-gtsummarytbl_regression" class="level4"><h4 class="anchored" data-anchor-id="nicer-formatted-regression-table-using-gtsummarytbl_regression">Nicer formatted regression table using <code>gtsummary::tbl_regression</code>
+</h4>
+<p>We can get a nicer output using the <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">gtsummary::tbl_regression()</a></code> table.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/gtsummary">gtsummary</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="nubewnmfih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nubewnmfih table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#nubewnmfih thead, #nubewnmfih tbody, #nubewnmfih tfoot, #nubewnmfih tr, #nubewnmfih td, #nubewnmfih th {
+  border-style: none;
+}
+
+#nubewnmfih p {
+  margin: 0;
+  padding: 0;
+}
+
+#nubewnmfih .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nubewnmfih .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nubewnmfih .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nubewnmfih .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nubewnmfih .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nubewnmfih .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nubewnmfih .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nubewnmfih .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nubewnmfih .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#nubewnmfih .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#nubewnmfih .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nubewnmfih .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nubewnmfih .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nubewnmfih .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nubewnmfih .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nubewnmfih .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nubewnmfih .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nubewnmfih .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nubewnmfih .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nubewnmfih .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nubewnmfih .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nubewnmfih .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nubewnmfih .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nubewnmfih .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nubewnmfih .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nubewnmfih .gt_left {
+  text-align: left;
+}
+
+#nubewnmfih .gt_center {
+  text-align: center;
+}
+
+#nubewnmfih .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nubewnmfih .gt_font_normal {
+  font-weight: normal;
+}
+
+#nubewnmfih .gt_font_bold {
+  font-weight: bold;
+}
+
+#nubewnmfih .gt_font_italic {
+  font-style: italic;
+}
+
+#nubewnmfih .gt_super {
+  font-size: 65%;
+}
+
+#nubewnmfih .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#nubewnmfih .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nubewnmfih .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nubewnmfih .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nubewnmfih .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nubewnmfih .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nubewnmfih .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#nubewnmfih .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#nubewnmfih div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Beta</strong></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr></thead>
+<tbody class="gt_table_body"><tr class="odd">
+<td class="gt_row gt_left" headers="label">Dream</td>
+<td class="gt_row gt_center" headers="estimate">2.3</td>
+<td class="gt_row gt_center" headers="conf.low">1.7, 3.0</td>
+<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+</tr></tbody>
+<tfoot class="gt_footnotes"><tr class="odd">
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> CI = Confidence Interval</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="more-output-options-for-regression-using-easystats" class="level4"><h4 class="anchored" data-anchor-id="more-output-options-for-regression-using-easystats">More output options for regression using <code>easystats</code>
+</h4>
+<p>Another suite of R packages that can be helpful to explore is the <a href="https://easystats.github.io/easystats/index.html"><code>easystats</code> package suite</a>. In this example we will look at:</p>
+<ul>
+<li>
+<code>model_parameters()</code> from the <a href="https://easystats.github.io/parameters/"><code>parameters</code> package</a> that is part of <code>easystats</code> package suite; and</li>
+<li>
+<code>report()</code> from the [<code>report</code> package<code>](https://easystats.github.io/report/) that is also part of the</code>easystats` package suite.</li>
+</ul>
+<p>Better formatted output table:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/easystats/">easystats</a></span><span class="op">)</span></span>
+<span><span class="fu">model_parameters</span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parameter   | Coefficient |   SE |       95% CI | t(46) |      p
+----------------------------------------------------------------
+(Intercept) |        6.03 | 0.80 | [4.43, 7.63] |  7.57 | &lt; .001
+Dream       |        2.31 | 0.32 | [1.66, 2.95] |  7.18 | &lt; .001</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>A nice summary with suggested interpretation verbiage:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a linear model (estimated using OLS) to predict Sleep with Dream
+(formula: Sleep ~ Dream). The model explains a statistically significant and
+substantial proportion of variance (R2 = 0.53, F(1, 46) = 51.59, p &lt; .001, adj.
+R2 = 0.52). The model's intercept, corresponding to Dream = 0, is at 6.03 (95%
+CI [4.43, 7.63], t(46) = 7.57, p &lt; .001). Within this model:
+
+  - The effect of Dream is statistically significant and positive (beta = 2.31,
+95% CI [1.66, 2.95], t(46) = 7.18, p &lt; .001; Std. beta = 0.73, 95% CI [0.52,
+0.93])
+
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="other-options-within-tidyverse-packages" class="level4"><h4 class="anchored" data-anchor-id="other-options-within-tidyverse-packages">Other options within <code>tidyverse</code> packages</h4>
+<p>In the <a href="https://broom.tidymodels.org/index.html"><code>broom</code> package</a> there are some additional functions that are helpful for exploring the model fit metrics and more.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic       p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+1 (Intercept)     6.03     0.796      7.57 0.00000000127
+2 Dream           2.31     0.321      7.18 0.00000000485</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic       p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.529         0.518  3.18      51.6 0.00000000485     1  -123.  251.  257.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="companion-for-applied-regression---the-car-and-effects-packages" class="level4"><h4 class="anchored" data-anchor-id="companion-for-applied-regression---the-car-and-effects-packages">“Companion for Applied Regression” - the <code>car</code> and <code>effects</code> packages</h4>
+<p>John Fox has written an excellent set of books on applied regression that has an R companion book along with the <code>car</code> and <code>effects</code> packages with lots of helpful functions for doing regression modeling and analysis. Learn more at <a href="https://us.sagepub.com/en-us/nam/applied-regression-analysis-and-generalized-linear-models/book237254">Applied Regression Book</a> and <a href="https://www.john-fox.ca/Companion/index.html">R Companion for Applied Regression Book</a>.</p>
+<p>Get the normal probability plot of the model residuals.</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get normal probability plot of the </span></span>
+<span><span class="co"># regression model residuals</span></span>
+<span><span class="fu">car</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>33 42 
+24 32 </code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Overlay a best fit line on the scatterplot of the original data for the model - include 95% confidence intervals for the best fit line.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># scatterplot of fitted model</span></span>
+<span><span class="co"># using the car package, add the smooth option</span></span>
+<span><span class="fu">car</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/car/man/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">sleep</span>, </span>
+<span>                 smooth<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Get an “effects” plot - for this model you only get one plot showing the slope of the line between <code>Dream</code> and <code>Sleep</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">allEffects</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="one-more---the-olsrr-package" class="level4"><h4 class="anchored" data-anchor-id="one-more---the-olsrr-package">One more - the <a href="https://olsrr.rsquaredacademy.com/"><code>olsrr</code></a> package</h4>
+<p>The <a href="https://olsrr.rsquaredacademy.com/"><code>olsrr</code></a> package provides a helpful set of tolls for working with OLS (ordinary least squares) regression models. <em>Unfortunately, this set of package functions do NOT work with <code>glm</code> (generalized linear models) like logistic regression.</em></p>
+<p>Get detailed regression output including the standardized regression coefficients which are effect sizes, where std.beta = 0.1 is “small”, 0.3 is “moderate” and 0.5 is “large”.</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load olsrr package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://olsrr.rsquaredacademy.com/">olsrr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get detailed regression output</span></span>
+<span><span class="co"># including standardized coefficients</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_regress.html">ols_regress</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         Model Summary                          
+---------------------------------------------------------------
+R                       0.727       RMSE                 3.112 
+R-Squared               0.529       MSE                  9.682 
+Adj. R-Squared          0.518       Coef. Var           29.705 
+Pred R-Squared          0.494       AIC                251.190 
+MAE                     2.507       SBC                256.804 
+---------------------------------------------------------------
+ RMSE: Root Mean Square Error 
+ MSE: Mean Square Error 
+ MAE: Mean Absolute Error 
+ AIC: Akaike Information Criteria 
+ SBC: Schwarz Bayesian Criteria 
+
+                               ANOVA                                
+-------------------------------------------------------------------
+               Sum of                                              
+              Squares        DF    Mean Square      F         Sig. 
+-------------------------------------------------------------------
+Regression    521.233         1        521.233    51.593    0.0000 
+Residual      464.727        46         10.103                     
+Total         985.960        47                                    
+-------------------------------------------------------------------
+
+                                Parameter Estimates                                  
+------------------------------------------------------------------------------------
+      model     Beta    Std. Error    Std. Beta      t       Sig     lower    upper 
+------------------------------------------------------------------------------------
+(Intercept)    6.027         0.796                 7.572    0.000    4.425    7.630 
+      Dream    2.305         0.321        0.727    7.183    0.000    1.659    2.951 
+------------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Get diagnostic plots.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># diagnostic plots</span></span>
+<span><span class="co"># check for new output windows</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_diagnostics.html">ols_plot_diagnostics</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-3.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-4.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-5.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-6.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-7.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-8.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-9.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-10.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-11.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-12.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-11-13.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Get a normality test for the residuals.</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># normality tests for residuals</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_normality.html">ols_test_normality</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----------------------------------------------
+       Test             Statistic       pvalue  
+-----------------------------------------------
+Shapiro-Wilk              0.9736         0.3468 
+Kolmogorov-Smirnov        0.108          0.6307 
+Cramer-von Mises          3.1824         0.0000 
+Anderson-Darling          0.4289         0.2980 
+-----------------------------------------------</code></pre>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section></section><section id="linear-and-logistic-regression-models-with-complex-survey-sampling-weights" class="level2"><h2 class="anchored" data-anchor-id="linear-and-logistic-regression-models-with-complex-survey-sampling-weights">2. Linear and Logistic Regression Models with complex survey sampling weights</h2>
-<p>aaaaaaaaaaaaa</p>
+</section></section></section><section id="develop-logistic-regression-models-and-explore-results." class="level2"><h2 class="anchored" data-anchor-id="develop-logistic-regression-models-and-explore-results.">2. Develop logistic regression models and explore results.</h2>
+<p>Similar to what we did above, we can use <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> instead of <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> to perform a logistic regression. <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> is the generalized linear modeling function in base R. The “generalized” part of this is due to this function handling different “families” of output distributions. The “gaussian” family is the default for continuous variables with a normal distribution (the assumption for OLS). The family for logistic regression is the “binomial” since we are predicting the probability of someone being in group 1 or group 2 for the 2 possible outcomes in a logistic regression. And there are more families that can be fit including “poisson” which works for count-based variables (like number of children, miscarriages, etc).</p>
+<p>This function can actually do a simple linear regression by leaving the default setting for <code>family = "gaussian"</code>. Learn more by running <code><a href="https://rdrr.io/r/stats/glm.html">help(glm, package = "stats")</a></code>.</p>
+<p>Let’s keep working with the <code>sleep</code> dataset, but first let’s split the <code>Dream</code> variable into values &lt;= 2 and those &gt; 2. <em>Note: The median for <code>Dream</code> was 1.8, so this should split data approximately 50/50.</em></p>
+<p>This time we will treat “<code>Dream</code> &gt; 2” as the positive (or target) outcome for our logistic regression model. And then we will see how “<code>Dream</code> &gt; 2” is predicted by amount of <code>Sleep</code> and <code>Danger</code> scores.</p>
+<section id="simple-glm-output" class="level3"><h3 class="anchored" data-anchor-id="simple-glm-output">Simple <code>glm()</code> output</h3>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create outcome variable</span></span>
+<span><span class="va">sleep</span><span class="op">$</span><span class="va">dream_gt2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">Dream</span> <span class="op">&gt;</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co"># fit the logistic regression model</span></span>
+<span><span class="va">glm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">dream_gt2</span> <span class="op">~</span> <span class="va">Sleep</span> <span class="op">+</span> <span class="va">Danger</span>,</span>
+<span>            data <span class="op">=</span> <span class="va">sleep</span>,</span>
+<span>            family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># look at basic output</span></span>
+<span><span class="va">glm1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:  glm(formula = dream_gt2 ~ Sleep + Danger, family = "binomial", 
+    data = sleep)
+
+Coefficients:
+(Intercept)        Sleep       Danger  
+    -1.5953       0.2677      -0.8381  
+
+Degrees of Freedom: 47 Total (i.e. Null);  45 Residual
+  (14 observations deleted due to missingness)
+Null Deviance:      63.51 
+Residual Deviance: 41.79    AIC: 47.79</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+WARNING: Exponentiate Raw Coefficients
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The default output from <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> only provides for the RAW logistic regression coefficients. To get the odds ratios, we must first exponentiate these coefficients.</p>
+</div>
+</div>
+<p>Get the odds ratios by exponentiating the coefficients.</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">glm1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)       Sleep      Danger 
+  0.2028428   1.3069544   0.4325214 </code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="get-detailed-glm-regression-output." class="level3"><h3 class="anchored" data-anchor-id="get-detailed-glm-regression-output.">Get detailed <code>glm()</code> regression output.</h3>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sglm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">glm1</span><span class="op">)</span></span>
+<span><span class="va">sglm1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = dream_gt2 ~ Sleep + Danger, family = "binomial", 
+    data = sleep)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept)  -1.5953     1.5922  -1.002   0.3164  
+Sleep         0.2677     0.1151   2.325   0.0201 *
+Danger       -0.8381     0.3888  -2.156   0.0311 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 63.510  on 47  degrees of freedom
+Residual deviance: 41.795  on 45  degrees of freedom
+  (14 observations deleted due to missingness)
+AIC: 47.795
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="use-gtsummarytbl_regression" class="level3"><h3 class="anchored" data-anchor-id="use-gtsummarytbl_regression">Use gtsummary::tbl_regression()</h3>
+<p>Get a nicer table and set <code>exponentiate = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression</a></span><span class="op">(</span><span class="va">glm1</span>, exponentiate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="eewebxkcav" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eewebxkcav table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#eewebxkcav thead, #eewebxkcav tbody, #eewebxkcav tfoot, #eewebxkcav tr, #eewebxkcav td, #eewebxkcav th {
+  border-style: none;
+}
+
+#eewebxkcav p {
+  margin: 0;
+  padding: 0;
+}
+
+#eewebxkcav .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eewebxkcav .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eewebxkcav .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eewebxkcav .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#eewebxkcav .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#eewebxkcav .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#eewebxkcav .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#eewebxkcav .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#eewebxkcav .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#eewebxkcav .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#eewebxkcav .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#eewebxkcav .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#eewebxkcav .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#eewebxkcav .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#eewebxkcav .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eewebxkcav .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#eewebxkcav .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#eewebxkcav .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#eewebxkcav .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eewebxkcav .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#eewebxkcav .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eewebxkcav .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#eewebxkcav .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eewebxkcav .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eewebxkcav .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eewebxkcav .gt_left {
+  text-align: left;
+}
+
+#eewebxkcav .gt_center {
+  text-align: center;
+}
+
+#eewebxkcav .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eewebxkcav .gt_font_normal {
+  font-weight: normal;
+}
+
+#eewebxkcav .gt_font_bold {
+  font-weight: bold;
+}
+
+#eewebxkcav .gt_font_italic {
+  font-style: italic;
+}
+
+#eewebxkcav .gt_super {
+  font-size: 65%;
+}
+
+#eewebxkcav .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#eewebxkcav .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#eewebxkcav .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#eewebxkcav .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#eewebxkcav .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#eewebxkcav .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#eewebxkcav .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#eewebxkcav .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#eewebxkcav div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Sleep</td>
+<td class="gt_row gt_center" headers="estimate">1.31</td>
+<td class="gt_row gt_center" headers="conf.low">1.07, 1.70</td>
+<td class="gt_row gt_center" headers="p.value">0.020</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">Danger</td>
+<td class="gt_row gt_center" headers="estimate">0.43</td>
+<td class="gt_row gt_center" headers="conf.low">0.18, 0.87</td>
+<td class="gt_row gt_center" headers="p.value">0.031</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr class="odd">
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> OR = Odds Ratio, CI = Confidence Interval</td>
+</tr></tfoot>
+</table>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="interpret-odds-ratios-as-effect-sizes" class="level3"><h3 class="anchored" data-anchor-id="interpret-odds-ratios-as-effect-sizes">Interpret Odds Ratios as Effect Sizes</h3>
+<p>Interpreting odds ratios as effect sizes is a little tricky. However, this website on <a href="https://www.psychometrica.de/effect_size.html">Computation of Effect Sizes</a> is really helpful - see items 14 and 16. By playing with this simple conversion tool to convert between effect sizes, we can see that:</p>
+<ul>
+<li>large effect sizes d=0.8, r=0.5, odds ratio =~ 4.27-8.12</li>
+<li>moderate effect sizes d=0.5, r=0.3, odds ratio =~ 2.48-3.13</li>
+<li>small effect sizes d=0.2, r=0.1, odds ratio =~ 1.44</li>
+</ul>
+<p>where Cohen’s d is used for t-tests; r is used for correlations (and are the same for standardized regression coefficient “betas”); and odds ratios are from logistic regression.</p>
+<div style="page-break-after: always;"></div>
+</section><section id="auc-and-roc-curve-plot" class="level3"><h3 class="anchored" data-anchor-id="auc-and-roc-curve-plot">AUC and ROC curve plot</h3>
+<p>The area under the curve (AUC) or “C-statistic” is often reported instead of R2 for logistic regression models. The code below will compute the AUC for this model and make the receiver operating characteristic curve (ROC) plot.</p>
+<p>Ideally you want AUC as close to 1 as possible:</p>
+<ul>
+<li>AUC &gt; 0.9 is great</li>
+<li>AUC &gt; 0.8 is good</li>
+<li>AUC &gt; 0.7 is ok</li>
+<li>AUC &lt; 0.7 is not very good</li>
+<li>AUC around 0.5 is no better than flipping a fair coin which is a useless model</li>
+</ul>
+<p>As you can see below, the AUC for this model was 0.881 which is very good.</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># NOTE: We need only the COMPLETE data</span></span>
+<span><span class="co"># for the 3 variables we used in this model</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Sleep</span>, <span class="va">Danger</span>, <span class="va">dream_gt2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># compute AUC and get ROC curve</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ipa-tys.github.io/ROCR/">ROCR</a></span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">glm1</span>, newdata<span class="op">=</span><span class="va">s1</span>, </span>
+<span>             type<span class="op">=</span><span class="st">"response"</span><span class="op">)</span></span>
+<span><span class="va">pr</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://ipa-tys.github.io/ROCR/reference/prediction.html">prediction</a></span><span class="op">(</span><span class="va">p</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">s1</span><span class="op">$</span><span class="va">dream_gt2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">prf</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://ipa-tys.github.io/ROCR/reference/performance.html">performance</a></span><span class="op">(</span><span class="va">pr</span>, measure <span class="op">=</span> <span class="st">"tpr"</span>, x.measure <span class="op">=</span> <span class="st">"fpr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># compute AUC, area under the curve</span></span>
+<span><span class="co"># also called the C-statistic</span></span>
+<span><span class="va">auc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://ipa-tys.github.io/ROCR/reference/performance.html">performance</a></span><span class="op">(</span><span class="va">pr</span>, measure <span class="op">=</span> <span class="st">"auc"</span><span class="op">)</span></span>
+<span><span class="va">auc</span> <span class="op">&lt;-</span> <span class="va">auc</span><span class="op">@</span><span class="va">y.values</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># also - add title to plot with AUC in title</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">prf</span>,</span>
+<span>     main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"ROC Curve, AUC = "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">auc</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="module135_StatisticalTests_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 <div style="page-break-after: always;"></div>
-</section><section id="interpret-a-model-output" class="level2"><h2 class="anchored" data-anchor-id="interpret-a-model-output">3. Interpret a model output</h2>
-<p>aaaaaaaaaaaaa</p>
+</section></section><section id="perform-t-tests-explore-results." class="level2"><h2 class="anchored" data-anchor-id="perform-t-tests-explore-results.">3. Perform t-tests explore results.</h2>
+<section id="t-tests" class="level3"><h3 class="anchored" data-anchor-id="t-tests">T-tests</h3>
+<p>Given the split we did above looking at animals with <code>Dream</code> scores above and below 2, let’s run a t-test for the <code>Sleep</code> variable.</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># run t-test, save results</span></span>
+<span><span class="co"># default is an unequal variance "unpooled" t.test</span></span>
+<span><span class="va">tt1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">dream_gt2</span>, </span>
+<span>              data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span>
+<span><span class="va">tt1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Sleep by dream_gt2
+t = -4.5307, df = 38.191, p-value = 5.633e-05
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -7.420174 -2.837604
+sample estimates:
+mean in group 0 mean in group 1 
+       8.776667       13.905556 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get the equal variance "pooled" t.test</span></span>
+<span><span class="va">tt2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">dream_gt2</span>, </span>
+<span>              data <span class="op">=</span> <span class="va">sleep</span>,</span>
+<span>              var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">tt2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  Sleep by dream_gt2
+t = -4.4417, df = 46, p-value = 5.566e-05
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -7.453219 -2.804558
+sample estimates:
+mean in group 0 mean in group 1 
+       8.776667       13.905556 </code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>We can test the assumption of equal variance in a couple of ways. One simple way is to look at the standard deviations of each group and see if the ratio is larger than 2.</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sd0</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dream_gt2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">sd1</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dream_gt2</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">sd0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.980615</code></pre>
+</div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sd1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.682306</code></pre>
+</div>
+</div>
+<p>These standard deviations are similar, so a pooled t-test should be fine.</p>
+<div style="page-break-after: always;"></div>
+<p>You can also run a formal test of equal variance, using <code><a href="https://rdrr.io/r/stats/bartlett.test.html">bartlett.test()</a></code>. However, this test and others like this are sensitive to small deviations from normality, so I often check the standard deviations and will run both the pooled and unpooled tests and see if I get the same conclusion either way.</p>
+<p>As you can see, the p-value below is not significant, so we can not reject the null hypothesis assumption of equal variance - the pooled t-test is fine.</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/bartlett.test.html">bartlett.test</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">dream_gt2</span>, </span>
+<span>              data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  Sleep by dream_gt2
+Bartlett's K-squared = 0.12522, df = 1, p-value = 0.7234</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="compute-effect-size-for-t-test" class="level3"><h3 class="anchored" data-anchor-id="compute-effect-size-for-t-test">Compute effect size for t-test</h3>
+<p>Use the <a href="https://easystats.github.io/effectsize/"><code>effectsize</code> package</a> which is part of the <code>easystats</code> suite of packages.</p>
+<p>The effect size computed is rather large, d=1.32.</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/effectsize/">effectsize</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>es.use_symbols <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">dream_gt2</span>, </span>
+<span>         data <span class="op">=</span> <span class="va">sleep</span>,</span>
+<span>         na.action <span class="op">=</span> <span class="va">na.omit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-1.32     | [-1.96, -0.67]
+
+- Estimated using pooled SD.</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="get-a-simple-summary-table" class="level3"><h3 class="anchored" data-anchor-id="get-a-simple-summary-table">Get a simple summary table</h3>
+<p>As you see below, the difference in Sleep scores between the 2 dream groups is approximately 13.9-8.8 = 5.1 and the approximate average SD =~ 3.9, so the ratio of the mean differences to “pooled” SD =~ 5.1/3.85 =~ 1.33 which is close to the Cohen’s d we computed above.</p>
+<p>I also added some custom statistical tests to the table.</p>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create factor variable with labels</span></span>
+<span><span class="va">sleep</span><span class="op">$</span><span class="va">dream_gt2.f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
+<span>  <span class="va">sleep</span><span class="op">$</span><span class="va">dream_gt2</span>, </span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dream &lt;= 2"</span>,</span>
+<span>             <span class="st">"Dream &gt; 2"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span></span>
+<span>  <span class="va">sleep</span>,</span>
+<span>  by <span class="op">=</span> <span class="va">dream_gt2.f</span>,</span>
+<span>  include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Sleep</span>, <span class="va">Danger</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html">all_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="st">"continuous2"</span>,</span>
+<span>  statistic <span class="op">=</span> <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html">all_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"{N_nonmiss}"</span>, <span class="st">"{mean} ({sd})"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html">add_p</a></span><span class="op">(</span>test <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="st">"t.test"</span>, <span class="va">Danger</span> <span class="op">~</span> <span class="st">"wilcox.test"</span><span class="op">)</span>, </span>
+<span>        test.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span>        <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="atlokxisgu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#atlokxisgu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#atlokxisgu thead, #atlokxisgu tbody, #atlokxisgu tfoot, #atlokxisgu tr, #atlokxisgu td, #atlokxisgu th {
+  border-style: none;
+}
+
+#atlokxisgu p {
+  margin: 0;
+  padding: 0;
+}
+
+#atlokxisgu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#atlokxisgu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#atlokxisgu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#atlokxisgu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#atlokxisgu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#atlokxisgu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#atlokxisgu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#atlokxisgu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#atlokxisgu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#atlokxisgu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#atlokxisgu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#atlokxisgu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#atlokxisgu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#atlokxisgu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#atlokxisgu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atlokxisgu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#atlokxisgu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#atlokxisgu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#atlokxisgu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atlokxisgu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#atlokxisgu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atlokxisgu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#atlokxisgu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atlokxisgu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#atlokxisgu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atlokxisgu .gt_left {
+  text-align: left;
+}
+
+#atlokxisgu .gt_center {
+  text-align: center;
+}
+
+#atlokxisgu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#atlokxisgu .gt_font_normal {
+  font-weight: normal;
+}
+
+#atlokxisgu .gt_font_bold {
+  font-weight: bold;
+}
+
+#atlokxisgu .gt_font_italic {
+  font-style: italic;
+}
+
+#atlokxisgu .gt_super {
+  font-size: 65%;
+}
+
+#atlokxisgu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#atlokxisgu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#atlokxisgu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#atlokxisgu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#atlokxisgu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#atlokxisgu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#atlokxisgu .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#atlokxisgu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#atlokxisgu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead><tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Dream &lt;= 2</strong><br> N = 32<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>Dream &gt; 2</strong><br> N = 18<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
+<strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span>
+</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Sleep</td>
+<td class="gt_row gt_center" headers="stat_1"><br></td>
+<td class="gt_row gt_center" headers="stat_2"><br></td>
+<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;N Non-missing</td>
+<td class="gt_row gt_center" headers="stat_1">30</td>
+<td class="gt_row gt_center" headers="stat_2">18</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Mean (SD)</td>
+<td class="gt_row gt_center" headers="stat_1">8.8 (4.0)</td>
+<td class="gt_row gt_center" headers="stat_2">13.9 (3.7)</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_center" headers="stat_1">2</td>
+<td class="gt_row gt_center" headers="stat_2">0</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Danger</td>
+<td class="gt_row gt_center" headers="stat_1"><br></td>
+<td class="gt_row gt_center" headers="stat_2"><br></td>
+<td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_1">5 (16%)</td>
+<td class="gt_row gt_center" headers="stat_2">9 (50%)</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_1">6 (19%)</td>
+<td class="gt_row gt_center" headers="stat_2">6 (33%)</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_1">5 (16%)</td>
+<td class="gt_row gt_center" headers="stat_2">3 (17%)</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_1">9 (28%)</td>
+<td class="gt_row gt_center" headers="stat_2">0 (0%)</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_1">7 (22%)</td>
+<td class="gt_row gt_center" headers="stat_2">0 (0%)</td>
+<td class="gt_row gt_center" headers="p.value"><br></td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+<tr class="even">
+<td colspan="4" class="gt_footnote">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> Two Sample t-test; Wilcoxon rank sum test</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="modeling-with-complex-survey-weights" class="level2"><h2 class="anchored" data-anchor-id="modeling-with-complex-survey-weights">4. Modeling with Complex Survey Weights</h2>
+<p>See <a href="prams.html">PRAMS Module</a></p>
 <hr>
 <div style="page-break-after: always;"></div>
 </section><section id="r-code-for-this-module" class="level2"><h2 class="anchored" data-anchor-id="r-code-for-this-module">R Code For This Module</h2>
@@ -284,24 +2425,146 @@ div.csl-indent {
 <li><a href="module_135.R"><code>module_135.R</code></a></li>
 </ul></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-effectsize2020" class="csl-entry" role="listitem">
+Ben-Shachar, Mattan S., Daniel Lüdecke, and Dominique Makowski. 2020. <span>“<span class="nocase">e</span>ffectsize: Estimation of Effect Size Indices and Standardized Parameters.”</span> <em>Journal of Open Source Software</em> 5 (56): 2815. <a href="https://doi.org/10.21105/joss.02815">https://doi.org/10.21105/joss.02815</a>.
+</div>
+<div id="ref-R-effectsize" class="csl-entry" role="listitem">
+Ben-Shachar, Mattan S., Dominique Makowski, Daniel Lüdecke, Indrajeet Patil, Brenton M. Wiernik, Rémi Thériault, and Philip Waggoner. 2025. <em>Effectsize: Indices of Effect Size</em>. <a href="https://easystats.github.io/effectsize/">https://easystats.github.io/effectsize/</a>.
+</div>
+<div id="ref-effects2003" class="csl-entry" role="listitem">
+Fox, John. 2003. <span>“Effect Displays in <span>R</span> for Generalised Linear Models.”</span> <em>Journal of Statistical Software</em> 8 (15): 1–27. <a href="https://doi.org/10.18637/jss.v008.i15">https://doi.org/10.18637/jss.v008.i15</a>.
+</div>
+<div id="ref-effects2009" class="csl-entry" role="listitem">
+Fox, John, and Jangman Hong. 2009. <span>“Effect Displays in <span>R</span> for Multinomial and Proportional-Odds Logit Models: Extensions to the <span class="nocase">effects</span> Package.”</span> <em>Journal of Statistical Software</em> 32 (1): 1–24. <a href="https://doi.org/10.18637/jss.v032.i01">https://doi.org/10.18637/jss.v032.i01</a>.
+</div>
+<div id="ref-effects2018" class="csl-entry" role="listitem">
+Fox, John, and Sanford Weisberg. 2018. <span>“Visualizing Fit and Lack of Fit in Complex Regression Models with Predictor Effect Plots and Partial Residuals.”</span> <em>Journal of Statistical Software</em> 87 (9): 1–27. <a href="https://doi.org/10.18637/jss.v087.i09">https://doi.org/10.18637/jss.v087.i09</a>.
+</div>
+<div id="ref-car2019" class="csl-entry" role="listitem">
+———. 2019a. <em>An <span>R</span> Companion to Applied Regression</em>. Third. Thousand Oaks <span>CA</span>: Sage. <a href="https://www.john-fox.ca/Companion/">https://www.john-fox.ca/Companion/</a>.
+</div>
+<div id="ref-effects2019" class="csl-entry" role="listitem">
+———. 2019b. <em>An r Companion to Applied Regression</em>. 3rd ed. Thousand Oaks CA: Sage. <a href="https://socialsciences.mcmaster.ca/jfox/Books/Companion/index.html">https://socialsciences.mcmaster.ca/jfox/Books/Companion/index.html</a>.
+</div>
+<div id="ref-R-carData" class="csl-entry" role="listitem">
+Fox, John, Sanford Weisberg, and Brad Price. 2022. <em>carData: Companion to Applied Regression Data Sets</em>. <a href="https://r-forge.r-project.org/projects/car/">https://r-forge.r-project.org/projects/car/</a>.
+</div>
+<div id="ref-R-car" class="csl-entry" role="listitem">
+———. 2024. <em>Car: Companion to Applied Regression</em>. <a href="https://r-forge.r-project.org/projects/car/">https://r-forge.r-project.org/projects/car/</a>.
+</div>
+<div id="ref-R-effects" class="csl-entry" role="listitem">
+Fox, John, Sanford Weisberg, Brad Price, Michael Friendly, and Jangman Hong. 2022. <em>Effects: Effect Displays for Linear, Generalized Linear, and Other Models</em>. <a href="https://www.r-project.org">https://www.r-project.org</a>.
+</div>
+<div id="ref-R-olsrr" class="csl-entry" role="listitem">
+Hebbali, Aravind. 2024. <em>Olsrr: Tools for Building OLS Regression Models</em>. <a href="https://olsrr.rsquaredacademy.com/">https://olsrr.rsquaredacademy.com/</a>.
+</div>
+<div id="ref-R-gt" class="csl-entry" role="listitem">
+Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, JooYoung Seo, Ken Brevoort, and Olivier Roy. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
+</div>
+<div id="ref-R-colorspace" class="csl-entry" role="listitem">
+Ihaka, Ross, Paul Murrell, Kurt Hornik, Jason C. Fisher, Reto Stauffer, Claus O. Wilke, Claire D. McWhite, and Achim Zeileis. 2023. <em>Colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes</em>. <a href="https://colorspace.R-Forge.R-project.org/">https://colorspace.R-Forge.R-project.org/</a>.
+</div>
+<div id="ref-VIM2016" class="csl-entry" role="listitem">
+Kowarik, Alexander, and Matthias Templ. 2016. <span>“Imputation with the <span>R</span> Package <span>VIM</span>.”</span> <em>Journal of Statistical Software</em> 74 (7): 1–16. <a href="https://doi.org/10.18637/jss.v074.i07">https://doi.org/10.18637/jss.v074.i07</a>.
+</div>
+<div id="ref-parameters2020" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, and Dominique Makowski. 2020. <span>“Extracting, Computing and Exploring the Parameters of Statistical Models Using <span>R</span>.”</span> <em>Journal of Open Source Software</em> 5 (53): 2445. <a href="https://doi.org/10.21105/joss.02445">https://doi.org/10.21105/joss.02445</a>.
+</div>
+<div id="ref-performance2021" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, Philip Waggoner, and Dominique Makowski. 2021. <span>“<span class="nocase">performance</span>: An <span>R</span> Package for Assessment, Comparison and Testing of Statistical Models.”</span> <em>Journal of Open Source Software</em> 6 (60): 3139. <a href="https://doi.org/10.21105/joss.03139">https://doi.org/10.21105/joss.03139</a>.
+</div>
+<div id="ref-easystats2022" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, Brenton M. Wiernik, Etienne Bacher, Rémi Thériault, and Dominique Makowski. 2022. <span>“Easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting.”</span> <em>CRAN</em>. <a href="https://doi.org/10.32614/CRAN.package.easystats">https://doi.org/10.32614/CRAN.package.easystats</a>.
+</div>
+<div id="ref-R-parameters" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Dominique Makowski, Mattan S. Ben-Shachar, Indrajeet Patil, Søren Højsgaard, and Brenton M. Wiernik. 2025. <em>Parameters: Processing of Model Parameters</em>. <a href="https://easystats.github.io/parameters/">https://easystats.github.io/parameters/</a>.
+</div>
+<div id="ref-R-performance" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Dominique Makowski, Mattan S. Ben-Shachar, Indrajeet Patil, Philip Waggoner, Brenton M. Wiernik, and Rémi Thériault. 2025. <em>Performance: Assessment of Regression Models Performance</em>. <a href="https://easystats.github.io/performance/">https://easystats.github.io/performance/</a>.
+</div>
+<div id="ref-R-easystats" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Dominique Makowski, Mattan S. Ben-Shachar, Indrajeet Patil, Brenton M. Wiernik, Etienne Bacher, and Rémi Thériault. 2025. <em>Easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting</em>. <a href="https://easystats.github.io/easystats/">https://easystats.github.io/easystats/</a>.
+</div>
+<div id="ref-R-see" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Dominique Makowski, Indrajeet Patil, Mattan S. Ben-Shachar, Brenton M. Wiernik, and Philip Waggoner. 2025. <em>See: Model Visualisation Toolbox for Easystats and Ggplot2</em>. <a href="https://easystats.github.io/see/">https://easystats.github.io/see/</a>.
+</div>
+<div id="ref-R-insight" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Dominique Makowski, Indrajeet Patil, Philip Waggoner, Mattan S. Ben-Shachar, Brenton M. Wiernik, Vincent Arel-Bundock, and Etienne Bacher. 2025. <em>Insight: Easy Access to Model Information for Various Model Objects</em>. <a href="https://easystats.github.io/insight/">https://easystats.github.io/insight/</a>.
+</div>
+<div id="ref-see2021" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Indrajeet Patil, Mattan S. Ben-Shachar, Brenton M. Wiernik, Philip Waggoner, and Dominique Makowski. 2021. <span>“<span class="nocase">see</span>: An <span>R</span> Package for Visualizing Statistical Models.”</span> <em>Journal of Open Source Software</em> 6 (64): 3393. <a href="https://doi.org/10.21105/joss.03393">https://doi.org/10.21105/joss.03393</a>.
+</div>
+<div id="ref-insight2019" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Philip Waggoner, and Dominique Makowski. 2019. <span>“<span class="nocase">insight</span>: A Unified Interface to Access Information from Model Objects in <span>R</span>.”</span> <em>Journal of Open Source Software</em> 4 (38): 1412. <a href="https://doi.org/10.21105/joss.01412">https://doi.org/10.21105/joss.01412</a>.
+</div>
+<div id="ref-bayestestR2019" class="csl-entry" role="listitem">
+Makowski, Dominique, Mattan S. Ben-Shachar, and Daniel Lüdecke. 2019. <span>“bayestestR: Describing Effects and Their Uncertainty, Existence and Significance Within the Bayesian Framework.”</span> <em>Journal of Open Source Software</em> 4 (40): 1541. <a href="https://doi.org/10.21105/joss.01541">https://doi.org/10.21105/joss.01541</a>.
+</div>
+<div id="ref-correlationArticle" class="csl-entry" role="listitem">
+Makowski, Dominique, Mattan S. Ben-Shachar, Indrajeet Patil, and Daniel Lüdecke. 2020. <span>“Methods and Algorithms for Correlation Analysis in <span>R</span>.”</span> <em>Journal of Open Source Software</em> 5 (51): 2306. <a href="https://doi.org/10.21105/joss.02306">https://doi.org/10.21105/joss.02306</a>.
+</div>
+<div id="ref-modelbasedPackage" class="csl-entry" role="listitem">
+Makowski, Dominique, Mattan S. Ben-Shachar, Brenton M. Wiernik, Indrajeet Patil, Rémi Thériault, and Daniel Lüdecke. 2025. <span>“<span class="nocase">modelbased</span>: An <span>R</span> Package to Make the Most Out of Your Statistical Models Through Marginal Means, Marginal Effects, and Model Predictions.”</span> <em>Journal of Open Source Software</em> 10 (109): 7969. <a href="https://doi.org/10.21105/joss.07969">https://doi.org/10.21105/joss.07969</a>.
+</div>
+<div id="ref-R-modelbased" class="csl-entry" role="listitem">
+Makowski, Dominique, Daniel Lüdecke, Mattan S. Ben-Shachar, Indrajeet Patil, and Rémi Thériault. 2025. <em>Modelbased: Estimation of Model-Based Predictions, Contrasts and Means</em>. <a href="https://easystats.github.io/modelbased/">https://easystats.github.io/modelbased/</a>.
+</div>
+<div id="ref-R-bayestestR" class="csl-entry" role="listitem">
+Makowski, Dominique, Daniel Lüdecke, Mattan S. Ben-Shachar, Indrajeet Patil, Micah K. Wilson, and Brenton M. Wiernik. 2025. <em>bayestestR: Understand and Describe Bayesian Models and Posterior Distributions</em>. <a href="https://easystats.github.io/bayestestR/">https://easystats.github.io/bayestestR/</a>.
+</div>
+<div id="ref-report2023" class="csl-entry" role="listitem">
+Makowski, Dominique, Daniel Lüdecke, Indrajeet Patil, Rémi Thériault, Mattan S. Ben-Shachar, and Brenton M. Wiernik. 2023. <span>“Automated Results Reporting as a Practical Tool to Improve Reproducibility and Methodological Best Practices Adoption.”</span> <em>CRAN</em>. <a href="https://easystats.github.io/report/">https://easystats.github.io/report/</a>.
+</div>
+<div id="ref-R-report" class="csl-entry" role="listitem">
+———. 2025. <em>Report: Automated Reporting of Results and Statistical Models</em>. <a href="https://easystats.github.io/report/">https://easystats.github.io/report/</a>.
+</div>
+<div id="ref-correlationPackage" class="csl-entry" role="listitem">
+Makowski, Dominique, Brenton M. Wiernik, Indrajeet Patil, Daniel Lüdecke, and Mattan S. Ben-Shachar. 2022. <span>“<span class="nocase">correlation</span>: Methods for Correlation Analysis.”</span> <a href="https://CRAN.R-project.org/package=correlation">https://CRAN.R-project.org/package=correlation</a>.
+</div>
+<div id="ref-R-correlation" class="csl-entry" role="listitem">
+Makowski, Dominique, Brenton M. Wiernik, Indrajeet Patil, Daniel Lüdecke, Mattan S. Ben-Shachar, and Rémi Thériault. 2025. <em>Correlation: Methods for Correlation Analysis</em>. <a href="https://easystats.github.io/correlation/">https://easystats.github.io/correlation/</a>.
+</div>
+<div id="ref-R-datawizard" class="csl-entry" role="listitem">
+Patil, Indrajeet, Etienne Bacher, Dominique Makowski, Daniel Lüdecke, Mattan S. Ben-Shachar, and Brenton M. Wiernik. 2025. <em>Datawizard: Easy Data Wrangling and Statistical Transformations</em>. <a href="https://easystats.github.io/datawizard/">https://easystats.github.io/datawizard/</a>.
+</div>
+<div id="ref-datawizard2022" class="csl-entry" role="listitem">
+Patil, Indrajeet, Dominique Makowski, Mattan S. Ben-Shachar, Brenton M. Wiernik, Etienne Bacher, and Daniel Lüdecke. 2022. <span>“<span class="nocase">datawizard</span>: An <span>R</span> Package for Easy Data Preparation and Statistical Transformations.”</span> <em>Journal of Open Source Software</em> 7 (78): 4684. <a href="https://doi.org/10.21105/joss.04684">https://doi.org/10.21105/joss.04684</a>.
+</div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
 R Core Team. 2025. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
+<div id="ref-R-broom" class="csl-entry" role="listitem">
+Robinson, David, Alex Hayes, and Simon Couch. 2025. <em>Broom: Convert Statistical Objects into Tidy Tibbles</em>. <a href="https://broom.tidymodels.org/">https://broom.tidymodels.org/</a>.
+</div>
+<div id="ref-R-ROCR" class="csl-entry" role="listitem">
+Sing, Tobias, Oliver Sander, Niko Beerenwinkel, and Thomas Lengauer. 2020. <em>ROCR: Visualizing the Performance of Scoring Classifiers</em>. <a href="http://ipa-tys.github.io/ROCR/">http://ipa-tys.github.io/ROCR/</a>.
+</div>
+<div id="ref-ROCR2005" class="csl-entry" role="listitem">
+Sing, T., O. Sander, N. Beerenwinkel, and T. Lengauer. 2005. <span>“ROCR: Visualizing Classifier Performance in r.”</span> <em>Bioinformatics</em> 21 (20): 7881. <a href="http://rocr.bioinf.mpi-sb.mpg.de">http://rocr.bioinf.mpi-sb.mpg.de</a>.
+</div>
+<div id="ref-R-gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D., Joseph Larmarange, Michael Curry, Jessica Lavery, Karissa Whiting, and Emily C. Zabor. 2024. <em>Gtsummary: Presentation-Ready Data Summary and Analytic Result Tables</em>. <a href="https://github.com/ddsjoberg/gtsummary">https://github.com/ddsjoberg/gtsummary</a>.
+</div>
+<div id="ref-gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D., Karissa Whiting, Michael Curry, Jessica A. Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em><span>The R Journal</span></em> 13: 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
+</div>
+<div id="ref-colorspace2009b" class="csl-entry" role="listitem">
+Stauffer, Reto, Georg J. Mayr, Markus Dabernig, and Achim Zeileis. 2009. <span>“Somewhere over the Rainbow: How to Make Effective Use of Colors in Meteorological Visualizations.”</span> <em>Bulletin of the American Meteorological Society</em> 96 (2): 203–16. <a href="https://doi.org/10.1175/BAMS-D-13-00155.1">https://doi.org/10.1175/BAMS-D-13-00155.1</a>.
+</div>
+<div id="ref-R-VIM" class="csl-entry" role="listitem">
+Templ, Matthias, Alexander Kowarik, Andreas Alfons, Gregor de Cillia, and Wolfgang Rannetbauer. 2022. <em>VIM: Visualization and Imputation of Missing Values</em>. <a href="https://github.com/statistikat/VIM">https://github.com/statistikat/VIM</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
+</div>
+<div id="ref-colorspace2020a" class="csl-entry" role="listitem">
+Zeileis, Achim, Jason C. Fisher, Kurt Hornik, Ross Ihaka, Claire D. McWhite, Paul Murrell, Reto Stauffer, and Claus O. Wilke. 2020. <span>“<span class="nocase">colorspace</span>: A Toolbox for Manipulating and Assessing Colors and Palettes.”</span> <em>Journal of Statistical Software</em> 96 (1): 1–49. <a href="https://doi.org/10.18637/jss.v096.i01">https://doi.org/10.18637/jss.v096.i01</a>.
+</div>
+<div id="ref-colorspace2009a" class="csl-entry" role="listitem">
+Zeileis, Achim, Kurt Hornik, and Paul Murrell. 2009. <span>“Escaping <span>RGB</span>land: Selecting Colors for Statistical Graphics.”</span> <em>Computational Statistics &amp; Data Analysis</em> 53 (9): 3259–70. <a href="https://doi.org/10.1016/j.csda.2008.11.033">https://doi.org/10.1016/j.csda.2008.11.033</a>.
+</div>
 </div>
 </section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
-<p><strong>Missing Data Resources</strong></p>
-<ul>
-<li><a href="https://cran.r-project.org/web/views/MissingData.html">CRAN Task View for Missing Data</a></li>
-<li><a href="https://rmisstastic.netlify.app/">R-miss-tastic Website</a></li>
-<li><a href="https://stefvanbuuren.name/fimd/">Flexible Imputation of Missing Data (online book for 2nd edition) by Stef van Buuren</a></li>
-<li><a href="https://www.datawim.com/post/missing-data-visualization-in-r/">Blog post on Missing Data Visualization in R using ggplot2</a></li>
-<li><a href="https://libguides.princeton.edu/R-Missingdata">Missing data R tutorial</a></li>
-<li><a href="https://cran.r-project.org/web/views/MissingData.html">CRAN Task View on Missing Data</a></li>
-<li><a href="https://rmisstastic.netlify.app/">A resource website on missing values</a></li>
-<li><a href="https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018">Handling missing values with R - tutorial</a></li>
-<li><a href="https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/">Blog post “My favourite R package for: summarising data”</a></li>
-</ul>
-<p>and</p>
 <p><a href="./additionalResources.html" target="_blank"><strong>Other Helpful Resources</strong></a></p>
 
 

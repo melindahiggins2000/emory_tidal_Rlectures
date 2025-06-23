@@ -243,7 +243,13 @@ div.csl-indent {
   <li><a href="#data-wrangling-with-prams" id="toc-data-wrangling-with-prams" class="nav-link" data-scroll-target="#data-wrangling-with-prams">3. Data Wrangling with PRAMS</a></li>
   <li><a href="#visualizing-prams-data" id="toc-visualizing-prams-data" class="nav-link" data-scroll-target="#visualizing-prams-data">4. Visualizing PRAMS Data</a></li>
   <li><a href="#missing-data-in-prams" id="toc-missing-data-in-prams" class="nav-link" data-scroll-target="#missing-data-in-prams">5. Missing Data in PRAMS</a></li>
-  <li><a href="#prams-statistical-tests-and-models" id="toc-prams-statistical-tests-and-models" class="nav-link" data-scroll-target="#prams-statistical-tests-and-models">6. PRAMS Statistical Tests and Models</a></li>
+  <li>
+<a href="#prams-statistical-tests-and-models" id="toc-prams-statistical-tests-and-models" class="nav-link" data-scroll-target="#prams-statistical-tests-and-models">6. PRAMS Statistical Tests and Models</a>
+  <ul>
+<li><a href="#linear-regression-example" id="toc-linear-regression-example" class="nav-link" data-scroll-target="#linear-regression-example">Linear Regression Example</a></li>
+  <li><a href="#logistic-regression-example" id="toc-logistic-regression-example" class="nav-link" data-scroll-target="#logistic-regression-example">Logistic Regression Example</a></li>
+  </ul>
+</li>
   <li><a href="#prams-reproducible-research-report" id="toc-prams-reproducible-research-report" class="nav-link" data-scroll-target="#prams-reproducible-research-report">7. PRAMS Reproducible Research Report</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#other-helpful-resources" id="toc-other-helpful-resources" class="nav-link" data-scroll-target="#other-helpful-resources">Other Helpful Resources</a></li>
@@ -308,7 +314,9 @@ What is the purpose of PRAMS?
 <strong>Download and Read</strong> this helpful <a href="https://www.cdc.gov/prams/pdf/methodology/prams-design-methodology-508.pdf">paper on PRAMS design and methodology</a> (Shulman, D’Angelo, Harrison, Smith, and Warner, 2018).</li>
 <li>There are also helpful tutorial videos on working with PRAMS data by <a href="https://www.astho.org/topic/population-health-prevention/women-infant-family-health/prams/">ASSOCIATION OF STATE AND TERRITORIAL HEALTH OFFICIALS (ASTHO.org)</a>.</li>
 </ul>
-<hr></section></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
+<hr>
+<div style="page-break-after: always;"></div>
+</section></section><section id="prework---before-you-begin" class="level2"><h2 class="anchored" data-anchor-id="prework---before-you-begin">0. Prework - Before You Begin</h2>
 <section id="install-r-packages" class="level3"><h3 class="anchored" data-anchor-id="install-r-packages">Install R Packages</h3>
 <p>Before you begin, please go ahead and install (or make sure these are already installed) on your computer for these following packages - these are all on CRAN, so you can install them using the RStudio Menu Tools/Install Packages interface:</p>
 <ul>
@@ -410,8 +418,8 @@ Memory Warning
 <span><span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used  (Mb) gc trigger   (Mb)  max used  (Mb)
-Ncells 2117797 113.2    4160094  222.2   4160094 222.2
-Vcells 3873673  29.6  153306787 1169.7 112056277 855.0</code></pre>
+Ncells 2133292 114.0    4191337  223.9   4191337 223.9
+Vcells 3889100  29.7  153328087 1169.9 112146250 855.7</code></pre>
 </div>
 </div>
 <p>After we remove everything, let’s look at the session memory again.</p>
@@ -515,6 +523,7 @@ STATE   NO  YES &lt;NA&gt;
 </div>
 </div>
 <p>This aligns with the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> - scroll to the bottom to see the RAW count of 919 women who responded to “Ever Breastfed” in GA in 2017.</p>
+<div style="page-break-after: always;"></div>
 </section><section id="breastfeeding-summary---weighted-data" class="level3"><h3 class="anchored" data-anchor-id="breastfeeding-summary---weighted-data">Breastfeeding summary - WEIGHTED data</h3>
 <p>In the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> the columns that have the 95% CI (confidence intervals) for the percentages are the population weighted percentage estimates for the Stats of GA during that year.</p>
 <p>To get the estimated percentage of women in the stats of GA who had “ever breastfed” in 2017, we need to use the <code>survey</code> package and apply the proper sample weighting to get these estimates.</p>
@@ -552,6 +561,7 @@ STATE   NO  YES &lt;NA&gt;
 <li>Breastfed ever = YES: 101686.10 +/- 2271.075</li>
 </ul>
 <p>This leads to a percentage of YES estimate of <code>101686.10 * 100 / (101686.10 + 17639.96)</code> = 85.2170096% which should match pretty closely to what is in the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a>.</p>
+<div style="page-break-after: always;"></div>
 <p>We can also get the percentage of overall breastfeeding YES for the USA for the 40 “states” (technically 38 states, Puerto Rico, and New York City) that were included in the PRAMS dataset in 2020 (see the last column in the CDC report), using the following R code. <em>Note: 2 “states” did not have data in 2020: Connecticut and Florida.</em></p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get overall for 2020 - all states</span></span>
@@ -581,9 +591,10 @@ STATE   NO  YES &lt;NA&gt;
 </ul>
 <p>This leads to a percentage of YES estimate of <code>1609464 * 100 / (1609464 + 225560.3)</code> = 87.7080483% which is pretty close to what is in the <a href="https://www.cdc.gov/prams/prams-data/mch-indicators/states/pdf/2020/georgia-prams-mch-indicators-508.pdf">CDC PRAMS Indicators Report for GA in 2020</a> - with some numerical precision variation due to software algorithms.</p>
 <p><strong>Congratulations on getting started with the PRAMS Dataset</strong></p>
+<div style="page-break-after: always;"></div>
 </section></section><section id="data-wrangling-with-prams" class="level2"><h2 class="anchored" data-anchor-id="data-wrangling-with-prams">3. Data Wrangling with PRAMS</h2>
 <p>Data wrangling with the PRAMS data isn’t much different from the methods already covered in <a href="https://emorytidal.netlify.app/module132_datawrangling">Module 1.3.2</a>.</p>
-<p>Examples will be posted here working with the PRAMS Dataset for recoding, creating or modifying variables.</p>
+<p>The code below shows an example of recoding the <code>VITAMIN</code> variable from PRAMS.</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a factor variable</span></span>
 <span><span class="co"># and add labels</span></span>
@@ -627,9 +638,11 @@ STATE 3x/week or less 4x/week or more &lt;NA&gt;
 <span><span class="va">prams_ga.svy</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svydesign.html">svydesign</a></span><span class="op">(</span>ids <span class="op">=</span> <span class="op">~</span><span class="fl">0</span>, strata <span class="op">=</span> <span class="op">~</span><span class="va">SUD_NEST</span>, </span>
 <span>            fpc <span class="op">=</span> <span class="op">~</span><span class="va">TOTCNT</span>, weights <span class="op">=</span> <span class="op">~</span><span class="va">WTANAL</span>, </span>
-<span>            data <span class="op">=</span> <span class="va">prams_ga</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># get a table of vitamins 4+ times per week</span></span>
+<span>            data <span class="op">=</span> <span class="va">prams_ga</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Get table of weighted percentages for “Taking Multivitamin 4+/week” for GA by Year.</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get a table of vitamins 4+ times per week</span></span>
 <span><span class="co"># by YEAR</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyby.html">svyby</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus.f</span>, <span class="op">~</span><span class="va">NEST_YR</span>,</span>
 <span>      design <span class="op">=</span> <span class="va">prams_ga.svy</span>,</span>
@@ -661,9 +674,10 @@ STATE 3x/week or less 4x/week or more &lt;NA&gt;
 <li>YES Vitamins =&gt; 4x/wk 42263.67 +/- 2802.984 (35.9%) [33.6%, 38.3%]</li>
 <li>Total 117,577.47</li>
 </ul>
-<p>get proportions and ci’s</p>
+<div style="page-break-after: always;"></div>
+<p>Get Proportions and 95% Confidence Intervals</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams_ga2000</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams_ga2000</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">STATE</span> <span class="op">==</span> <span class="st">"GA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEST_YR</span> <span class="op">==</span> <span class="fl">2020</span><span class="op">)</span></span>
 <span></span>
@@ -681,7 +695,7 @@ STATE 3x/week or less 4x/week or more &lt;NA&gt;
        0        1 
 75313.80 42263.67 </code></pre>
 </div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyciprop.html">svyciprop</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus</span>, </span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyciprop.html">svyciprop</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus</span>, </span>
 <span>          <span class="va">prams_ga2000.svy</span>, </span>
 <span>          na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -689,9 +703,11 @@ STATE 3x/week or less 4x/week or more &lt;NA&gt;
 VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <p>Compare the results below to the EXCEL spreadsheet <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.cdc.gov%2Fprams%2Fmedia%2Ffiles%2F2024%2F08%2FPRAMS-MCH-Indicators-2016-2022-508.xlsx&amp;wdOrigin=BROWSELINK">Pregnancy Risk Assessment Monitoring System (PRAMS) MCH Indicators (standard version)</a> - see 2020 for GA - 1st set of indicators for Vitamins taken 4x a week or more.</p>
+<p>The code below adds custom code for computing the confidence intervals with the survey-weighted dataset.</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams_ga2000</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams_ga2000</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">STATE</span> <span class="op">==</span> <span class="st">"GA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEST_YR</span> <span class="op">==</span> <span class="fl">2020</span><span class="op">)</span></span>
 <span></span>
@@ -713,7 +729,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
      se.VITAMIN_4plus.f3x/week or less se.VITAMIN_4plus.f4x/week or more
 2020                          2779.229                          2802.984</code></pre>
 </div>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add custom statistic forconfidence intervals</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add custom statistic forconfidence intervals</span></span>
 <span><span class="va">confidence_intervals</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">variable</span>, <span class="va">by</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  </span>
 <span>  <span class="co">## extract the confidence intervals and multiply to get percentages</span></span>
@@ -740,25 +756,27 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 <span>      <span class="va">n</span> <span class="op">~</span> <span class="st">"**Weighted total (N)**"</span>,</span>
 <span>      <span class="va">stat_0</span> <span class="op">~</span> <span class="st">"**Weighted Count**"</span>,</span>
 <span>      <span class="va">add_stat_1</span> <span class="op">~</span> <span class="st">"**95%CI**"</span></span>
-<span>    <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="ldsmbkxonq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ldsmbkxonq table {
+<div id="sqfgpqwdvi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sqfgpqwdvi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ldsmbkxonq thead, #ldsmbkxonq tbody, #ldsmbkxonq tfoot, #ldsmbkxonq tr, #ldsmbkxonq td, #ldsmbkxonq th {
+#sqfgpqwdvi thead, #sqfgpqwdvi tbody, #sqfgpqwdvi tfoot, #sqfgpqwdvi tr, #sqfgpqwdvi td, #sqfgpqwdvi th {
   border-style: none;
 }
 
-#ldsmbkxonq p {
+#sqfgpqwdvi p {
   margin: 0;
   padding: 0;
 }
 
-#ldsmbkxonq .gt_table {
+#sqfgpqwdvi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -784,12 +802,12 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_caption {
+#sqfgpqwdvi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ldsmbkxonq .gt_title {
+#sqfgpqwdvi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -801,7 +819,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-width: 0;
 }
 
-#ldsmbkxonq .gt_subtitle {
+#sqfgpqwdvi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -813,7 +831,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-top-width: 0;
 }
 
-#ldsmbkxonq .gt_heading {
+#sqfgpqwdvi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -825,13 +843,13 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_bottom_border {
+#sqfgpqwdvi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_col_headings {
+#sqfgpqwdvi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -846,7 +864,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_col_heading {
+#sqfgpqwdvi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -866,7 +884,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   overflow-x: hidden;
 }
 
-#ldsmbkxonq .gt_column_spanner_outer {
+#sqfgpqwdvi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -878,15 +896,15 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 4px;
 }
 
-#ldsmbkxonq .gt_column_spanner_outer:first-child {
+#sqfgpqwdvi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ldsmbkxonq .gt_column_spanner_outer:last-child {
+#sqfgpqwdvi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ldsmbkxonq .gt_column_spanner {
+#sqfgpqwdvi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -898,11 +916,11 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   width: 100%;
 }
 
-#ldsmbkxonq .gt_spanner_row {
+#sqfgpqwdvi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ldsmbkxonq .gt_group_heading {
+#sqfgpqwdvi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -928,7 +946,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   text-align: left;
 }
 
-#ldsmbkxonq .gt_empty_group_heading {
+#sqfgpqwdvi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -943,15 +961,15 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   vertical-align: middle;
 }
 
-#ldsmbkxonq .gt_from_md > :first-child {
+#sqfgpqwdvi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ldsmbkxonq .gt_from_md > :last-child {
+#sqfgpqwdvi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ldsmbkxonq .gt_row {
+#sqfgpqwdvi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -970,7 +988,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   overflow-x: hidden;
 }
 
-#ldsmbkxonq .gt_stub {
+#sqfgpqwdvi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -983,7 +1001,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#ldsmbkxonq .gt_stub_row_group {
+#sqfgpqwdvi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -997,15 +1015,15 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   vertical-align: top;
 }
 
-#ldsmbkxonq .gt_row_group_first td {
+#sqfgpqwdvi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ldsmbkxonq .gt_row_group_first th {
+#sqfgpqwdvi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ldsmbkxonq .gt_summary_row {
+#sqfgpqwdvi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1015,16 +1033,16 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#ldsmbkxonq .gt_first_summary_row {
+#sqfgpqwdvi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_first_summary_row.thick {
+#sqfgpqwdvi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ldsmbkxonq .gt_last_summary_row {
+#sqfgpqwdvi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1034,7 +1052,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_grand_summary_row {
+#sqfgpqwdvi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1044,7 +1062,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#ldsmbkxonq .gt_first_grand_summary_row {
+#sqfgpqwdvi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1054,7 +1072,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_last_grand_summary_row_top {
+#sqfgpqwdvi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1064,11 +1082,11 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_striped {
+#sqfgpqwdvi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ldsmbkxonq .gt_table_body {
+#sqfgpqwdvi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1077,7 +1095,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_footnotes {
+#sqfgpqwdvi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1091,7 +1109,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_footnote {
+#sqfgpqwdvi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1100,7 +1118,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#ldsmbkxonq .gt_sourcenotes {
+#sqfgpqwdvi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1114,7 +1132,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ldsmbkxonq .gt_sourcenote {
+#sqfgpqwdvi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1122,72 +1140,72 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#ldsmbkxonq .gt_left {
+#sqfgpqwdvi .gt_left {
   text-align: left;
 }
 
-#ldsmbkxonq .gt_center {
+#sqfgpqwdvi .gt_center {
   text-align: center;
 }
 
-#ldsmbkxonq .gt_right {
+#sqfgpqwdvi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ldsmbkxonq .gt_font_normal {
+#sqfgpqwdvi .gt_font_normal {
   font-weight: normal;
 }
 
-#ldsmbkxonq .gt_font_bold {
+#sqfgpqwdvi .gt_font_bold {
   font-weight: bold;
 }
 
-#ldsmbkxonq .gt_font_italic {
+#sqfgpqwdvi .gt_font_italic {
   font-style: italic;
 }
 
-#ldsmbkxonq .gt_super {
+#sqfgpqwdvi .gt_super {
   font-size: 65%;
 }
 
-#ldsmbkxonq .gt_footnote_marks {
+#sqfgpqwdvi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ldsmbkxonq .gt_asterisk {
+#sqfgpqwdvi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ldsmbkxonq .gt_indent_1 {
+#sqfgpqwdvi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ldsmbkxonq .gt_indent_2 {
+#sqfgpqwdvi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ldsmbkxonq .gt_indent_3 {
+#sqfgpqwdvi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ldsmbkxonq .gt_indent_4 {
+#sqfgpqwdvi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ldsmbkxonq .gt_indent_5 {
+#sqfgpqwdvi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ldsmbkxonq .katex-display {
+#sqfgpqwdvi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ldsmbkxonq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sqfgpqwdvi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1228,25 +1246,13 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="visualizing-prams-data" class="level2"><h2 class="anchored" data-anchor-id="visualizing-prams-data">4. Visualizing PRAMS Data</h2>
 <p>Examples will be posted here for making graphs and figures with suggestions on handling very large datasets.</p>
 <p>let’s look at maternal age variable <code>MAT_AGE_PU</code>, see <a href="https://www.cdc.gov/prams/php/data-research/codebooks-phase-8.html">PRAMS Codebook</a>.</p>
 <p>Histogram of Maternal Age - Unweighted</p>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">MAT_AGE_PU</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Histogram of Maternal Age - Complex Survey Weighted</p>
-<div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use survey design data</span></span>
-<span><span class="co"># get histogram using svyhist() function</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyhist.html">svyhist</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="op">~</span><span class="va">MAT_AGE_PU</span>,</span>
-<span>        design <span class="op">=</span> <span class="va">prams.svy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">MAT_AGE_PU</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="576"></p>
@@ -1254,36 +1260,26 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 </div>
 </div>
 </div>
-<p>Maternal weight gain in lbs</p>
+<div style="page-break-after: always;"></div>
+<p>Histogram of Maternal Age - Complex Survey Weighted</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># MOMLBS</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">MOMLBS</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use survey design data</span></span>
+<span><span class="co"># get histogram using svyhist() function</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyhist.html">svyhist</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="op">~</span><span class="va">MAT_AGE_PU</span>,</span>
+<span>        design <span class="op">=</span> <span class="va">prams.svy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">MOMLBS</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   0.00   19.00   28.00   28.48   37.00   97.00    6275 </code></pre>
 </div>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyhist.html">svyhist</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="op">~</span><span class="va">MOMLBS</span>,</span>
-<span>        design <span class="op">=</span> <span class="va">prams.svy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>scatterplot of weight gain by age</p>
-<p>look at ga for 2020</p>
+<div style="page-break-after: always;"></div>
+<p>Histogram of Maternal weight gain in lbs - Unweighted Data</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">prams_ga2000</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">MAT_AGE_PU</span>, y<span class="op">=</span><span class="va">MOMLBS</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># MOMLBS</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">MOMLBS</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Histogram of Unweighted Data"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="576"></p>
@@ -1291,23 +1287,20 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 </div>
 </div>
 </div>
-<p>weighted plot - notice the varying sizes of the dots (bubbles)</p>
+<div style="page-break-after: always;"></div>
+<p>Summary statistics of Unweighted Data</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyplot.html">svyplot</a></span><span class="op">(</span><span class="va">MOMLBS</span><span class="op">~</span><span class="va">MAT_AGE_PU</span>, </span>
-<span>        <span class="va">prams_ga2000.svy</span>,</span>
-<span>        style <span class="op">=</span> <span class="st">"bubble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">prams</span><span class="op">$</span><span class="va">MOMLBS</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   0.00   19.00   28.00   28.48   37.00   97.00    6275 </code></pre>
 </div>
 </div>
-</div>
-<p>another option - gray scale hex symbols - darker indicate higher counts, see <code><a href="https://rdrr.io/pkg/survey/man/svyplot.html">help(svyplot, package = "survey")</a></code>.</p>
+<div style="page-break-after: always;"></div>
+<p>Histogram of Maternal weight gain in lbs - Complex Survey Weighted Data</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyplot.html">svyplot</a></span><span class="op">(</span><span class="va">MOMLBS</span><span class="op">~</span><span class="va">MAT_AGE_PU</span>, </span>
-<span>        <span class="va">prams_ga2000.svy</span>,</span>
-<span>        style <span class="op">=</span> <span class="st">"grayhex"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyhist.html">svyhist</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="op">~</span><span class="va">MOMLBS</span>,</span>
+<span>        design <span class="op">=</span> <span class="va">prams.svy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="576"></p>
@@ -1315,10 +1308,51 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 </div>
 </div>
 </div>
-</section><section id="missing-data-in-prams" class="level2"><h2 class="anchored" data-anchor-id="missing-data-in-prams">5. Missing Data in PRAMS</h2>
-<p>Examples will be posted here for summarizing and visualizing missing data in PRAMS.</p>
+<div style="page-break-after: always;"></div>
+<p>Scatterplot of Weight Gain by Age - Unweighted Data</p>
+<p>Look at GA for 2020</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams_ga2000</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">prams_ga2000</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">MAT_AGE_PU</span>, y<span class="op">=</span><span class="va">MOMLBS</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Weighted plot - notice the varying sizes of the dots (bubbles)</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyplot.html">svyplot</a></span><span class="op">(</span><span class="va">MOMLBS</span><span class="op">~</span><span class="va">MAT_AGE_PU</span>, </span>
+<span>        <span class="va">prams_ga2000.svy</span>,</span>
+<span>        style <span class="op">=</span> <span class="st">"bubble"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Another option - gray scale hex symbols - darker indicate higher counts, see <code><a href="https://rdrr.io/pkg/survey/man/svyplot.html">help(svyplot, package = "survey")</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyplot.html">svyplot</a></span><span class="op">(</span><span class="va">MOMLBS</span><span class="op">~</span><span class="va">MAT_AGE_PU</span>, </span>
+<span>        <span class="va">prams_ga2000.svy</span>,</span>
+<span>        style <span class="op">=</span> <span class="st">"grayhex"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="PRAMS_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</section><section id="missing-data-in-prams" class="level2"><h2 class="anchored" data-anchor-id="missing-data-in-prams">5. Missing Data in PRAMS</h2>
+<p>Let’s look at the missing data for the VITAMIN variable for GA in 2020.</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prams_ga2000</span> <span class="op">&lt;-</span> <span class="va">prams</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">STATE</span> <span class="op">==</span> <span class="st">"GA"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEST_YR</span> <span class="op">==</span> <span class="fl">2020</span><span class="op">)</span></span>
 <span></span>
@@ -1333,14 +1367,20 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
    1    2    3    4 &lt;NA&gt; 
  390   53   33  214    2 </code></pre>
 </div>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add missing indicator for VITAMIN</span></span>
+</div>
+<p>This is areallysmall amount - only 2 NAs - but this is much larger in the weighted sample.</p>
+<div style="page-break-after: always;"></div>
+<p>Create a missing value indicator variable for <code>VITAMIN</code> and look at the amounts in the weighted sample.</p>
+<p>The amount is still small but the range in the weighted sample shown below is informative.</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add missing indicator for VITAMIN</span></span>
 <span><span class="va">prams_ga2000</span><span class="op">$</span><span class="va">VITAMIN_na</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">prams_ga2000</span><span class="op">$</span><span class="va">VITAMIN</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">prams_ga2000</span><span class="op">$</span><span class="va">VITAMIN_na</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create the survey design file for GA</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create the survey design file for GA</span></span>
 <span><span class="co"># for year 2020</span></span>
 <span><span class="va">prams_ga2000.svy</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svydesign.html">svydesign</a></span><span class="op">(</span>ids <span class="op">=</span> <span class="op">~</span><span class="fl">0</span>, strata <span class="op">=</span> <span class="op">~</span><span class="va">SUD_NEST</span>, </span>
@@ -1359,25 +1399,27 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 <span>      <span class="va">n</span> <span class="op">~</span> <span class="st">"**Weighted total (N)**"</span>,</span>
 <span>      <span class="va">stat_0</span> <span class="op">~</span> <span class="st">"**Weighted Count**"</span>,</span>
 <span>      <span class="va">add_stat_1</span> <span class="op">~</span> <span class="st">"**95%CI**"</span></span>
-<span>    <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="swthdvyfmm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#swthdvyfmm table {
+<div id="ledyukniuv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ledyukniuv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#swthdvyfmm thead, #swthdvyfmm tbody, #swthdvyfmm tfoot, #swthdvyfmm tr, #swthdvyfmm td, #swthdvyfmm th {
+#ledyukniuv thead, #ledyukniuv tbody, #ledyukniuv tfoot, #ledyukniuv tr, #ledyukniuv td, #ledyukniuv th {
   border-style: none;
 }
 
-#swthdvyfmm p {
+#ledyukniuv p {
   margin: 0;
   padding: 0;
 }
 
-#swthdvyfmm .gt_table {
+#ledyukniuv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1403,12 +1445,12 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_caption {
+#ledyukniuv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#swthdvyfmm .gt_title {
+#ledyukniuv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1420,7 +1462,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-width: 0;
 }
 
-#swthdvyfmm .gt_subtitle {
+#ledyukniuv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1432,7 +1474,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-top-width: 0;
 }
 
-#swthdvyfmm .gt_heading {
+#ledyukniuv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1444,13 +1486,13 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_bottom_border {
+#ledyukniuv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_col_headings {
+#ledyukniuv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1465,7 +1507,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_col_heading {
+#ledyukniuv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1485,7 +1527,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   overflow-x: hidden;
 }
 
-#swthdvyfmm .gt_column_spanner_outer {
+#ledyukniuv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1497,15 +1539,15 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 4px;
 }
 
-#swthdvyfmm .gt_column_spanner_outer:first-child {
+#ledyukniuv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#swthdvyfmm .gt_column_spanner_outer:last-child {
+#ledyukniuv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#swthdvyfmm .gt_column_spanner {
+#ledyukniuv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1517,11 +1559,11 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   width: 100%;
 }
 
-#swthdvyfmm .gt_spanner_row {
+#ledyukniuv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#swthdvyfmm .gt_group_heading {
+#ledyukniuv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1547,7 +1589,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   text-align: left;
 }
 
-#swthdvyfmm .gt_empty_group_heading {
+#ledyukniuv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1562,15 +1604,15 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   vertical-align: middle;
 }
 
-#swthdvyfmm .gt_from_md > :first-child {
+#ledyukniuv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#swthdvyfmm .gt_from_md > :last-child {
+#ledyukniuv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#swthdvyfmm .gt_row {
+#ledyukniuv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1589,7 +1631,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   overflow-x: hidden;
 }
 
-#swthdvyfmm .gt_stub {
+#ledyukniuv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1602,7 +1644,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#swthdvyfmm .gt_stub_row_group {
+#ledyukniuv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1616,15 +1658,15 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   vertical-align: top;
 }
 
-#swthdvyfmm .gt_row_group_first td {
+#ledyukniuv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#swthdvyfmm .gt_row_group_first th {
+#ledyukniuv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#swthdvyfmm .gt_summary_row {
+#ledyukniuv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1634,16 +1676,16 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#swthdvyfmm .gt_first_summary_row {
+#ledyukniuv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_first_summary_row.thick {
+#ledyukniuv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#swthdvyfmm .gt_last_summary_row {
+#ledyukniuv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1653,7 +1695,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_grand_summary_row {
+#ledyukniuv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1663,7 +1705,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#swthdvyfmm .gt_first_grand_summary_row {
+#ledyukniuv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1673,7 +1715,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_last_grand_summary_row_top {
+#ledyukniuv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1683,11 +1725,11 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_striped {
+#ledyukniuv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#swthdvyfmm .gt_table_body {
+#ledyukniuv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1696,7 +1738,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_footnotes {
+#ledyukniuv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1710,7 +1752,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_footnote {
+#ledyukniuv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1719,7 +1761,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#swthdvyfmm .gt_sourcenotes {
+#ledyukniuv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1733,7 +1775,7 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#swthdvyfmm .gt_sourcenote {
+#ledyukniuv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1741,72 +1783,72 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
   padding-right: 5px;
 }
 
-#swthdvyfmm .gt_left {
+#ledyukniuv .gt_left {
   text-align: left;
 }
 
-#swthdvyfmm .gt_center {
+#ledyukniuv .gt_center {
   text-align: center;
 }
 
-#swthdvyfmm .gt_right {
+#ledyukniuv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#swthdvyfmm .gt_font_normal {
+#ledyukniuv .gt_font_normal {
   font-weight: normal;
 }
 
-#swthdvyfmm .gt_font_bold {
+#ledyukniuv .gt_font_bold {
   font-weight: bold;
 }
 
-#swthdvyfmm .gt_font_italic {
+#ledyukniuv .gt_font_italic {
   font-style: italic;
 }
 
-#swthdvyfmm .gt_super {
+#ledyukniuv .gt_super {
   font-size: 65%;
 }
 
-#swthdvyfmm .gt_footnote_marks {
+#ledyukniuv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#swthdvyfmm .gt_asterisk {
+#ledyukniuv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#swthdvyfmm .gt_indent_1 {
+#ledyukniuv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#swthdvyfmm .gt_indent_2 {
+#ledyukniuv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#swthdvyfmm .gt_indent_3 {
+#ledyukniuv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#swthdvyfmm .gt_indent_4 {
+#ledyukniuv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#swthdvyfmm .gt_indent_5 {
+#ledyukniuv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#swthdvyfmm .katex-display {
+#ledyukniuv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#swthdvyfmm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ledyukniuv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1832,13 +1874,14 @@ VITAMIN_4plus 0.359 0.315 0.407</code></pre>
 </table>
 </div>
 </div>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># weighted 0.3%, CI: 0.1 to 1.8%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># weighted 0.3%, CI: 0.1 to 1.8%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div style="page-break-after: always;"></div>
 </section><section id="prams-statistical-tests-and-models" class="level2"><h2 class="anchored" data-anchor-id="prams-statistical-tests-and-models">6. PRAMS Statistical Tests and Models</h2>
-<p>Examples will be posted here for statistical tests and models (such as linear and logistic regression) for both the unweighted and weighted data approaches.</p>
-<p>association of age and weight gain - linear regression</p>
+<section id="linear-regression-example" class="level3"><h3 class="anchored" data-anchor-id="linear-regression-example">Linear Regression Example</h3>
+<p>Association of age and weight gain using linear regression - Unweighted model</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">MOMLBS</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span>,</span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">MOMLBS</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span>,</span>
 <span>          data <span class="op">=</span> <span class="va">prams_ga2000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1863,9 +1906,10 @@ Multiple R-squared:  0.0009166, Adjusted R-squared:  -0.0005398
 F-statistic: 0.6294 on 1 and 686 DF,  p-value: 0.4279</code></pre>
 </div>
 </div>
-<p>weighted</p>
+<div style="page-break-after: always;"></div>
+<p>Association of age and weight gain using linear regression - Weighted model</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyglm.html">svyglm</a></span><span class="op">(</span><span class="va">MOMLBS</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span>, </span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyglm.html">svyglm</a></span><span class="op">(</span><span class="va">MOMLBS</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span>, </span>
 <span>               design <span class="op">=</span> <span class="va">prams_ga2000.svy</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1888,9 +1932,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Number of Fisher Scoring iterations: 2</code></pre>
 </div>
 </div>
-<p>contingency tables - vitamin use by breastfeeding</p>
+<div style="page-break-after: always;"></div>
+<p>Contingency tables and Chi-square test - vitamin use by breastfeeding - Unweighted Data</p>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">prams_ga2000</span><span class="op">$</span><span class="va">VITAMIN_4plus.f</span>, </span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">prams_ga2000</span><span class="op">$</span><span class="va">VITAMIN_4plus.f</span>, </span>
 <span>      <span class="va">prams_ga2000</span><span class="op">$</span><span class="va">BF5EVER.f</span>,</span>
 <span>      useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1900,7 +1945,7 @@ Number of Fisher Scoring iterations: 2</code></pre>
   4x/week or more  18 225    4
   &lt;NA&gt;              1   1    0</code></pre>
 </div>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gmodels</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gmodels</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">prams_ga2000</span><span class="op">$</span><span class="va">VITAMIN_4plus.f</span>, </span>
 <span>           y <span class="op">=</span> <span class="va">prams_ga2000</span><span class="op">$</span><span class="va">BF5EVER.f</span>,</span>
 <span>           expected <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -1952,9 +1997,10 @@ Chi^2 =  22.69497     d.f. =  1     p =  1.898642e-06
        Minimum expected frequency: 40.68 </code></pre>
 </div>
 </div>
-<p>weighted</p>
+<div style="page-break-after: always;"></div>
+<p>Contingency tables and Chi-square test - vitamin use by breastfeeding - Unweighted Data</p>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svytable</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus.f</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>, </span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svytable</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus.f</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>, </span>
 <span>         <span class="va">prams_ga2000.svy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 BF5EVER.f
@@ -1962,7 +2008,7 @@ VITAMIN_4plus.f          NO       YES
   3x/week or less 18458.169 55008.856
   4x/week or more  3334.398 38789.322</code></pre>
 </div>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svychisq</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus.f</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>, </span>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svychisq</a></span><span class="op">(</span><span class="op">~</span><span class="va">VITAMIN_4plus.f</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>, </span>
 <span>         <span class="va">prams_ga2000.svy</span>, </span>
 <span>         statistic <span class="op">=</span> <span class="st">"Chisq"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1973,32 +2019,35 @@ data:  svychisq(~VITAMIN_4plus.f + BF5EVER.f, prams_ga2000.svy, statistic = "Chi
 X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
 </div>
 </div>
-<p>logistic regression</p>
-<p>look at vitamin use by breastfeeding and maternal age</p>
+</section><section id="logistic-regression-example" class="level3"><h3 class="anchored" data-anchor-id="logistic-regression-example">Logistic Regression Example</h3>
+<p>Let’s look at multi-vitamin use 4x/week by breastfeeding and maternal age.</p>
+<p>Unweighted Logistic Regression Results</p>
 <div class="cell">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glm1</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">VITAMIN_4plus</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>,</span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">glm1</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">VITAMIN_4plus</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>,</span>
 <span>           data <span class="op">=</span> <span class="va">prams_ga2000</span>,</span>
 <span>           family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span>
 <span><span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression</a></span><span class="op">(</span><span class="va">glm1</span>,</span>
-<span>                          exponentiate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>                          exponentiate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="rgpwaipvka" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rgpwaipvka table {
+<div id="kinjixhvxk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kinjixhvxk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rgpwaipvka thead, #rgpwaipvka tbody, #rgpwaipvka tfoot, #rgpwaipvka tr, #rgpwaipvka td, #rgpwaipvka th {
+#kinjixhvxk thead, #kinjixhvxk tbody, #kinjixhvxk tfoot, #kinjixhvxk tr, #kinjixhvxk td, #kinjixhvxk th {
   border-style: none;
 }
 
-#rgpwaipvka p {
+#kinjixhvxk p {
   margin: 0;
   padding: 0;
 }
 
-#rgpwaipvka .gt_table {
+#kinjixhvxk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2024,12 +2073,12 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_caption {
+#kinjixhvxk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rgpwaipvka .gt_title {
+#kinjixhvxk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2041,7 +2090,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-bottom-width: 0;
 }
 
-#rgpwaipvka .gt_subtitle {
+#kinjixhvxk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2053,7 +2102,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-top-width: 0;
 }
 
-#rgpwaipvka .gt_heading {
+#kinjixhvxk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2065,13 +2114,13 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_bottom_border {
+#kinjixhvxk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_col_headings {
+#kinjixhvxk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2086,7 +2135,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_col_heading {
+#kinjixhvxk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2106,7 +2155,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   overflow-x: hidden;
 }
 
-#rgpwaipvka .gt_column_spanner_outer {
+#kinjixhvxk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2118,15 +2167,15 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   padding-right: 4px;
 }
 
-#rgpwaipvka .gt_column_spanner_outer:first-child {
+#kinjixhvxk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rgpwaipvka .gt_column_spanner_outer:last-child {
+#kinjixhvxk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rgpwaipvka .gt_column_spanner {
+#kinjixhvxk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2138,11 +2187,11 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   width: 100%;
 }
 
-#rgpwaipvka .gt_spanner_row {
+#kinjixhvxk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rgpwaipvka .gt_group_heading {
+#kinjixhvxk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2168,7 +2217,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   text-align: left;
 }
 
-#rgpwaipvka .gt_empty_group_heading {
+#kinjixhvxk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2183,15 +2232,15 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   vertical-align: middle;
 }
 
-#rgpwaipvka .gt_from_md > :first-child {
+#kinjixhvxk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rgpwaipvka .gt_from_md > :last-child {
+#kinjixhvxk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rgpwaipvka .gt_row {
+#kinjixhvxk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2210,7 +2259,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   overflow-x: hidden;
 }
 
-#rgpwaipvka .gt_stub {
+#kinjixhvxk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2223,7 +2272,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   padding-right: 5px;
 }
 
-#rgpwaipvka .gt_stub_row_group {
+#kinjixhvxk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2237,15 +2286,15 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   vertical-align: top;
 }
 
-#rgpwaipvka .gt_row_group_first td {
+#kinjixhvxk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rgpwaipvka .gt_row_group_first th {
+#kinjixhvxk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rgpwaipvka .gt_summary_row {
+#kinjixhvxk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2255,16 +2304,16 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   padding-right: 5px;
 }
 
-#rgpwaipvka .gt_first_summary_row {
+#kinjixhvxk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_first_summary_row.thick {
+#kinjixhvxk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rgpwaipvka .gt_last_summary_row {
+#kinjixhvxk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2274,7 +2323,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_grand_summary_row {
+#kinjixhvxk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2284,7 +2333,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   padding-right: 5px;
 }
 
-#rgpwaipvka .gt_first_grand_summary_row {
+#kinjixhvxk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2294,7 +2343,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_last_grand_summary_row_top {
+#kinjixhvxk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2304,11 +2353,11 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_striped {
+#kinjixhvxk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rgpwaipvka .gt_table_body {
+#kinjixhvxk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2317,7 +2366,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_footnotes {
+#kinjixhvxk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2331,7 +2380,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_footnote {
+#kinjixhvxk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2340,7 +2389,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   padding-right: 5px;
 }
 
-#rgpwaipvka .gt_sourcenotes {
+#kinjixhvxk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2354,7 +2403,7 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rgpwaipvka .gt_sourcenote {
+#kinjixhvxk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2362,72 +2411,72 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
   padding-right: 5px;
 }
 
-#rgpwaipvka .gt_left {
+#kinjixhvxk .gt_left {
   text-align: left;
 }
 
-#rgpwaipvka .gt_center {
+#kinjixhvxk .gt_center {
   text-align: center;
 }
 
-#rgpwaipvka .gt_right {
+#kinjixhvxk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rgpwaipvka .gt_font_normal {
+#kinjixhvxk .gt_font_normal {
   font-weight: normal;
 }
 
-#rgpwaipvka .gt_font_bold {
+#kinjixhvxk .gt_font_bold {
   font-weight: bold;
 }
 
-#rgpwaipvka .gt_font_italic {
+#kinjixhvxk .gt_font_italic {
   font-style: italic;
 }
 
-#rgpwaipvka .gt_super {
+#kinjixhvxk .gt_super {
   font-size: 65%;
 }
 
-#rgpwaipvka .gt_footnote_marks {
+#kinjixhvxk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rgpwaipvka .gt_asterisk {
+#kinjixhvxk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rgpwaipvka .gt_indent_1 {
+#kinjixhvxk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rgpwaipvka .gt_indent_2 {
+#kinjixhvxk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rgpwaipvka .gt_indent_3 {
+#kinjixhvxk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rgpwaipvka .gt_indent_4 {
+#kinjixhvxk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rgpwaipvka .gt_indent_5 {
+#kinjixhvxk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rgpwaipvka .katex-display {
+#kinjixhvxk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rgpwaipvka div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kinjixhvxk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2482,9 +2531,10 @@ X-squared = 31.025, df = 1, p-value = 1.222e-05</code></pre>
 </div>
 </div>
 </div>
-<p>weighted</p>
+<div style="page-break-after: always;"></div>
+<p>Weighted Logistic Regression Results</p>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wtglm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyglm.html">svyglm</a></span><span class="op">(</span><span class="va">VITAMIN_4plus</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>, </span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wtglm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyglm.html">svyglm</a></span><span class="op">(</span><span class="va">VITAMIN_4plus</span> <span class="op">~</span> <span class="va">MAT_AGE_PU</span> <span class="op">+</span> <span class="va">BF5EVER.f</span>, </span>
 <span>                 design <span class="op">=</span> <span class="va">prams_ga2000.svy</span>,</span>
 <span>                 family<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/family.html">quasibinomial</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">wtglm1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2510,19 +2560,20 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">wtglm1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">wtglm1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept)   MAT_AGE_PU BF5EVER.fYES 
    0.0345025    1.0644955    3.2797036 </code></pre>
 </div>
 </div>
-</section><section id="prams-reproducible-research-report" class="level2"><h2 class="anchored" data-anchor-id="prams-reproducible-research-report">7. PRAMS Reproducible Research Report</h2>
-<p>A Rmarkdown analysis report will be provided here as a template to “kick start” your research with the PRAMS dataset.</p>
+<div style="page-break-after: always;"></div>
+</section></section><section id="prams-reproducible-research-report" class="level2"><h2 class="anchored" data-anchor-id="prams-reproducible-research-report">7. PRAMS Reproducible Research Report</h2>
+<p>Here is an example Rmarkdown analysis report provided as a template to “kick start” your research with the PRAMS dataset.</p>
 <ol type="1">
-<li>Download this Rmarkdown template <a href="prams_report.Rmd">PRAMS Report</a>.</li>
-<li>Knit to HTML</li>
-<li>Knit to DOC</li>
-<li>Knit to PDF (if you’ve installed <code>tinytex</code> package)</li>
+<li>Download this Rmarkdown template <a href="prams_report.Rmd">PRAMS Rmarkdown Report</a>.</li>
+<li>Knit to HTML <a href="prams_report.html">PRAMS Report in HTML</a>.</li>
+<li>Knit to DOC <a href="prams_report.docx">PRAMS Report in DOCX</a>.</li>
+<li>Knit to PDF (if you’ve installed <code>tinytex</code> package) <a href="prams_report.pdf">PRAMS Report in PDF</a>.</li>
 <li>Knit with Parameters - Change the year from 2020 to 2018 and re-knit the document</li>
 </ol>
 <hr>
@@ -2534,6 +2585,9 @@ Bates, Douglas, Martin Maechler, and Mikael Jagan. 2024. <em>Matrix: Sparse and 
 </div>
 <div id="ref-R-knitcitations" class="csl-entry" role="listitem">
 Boettiger, Carl. 2021. <em>Knitcitations: Citations for Knitr Markdown Files</em>. <a href="https://github.com/cboettig/knitcitations">https://github.com/cboettig/knitcitations</a>.
+</div>
+<div id="ref-R-gt" class="csl-entry" role="listitem">
+Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, JooYoung Seo, Ken Brevoort, and Olivier Roy. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
 </div>
 <div id="ref-survey2004" class="csl-entry" role="listitem">
 Lumley, Thomas. 2004. <span>“Analysis of Complex Survey Samples.”</span> <em>Journal of Statistical Software</em> 9 (1): 1–19.

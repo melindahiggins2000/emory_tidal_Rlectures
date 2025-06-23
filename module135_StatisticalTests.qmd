@@ -25,13 +25,16 @@ knitr::opts_chunk$set(
 # https://easystats.github.io/easystats/
 # and tidymodels, broom, purrr, etc
 # effect sizes
+
+library(gt)
 ```
 
-## Session Objectives
+## Session Objectives _(updated)_
 
-1. Develop linear and logistic regression models.
-2. (Use a survey sampling weight to generate more representative descriptive and inferential statistical values.) - Currently, this objective is under the Module 1.3.4: Missing data and sampling weight.
-3. Interpret a model output.
+1. Develop linear regression models and explore results.
+2. Develop logistic regression models and explore results.
+3. Perform t-tests and ANOVA and explore results.
+4. Modeling with Complex Survey Weights
 
 ---
 
@@ -42,23 +45,16 @@ knitr::opts_chunk$set(
 If you do not have them already, install the following packages from CRAN (using the RStudio Menu "Tools/Install" Packages interface):
 
 * [`VIM`](https://cran.r-project.org/web/packages/VIM/index.html){target="_blank"} and [`VIM` package website](https://statistikat.github.io/VIM/index.html){target="_blank"}
-* (Optional) [`skimr`](https://cran.r-project.org/web/packages/skimr/index.html){target="_blank"} and [`skimr` website](https://docs.ropensci.org/skimr/){target="_blank"}
-* (Optional) [`modelsummary`](https://cran.r-project.org/web/packages/modelsummary/){target="_blank"} and [`modelsummary` website](https://modelsummary.com/){target="_blank"}
-* (Optional) [`summarytools`](https://cran.r-project.org/web/packages/summarytools/){target="_blank"} and [`summarytools` on Github](https://github.com/dcomtois/summarytools){target="_blank"}
-* [`palmerpenguins`](https://cran.r-project.org/web/packages/palmerpenguins/){target="_blank"} and [`palmerpenguins` website](https://allisonhorst.github.io/palmerpenguins/){target="_blank"}
-* [`ggplot2`](https://cloud.r-project.org/web/packages/ggplot2/){target="_blank"} and [`ggplot2` website](https://ggplot2.tidyverse.org/){target="_blank"}
-* [`naniar`](https://cran.r-project.org/web/packages/naniar/){target="_blank"} and [`naniar` website](https://naniar.njtierney.com/){target="_blank"}
-* [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) and [`dplyr` website](https://dplyr.tidyverse.org/)
-* [`gtsummary`](https://cran.r-project.org/web/packages/gtsummary/) and [`gtsummary` website](https://www.danieldsjoberg.com/gtsummary/)
-* [`Hmisc`](https://cran.r-project.org/web/packages/Hmisc/) and [`Hmisc` website](https://hbiostat.org/r/hmisc/)
-* [`mice`](https://cran.r-project.org/web/packages/mice/index.html){target="_blank"} and [mice website](https://amices.org/mice/){target="_blank"}
+* [`gtsummary`](https://cran.r-project.org/web/packages/gtsummary/){target="_blank"} and [`gtsummary` website](https://www.danieldsjoberg.com/gtsummary/){target="_blank"}
+* [`easystats`](https://cran.r-project.org/web/packages/easystats/index.html){target="_blank"} and [`easystats` website](https://easystats.github.io/easystats/){target="_blank"}
+* [`car`](https://cran.r-project.org/web/packages/car/){target="_blank"} and [`car` BOOK website](https://www.john-fox.ca/Companion/index.html){target="_blank"}
+* [`effects`](https://cran.r-project.org/web/packages/effects/){target="_blank"}
+* [`olsrr`](https://cran.r-project.org/web/packages/olsrr/){target="_blank"} and [`olsrr` website](https://olsrr.rsquaredacademy.com/){target="_blank"}
+* [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html){target="_blank"} and [`dplyr` website](https://dplyr.tidyverse.org/){target="_blank"}
+* [`ROCR`](https://cran.r-project.org/web/packages/ROCR/){target="_blank"} and [`ROCR` website](https://ipa-tys.github.io/ROCR/){target="_blank"}
+* [`effectsize`](https://cran.r-project.org/web/packages/effectsize/){target="_blank"} and [`effectsize` website](https://easystats.github.io/effectsize/){target="_blank"}
 
-### B. Review these online Book Chapters:
-
-* [BOOK: Flexible Imputation of Missing Data, 2nd ed., by Stef van Buuren (`mice` package author) - Chapter 1 "Introduction", Sections 1.1-1.4](https://stefvanbuuren.name/fimd/ch-introduction.html){target="_blank"}
-* [BOOK: The Epidemiologist R Handbook - Chapter 20 "Missing Data"](https://www.epirhandbook.com/en/new_pages/missing_data.html)
-
-### C. Open/create an RStudio project for this lesson
+### B. Open/create an RStudio project for this lesson
 
 Let's start with the `myfirstRproject` RStudio project you created in [Module 1.3.2 - part 1](module132_DataWrangling.html#begin-with-a-new-rstudio-project). If you have not yet created this `myfirstRproject` RStudio project, go ahead and create a new RStudio Project for this lesson. _Feel free to name your project whatever you want, it does not need to be named `myfirstRproject`._
 
@@ -66,31 +62,408 @@ Let's start with the `myfirstRproject` RStudio project you created in [Module 1.
 
 \newpage
 
-## 1. Develop linear and logistic regression models.
+## 1. Develop linear regression models and explore results.
 
-### Linear Regression
+### Linear Regression Modeling
 
-One aaaaaaaaaaaaaaa
+As we saw briefly in [Module 1.3.4 - section 2 on missing data in regression models](https://melindahiggins2000.github.io/emory_tidal_Rlectures/module134_MissingWeight.html#impact-of-missing-data-for-regression-models), linear regression can be accomplished using the built-in `lm()` function.
 
-### Logistic Regression
+`lm()` stands for linear models. You can use this function for building both regression and ANOVA (analysis of variance) type models. `aov()` is another option for ANOVA as well.
 
-xxxxxxxxxxxxxxxxxx
+Let's take a closer look at the little linear model we ran for the `sleep` dataset from the `VIM` package. We will run the regression model again and save the output to an object called `lm1`. Look at default output.
+
+#### Using the `lm()` function and exploring output
+
+```{r}
+# load VIM Package to get sleep dataset
+library(VIM)
+
+# run model for predicting "Sleep" from "Dream"
+# save the output in lm1
+lm1 <- lm(Sleep ~ Dream, data = sleep)
+
+# look at default output
+lm1
+```
+
+\newpage
+
+Let's take a moment to take a look at the `lm1` object in the Global Environment. Notice that only the intercept and slope terms are printed in the default output, but the `lm1` object is actually a list of 13 elements only one of which are the "coefficients" from the model.
+
+![](lm1_object.png)
+
+\newpage
+
+Next, to get more detailed output we need to run `summary(lm1)` which technically runs `summary.lm()` which is a special summary function specific for `lm` class type objects.
+
+So, let's save the `summary(lm1)` output and also take a look at that object `slm1`.
+
+```{r}
+# save the summary of lm1
+slm1 <- summary(lm1)
+
+# look at default output
+slm1
+```
+
+\newpage
+
+But here is what is in the `slm1` object in the Global Environment - also a list with 12 elements. We get the `coefficients` again, but we get even more info - including the `df` (degrees of freedom), `r.squared` and `adj.r.squared`.
+
+![](slm1_object.png)
+
+\newpage
+
+#### Nicer formatted regression table using `gtsummary::tbl_regression`
+
+We can get a nicer output using the `gtsummary::tbl_regression()` table.
+
+```{r}
+library(gtsummary)
+tbl_regression(lm1) %>%
+  as_gt() %>%
+  tab_options(latex.tbl.pos = "h")
+```
+
+\newpage
+
+#### More output options for regression using `easystats`
+
+Another suite of R packages that can be helpful to explore is the [`easystats` package suite](https://easystats.github.io/easystats/index.html). In this example we will look at:
+
+* `model_parameters()` from the [`parameters` package](https://easystats.github.io/parameters/) that is part of `easystats` package suite; and
+* `report()` from the [`report` package`](https://easystats.github.io/report/) that is also part of the `easystats` package suite.
+
+Better formatted output table:
+
+```{r}
+library(easystats)
+model_parameters(lm1)
+```
+
+\newpage
+
+A nice summary with suggested interpretation verbiage:
+
+```{r}
+report(lm1)
+```
+
+\newpage
+
+#### Other options within `tidyverse` packages
+
+In the [`broom` package](https://broom.tidymodels.org/index.html) there are some additional functions that are helpful for exploring the model fit metrics and more.
+
+```{r}
+library(broom)
+tidy(lm1)
+glance(lm1)
+```
+
+\newpage
+
+#### "Companion for Applied Regression" - the `car` and `effects` packages
+
+John Fox has written an excellent set of books on applied regression that has an R companion book along with the `car` and `effects` packages with lots of helpful functions for doing regression modeling and analysis. Learn more at [Applied Regression Book](https://us.sagepub.com/en-us/nam/applied-regression-analysis-and-generalized-linear-models/book237254) and  [R Companion for Applied Regression Book](https://www.john-fox.ca/Companion/index.html).
+
+Get the normal probability plot of the model residuals.
+
+```{r}
+library(car)
+
+# get normal probability plot of the 
+# regression model residuals
+car::qqPlot(lm1$residuals)
+```
+
+\newpage
+
+Overlay a best fit line on the scatterplot of the original data for the model - include 95% confidence intervals for the best fit line.
+
+```{r}
+# scatterplot of fitted model
+# using the car package, add the smooth option
+car::scatterplot(Sleep ~ Dream, data = sleep, 
+                 smooth=TRUE)
+```
+
+\newpage
+
+Get an "effects" plot - for this model you only get one plot showing the slope of the line between `Dream` and `Sleep`:
+
+```{r}
+library(effects)
+plot(allEffects(lm1))
+```
+
+\newpage
+
+#### One more - the [`olsrr`](https://olsrr.rsquaredacademy.com/) package
+
+The [`olsrr`](https://olsrr.rsquaredacademy.com/) package provides a helpful set of tolls for working with OLS (ordinary least squares) regression models. _Unfortunately, this set of package functions do NOT work with `glm` (generalized linear models) like logistic regression._
+
+Get detailed regression output including the standardized regression coefficients which are effect sizes, where std.beta = 0.1 is "small", 0.3 is "moderate" and 0.5 is "large".
+
+```{r}
+# load olsrr package
+library(olsrr)
+
+# get detailed regression output
+# including standardized coefficients
+ols_regress(lm1)
+```
+
+\newpage
+
+Get diagnostic plots.
+
+```{r}
+# diagnostic plots
+# check for new output windows
+ols_plot_diagnostics(lm1)
+```
+
+\newpage
+
+Get a normality test for the residuals.
+
+```{r}
+# normality tests for residuals
+ols_test_normality(lm1)
+```
 
 ---
 
 \newpage
 
-## 2. Linear and Logistic Regression Models with complex survey sampling weights
+## 2. Develop logistic regression models and explore results.
 
-aaaaaaaaaaaaa
+Similar to what we did above, we can use `glm()` instead of `lm()` to perform a logistic regression. `glm()` is the generalized linear modeling function in base R. The "generalized" part of this is due to this function handling different "families" of output distributions. The "gaussian" family is the default for continuous variables with a normal distribution (the assumption for OLS). The family for logistic regression is the "binomial" since we are predicting the probability of someone being in group 1 or group 2 for the 2 possible outcomes in a logistic regression. And there are more families that can be fit including "poisson" which works for count-based variables (like number of children, miscarriages, etc).
+
+This function can actually do a simple linear regression by leaving the default setting for `family = "gaussian"`. Learn more by running `help(glm, package = "stats")`.
+
+Let's keep working with the `sleep` dataset, but first let's split the `Dream` variable into values <= 2 and those > 2. _Note: The median for `Dream` was 1.8, so this should split data approximately 50/50._
+
+This time we will treat "`Dream` > 2" as the positive (or target) outcome for our logistic regression model. And then we will see how "`Dream` > 2" is predicted by amount of `Sleep` and `Danger` scores.
+
+### Simple `glm()` output
+
+```{r}
+# create outcome variable
+sleep$dream_gt2 <- as.numeric(sleep$Dream > 2)
+  
+# fit the logistic regression model
+glm1 <- glm(dream_gt2 ~ Sleep + Danger,
+            data = sleep,
+            family = "binomial")
+
+# look at basic output
+glm1
+```
+
+::: callout-warning
+## WARNING: Exponentiate Raw Coefficients 
+
+The default output from `glm()` only provides for the RAW logistic regression coefficients. To get the odds ratios, we must first exponentiate these coefficients.
+:::
+
+Get the odds ratios by exponentiating the coefficients.
+
+```{r}
+exp(coef(glm1))
+```
+
+\newpage
+
+### Get detailed `glm()` regression output.
+
+```{r}
+sglm1 <- summary(glm1)
+sglm1
+```
+
+\newpage
+
+### Use gtsummary::tbl_regression() 
+
+Get a nicer table and set `exponentiate = TRUE`.
+
+```{r}
+tbl_regression(glm1, exponentiate = TRUE) %>%
+  as_gt() %>%
+  tab_options(latex.tbl.pos = "h")
+```
+
+\newpage
+
+### Interpret Odds Ratios as Effect Sizes
+
+Interpreting odds ratios as effect sizes is a little tricky. However, this website on [Computation of Effect Sizes](https://www.psychometrica.de/effect_size.html) is really helpful - see items 14 and 16. By playing with this simple conversion tool to convert between effect sizes, we can see that:
+
+* large effect sizes d=0.8, r=0.5, odds ratio =~ 4.27-8.12
+* moderate effect sizes d=0.5, r=0.3, odds ratio =~ 2.48-3.13
+* small effect sizes d=0.2, r=0.1, odds ratio =~ 1.44
+
+where Cohen's d is used for t-tests; r is used for correlations (and are the same for standardized regression coefficient "betas"); and odds ratios are from logistic regression.
+
+\newpage
+
+### AUC and ROC curve plot
+
+The area under the curve (AUC) or "C-statistic" is often reported instead of R2 for logistic regression models. The code below will compute the AUC for this model and make the receiver operating characteristic curve (ROC) plot.
+
+Ideally you want AUC as close to 1 as possible:
+
+* AUC > 0.9 is great
+* AUC > 0.8 is good
+* AUC > 0.7 is ok
+* AUC < 0.7 is not very good
+* AUC around 0.5 is no better than flipping a fair coin which is a useless model
+
+As you can see below, the AUC for this model was 0.881 which is very good.
+
+```{r}
+# NOTE: We need only the COMPLETE data
+# for the 3 variables we used in this model
+library(dplyr)
+s1 <- sleep %>%
+  select(Sleep, Danger, dream_gt2) %>%
+  filter(complete.cases(.))
+
+# compute AUC and get ROC curve
+library(ROCR)
+p <- predict(glm1, newdata=s1, 
+             type="response")
+pr <- prediction(p, as.numeric(s1$dream_gt2))
+prf <- performance(pr, measure = "tpr", x.measure = "fpr")
+
+# compute AUC, area under the curve
+# also called the C-statistic
+auc <- performance(pr, measure = "auc")
+auc <- auc@y.values[[1]]
+
+# also - add title to plot with AUC in title
+plot(prf,
+     main = paste("ROC Curve, AUC = ", round(auc, 3)))
+abline(0, 1, col="red")
+```
 
 ---
 
 \newpage
 
-## 3. Interpret a model output
+## 3. Perform t-tests explore results.
 
-aaaaaaaaaaaaa
+### T-tests
+
+Given the split we did above looking at animals with `Dream` scores above and below 2, let's run a t-test for the `Sleep` variable.
+
+```{r}
+# run t-test, save results
+# default is an unequal variance "unpooled" t.test
+tt1 <- t.test(Sleep ~ dream_gt2, 
+              data = sleep)
+tt1
+```
+
+
+```{r}
+# get the equal variance "pooled" t.test
+tt2 <- t.test(Sleep ~ dream_gt2, 
+              data = sleep,
+              var.equal = TRUE)
+tt2
+```
+
+\newpage
+
+We can test the assumption of equal variance in a couple of ways. One simple way is to look at the standard deviations of each group and see if the ratio is larger than 2.
+
+```{r}
+sd0 <- sleep %>%
+  filter(dream_gt2 == 0) %>%
+  select(Sleep) %>%
+  unlist() %>%
+  sd(na.rm = TRUE)
+sd1 <- sleep %>%
+  filter(dream_gt2 == 1) %>%
+  select(Sleep) %>%
+  unlist() %>%
+  sd(na.rm = TRUE)
+sd0
+sd1
+```
+
+These standard deviations are similar, so a pooled t-test should be fine. 
+
+\newpage
+
+You can also run a formal test of equal variance, using `bartlett.test()`. However, this test and others like this are sensitive to small deviations from normality, so I often check the standard deviations and will run both the pooled and unpooled tests and see if I get the same conclusion either way.
+
+As you can see, the p-value below is not significant, so we can not reject the null hypothesis assumption of equal variance - the pooled t-test is fine.
+
+```{r}
+bartlett.test(Sleep ~ dream_gt2, 
+              data = sleep)
+```
+
+\newpage
+
+### Compute effect size for t-test
+
+Use the [`effectsize` package](https://easystats.github.io/effectsize/) which is part of the `easystats` suite of packages.
+
+The effect size computed is rather large, d=1.32.
+
+```{r}
+library(effectsize)
+options(es.use_symbols = TRUE)
+
+cohens_d(Sleep ~ dream_gt2, 
+         data = sleep,
+         na.action = na.omit)
+```
+
+\newpage
+
+### Get a simple summary table
+
+As you see below, the difference in Sleep scores between the 2 dream groups is approximately 13.9-8.8 = 5.1 and the approximate average SD =~ 3.9, so the ratio of the mean differences to "pooled" SD =~ 5.1/3.85 =~ 1.33 which is close to the Cohen's d we computed above.
+
+I also added some custom statistical tests to the table.
+
+```{r}
+# create factor variable with labels
+sleep$dream_gt2.f <- factor(
+  sleep$dream_gt2, 
+  levels = c(0, 1),
+  labels = c("Dream <= 2",
+             "Dream > 2")
+)
+
+tbl_summary(
+  sleep,
+  by = dream_gt2.f,
+  include = c(Sleep, Danger),
+  type = all_continuous() ~ "continuous2",
+  statistic = all_continuous() ~ c("{N_nonmiss}", "{mean} ({sd})")
+) %>%
+  add_p(test = list(Sleep ~ "t.test", Danger ~ "wilcox.test"), 
+        test.args = list(Sleep ~ list(var.equal = TRUE))
+        ) %>%
+  as_gt() %>%
+  tab_options(latex.tbl.pos = "h")
+```
+
+
+---
+
+\newpage
+
+## 4. Modeling with Complex Survey Weights
+
+See [PRAMS Module](prams.html)
 
 ---
 
@@ -111,20 +484,6 @@ knitr::write_bib(x = c(.packages()),
 :::
 
 ## Other Helpful Resources
-
-**Missing Data Resources**
-
-* [CRAN Task View for Missing Data](https://cran.r-project.org/web/views/MissingData.html)
-* [R-miss-tastic Website](https://rmisstastic.netlify.app/)
-* [Flexible Imputation of Missing Data (online book for 2nd edition) by Stef van Buuren](https://stefvanbuuren.name/fimd/)
-* [Blog post on Missing Data Visualization in R using ggplot2](https://www.datawim.com/post/missing-data-visualization-in-r/)
-* [Missing data R tutorial](https://libguides.princeton.edu/R-Missingdata)
-* [CRAN Task View on Missing Data](https://cran.r-project.org/web/views/MissingData.html)
-* [A resource website on missing values](https://rmisstastic.netlify.app/)
-* [Handling missing values with R - tutorial](https://rmisstastic.netlify.app/tutorials/josse_tierney_bookdown_user2018tutorial_2018)
-* [Blog post "My favourite R package for: summarising data"](https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/)
-
-and
 
 [**Other Helpful Resources**](./additionalResources.html){target="_blank"}
 

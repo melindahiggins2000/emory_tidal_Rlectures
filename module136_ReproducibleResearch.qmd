@@ -23,19 +23,45 @@ knitr::opts_chunk$set(
 )
 ```
 
-## COMING SUMMER 2025
-
-Module "1.3.6: Putting Reproducible Research Principles Into Practice" will be posted prior to the In-Person Workshops in Summer 2025.
-
 ## Session Objectives
 
 1. Discuss reproducible research principles.
 2. Apply reproducible research principles to data analysis using R Markdown.
 
-Key points to cover:
+Key points that will be covered:
 
 1. Reproducible research principles
 2. What is R Markdown
 3. How to create a report using R Markdown
     - Customize the layout of presentations or reports
     - Insert and create objects, such as tables, images, or videos, within a document
+
+### In Person - Summer 2025
+
+During the in person session we will work through creating and using Rmarkdown to combine report text, R code and output seamlessly to create reproducible analysis reports.
+
+We will be working with the [PRAMS Report example](prams_report.html) in class. Also see complete details in the [PRAMS Module - section 7 on Reproducible Research Report](prams#prams-reproducible-research-report).
+
+---
+
+\newpage
+
+```{r echo=FALSE}
+knitr::write_bib(x = c(.packages()), 
+                 file = "packages.bib")
+```
+
+## RMarkdown Code For This Module
+
+* [`prams_report.Rmd`](prams_report.Rmd)
+
+## References
+
+::: {#refs}
+:::
+
+## Other Helpful Resources
+
+[**Other Helpful Resources**](./additionalResources.html){target="_blank"}
+
+

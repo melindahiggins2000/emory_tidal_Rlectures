@@ -23,6 +23,8 @@ knitr::opts_chunk$set(
 )
 # add vim and upset plots
 # in this module
+
+library(gt)
 ```
 
 ## Session Objectives _(updated)_
@@ -283,7 +285,7 @@ gg_miss_upset(sleep)
 
 ### Why should we worry about missing data?
 
-Setting aside bias concerns for the moment, missing data logistically causes issues with code - especially in R. At first glance this seems to be a huge pain since we get errors or nonsensical output. But these issues force us to deal with the missing data and provide explicit instructions to the computer code on how we want to addressthe missing data. _Learn more in the [Flexible Imputation of Missing Data BOOK](https://stefvanbuuren.name/fimd/sec-problem.html)._
+Setting aside bias concerns for the moment, missing data logistically causes issues with code - especially in R. At first glance this seems to be a huge pain since we get errors or nonsensical output. But these issues force us to deal with the missing data and provide explicit instructions to the computer code on how we want to address the missing data. _Learn more in the [Flexible Imputation of Missing Data BOOK](https://stefvanbuuren.name/fimd/sec-problem.html)._
 
 ### Impact of missing data for descriptive stats like the mean
 
@@ -325,7 +327,9 @@ sleep %>%
       "{N_nonmiss}",
       "{mean} ({sd})"
     )
-  )
+  ) %>%
+  as_gt() %>%
+  tab_options(latex.tbl.pos = "h")
 ```
 
 \newpage
@@ -501,7 +505,9 @@ s1 %>%
     include = c(BodyWgt, log_BodyWgt,
                 BrainWgt, log_BrainWgt)
   ) %>%
-  add_p()
+  add_p() %>%
+  as_gt() %>%
+  tab_options(latex.tbl.pos = "h")
 ```
 
 \newpage
