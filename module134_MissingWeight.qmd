@@ -207,11 +207,11 @@ Next, let's get some plots of the missing data in the `sleep` dataset.
 
 The plot on the LEFT below is a simple bar plot showing the missing counts for each variable in the dataset. Notice that there are only 5 variables with one or more missing values:
 
-    * `NonD`
-    * `Dream`
-    * `Sleep`
-    * `Span`
-    * `Gest`
+* `NonD`
+* `Dream`
+* `Sleep`
+* `Span`
+* `Gest`
 
 The plot on the RIGHT however, shows the amounts of missing data for the various patterns of missing data for the 10 variables in the `sleep` dataset. For example, notice that of the 62 rows of data in the `sleep` dataset:
 
@@ -316,6 +316,10 @@ Learn more at [Multiline Summaries Using `tbl_summary()`](https://www.danieldsjo
 :::
 
 ```{r}
+#| label: tbl-sum1
+#| echo: true
+#| tbl-pos: H
+
 library(dplyr)
 library(gtsummary)
 
@@ -327,9 +331,7 @@ sleep %>%
       "{N_nonmiss}",
       "{mean} ({sd})"
     )
-  ) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+  )
 ```
 
 \newpage
@@ -499,15 +501,17 @@ s1 <- s1 %>%
 Table comparing `BodyWgt` and `BrainWgt` for rows with and without missing `Dream` data. Both are statistically significant - the animals with missing `Dream` values are larger (bigger body and brain weights).
 
 ```{r}
+#| label: tbl-sum2
+#| echo: true
+#| tbl-pos: H
+
 s1 %>%
   tbl_summary(
     by = Dream_missing,
     include = c(BodyWgt, log_BodyWgt,
                 BrainWgt, log_BrainWgt)
   ) %>%
-  add_p() %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+  add_p()
 ```
 
 \newpage
@@ -548,7 +552,7 @@ sd(xna, na.rm = TRUE)
 
 \newpage
 
-Now, let's take the mean we just computed from the 4 non-missing values which was 5.5 and substitute it in for the missing value an recompute the new mean and standard deviation.
+Now, let's take the mean we just computed from the 4 non-missing values which was 5.5 and substitute it in for the missing value and recompute the new mean and standard deviation.
 
 ```{r}
 xsub <- c(5.5, 4, 3, 5, 10)

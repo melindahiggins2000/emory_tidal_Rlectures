@@ -119,10 +119,12 @@ But here is what is in the `slm1` object in the Global Environment - also a list
 We can get a nicer output using the `gtsummary::tbl_regression()` table.
 
 ```{r}
+#| label: tbl-reg
+#| echo: true
+#| tbl-pos: H
+
 library(gtsummary)
-tbl_regression(lm1) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+tbl_regression(lm1) 
 ```
 
 \newpage
@@ -132,7 +134,7 @@ tbl_regression(lm1) %>%
 Another suite of R packages that can be helpful to explore is the [`easystats` package suite](https://easystats.github.io/easystats/index.html). In this example we will look at:
 
 * `model_parameters()` from the [`parameters` package](https://easystats.github.io/parameters/) that is part of `easystats` package suite; and
-* `report()` from the [`report` package`](https://easystats.github.io/report/) that is also part of the `easystats` package suite.
+* `report()` from the [`report` package](https://easystats.github.io/report/) that is also part of the `easystats` package suite.
 
 Better formatted output table:
 
@@ -290,9 +292,11 @@ sglm1
 Get a nicer table and set `exponentiate = TRUE`.
 
 ```{r}
-tbl_regression(glm1, exponentiate = TRUE) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+#| label: tbl-reg2
+#| echo: true
+#| tbl-pos: H
+
+tbl_regression(glm1, exponentiate = TRUE)
 ```
 
 \newpage
@@ -434,6 +438,10 @@ As you see below, the difference in Sleep scores between the 2 dream groups is a
 I also added some custom statistical tests to the table.
 
 ```{r}
+#| label: tbl-sum1
+#| echo: true
+#| tbl-pos: H
+
 # create factor variable with labels
 sleep$dream_gt2.f <- factor(
   sleep$dream_gt2, 
@@ -451,9 +459,7 @@ tbl_summary(
 ) %>%
   add_p(test = list(Sleep ~ "t.test", Danger ~ "wilcox.test"), 
         test.args = list(Sleep ~ list(var.equal = TRUE))
-        ) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+        ) 
 ```
 
 

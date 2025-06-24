@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://emorytidal.netlify.app/test.html</loc>
-    <lastmod>2025-01-30T13:51:42.733Z</lastmod>
+    <loc>https://emorytidal.netlify.app/module136_ReproducibleResearch.html</loc>
+    <lastmod>2025-06-23T19:52:09.699Z</lastmod>
   </url>
   <url>
-    <loc>https://emorytidal.netlify.app/module135_StatisticalTests.html</loc>
-    <lastmod>2025-06-23T22:29:04.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/module133_DataVis.html</loc>
-    <lastmod>2025-02-18T19:46:22.126Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/module131_IntroRRStudio.html</loc>
-    <lastmod>2025-02-11T02:47:34.814Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/additionalResources.html</loc>
-    <lastmod>2025-02-18T19:06:09.271Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/PRAMS.html</loc>
-    <lastmod>2025-06-23T22:30:45.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emorytidal.netlify.app/index.html</loc>
-    <lastmod>2025-06-17T23:48:30.544Z</lastmod>
+    <loc>https://emorytidal.netlify.app/module134_MissingWeight.html</loc>
+    <lastmod>2025-06-24T01:17:46.473Z</lastmod>
   </url>
   <url>
     <loc>https://emorytidal.netlify.app/module132_DataWrangling.html</loc>
     <lastmod>2025-06-23T16:50:15.472Z</lastmod>
   </url>
   <url>
-    <loc>https://emorytidal.netlify.app/module134_MissingWeight.html</loc>
-    <lastmod>2025-06-23T22:28:34.891Z</lastmod>
+    <loc>https://emorytidal.netlify.app/index.html</loc>
+    <lastmod>2025-06-17T23:48:30.544Z</lastmod>
   </url>
   <url>
-    <loc>https://emorytidal.netlify.app/module136_ReproducibleResearch.html</loc>
-    <lastmod>2025-06-23T19:52:09.699Z</lastmod>
+    <loc>https://emorytidal.netlify.app/PRAMS.html</loc>
+    <lastmod>2025-06-24T01:12:31.089Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/additionalResources.html</loc>
+    <lastmod>2025-02-18T19:06:09.271Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/module131_IntroRRStudio.html</loc>
+    <lastmod>2025-02-11T02:47:34.814Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/module133_DataVis.html</loc>
+    <lastmod>2025-02-18T19:46:22.126Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/module135_StatisticalTests.html</loc>
+    <lastmod>2025-06-24T01:20:25.325Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emorytidal.netlify.app/test.html</loc>
+    <lastmod>2025-01-30T13:51:42.733Z</lastmod>
   </url>
 </urlset>

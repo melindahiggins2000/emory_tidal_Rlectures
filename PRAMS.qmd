@@ -463,6 +463,10 @@ Compare the results below to the EXCEL spreadsheet [Pregnancy Risk Assessment Mo
 The code below adds custom code for computing the confidence intervals with the survey-weighted dataset.
 
 ```{r}
+#| label: tbl-sum2
+#| echo: true
+#| tbl-pos: H
+
 prams_ga2000 <- prams %>%
   filter(STATE == "GA") %>%
   filter(NEST_YR == 2020)
@@ -507,9 +511,7 @@ tbl_svysummary(
       n ~ "**Weighted total (N)**",
       stat_0 ~ "**Weighted Count**",
       add_stat_1 ~ "**95%CI**"
-    )) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+    ))
 ```
 
 \newpage
@@ -624,6 +626,10 @@ Create a missing value indicator variable for `VITAMIN` and look at the amounts 
 The amount is still small but the range in the weighted sample shown below is informative.
 
 ```{r}
+#| label: tbl-sum1
+#| echo: true
+#| tbl-pos: H
+
 # add missing indicator for VITAMIN
 prams_ga2000$VITAMIN_na <-
   as.numeric(is.na(prams_ga2000$VITAMIN))
@@ -648,9 +654,7 @@ tbl_svysummary(
       n ~ "**Weighted total (N)**",
       stat_0 ~ "**Weighted Count**",
       add_stat_1 ~ "**95%CI**"
-    )) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+    )) 
 # weighted 0.3%, CI: 0.1 to 1.8%
 ```
 
@@ -718,13 +722,15 @@ Let's look at multi-vitamin use 4x/week by breastfeeding and maternal age.
 Unweighted Logistic Regression Results
 
 ```{r}
+#| label: tbl-reg1
+#| echo: true
+#| tbl-pos: H
+
 glm1 <-glm(VITAMIN_4plus ~ MAT_AGE_PU + BF5EVER.f,
            data = prams_ga2000,
            family = "binomial")
 gtsummary::tbl_regression(glm1,
-                          exponentiate = TRUE) %>%
-  as_gt() %>%
-  tab_options(latex.tbl.pos = "h")
+                          exponentiate = TRUE)
 ```
 
 \newpage

@@ -1,0 +1,62 @@
+---
+title: "Project Title"
+author: "Author"
+format: pdf
+---
+
+```{r}
+#| label: imports
+#| include: false
+library(knitr)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.1
+
+```{r}
+#| label: r-chunk1
+var <- 4
+var2 <- 5
+var3 <- 6
+var4 <- 7
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.3
+
+```{r}
+#| label: r-chunk2
+#| echo: false
+tbl1 = data.frame(reason = c("Catgeory 1", "Catgeory 2", "Catgeory 3", "Catgeory 4", "Category 5"),
+                  n = c(43, 23, 4, 7, 63))
+tbl2 = data.frame(reason = c("Catgeory 1", "Catgeory 2", "Catgeory 3"),
+                  n = c(32, 4, 11))
+```
+
+```{r}
+#| label: tbl-counts
+#| echo: false
+#| tbl-pos: H
+#| tbl-cap: "Counts"
+#| tbl-subcap: 
+#|   - "Table 1"
+#|   - "Table 2"
+#| layout-ncol: 2
+knitr::kable(tbl1)
+knitr::kable(tbl2)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.4
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.5
+
+```{r}
+#| label: tbl-reg
+#| echo: false
+#| tbl-pos: H
+
+library(gtsummary)
+lm1 <- lm(mpg ~ cyl, data = mtcars)
+tbl_regression(lm1)
+```
+

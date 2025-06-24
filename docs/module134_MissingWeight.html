@@ -602,8 +602,8 @@ Rmarkdown for <code>skimr</code> package
 
     <script>
 
-      function styleCell_xxz4baanyd80u1jgqdpy(i, j, css_id) {
-          var table = document.getElementById("tinytable_xxz4baanyd80u1jgqdpy");
+      function styleCell_pzwg94bwo8gypb3ykefo(i, j, css_id) {
+          var table = document.getElementById("tinytable_pzwg94bwo8gypb3ykefo");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -613,7 +613,7 @@ Rmarkdown for <code>skimr</code> package
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_xxz4baanyd80u1jgqdpy');
+        var table = document.getElementById('tinytable_pzwg94bwo8gypb3ykefo');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -621,8 +621,8 @@ Rmarkdown for <code>skimr</code> package
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_xxz4baanyd80u1jgqdpy(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_xxz4baanyd80u1jgqdpy");
+      function spanCell_pzwg94bwo8gypb3ykefo(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_pzwg94bwo8gypb3ykefo");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -652,26 +652,26 @@ Rmarkdown for <code>skimr</code> package
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 10, j: 7 }, { i: 10, j: 6 }, { i: 10, j: 5 }, { i: 10, j: 4 }, { i: 10, j: 1 }, { i: 10, j: 3 }, { i: 10, j: 0 }, { i: 10, j: 2 }, { i: 10, j: 8 },  ], css_id: 'tinytable_css_ksdmfmkpjv7elu3e8ncn',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 4, j: 0 }, { i: 6, j: 0 }, { i: 8, j: 0 }, { i: 2, j: 1 }, { i: 1, j: 0 }, { i: 4, j: 1 }, { i: 3, j: 0 }, { i: 6, j: 1 }, { i: 5, j: 0 }, { i: 8, j: 1 }, { i: 7, j: 0 }, { i: 1, j: 3 }, { i: 9, j: 0 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 1, j: 1 }, { i: 4, j: 2 }, { i: 3, j: 1 }, { i: 6, j: 2 }, { i: 5, j: 1 }, { i: 8, j: 2 }, { i: 7, j: 1 }, { i: 1, j: 4 }, { i: 9, j: 1 }, { i: 3, j: 4 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 3, j: 2 }, { i: 6, j: 3 }, { i: 5, j: 2 }, { i: 8, j: 3 }, { i: 7, j: 2 }, { i: 1, j: 5 }, { i: 9, j: 2 }, { i: 3, j: 5 }, { i: 2, j: 4 }, { i: 5, j: 5 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 5, j: 3 }, { i: 8, j: 4 }, { i: 7, j: 3 }, { i: 1, j: 6 }, { i: 9, j: 3 }, { i: 3, j: 6 }, { i: 2, j: 5 }, { i: 5, j: 6 }, { i: 4, j: 5 }, { i: 7, j: 6 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 7, j: 4 }, { i: 1, j: 7 }, { i: 9, j: 4 }, { i: 3, j: 7 }, { i: 2, j: 6 }, { i: 5, j: 7 }, { i: 4, j: 6 }, { i: 7, j: 7 }, { i: 6, j: 6 }, { i: 9, j: 7 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 1, j: 8 }, { i: 9, j: 5 }, { i: 3, j: 8 }, { i: 2, j: 7 }, { i: 5, j: 8 }, { i: 4, j: 7 }, { i: 7, j: 8 }, { i: 6, j: 7 }, { i: 9, j: 8 }, { i: 8, j: 7 }, { i: 2, j: 8 }, { i: 4, j: 8 }, { i: 6, j: 8 }, { i: 8, j: 8 },  ], css_id: 'tinytable_css_4j547vn3vtm5n8vheb4d',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 6 }, { i: 0, j: 8 }, { i: 0, j: 5 }, { i: 0, j: 7 }, { i: 0, j: 4 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_hl5170wujlxf9erw416o',}, 
+          { positions: [ { i: 10, j: 7 }, { i: 10, j: 6 }, { i: 10, j: 5 }, { i: 10, j: 4 }, { i: 10, j: 1 }, { i: 10, j: 3 }, { i: 10, j: 0 }, { i: 10, j: 2 }, { i: 10, j: 8 },  ], css_id: 'tinytable_css_34zvot4x6s2mebakw9pt',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 4, j: 0 }, { i: 6, j: 0 }, { i: 8, j: 0 }, { i: 2, j: 1 }, { i: 1, j: 0 }, { i: 4, j: 1 }, { i: 3, j: 0 }, { i: 6, j: 1 }, { i: 5, j: 0 }, { i: 8, j: 1 }, { i: 7, j: 0 }, { i: 1, j: 3 }, { i: 9, j: 0 }, { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 1, j: 1 }, { i: 4, j: 2 }, { i: 3, j: 1 }, { i: 6, j: 2 }, { i: 5, j: 1 }, { i: 8, j: 2 }, { i: 7, j: 1 }, { i: 1, j: 4 }, { i: 9, j: 1 }, { i: 3, j: 4 }, { i: 2, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 3, j: 2 }, { i: 6, j: 3 }, { i: 5, j: 2 }, { i: 8, j: 3 }, { i: 7, j: 2 }, { i: 1, j: 5 }, { i: 9, j: 2 }, { i: 3, j: 5 }, { i: 2, j: 4 }, { i: 5, j: 5 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 5, j: 3 }, { i: 8, j: 4 }, { i: 7, j: 3 }, { i: 1, j: 6 }, { i: 9, j: 3 }, { i: 3, j: 6 }, { i: 2, j: 5 }, { i: 5, j: 6 }, { i: 4, j: 5 }, { i: 7, j: 6 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 8, j: 5 }, { i: 7, j: 4 }, { i: 1, j: 7 }, { i: 9, j: 4 }, { i: 3, j: 7 }, { i: 2, j: 6 }, { i: 5, j: 7 }, { i: 4, j: 6 }, { i: 7, j: 7 }, { i: 6, j: 6 }, { i: 9, j: 7 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 1, j: 8 }, { i: 9, j: 5 }, { i: 3, j: 8 }, { i: 2, j: 7 }, { i: 5, j: 8 }, { i: 4, j: 7 }, { i: 7, j: 8 }, { i: 6, j: 7 }, { i: 9, j: 8 }, { i: 8, j: 7 }, { i: 2, j: 8 }, { i: 4, j: 8 }, { i: 6, j: 8 }, { i: 8, j: 8 },  ], css_id: 'tinytable_css_9pbknkxp3p0idmjf5kex',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 6 }, { i: 0, j: 8 }, { i: 0, j: 5 }, { i: 0, j: 7 }, { i: 0, j: 4 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_e0skvdsdgn0efas4actq',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_xxz4baanyd80u1jgqdpy(cell.i, cell.j, group.css_id);
+                  styleCell_pzwg94bwo8gypb3ykefo(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><style>
       /* tinytable css entries after */
-      .table td.tinytable_css_ksdmfmkpjv7elu3e8ncn, .table th.tinytable_css_ksdmfmkpjv7elu3e8ncn { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_4j547vn3vtm5n8vheb4d, .table th.tinytable_css_4j547vn3vtm5n8vheb4d { text-align: left; }
-      .table td.tinytable_css_hl5170wujlxf9erw416o, .table th.tinytable_css_hl5170wujlxf9erw416o { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_34zvot4x6s2mebakw9pt, .table th.tinytable_css_34zvot4x6s2mebakw9pt { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_9pbknkxp3p0idmjf5kex, .table th.tinytable_css_9pbknkxp3p0idmjf5kex { text-align: left; }
+      .table td.tinytable_css_e0skvdsdgn0efas4actq, .table th.tinytable_css_e0skvdsdgn0efas4actq { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
 <div class="container">
-      <table class="table table-borderless" id="tinytable_xxz4baanyd80u1jgqdpy" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_pzwg94bwo8gypb3ykefo" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col"> </th>
                 <th scope="col">Unique</th>
@@ -693,7 +693,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>0.0</td>
                   <td>3.3</td>
                   <td>6654.0</td>
-                  <td><img src="./tinytable_assets/idwb8rrakobfd17xb6h9pe.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idel0nmcj8sdlcx96wcc1d.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>BrainWgt</td>
@@ -704,7 +704,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>0.1</td>
                   <td>17.2</td>
                   <td>5712.0</td>
-                  <td><img src="./tinytable_assets/idkunuws3bi6qjznsmfkca.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idfarn2ys8n6ecuvt10qnq.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>NonD</td>
@@ -715,7 +715,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>2.1</td>
                   <td>8.4</td>
                   <td>17.9</td>
-                  <td><img src="./tinytable_assets/iday9xepvs8p1ehk3p7iss.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idz9qopej5d3tyg4hjgrbx.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Dream</td>
@@ -726,7 +726,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>0.0</td>
                   <td>1.8</td>
                   <td>6.6</td>
-                  <td><img src="./tinytable_assets/idkegvrmjgtsn9uaa07078.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idxojuwvva7gkr6jjozs5a.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Sleep</td>
@@ -737,7 +737,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>2.6</td>
                   <td>10.4</td>
                   <td>19.9</td>
-                  <td><img src="./tinytable_assets/idtbp5itgj7gx3hh5p6vn7.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idlutesddl2rrb5qpfmvpv.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Span</td>
@@ -748,7 +748,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>2.0</td>
                   <td>15.1</td>
                   <td>100.0</td>
-                  <td><img src="./tinytable_assets/idy0xzbygnh67vega4i3xu.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idu8kh027udieg7zr393zg.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Gest</td>
@@ -759,7 +759,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>12.0</td>
                   <td>79.0</td>
                   <td>645.0</td>
-                  <td><img src="./tinytable_assets/id2xmn19du4p42wvv9vjcp.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idjyv6q7pv2badlabnkaea.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Pred</td>
@@ -770,7 +770,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>1.0</td>
                   <td>3.0</td>
                   <td>5.0</td>
-                  <td><img src="./tinytable_assets/idhtrdcy374c5az7efpq2x.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/ido6rfq7cun2dti47nuvt3.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Exp</td>
@@ -781,7 +781,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>1.0</td>
                   <td>2.0</td>
                   <td>5.0</td>
-                  <td><img src="./tinytable_assets/idhxo31mpaabrdguljljgf.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idlzly7j3i133nbglqv4n6.png" style="height: 1em;"></td>
                 </tr>
 <tr>
 <td>Danger</td>
@@ -792,7 +792,7 @@ Rmarkdown for <code>skimr</code> package
                   <td>1.0</td>
                   <td>2.0</td>
                   <td>5.0</td>
-                  <td><img src="./tinytable_assets/idefp7pho59c3vpg89rekm.png" style="height: 1em;"></td>
+                  <td><img src="./tinytable_assets/idn88ynuk6icvbu06d8eft.png" style="height: 1em;"></td>
                 </tr>
 </tbody>
 </table>
@@ -1085,11 +1085,13 @@ Danger     Danger     0</code></pre>
 <div style="page-break-after: always;"></div>
 <p>Next, let’s get some plots of the missing data in the <code>sleep</code> dataset.</p>
 <p>The plot on the LEFT below is a simple bar plot showing the missing counts for each variable in the dataset. Notice that there are only 5 variables with one or more missing values:</p>
-<pre><code>* `NonD`
-* `Dream`
-* `Sleep`
-* `Span`
-* `Gest`</code></pre>
+<ul>
+<li><code>NonD</code></li>
+<li><code>Dream</code></li>
+<li><code>Sleep</code></li>
+<li><code>Span</code></li>
+<li><code>Gest</code></li>
+</ul>
 <p>The plot on the RIGHT however, shows the amounts of missing data for the various patterns of missing data for the 10 variables in the <code>sleep</code> dataset. For example, notice that of the 62 rows of data in the <code>sleep</code> dataset:</p>
 <ul>
 <li>there are only 42 rows with complete data with no missing data on all 10 variables <em>(i.e., 42/62 = 67.7% of the data is complete for all 10 variables)</em>;</li>
@@ -1097,7 +1099,7 @@ Danger     Danger     0</code></pre>
 <li>there are 3 rows of data with the <code>gest</code> variable having missing data.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make plots of the amounts and patterns of missing data</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make plots of the amounts and patterns of missing data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">a</span>, numbers <span class="op">=</span> <span class="cn">TRUE</span>, prop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -1112,7 +1114,7 @@ Danger     Danger     0</code></pre>
 <p>In addition to a usual scatterplot, the <code><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot()</a></code> function in the <code>VIM</code> package, also shows information about missing values in the plot margins.</p>
 <p>The red boxplot on the left shows the distrubution of all values of <code>Sleep</code> where <code>Dream</code> contains a missing value. The blue boxplot on the left shows the distribution of the values of <code>Sleep</code> where <code>Dream</code> is observed.</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dream"</span>, <span class="st">"Sleep"</span><span class="op">)</span><span class="op">]</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dream"</span>, <span class="st">"Sleep"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -1126,7 +1128,7 @@ Danger     Danger     0</code></pre>
 <p>The naniar package “provides principled, tidy ways to summarise, visualise, and manipulate missing data with minimal deviations from the workflows in ggplot2 and tidy data.” <em>See <a href="https://naniar.njtierney.com/index.html"><code>naniar</code> website</a>.</em></p>
 <p>For example, let’s make a similar to plot to what we did above to visualize the scatterplot between <code>Dream</code> and <code>Sleep</code> but also consider the amounts of missing data of one variable relative to the other variable in the plot. We can do this using the <code><a href="https://naniar.njtierney.com/reference/geom_miss_point.html">geom_miss_point()</a></code> function provided in the <code>naniar</code> package which works with <code>ggplot2</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sleep</span>, </span>
@@ -1156,7 +1158,7 @@ Danger     Danger     0</code></pre>
 <li>1 row has missing data for <code>Span</code>, <code>Dream</code> and <code>NonD</code> variables</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://naniar.njtierney.com/reference/gg_miss_upset.html">gg_miss_upset</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://naniar.njtierney.com/reference/gg_miss_upset.html">gg_miss_upset</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="576"></p>
@@ -1172,14 +1174,14 @@ Danger     Danger     0</code></pre>
 </section><section id="impact-of-missing-data-for-descriptive-stats-like-the-mean" class="level3"><h3 class="anchored" data-anchor-id="impact-of-missing-data-for-descriptive-stats-like-the-mean">Impact of missing data for descriptive stats like the mean</h3>
 <p>For example, let’s find the mean of the <code>Dream</code> variable in the <code>sleep</code> dataset.</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">Dream</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">Dream</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
 <p>We get <code>NA</code> since there is missing data for the <code>Dream</code> variable, thus the mean of all rows is “not available”. So, we need to tell R to first remove the missing values (the <code>NA</code>s) prior to computing the mean.</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">Dream</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">Dream</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.972</code></pre>
 </div>
@@ -1201,8 +1203,8 @@ Customizing <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tb
 <p>Learn more at <a href="https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html#continuous2">Multiline Summaries Using <code>tbl_summary()</code></a> on how I customized this table to include the count (N) of non-missing rows, mean and standard deviation along with the counts for the unknowns.</p>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<div id="tbl-sum1" class="cell anchored" data-tbl-pos="H">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/gtsummary">gtsummary</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1213,9 +1215,7 @@ Customizing <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tb
 <span>      <span class="st">"{N_nonmiss}"</span>,</span>
 <span>      <span class="st">"{mean} ({sd})"</span></span>
 <span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="wmpwxdviwk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#wmpwxdviwk table {
@@ -1729,7 +1729,7 @@ Customizing <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tb
 </section><section id="impact-of-missing-data-for-regression-models" class="level3"><h3 class="anchored" data-anchor-id="impact-of-missing-data-for-regression-models">Impact of missing data for regression models</h3>
 <p>When running a model, like a regression model between <code>Dream</code> and <code>Sleep</code>, let’s look at the summary output from fitting a linear model using the built-in <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">sleep</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1764,7 +1764,7 @@ F-statistic: 51.59 on 1 and 46 DF,  p-value: 4.849e-09</code></pre>
 <p>Let’s also look at a small correlation matrix considering PAIRWISE versus LISTWISE deletion of missing data for 3 variables from the <code>sleep</code> dataset. Notice that the correlation between <code>BrainWgt</code> and <code>Dream</code> and <code>Sleep</code> are slightly different between LISTWISE and PAIRWISE approaches. These are all <code>pearson</code> correlations by default.</p>
 <p><strong>LISTWISE deletion</strong></p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># LISTWISE deletion, use = "complete.obs"</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># LISTWISE deletion, use = "complete.obs"</span></span>
 <span><span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">BrainWgt</span>, <span class="va">Dream</span>, <span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span>use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1777,7 +1777,7 @@ Sleep    -0.32217479  0.72708696  1.0000000</code></pre>
 </div>
 <p><strong>PAIRWISE deletion</strong></p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PAIRWISE deletion, use = "pairwise.complete.obs"</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PAIRWISE deletion, use = "pairwise.complete.obs"</span></span>
 <span><span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">BrainWgt</span>, <span class="va">Dream</span>, <span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span>use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1793,7 +1793,7 @@ Sleep    -0.3581020  0.7270870  1.000000</code></pre>
 <p>There is also a helpful correlation function <code><a href="https://rdrr.io/pkg/Hmisc/man/rcorr.html">rcorr()</a></code> in the <code>Hmisc</code> package. From this function we can save the output and get the n’s and p-values in addition to the (Pearson) correlations. These numeric data have to be converted to a numeric matrix prior to inputting them to the <code><a href="https://rdrr.io/pkg/Hmisc/man/rcorr.html">rcorr()</a></code> function, which is why <code><a href="https://rdrr.io/r/base/matrix.html">as.matrix()</a></code> is used in the code chunk below.</p>
 <p><strong>NOTE</strong>: PAIRWISE deletion is the default setting for <code><a href="https://rdrr.io/pkg/Hmisc/man/rcorr.html">Hmisc::rcorr()</a></code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/">Hmisc</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/">Hmisc</a></span><span class="op">)</span></span>
 <span><span class="va">c1</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">BrainWgt</span>, <span class="va">Dream</span>, <span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1801,7 +1801,7 @@ Sleep    -0.3581020  0.7270870  1.000000</code></pre>
 </div>
 <p>Show the correlations:</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c1</span><span class="op">$</span><span class="va">r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c1</span><span class="op">$</span><span class="va">r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           BrainWgt      Dream     Sleep
 BrainWgt  1.0000000 -0.1051388 -0.358102
@@ -1811,7 +1811,7 @@ Sleep    -0.3581020  0.7270870  1.000000</code></pre>
 </div>
 <p>Get the sample sizes for each correlation in the matrix:</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c1</span><span class="op">$</span><span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c1</span><span class="op">$</span><span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         BrainWgt Dream Sleep
 BrainWgt       62    50    58
@@ -1821,7 +1821,7 @@ Sleep          58    48    58</code></pre>
 </div>
 <p>Get each individual p-value for each correlation:</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c1</span><span class="op">$</span><span class="va">P</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c1</span><span class="op">$</span><span class="va">P</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            BrainWgt        Dream        Sleep
 BrainWgt          NA 4.674359e-01 5.779531e-03
@@ -1844,7 +1844,7 @@ Getting complete data
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">BrainWgt</span>, <span class="va">Dream</span>, <span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1852,7 +1852,7 @@ Getting complete data
 </div>
 <p>Show the correlations:</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span><span class="op">$</span><span class="va">r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span><span class="op">$</span><span class="va">r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            BrainWgt       Dream      Sleep
 BrainWgt  1.00000000 -0.08437367 -0.3221748
@@ -1862,7 +1862,7 @@ Sleep    -0.32217479  0.72708696  1.0000000</code></pre>
 </div>
 <p>Get the sample sizes for each correlation in the matrix:</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span><span class="op">$</span><span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span><span class="op">$</span><span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         BrainWgt Dream Sleep
 BrainWgt       48    48    48
@@ -1872,7 +1872,7 @@ Sleep          48    48    48</code></pre>
 </div>
 <p>Get each individual p-value for each correlation:</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span><span class="op">$</span><span class="va">P</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">c2</span><span class="op">$</span><span class="va">P</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           BrainWgt        Dream        Sleep
 BrainWgt         NA 5.685642e-01 2.553771e-02
@@ -1920,7 +1920,7 @@ Sleep    0.02553771 4.849120e-09           NA</code></pre>
 </ol>
 <p>Note: Both <code>BodyWgt</code> and <code>BrainWgt</code> are highly right skewed, so I did a log transform of both. Notice that the p-values for the non-parametric independent group test (Mann Whitney/Wilcoxon Rank Sum test) are the same, since the tests are based on ranks.</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make small dataset</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># make small dataset</span></span>
 <span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">BodyWgt</span>, <span class="va">BrainWgt</span>, <span class="va">Dream</span><span class="op">)</span></span>
 <span></span>
@@ -1934,16 +1934,14 @@ Sleep    0.02553771 4.849120e-09           NA</code></pre>
 <span>         log_BrainWgt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">BrainWgt</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Table comparing <code>BodyWgt</code> and <code>BrainWgt</code> for rows with and without missing <code>Dream</code> data. Both are statistically significant - the animals with missing <code>Dream</code> values are larger (bigger body and brain weights).</p>
-<div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">s1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div id="tbl-sum2" class="cell anchored" data-tbl-pos="H">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">s1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span></span>
 <span>    by <span class="op">=</span> <span class="va">Dream_missing</span>,</span>
 <span>    include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">BodyWgt</span>, <span class="va">log_BodyWgt</span>,</span>
 <span>                <span class="va">BrainWgt</span>, <span class="va">log_BrainWgt</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html">add_p</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/as_gt.html">as_gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">tab_options</span><span class="op">(</span>latex.tbl.pos <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.html">add_p</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="lxmnotkmdj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#lxmnotkmdj table {
@@ -2456,12 +2454,12 @@ Sleep    0.02553771 4.849120e-09           NA</code></pre>
 <div style="page-break-after: always;"></div>
 <p>Side-by-side boxplots for the (log) of <code>BodyWgt</code> for rows with missing Dream data and without.</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">s1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">Dream_missing</span>,</span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">s1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">Dream_missing</span>,</span>
 <span>               y <span class="op">=</span> <span class="va">log_BodyWgt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2473,37 +2471,37 @@ Sleep    0.02553771 4.849120e-09           NA</code></pre>
 <p>There are many ideas and options for creating data to “fill-in” or “impute” the spots for the missing values. Keep in mind that these methods are “making up” new (unobserved) data. Ideally, the missing imputation methods should be as unbiased as possible and should not increase or decrease the variability of the data. As good as some methods may be, always keep in mind that we will never know for sure if these new imputed data are “correct” or if they are the best they can be.</p>
 <p>A simple example, suppose we have a variable with 5 numbers. Let’s compute the mean and standard deviation of these numbers.</p>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.8</code></pre>
 </div>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.114482</code></pre>
 </div>
 </div>
 <p>Now let’s set the 1st value to missing - replace the 2 with <code>NA.</code> Notice that the mean increases and the standard deviation decreased slightly from 3.114 to 3.109.</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xna</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">xna</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.5</code></pre>
 </div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">xna</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">xna</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.109126</code></pre>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
-<p>Now, let’s take the mean we just computed from the 4 non-missing values which was 5.5 and substitute it in for the missing value an recompute the new mean and standard deviation.</p>
+<p>Now, let’s take the mean we just computed from the 4 non-missing values which was 5.5 and substitute it in for the missing value and recompute the new mean and standard deviation.</p>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xsub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5.5</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xsub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5.5</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">xsub</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.5</code></pre>
 </div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">xsub</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">xsub</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.692582</code></pre>
 </div>
@@ -2534,7 +2532,7 @@ Commonly accepted use of mean-substitution
 </ul>
 <p>Let’s take the little dataset <code>x</code> which is a subset of the <code>sleep</code> dataset which has all 62 rows but only the <code>Dream</code> and <code>Sleep</code> variables. For these 2 variables, let’s see what the <code><a href="https://rdrr.io/pkg/VIM/man/kNN.html">kNN()</a></code> (k-nearest neighbor) function in the <code>VIM</code> package does.</p>
 <div class="cell">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dream"</span>, <span class="st">"Sleep"</span><span class="op">)</span><span class="op">]</span></span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dream"</span>, <span class="st">"Sleep"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="va">x_imputed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/VIM/man/kNN.html">kNN</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now look at a scatterplot plot for these new <code>Dream</code> and <code>Sleep</code> variables with imputed values from the k-nearest neighbor approach. Notice the coloring of the points - the blue are the original values and the other colors represent the structure of missings.</p>
@@ -2545,10 +2543,10 @@ Commonly accepted use of mean-substitution
 </ul>
 <p>The <code><a href="https://rdrr.io/pkg/VIM/man/kNN.html">kNN()</a></code> method appears to preserve the correlation between <code>Dream</code> and <code>Sleep</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot</a></span><span class="op">(</span><span class="va">x_imputed</span>, delimiter <span class="op">=</span> <span class="st">"_imp"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/VIM/man/marginplot.html">marginplot</a></span><span class="op">(</span><span class="va">x_imputed</span>, delimiter <span class="op">=</span> <span class="st">"_imp"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="576"></p>
+<figure class="figure"><p><img src="module134_MissingWeight_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2558,7 +2556,7 @@ Commonly accepted use of mean-substitution
 <p>Let’s compare the results before and after the imputation for correlation and for a simple regression model. This is a “sensitivity” test of sorts. It is always a good idea to compare the results before and after applying any imputation method.</p>
 <p>Correlation Original Data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">Hmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Hmisc/man/rcorr.html">rcorr</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2579,7 +2577,7 @@ Sleep  0         </code></pre>
 </div>
 <p>Correlation kNN Imputed Data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_imputed</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_imputed</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Dream</span>, <span class="va">Sleep</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">Hmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Hmisc/man/rcorr.html">rcorr</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2601,7 +2599,7 @@ Sleep  0         </code></pre>
 </section><section id="knn-imputed-values---compare-regression-before-and-after" class="level3"><h3 class="anchored" data-anchor-id="knn-imputed-values---compare-regression-before-and-after">kNN imputed values - compare regression before and after</h3>
 <p>Simple Linear Regression Original Data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2626,7 +2624,7 @@ F-statistic: 51.59 on 1 and 46 DF,  p-value: 4.849e-09</code></pre>
 </div>
 <p>Simple Linear Regression kNN Imputed Data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">x_imputed</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span>, data <span class="op">=</span> <span class="va">x_imputed</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2655,7 +2653,7 @@ F-statistic: 72.46 on 1 and 60 DF,  p-value: 6.579e-12</code></pre>
 <p>Let’s re-run the simple linear regression model above, but this time let’s create 20 imputed datasets, run 20 regression models and then pool the results. See <a href="https://stefvanbuuren.name/fimd/sec-nutshell.html">FIMD Book Section 1.4</a></p>
 <p>Compare these regression results to the models above. Notice that the “std.error” for the regression coefficients are larger than they were for the kNN results and closer to fitting the model with the original data.</p>
 <div class="cell">
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span><span class="op">)</span></span>
 <span><span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://amices.org/mice/reference/mice.html">mice</a></span><span class="op">(</span><span class="va">x</span>, seed <span class="op">=</span> <span class="fl">1</span>, m <span class="op">=</span> <span class="fl">20</span>, print <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">imp</span>, <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sleep</span> <span class="op">~</span> <span class="va">Dream</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://amices.org/mice/reference/pool.html">pool</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2677,7 +2675,7 @@ Look at one of the regression models from the impute data
 <div class="callout-body-container callout-body">
 <p>We can “peek under the hood” to look at one of the individual imputed datasets by running the following code. If you’d like to look at another model just change <code>1</code> to another number up to <code>20</code> (since there were 20 imputations performed).</p>
 <div class="cell">
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># see simple output</span></span>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># see simple output</span></span>
 <span><span class="va">fit</span><span class="op">[[</span><span class="st">"analyses"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co"># get summary detailed output</span></span>
@@ -2727,74 +2725,8 @@ F-statistic: 56.31 on 1 and 60 DF,  p-value: 3.449e-10</code></pre>
 <li><a href="module_134.R"><code>module_134.R</code></a></li>
 </ul></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-modelsummary2022" class="csl-entry" role="listitem">
-Arel-Bundock, Vincent. 2022. <span>“<span class="nocase">modelsummary</span>: Data and Model Summaries in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 103 (1): 1–23. <a href="https://doi.org/10.18637/jss.v103.i01">https://doi.org/10.18637/jss.v103.i01</a>.
-</div>
-<div id="ref-R-modelsummary" class="csl-entry" role="listitem">
-———. 2025a. <em>Modelsummary: Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready</em>. <a href="https://modelsummary.com">https://modelsummary.com</a>.
-</div>
-<div id="ref-R-tinytable" class="csl-entry" role="listitem">
-———. 2025b. <em>Tinytable: Simple and Configurable Tables in HTML, LaTeX, Markdown, Word, PNG, PDF, and Typst Formats</em>. <a href="https://vincentarelbundock.github.io/tinytable/">https://vincentarelbundock.github.io/tinytable/</a>.
-</div>
-<div id="ref-R-Hmisc" class="csl-entry" role="listitem">
-Harrell Jr, Frank E. 2025. <em>Hmisc: Harrell Miscellaneous</em>. <a href="https://hbiostat.org/R/Hmisc/">https://hbiostat.org/R/Hmisc/</a>.
-</div>
-<div id="ref-R-palmerpenguins" class="csl-entry" role="listitem">
-Horst, Allison, Alison Hill, and Kristen Gorman. 2022. <em>Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data</em>. <a href="https://allisonhorst.github.io/palmerpenguins/">https://allisonhorst.github.io/palmerpenguins/</a>.
-</div>
-<div id="ref-R-gt" class="csl-entry" role="listitem">
-Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, JooYoung Seo, Ken Brevoort, and Olivier Roy. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
-</div>
-<div id="ref-R-colorspace" class="csl-entry" role="listitem">
-Ihaka, Ross, Paul Murrell, Kurt Hornik, Jason C. Fisher, Reto Stauffer, Claus O. Wilke, Claire D. McWhite, and Achim Zeileis. 2023. <em>Colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes</em>. <a href="https://colorspace.R-Forge.R-project.org/">https://colorspace.R-Forge.R-project.org/</a>.
-</div>
-<div id="ref-VIM2016" class="csl-entry" role="listitem">
-Kowarik, Alexander, and Matthias Templ. 2016. <span>“Imputation with the <span>R</span> Package <span>VIM</span>.”</span> <em>Journal of Statistical Software</em> 74 (7): 1–16. <a href="https://doi.org/10.18637/jss.v074.i07">https://doi.org/10.18637/jss.v074.i07</a>.
-</div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
 R Core Team. 2025. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-R-gtsummary" class="csl-entry" role="listitem">
-Sjoberg, Daniel D., Joseph Larmarange, Michael Curry, Jessica Lavery, Karissa Whiting, and Emily C. Zabor. 2024. <em>Gtsummary: Presentation-Ready Data Summary and Analytic Result Tables</em>. <a href="https://github.com/ddsjoberg/gtsummary">https://github.com/ddsjoberg/gtsummary</a>.
-</div>
-<div id="ref-gtsummary" class="csl-entry" role="listitem">
-Sjoberg, Daniel D., Karissa Whiting, Michael Curry, Jessica A. Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em><span>The R Journal</span></em> 13: 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
-</div>
-<div id="ref-colorspace2009b" class="csl-entry" role="listitem">
-Stauffer, Reto, Georg J. Mayr, Markus Dabernig, and Achim Zeileis. 2009. <span>“Somewhere over the Rainbow: How to Make Effective Use of Colors in Meteorological Visualizations.”</span> <em>Bulletin of the American Meteorological Society</em> 96 (2): 203–16. <a href="https://doi.org/10.1175/BAMS-D-13-00155.1">https://doi.org/10.1175/BAMS-D-13-00155.1</a>.
-</div>
-<div id="ref-R-VIM" class="csl-entry" role="listitem">
-Templ, Matthias, Alexander Kowarik, Andreas Alfons, Gregor de Cillia, and Wolfgang Rannetbauer. 2022. <em>VIM: Visualization and Imputation of Missing Values</em>. <a href="https://github.com/statistikat/VIM">https://github.com/statistikat/VIM</a>.
-</div>
-<div id="ref-naniar2023" class="csl-entry" role="listitem">
-Tierney, Nicholas, and Dianne Cook. 2023. <span>“Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputations.”</span> <em>Journal of Statistical Software</em> 105 (7): 1–31. <a href="https://doi.org/10.18637/jss.v105.i07">https://doi.org/10.18637/jss.v105.i07</a>.
-</div>
-<div id="ref-R-naniar" class="csl-entry" role="listitem">
-Tierney, Nicholas, Di Cook, Miles McBain, and Colin Fay. 2024. <em>Naniar: Data Structures, Summaries, and Visualisations for Missing Data</em>. <a href="https://github.com/njtierney/naniar">https://github.com/njtierney/naniar</a>.
-</div>
-<div id="ref-mice2011" class="csl-entry" role="listitem">
-van Buuren, Stef, and Karin Groothuis-Oudshoorn. 2011. <span>“<span class="nocase">mice</span>: Multivariate Imputation by Chained Equations in r.”</span> <em>Journal of Statistical Software</em> 45 (3): 1–67. <a href="https://doi.org/10.18637/jss.v045.i03">https://doi.org/10.18637/jss.v045.i03</a>.
-</div>
-<div id="ref-R-mice" class="csl-entry" role="listitem">
-———. 2025. <em>Mice: Multivariate Imputation by Chained Equations</em>. <a href="https://github.com/amices/mice">https://github.com/amices/mice</a>.
-</div>
-<div id="ref-R-skimr" class="csl-entry" role="listitem">
-Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, and Shannon Ellis. 2022. <em>Skimr: Compact and Flexible Summaries of Data</em>. <a href="https://docs.ropensci.org/skimr/">https://docs.ropensci.org/skimr/</a>.
-</div>
-<div id="ref-ggplot22016" class="csl-entry" role="listitem">
-Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
-<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
-<div id="ref-R-dplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
-</div>
-<div id="ref-colorspace2020a" class="csl-entry" role="listitem">
-Zeileis, Achim, Jason C. Fisher, Kurt Hornik, Ross Ihaka, Claire D. McWhite, Paul Murrell, Reto Stauffer, and Claus O. Wilke. 2020. <span>“<span class="nocase">colorspace</span>: A Toolbox for Manipulating and Assessing Colors and Palettes.”</span> <em>Journal of Statistical Software</em> 96 (1): 1–49. <a href="https://doi.org/10.18637/jss.v096.i01">https://doi.org/10.18637/jss.v096.i01</a>.
-</div>
-<div id="ref-colorspace2009a" class="csl-entry" role="listitem">
-Zeileis, Achim, Kurt Hornik, and Paul Murrell. 2009. <span>“Escaping <span>RGB</span>land: Selecting Colors for Statistical Graphics.”</span> <em>Computational Statistics &amp; Data Analysis</em> 53 (9): 3259–70. <a href="https://doi.org/10.1016/j.csda.2008.11.033">https://doi.org/10.1016/j.csda.2008.11.033</a>.
 </div>
 </div>
 </section><section id="other-helpful-resources" class="level2"><h2 class="anchored" data-anchor-id="other-helpful-resources">Other Helpful Resources</h2>
